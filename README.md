@@ -13,7 +13,7 @@ RAG and Embedding-based AI Agent
 
 ## Collaboration
 
-* 작업별 Feature Branch를 생성합니다.
+
 * 모든 변경사항은 Pull Request를 통해 공유합니다.
 * 팀원 검토 후 `main` Branch에 병합합니다.
 * 개발 전에 요구사항과 완료 기준을 문서로 작성합니다.
