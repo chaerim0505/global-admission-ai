@@ -1,6 +1,6 @@
 
 """Bilingual Admission AI sample frontend."""
-
+import os
 import html
 import json
 import sqlite3
@@ -11,6 +11,11 @@ import streamlit as st
 from translations import KO
 from admission_2027_panel import show_2027_panel
 import requests
+
+API_BASE_URL = st.secrets.get(
+    "API_BASE_URL",
+    os.getenv("API_BASE_URL", "http://127.0.0.1:8001")
+).rstrip("/")
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -736,7 +741,7 @@ def send_message() -> None:
 
     try:
         response = requests.post(
-            "http://127.0.0.1:8001/agent/run",
+            f"{API_BASE_URL}/agent/run",
             json={
                 "text": message,
                 "previousContext": state.get("agent_context"),
@@ -1550,7 +1555,7 @@ def login_user(email, password):
     import requests
     try:
         response = requests.post(
-            "http://127.0.0.1:8001/auth/login",
+            f"{API_BASE_URL}/auth/login",
             json={"email": email.strip(), "password": password},
             timeout=15,
         )
@@ -1744,7 +1749,7 @@ def register_user(email, password):
 
     try:
         response = requests.post(
-            "http://127.0.0.1:8001/auth/register",
+            f"{API_BASE_URL}/auth/register",
             json={
                 "email": email.strip(),
                 "password": password,
@@ -1778,7 +1783,7 @@ def get_current_user(token):
 
     try:
         response = requests.get(
-            "http://127.0.0.1:8001/auth/me",
+            f"{API_BASE_URL}/auth/me",
             headers={
                 "Authorization": "Bearer " + token
             },
