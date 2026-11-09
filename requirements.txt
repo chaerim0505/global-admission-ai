@@ -6,3 +6,4 @@ python-dotenv>=1.0
 google-genai>=1.40
 pyyaml>=6.0
 pytest>=8.0
+PyJWT>=2.8,<3
