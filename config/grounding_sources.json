@@ -1,0 +1,79 @@
+{
+    "retrievalTopK": 5,
+    "sources": [
+      {
+        "sourceId": "kr-public-data",
+        "country": "KR",
+        "allowedHosts": ["www.data.go.kr", "api.data.go.kr"],
+        "topics": ["university_directory", "program_directory"]
+      },
+      {
+        "sourceId": "kr-study-in-korea",
+        "country": "KR",
+        "allowedHosts": ["www.studyinkorea.go.kr", "studyinkorea.go.kr"],
+        "topics": ["program_discovery", "scholarships"]
+      },
+      {
+        "sourceId": "us-college-scorecard",
+        "country": "US",
+        "allowedHosts": ["collegescorecard.ed.gov"],
+        "topics": ["university_directory", "field_of_study", "statistical_costs"]
+      },
+      {
+        "sourceId": "us-nces",
+        "country": "US",
+        "allowedHosts": ["nces.ed.gov"],
+        "topics": ["university_directory", "field_classification", "statistical_costs"]
+      },
+      {
+        "sourceId": "gb-discover-uni",
+        "country": "GB",
+        "allowedHosts": ["www.discoveruni.gov.uk", "discoveruni.gov.uk"],
+        "topics": ["undergraduate_program_directory"]
+      },
+      {
+        "sourceId": "nl-duo",
+        "country": "NL",
+        "allowedHosts": ["onderwijsdata.duo.nl", "www.duo.nl", "duo.nl"],
+        "topics": ["program_directory", "accreditation"]
+      },
+      {
+        "sourceId": "ie-qualifax",
+        "country": "IE",
+        "allowedHosts": ["www.qualifax.ie", "qualifax.ie"],
+        "topics": ["program_discovery"]
+      },
+      {
+        "sourceId": "ie-qqi",
+        "country": "IE",
+        "allowedHosts": ["www.qqi.ie", "qqi.ie"],
+        "topics": ["qualification_verification", "program_discovery"]
+      },
+      {
+        "sourceId": "ie-hea",
+        "country": "IE",
+        "allowedHosts": ["hea.ie", "www.hea.ie"],
+        "topics": ["scholarships"]
+      }
+    ],
+    "universitySources": [
+      {
+        "sourceId": "ie-university-of-galway",
+        "country": "IE",
+        "allowedHosts": ["www.universityofgalway.ie"],
+        "topics": [
+          "program_directory",
+          "admission_requirements",
+          "tuition",
+          "scholarships",
+          "deadlines"
+        ]
+      },
+      {
+        "sourceId": "us-abilene-christian-university",
+        "country": "US",
+        "allowedHosts": ["acu.edu"],
+        "topics": ["program_overview"]
+      }
+    ]
+  }

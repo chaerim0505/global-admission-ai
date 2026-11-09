@@ -1,4 +1,42 @@
-# Byte-compiled / optimized / DLL files
+# Backup project
+/GlobalAdmissionAI_2027_2026-11-09/
+
+# Frontend backup files
+/frontend/*.bak
+/frontend/*.before_*
+
+# Local databases and logs
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Sensitive configuration
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Mac
+.DS_Store
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
@@ -216,3 +254,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+.venv/
+.env
+__pycache__/
+.pytest_cache/

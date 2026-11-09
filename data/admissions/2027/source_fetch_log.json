@@ -1,0 +1,569 @@
+[
+  {
+    "id": "prog_efbb2f93024b0d07c66b1beb",
+    "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+    "finalUrl": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+    "status": 200,
+    "sha256": "1e2f5e03f2d6848fb00541d533d82f0717728dbed7511aa5061da43fdca12cef",
+    "links": 249
+  },
+  {
+    "id": "catalogue_ajou_undergraduate_9b3289a3",
+    "url": "https://software.ajou.ac.kr/en/sub02/sub02",
+    "finalUrl": "https://software.ajou.ac.kr/en/sub02/sub02",
+    "status": 200,
+    "sha256": "f5cf84546ad03450d61e9d44718bc6144ce9cd275cd6b920a844dd5528788a38",
+    "links": 138
+  },
+  {
+    "id": "catalogue_snu_undergraduate_7c839c0f",
+    "url": "https://cse.snu.ac.kr/en",
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+  },
+  {
+    "id": "catalogue_snu_master_7c839c0f",
+    "url": "https://cse.snu.ac.kr/en/admissions/graduate/regular-admission",
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+  },
+  {
+    "id": "catalogue_kaist_undergraduate_f035532a",
+    "url": "https://cs.kaist.ac.kr/content?menu=318",
+    "finalUrl": "https://cs.kaist.ac.kr/content?menu=318",
+    "status": 200,
+    "sha256": "9358367f418d831fc9ce6aa90306fb87ec04dcf47a43c837ab952a5beed4f879",
+    "links": 336
+  },
+  {
+    "id": "catalogue_kaist_master_f035532a",
+    "url": "https://cs.kaist.ac.kr/content?menu=156",
+    "finalUrl": "https://cs.kaist.ac.kr/content?menu=156",
+    "status": 200,
+    "sha256": "7c1b7bca5e9b95bdf8c001a8efa8b972fac8ab4f989838b47b1590a3cd276682",
+    "links": 336
+  },
+  {
+    "id": "catalogue_hanyang_undergraduate_445ddaa5",
+    "url": "https://cs.hanyang.ac.kr/en/-01-2-1",
+    "error": "403 Client Error: Forbidden for url: https://cs.hanyang.ac.kr/en/-01-2-1"
+  },
+  {
+    "id": "catalogue_skku_undergraduate_7c839c0f",
+    "url": "https://ics.skku.edu/eng_sw/under_sw_curriculum.do?lang=All&pager.offset=135",
+    "error": "503 Server Error: Service Unavailable for url: https://ics.skku.edu/eng_sw/under_sw_curriculum.do?lang=All&pager.offset=135"
+  },
+  {
+    "id": "catalogue_skku_master_7c839c0f",
+    "url": "https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90",
+    "error": "503 Server Error: Service Unavailable for url: https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90"
+  },
+  {
+    "id": "catalogue_asu_undergraduate_445ddaa5",
+    "url": "https://scai.engineering.asu.edu/",
+    "finalUrl": "https://scai.engineering.asu.edu/",
+    "status": 200,
+    "sha256": "3ad2030f76b1e70271a507c47fdff86c96a63f8386ec2066b88c6f427639d9e4",
+    "links": 45
+  },
+  {
+    "id": "catalogue_asu_master_445ddaa5",
+    "url": "https://scai.engineering.asu.edu/graduate-computer-science/",
+    "finalUrl": "https://scai.engineering.asu.edu/graduate-computer-science/",
+    "status": 200,
+    "sha256": "9468fe6f376df74097cd563e881940c28cf3f895809eebb14aec3e5a56a06592",
+    "links": 81
+  },
+  {
+    "id": "catalogue_iowa_undergraduate_7481c54b",
+    "url": "https://catalog.iastate.edu/collegeofengineering/computerengineering/",
+    "finalUrl": "https://catalog.iastate.edu/collegeofengineering/computerengineering/",
+    "status": 200,
+    "sha256": "629bbb30ed92ef0b2c03df440149701da3f2266e6dd684fb275c4ec392218838",
+    "links": 144
+  },
+  {
+    "id": "catalogue_iowa_master_7481c54b",
+    "url": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+    "finalUrl": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+    "status": 200,
+    "sha256": "56fb1860417e523021028ac892fc77257aff1d32ac1b4445c49d0fbb8f4cb3b4",
+    "links": 105
+  },
+  {
+    "id": "catalogue_oregon_undergraduate_445ddaa5",
+    "url": "https://engineering.oregonstate.edu/academics/programs/computer-science/undergraduate",
+    "finalUrl": "https://engineering.oregonstate.edu/academics/programs/computer-science/undergraduate",
+    "status": 200,
+    "sha256": "4dd6a5b05ecc585a02d1c6cbfd9b743df0e577eb61ace953d2a6a9126c516ab0",
+    "links": 143
+  },
+  {
+    "id": "catalogue_oregon_master_445ddaa5",
+    "url": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+    "finalUrl": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+    "status": 200,
+    "sha256": "34b638a9315d785456dab8222567928203df8a789392d109e2e8d189f6647e20",
+    "links": 154
+  },
+  {
+    "id": "catalogue_buffalo_undergraduate_445ddaa5",
+    "url": "https://engineering.buffalo.edu/computer-science-engineering/undergraduate/degrees-and-programs/bs-in-computer-science.html",
+    "finalUrl": "https://engineering.buffalo.edu/computer-science-engineering/undergraduate/degrees-and-programs/bs-in-computer-science.html",
+    "status": 200,
+    "sha256": "8eb20aa4d2258646aaf81011faa0ebadf24443966d18be4a16dc05a485ef8b83",
+    "links": 136
+  },
+  {
+    "id": "catalogue_buffalo_master_7c839c0f",
+    "url": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+    "finalUrl": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+    "status": 200,
+    "sha256": "b716c12bb311bf1d34c197c9ef26189d243384c0b789eb071ed5225c12d1df90",
+    "links": 130
+  },
+  {
+    "id": "catalogue_utd_undergraduate_445ddaa5",
+    "url": "https://cs.utdallas.edu/",
+    "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+  },
+  {
+    "id": "catalogue_utd_master_445ddaa5",
+    "url": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+    "finalUrl": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+    "status": 200,
+    "sha256": "33e2b3f8b48340cd55e30b50cf994d4cac9ed61afd50113b90d7b244f5b051d6",
+    "links": 579
+  },
+  {
+    "id": "catalogue_manchester_undergraduate_445ddaa5",
+    "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00560/bsc-computer-science/application-and-selection/",
+    "finalUrl": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00560/bsc-computer-science/application-and-selection/",
+    "status": 200,
+    "sha256": "eccd3d9f913887c4269d0d043372b4db784737fb56ae1a1df2cc9a0a59a6e275",
+    "links": 237
+  },
+  {
+    "id": "catalogue_manchester_master_3dbe588c",
+    "url": "https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/",
+    "finalUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/",
+    "status": 200,
+    "sha256": "069753ecb7c79503e16c3079cf630e047e65923679aafc60f0bbe0990d05a319",
+    "links": 221
+  },
+  {
+    "id": "catalogue_manchester_phd_445ddaa5",
+    "url": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/02954/phd-computer-science/",
+    "finalUrl": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/02954/phd-computer-science/",
+    "status": 200,
+    "sha256": "a0359d5f2d8dd262b9da63d8be052d1eccc576fd823026514ee19b1d089a1f85",
+    "links": 220
+  },
+  {
+    "id": "catalogue_sheffield_undergraduate_445ddaa5",
+    "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+    "finalUrl": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+    "status": 200,
+    "sha256": "93647feeb303899fec2a86c466ea27b9cdb55de701a5ebe34411f42161eeb290",
+    "links": 339
+  },
+  {
+    "id": "catalogue_sheffield_master_3dbe588c",
+    "url": "https://sheffield.ac.uk/postgraduate/taught/courses/2026/advanced-computer-science-msc",
+    "finalUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/advanced-computer-science-msc",
+    "status": 200,
+    "sha256": "d583b162a7b2888f622a98db52781c6ac31a0460a947f2f4bb1654a138d53eb7",
+    "links": 316
+  },
+  {
+    "id": "catalogue_sheffield_phd_445ddaa5",
+    "url": "https://sheffield.ac.uk/cs/phd-study",
+    "finalUrl": "https://sheffield.ac.uk/cs/phd-study",
+    "status": 200,
+    "sha256": "f0234fa67fee6360bd1f7da8a9448264eb9c123258f6e411d15a1ec1df953296",
+    "links": 284
+  },
+  {
+    "id": "catalogue_southampton_undergraduate_445ddaa5",
+    "url": "https://www.southampton.ac.uk/courses/computer-science-degree-bsc",
+    "finalUrl": "https://www.southampton.ac.uk/courses/computer-science-degree-bsc",
+    "status": 200,
+    "sha256": "280d2e0bf644e42035f00f4ec2c613115ae34be82d892fdc2efac52acc1dafb0",
+    "links": 797
+  },
+  {
+    "id": "catalogue_southampton_master_445ddaa5",
+    "url": "https://www.southampton.ac.uk/courses/computer-science-masters-msc",
+    "finalUrl": "https://www.southampton.ac.uk/courses/computer-science-masters-msc",
+    "status": 200,
+    "sha256": "f59907f2c4e63a1df0ad334a0cc122a55cedcd178d93d2a0d8e485cd310be0df",
+    "links": 784
+  },
+  {
+    "id": "catalogue_southampton_phd_91ebdc3e",
+    "url": "https://www.southampton.ac.uk/study/postgraduate-research/electronics-computer-science",
+    "finalUrl": "https://www.southampton.ac.uk/study/postgraduate-research/electronics-computer-science",
+    "status": 200,
+    "sha256": "b127340614ef1b0018c1e8c59c382f1dae16c65d45216a19190e4bdb83090afc",
+    "links": 809
+  },
+  {
+    "id": "catalogue_birmingham_undergraduate_445ddaa5",
+    "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/computer-science-courses/computer-science-bsc",
+    "finalUrl": "https://www.birmingham.ac.uk/study/undergraduate/subjects/computer-science-courses/computer-science-bsc",
+    "status": 200,
+    "sha256": "15a9d1ecc64338104ca80e7a1b74428a3b09bc678260b411a0efa2d301e3f473",
+    "links": 125
+  },
+  {
+    "id": "catalogue_birmingham_master_4f22cba7",
+    "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/computer-science-msc",
+    "finalUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/computer-science-msc",
+    "status": 200,
+    "sha256": "d705e3f70f3698dda049780a57851f43b4b7c2b9f28de20507c73d62aadf1c33",
+    "links": 100
+  },
+  {
+    "id": "catalogue_birmingham_phd_445ddaa5",
+    "url": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/computer-science/postgraduate-research",
+    "finalUrl": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/computer-science/postgraduate-research",
+    "status": 200,
+    "sha256": "56ff049df87307579f05016ba24809c8e635200456c790043bf218e0ccca6e9a",
+    "links": 41
+  },
+  {
+    "id": "catalogue_york_undergraduate_445ddaa5",
+    "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-computer-science/",
+    "finalUrl": "https://www.york.ac.uk/study/undergraduate/courses/bsc-computer-science/",
+    "status": 200,
+    "sha256": "c0490a646e0a093c2b2bf2ce76fdecaabf28297f8f9a4e0e22c9f7e1f31edf0d",
+    "links": 249
+  },
+  {
+    "id": "catalogue_york_master_3b446e38",
+    "url": "https://www.york.ac.uk/computer-science/study/postgraduate-research/msc-computer-science-by-research/",
+    "finalUrl": "https://www.york.ac.uk/computer-science/study/postgraduate-research/msc-computer-science-by-research/",
+    "status": 200,
+    "sha256": "e33734a88d6040140876ddfa391508d78200b1ad045437fe369a27c3104b3cc0",
+    "links": 178
+  },
+  {
+    "id": "catalogue_york_phd_445ddaa5",
+    "url": "https://www.york.ac.uk/computer-science/study/postgraduate-research/phd-computer-science/",
+    "finalUrl": "https://www.york.ac.uk/computer-science/study/postgraduate-research/phd-computer-science/",
+    "status": 200,
+    "sha256": "af15050528a0da2fb15fbd989c4e6bd54a778e24f006f4cda352a519e02643d5",
+    "links": 180
+  },
+  {
+    "id": "catalogue_delft_undergraduate_7c839c0f",
+    "url": "https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/computer-science/education",
+    "finalUrl": "https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/computer-science/education",
+    "status": 200,
+    "sha256": "3631c25adedbeab6d05834babbae28c2d273308e4ff94d11384e4630e74a5701",
+    "links": 103
+  },
+  {
+    "id": "catalogue_delft_master_445ddaa5",
+    "url": "https://www.tudelft.nl/en/education/programmes/masters/cs/msc-computer-science",
+    "finalUrl": "https://www.tudelft.nl/en/education/programmes/masters/cs/msc-computer-science",
+    "status": 200,
+    "sha256": "b01d9096b02852efae2a973216c85a5d6b7fbde9886b72b30dec0773309dce90",
+    "links": 104
+  },
+  {
+    "id": "catalogue_delft_phd_db81b072",
+    "url": "https://www.tudelft.nl/en/eemcs/study/eemcs-graduate-school/doctoral-education-programme",
+    "finalUrl": "https://www.tudelft.nl/en/eemcs/study/eemcs-graduate-school/doctoral-education-programme",
+    "status": 200,
+    "sha256": "f7c35f9b67b27bb2a0f06d653c4e06c053358440ab6f858e778b3e181baf8b3f",
+    "links": 176
+  },
+  {
+    "id": "catalogue_eindhoven_undergraduate_7c839c0f",
+    "url": "https://research.tue.nl/p/en/courses/scope-computer-science",
+    "finalUrl": "https://research.tue.nl/p/en/courses/scope-computer-science",
+    "status": 200,
+    "sha256": "2bd50eb9099ed11bba0bd19a3db7fc8fd1aac62e62215de2e98e836b499fad9a",
+    "links": 13
+  },
+  {
+    "id": "catalogue_eindhoven_master_7c839c0f",
+    "url": "https://research.tue.nl/p/en/persons/olav-bunte",
+    "finalUrl": "https://research.tue.nl/p/en/persons/olav-bunte",
+    "status": 200,
+    "sha256": "de7b5e5761443eebacbb1e3e19bdc11256f64feb1529db541846b13b723fbb21",
+    "links": 12
+  },
+  {
+    "id": "catalogue_eindhoven_phd_db81b072",
+    "url": "https://research.tue.nl/en/organisations/computer-science/",
+    "finalUrl": "https://research.tue.nl/p/en/organisations/computer-science",
+    "status": 200,
+    "sha256": "50502d3aff14c5ce9cf227a506080552905a926a58d7ab75c034a92c0aad17da",
+    "links": 17
+  },
+  {
+    "id": "catalogue_twente_undergraduate_d50805b9",
+    "url": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/index.html",
+    "finalUrl": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/index.html",
+    "status": 200,
+    "sha256": "f299a6566906c1499f1d69d9869cff387b5d2a6d80a210ccd0e56b8322745d3a",
+    "links": 93
+  },
+  {
+    "id": "catalogue_twente_master_445ddaa5",
+    "url": "https://www.utwente.nl/en/education/master/programmes/computer-science/",
+    "finalUrl": "https://www.utwente.nl/en/education/master/programmes/computer-science/",
+    "status": 200,
+    "sha256": "9e7a08b9eea1d244b5eaca6c1e73b34ce26a438178caba9eaee6c4062b34fc2b",
+    "links": 110
+  },
+  {
+    "id": "catalogue_twente_phd_db81b072",
+    "url": "https://www.utwente.nl/en/eemcs/discipline-cs/",
+    "finalUrl": "https://www.utwente.nl/en/eemcs/discipline-cs/",
+    "status": 200,
+    "sha256": "5c41e0277ff4740a67bc894414948bb7a633a888010fe2b5ef3a375ec819e017",
+    "links": 78
+  },
+  {
+    "id": "catalogue_groningen_undergraduate_4b42dcfb",
+    "url": "https://www.rug.nl/bachelors/computing-science/?lang=en",
+    "finalUrl": "https://www.rug.nl/bachelors/computing-science/?lang=en",
+    "status": 200,
+    "sha256": "e295f68f381974cabfab40c085300bd07e63426ab810b5eb885d0218614cbb91",
+    "links": 213
+  },
+  {
+    "id": "catalogue_groningen_master_4b42dcfb",
+    "url": "https://www.rug.nl/masters/computing-science/?lang=en",
+    "finalUrl": "https://www.rug.nl/masters/computing-science/?lang=en",
+    "status": 200,
+    "sha256": "0e3ab9c26a0bb2c6582d7e67d56a64fdb073605ad290193f20396750a81912c5",
+    "links": 185
+  },
+  {
+    "id": "catalogue_groningen_phd_af28aefe",
+    "url": "https://www.rug.nl/research/bernoulli/?lang=en",
+    "finalUrl": "https://www.rug.nl/research/bernoulli/?lang=en",
+    "status": 200,
+    "sha256": "461d62e816e9e651e309d32abefa1ff207ed347331b3b7f13598d8615ced371d",
+    "links": 161
+  },
+  {
+    "id": "catalogue_maastricht_undergraduate_445ddaa5",
+    "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/computer-science",
+    "finalUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/computer-science",
+    "status": 200,
+    "sha256": "94698b3fe6134af083f41ed8a5d03340a83787a3c2e3dd855b909f8b3991167d",
+    "links": 931
+  },
+  {
+    "id": "catalogue_maastricht_master_80f921dc",
+    "url": "https://www.maastrichtuniversity.nl/education/master/programmes/artificial-intelligence/why-this-programme",
+    "finalUrl": "https://www.maastrichtuniversity.nl/education/master/programmes/artificial-intelligence/why-this-programme",
+    "status": 200,
+    "sha256": "19ef3e9888d507cbe6873f1fe1277be5127baeeb6bf6f9127b978af77b615dfe",
+    "links": 926
+  },
+  {
+    "id": "catalogue_maastricht_phd_623ef12f",
+    "url": "https://www.maastrichtuniversity.nl/research/department-advanced-computing-sciences/education",
+    "finalUrl": "https://www.maastrichtuniversity.nl/research/department-advanced-computing-sciences/education",
+    "status": 200,
+    "sha256": "8ad1bb13a1752c928d28586d6b8459cc03309327585a60bdc94d80f218a38e96",
+    "links": 939
+  },
+  {
+    "id": "catalogue_trinity_undergraduate_445ddaa5",
+    "url": "https://www.tcd.ie/courses/undergraduate/courses/computer-science/",
+    "finalUrl": "https://www.tcd.ie/courses/undergraduate/courses/computer-science/",
+    "status": 200,
+    "sha256": "0c06ceadfa57fd2d2014b33012d831882a3a1a0447a5574cf94a44d4bacaaacf",
+    "links": 291
+  },
+  {
+    "id": "catalogue_trinity_master_445ddaa5",
+    "url": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/",
+    "finalUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/",
+    "status": 200,
+    "sha256": "5f931a0b2f050702557085d0f1a73d2ee3f298358176ccb5289bf6fc214f6979",
+    "links": 238
+  },
+  {
+    "id": "catalogue_trinity_phd_445ddaa5",
+    "url": "https://www.tcd.ie/courses/postgraduate/postgraduate-research/engineering-mathematics-and-science/school-of-computer-science-and-statistics/",
+    "finalUrl": "https://www.tcd.ie/courses/postgraduate/postgraduate-research/engineering-mathematics-and-science/school-of-computer-science-and-statistics/",
+    "status": 200,
+    "sha256": "785d5852d2c177d048fce1cfdc5ccef83002895a9f7deecb5c1269aa70c955cf",
+    "links": 328
+  },
+  {
+    "id": "catalogue_ucd_undergraduate_445ddaa5",
+    "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?AUDIENCE=Int&MAJR=CSSF&p_tag=COURSE",
+    "finalUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?AUDIENCE=Int&MAJR=CSSF&p_tag=COURSE",
+    "status": 200,
+    "sha256": "e68bd676acab4103c552282b6cfa8ab1d45e5a5b6b6ed6d82251c5db4692df75",
+    "links": 303
+  },
+  {
+    "id": "catalogue_ucd_master_7a2976a9",
+    "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T150&p_tag=PROG",
+    "finalUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T150&p_tag=PROG",
+    "status": 200,
+    "sha256": "cc33c71ced4b23568eb7fd92e02657e7b71c215776219736790d96a549e203b6",
+    "links": 366
+  },
+  {
+    "id": "catalogue_ucd_phd_445ddaa5",
+    "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T113&p_tag=COURSE",
+    "finalUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T113&p_tag=COURSE",
+    "status": 200,
+    "sha256": "394751afe7a12e0b6cf469398e44f0b323305e797993a884abb5caca20b11ad6",
+    "links": 237
+  },
+  {
+    "id": "catalogue_dcu_undergraduate_445ddaa5",
+    "url": "https://www.dcu.ie/special-instructions/comsci",
+    "finalUrl": "https://www.dcu.ie/special-instructions/comsci",
+    "status": 200,
+    "sha256": "f72a31264dcecb24880bb3becea3b6392b88d8755d4a7f7b8155593244737777",
+    "links": 160
+  },
+  {
+    "id": "catalogue_dcu_master_f035532a",
+    "url": "https://www.dcu.ie/courses/postgraduate/school-computing/msc-computing",
+    "finalUrl": "https://www.dcu.ie/courses/postgraduate/school-computing/msc-computing",
+    "status": 200,
+    "sha256": "f479d00e3015001fdb0867833f526b388a4104dc3d04ce8633ddb21825e2d7b4",
+    "links": 208
+  },
+  {
+    "id": "catalogue_dcu_phd_94b9cf55",
+    "url": "https://www.dcu.ie/sites/default/files/inline-files/phd-scholarship-computing.pdf",
+    "finalUrl": "https://www.dcu.ie/sites/default/files/inline-files/phd-scholarship-computing.pdf",
+    "status": 200,
+    "sha256": "d84d763b71accbeca92f6f08c4cd09c9a331e017501a1ca70443a82c30b1869e",
+    "pages": 3,
+    "textChars": 5188
+  },
+  {
+    "id": "catalogue_galway_undergraduate_84430946",
+    "url": "https://www.universityofgalway.ie/science-engineering/school-of-computer-science/currentstudents/handbooks/",
+    "finalUrl": "https://www.universityofgalway.ie/science-engineering/school-of-computer-science/currentstudents/handbooks/",
+    "status": 200,
+    "sha256": "d09e9614b45172a457b32d2a05622410a4715e580a9de3d995fff81f443236e6",
+    "links": 190
+  },
+  {
+    "id": "catalogue_galway_master_62862ee5",
+    "url": "https://www.universityofgalway.ie/science-engineering/postgraduateprogrammes/phd-and-masters/computer-science-masters.html",
+    "finalUrl": "https://www.universityofgalway.ie/science-engineering/postgraduateprogrammes/phd-and-masters/computer-science-masters.html",
+    "status": 200,
+    "sha256": "103ff4a44f5230464ffd5d78f94a0f7512fd6c825dfa097b1f9b8ba1dd25d75e",
+    "links": 196
+  },
+  {
+    "id": "catalogue_galway_phd_067243fa",
+    "url": "https://www.universityofgalway.ie/courses/research-postgraduate-programmes/structured-phd/computer-science.html",
+    "finalUrl": "https://www.universityofgalway.ie/courses/research-postgraduate-programmes/structured-phd/computer-science.html",
+    "status": 200,
+    "sha256": "abb2080f1023d11e501852f2ccf6efeb83b56beff949f2adc40b2a4c5093c167",
+    "links": 189
+  },
+  {
+    "id": "catalogue_ucc_undergraduate_445ddaa5",
+    "url": "https://www.ucc.ie/en/ck401/index.html",
+    "finalUrl": "https://www.ucc.ie/en/ck401/index.html",
+    "status": 200,
+    "sha256": "aa13de514272fc26b4c53fec543959447d8c1a541971e6589131da1fad9b2cf5",
+    "links": 207
+  },
+  {
+    "id": "catalogue_ucc_master_4b42dcfb",
+    "url": "https://www.ucc.ie/en/ckr40/",
+    "finalUrl": "https://www.ucc.ie/en/ckr40/",
+    "status": 200,
+    "sha256": "5a77621b0c85367c67ed9e38a8c70f2406525ae33989402e8741e7b2af6d8c81",
+    "links": 202
+  },
+  {
+    "id": "catalogue_ucc_phd_db81b072",
+    "url": "https://www.ucc.ie/en/compsci/researchincomputerscience/",
+    "finalUrl": "https://www.ucc.ie/en/compsci/researchincomputerscience/",
+    "status": 200,
+    "sha256": "d4a93743c016c12e6e224852dce79cb28bd5cd1500f79e65a97308d8e47f6615",
+    "links": 196
+  },
+  {
+    "id": "catalogue_southampton_undergraduate_b55696e7",
+    "url": "https://www.southampton.ac.uk/courses/electronic-engineering-degree-beng",
+    "finalUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-degree-beng",
+    "status": 200,
+    "sha256": "56a86f43c432693e58086d0285f6824964faad6442f96a66c0fd2bf8a49a6298",
+    "links": 799
+  },
+  {
+    "id": "catalogue_southampton_master_b55696e7",
+    "url": "https://www.southampton.ac.uk/courses/electronic-engineering-masters-msc",
+    "finalUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-masters-msc",
+    "status": 200,
+    "sha256": "05fd7ab438dac194334070136dd64e0abe3526bc9854efe32e197679fa74d9a4",
+    "links": 765
+  },
+  {
+    "id": "catalogue_twente_undergraduate_9392ddb5",
+    "url": "https://www.utwente.nl/en/education/bachelor/programmes/electrical-engineering/",
+    "finalUrl": "https://www.utwente.nl/en/education/bachelor/programmes/electrical-engineering/",
+    "status": 200,
+    "sha256": "9025055a8557b3cc241255ad074a363cdb18b307b47b8e93ab92f72abc766f95",
+    "links": 91
+  },
+  {
+    "id": "catalogue_twente_master_9392ddb5",
+    "url": "https://www.utwente.nl/en/education/master/programmes/electrical-engineering/",
+    "finalUrl": "https://www.utwente.nl/en/education/master/programmes/electrical-engineering/",
+    "status": 200,
+    "sha256": "ddb889476403dabaefd263ed9b047d04a22e52f0bb80752faebd4a177b49db94",
+    "links": 115
+  },
+  {
+    "id": "catalogue_twente_phd_d7a30ea3",
+    "url": "https://www.utwente.nl/en/eemcs/ne/vacancies/",
+    "finalUrl": "https://www.utwente.nl/en/eemcs/ne/vacancies/",
+    "status": 200,
+    "sha256": "bbe4825a20d1d405e0cd67e2781077a0cd495649b3344cec547a40c423143b97",
+    "links": 35
+  },
+  {
+    "id": "catalogue_dcu_undergraduate_d417e506",
+    "url": "https://ece.eeng.dcu.ie/study",
+    "finalUrl": "https://ece.eeng.dcu.ie/study",
+    "status": 200,
+    "sha256": "3da2196057db5f40bcb8cf0bbd8a2628c5db3c3f5ed97b9b54f9adac2b8f4a75",
+    "links": 66
+  },
+  {
+    "id": "catalogue_dcu_master_d417e506",
+    "url": "https://www.dcu.ie/courses/postgraduate/school-electronic-engineering/meng-electronic-and-computer-engineering",
+    "finalUrl": "https://www.dcu.ie/courses/postgraduate/school-electronic-engineering/meng-electronic-and-computer-engineering",
+    "status": 200,
+    "sha256": "24a9435984e4a604003c17781e1944044322f82fac2e0ce41aef3a1123574094",
+    "links": 224
+  },
+  {
+    "id": "catalogue_dcu_phd_b27cb48c",
+    "url": "https://www.dcu.ie/electronics/research-innovation-future-research-students",
+    "finalUrl": "https://www.dcu.ie/electronics/research-innovation-future-research-students",
+    "status": 200,
+    "sha256": "42453b0b9259b2421765252382e5717af52ff944f7d67a77373b69a42d97c364",
+    "links": 186
+  },
+  {
+    "id": "catalogue_ajou_undergraduate_0765767f",
+    "url": "https://it.ajou.ac.kr/it/faculty/staff.do",
+    "finalUrl": "https://it.ajou.ac.kr/it/faculty/staff.do",
+    "status": 200,
+    "sha256": "5b75f0fb7deeb350e63d4a06cda46e872e1fc62ce23d58d00892cf1cc0c9a40d",
+    "links": 145
+  }
+]

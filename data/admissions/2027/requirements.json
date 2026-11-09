@@ -1,0 +1,710 @@
+{
+  "schemaVersion": "2027-evidence-0.1",
+  "target": "2027 international new degree-entry applicants only",
+  "complete": false,
+  "records": [
+    {
+      "recordId": "ajou-ug-2027",
+      "universityName": "Ajou University",
+      "degreeLevels": [
+        "undergraduate"
+      ],
+      "applicantScope": "international_freshman_korean_track",
+      "intakes": [
+        "2027-03"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Applicant and parents must be non-Korean; foreign nationality before high-school study. Dual Korean nationality is excluded. Special family situations require government evidence.",
+            "ko": "지원자·부모 모두 외국 국적이며 고교 교육 시작 전 외국 국적 취득 요건이 있습니다. 한국 복수국적은 제외되며 가족관계 예외는 정부 증빙이 필요합니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              5,
+              6
+            ]
+          },
+          {
+            "en": "High-school graduation or expected graduation; nonstandard schooling and equivalency certificates have exclusions.",
+            "ko": "고교 졸업 또는 졸업예정자. 검정·비정규 교육 인정 제외 사항을 확인해야 합니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              5,
+              6
+            ]
+          }
+        ],
+        "language": [
+          {
+            "en": "Korean-track alternatives: TOPIK PBT/IBT level 3; qualifying Korean university language course level 3; Sejong Institute Intermediate-3B; Ajou Korean proficiency test pass. English-track business thresholds do not apply to engineering.",
+            "ko": "한국어트랙: TOPIK PBT/IBT 3급, 국내 정규 대학 부설 한국어과정 3급, 세종학당 중급 3B 또는 아주대 한국어시험 합격 중 해당 경로. 영어트랙 경영계열 기준을 공학계열에 적용하면 안 됩니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              5
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "en": "Signed application, consent/agreement forms, activity list and evidence, authenticated graduation certificate and all-year transcript, applicant passport, parent identity and family relationship evidence, language proof. ARC and Korean-language-institute records are conditional.",
+            "ko": "서명한 지원서·동의서, 활동 목록·증빙, 인증한 졸업(예정)증명·전 학년 성적표, 본인 여권·부모 신분·가족관계 증빙, 어학 증빙. 외국인등록증·한국어교육기관 기록은 해당자 제출.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              6,
+              7
+            ]
+          },
+          {
+            "en": "Non-Korean/English documents need notarized translation. Apostille/consular and China-specific verification rules apply. Family relationship evidence must be issued within one year.",
+            "ko": "한국어·영어 외 서류는 번역공증 필요. 아포스티유·영사확인 및 중국 학력 인증 규칙 적용. 가족관계 증빙은 지원일 기준 1년 이내 발급.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              7,
+              9
+            ]
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Application, fee and documents: 2026-11-20 17:00 KST. Pending Korean-language proof: 2026-12-23 16:00 KST. Final academic documents and bank certificate: 2027-01-22.",
+            "ko": "원서·전형료·서류: 2026-11-20 17:00 KST. 추후 어학 증빙: 2026-12-23 16:00 KST. 최종 학력·잔고 증빙: 2027-01-22.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              3,
+              9
+            ]
+          }
+        ],
+        "costs": [
+          {
+            "en": "Application fee KRW 150,000; qualifying Ajou language-centre early-bird applicants have a waiver. The guide’s tuition table is for 2026, so 2027 tuition remains unconfirmed.",
+            "ko": "전형료 150,000원. 아주대 한국어센터 얼리버드 해당자 면제. 요강의 학비 표는 2026년 기준이므로 2027 학비는 미확정으로 보관합니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              3,
+              4,
+              10
+            ]
+          }
+        ],
+        "scholarships": [
+          {
+            "en": "Korean-track first-semester Global Scholarship: TOPIK 6/5/4/3 corresponds to 100/70/50/30% tuition waiver; committee-selected Frontier awards are not guaranteed.",
+            "ko": "한국어트랙 첫 학기 Global 장학: TOPIK 6/5/4/3급에 100/70/50/30% 감면. 위원회 선발 Frontier 장학은 보장되지 않습니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              10
+            ]
+          }
+        ],
+        "selection": [
+          {
+            "en": "Engineering Korean-track selection is by document review. The interview rule shown for English-track International Business is not an engineering requirement.",
+            "ko": "공학계열 한국어트랙은 서류평가. 영어트랙 국제경영 면접 규정을 공학계열에 적용하지 않습니다.",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              6
+            ]
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Confirm any subsequent official amendments and applicant-specific document exceptions.",
+        "Bank-balance and visa conditions are separate from academic eligibility.",
+        "Full scholarship exceptions and continuation conditions need individual checking."
+      ],
+      "structuredFacts": {
+        "applicationFee": {
+          "amount": 150000,
+          "currency": "KRW",
+          "sourceId": "ajou-ug",
+          "pdfPages": [
+            4
+          ]
+        },
+        "tuition2027": null,
+        "applicationDeadline": {
+          "dateTime": "2026-11-20T17:00:00+09:00",
+          "kind": "application_and_documents",
+          "sourceId": "ajou-ug",
+          "pdfPages": [
+            3
+          ]
+        },
+        "languageAlternatives": [
+          {
+            "test": "TOPIK",
+            "minimum": 3,
+            "scale": "level",
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              5
+            ]
+          },
+          {
+            "route": "qualifying_language_course_or_ajou_test",
+            "requiresManualReview": true,
+            "sourceId": "ajou-ug",
+            "pdfPages": [
+              5
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "recordId": "snu-undergraduate-2027",
+      "universityName": "Seoul National University",
+      "degreeLevels": [
+        "undergraduate"
+      ],
+      "applicantScope": "international_admissions_I",
+      "intakes": [
+        "2027-03"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "High-school completion by 2027-02-28, subject to recognised-equivalence rules; applicant and both parents must be non-Korean. Nationality-history exceptions need documentary review.",
+            "ko": "고교 졸업를 2027-02-28까지 충족해야 하며 인정 학력 규칙이 적용됩니다. 본인·부모 모두 외국 국적, 국적 변경 이력은 별도 증빙 검토.",
+            "sourceId": "snu-ug",
+            "pdfPages": [
+              38
+            ]
+          }
+        ],
+        "language": [
+          {
+            "en": "Minimum alternatives: TOPIK 3, Korean-university language level 4, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80 (4.0 for tests from 2026-01-21), or qualifying full-curriculum Korean/English instruction evidence. Scores dated from 2024-07-09 and available by the application deadline.",
+            "ko": "최저 대안: TOPIK 3급, 국내 대학 한국어 4급 수료, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80(2026-01-21 이후 시험 4.0), 또는 해당 전체 교육과정 한국어·영어 수학 증빙. 2024-07-09 이후 성적으로 접수 마감 전 확인되어야 합니다.",
+            "sourceId": "snu-ug",
+            "pdfPages": [
+              39
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "en": "Application, study plan/personal statement, one recommendation letter(s), language proof, graduation/transcripts, nationality and family relationship evidence. PhD requires bachelor and master records. Foreign academic records require authentication after preliminary acceptance; translations and country exceptions apply.",
+            "ko": "지원서·자기소개/수학계획·추천서 1부·어학·학력/성적·국적/가족관계 증빙. 박사는 학사·석사 기록 제출. 예비합격 후 해외 학력 인증 및 번역·국가별 예외 확인.",
+            "sourceId": "snu-ug",
+            "pdfPages": [
+              39,
+              40,
+              41,
+              42
+            ]
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Spring application closed 2026-07-09 17:00 KST; recommendation deadline 2026-07-10 17:00 KST. Do not present this as an open intake.",
+            "ko": "2027 전기 접수는 2026-07-09 17:00 KST 종료. 추천서 2026-07-10 17:00 KST. 현재 모집 중으로 표시하면 안 됩니다.",
+            "sourceId": "snu-ug",
+            "pdfPages": [
+              36,
+              37
+            ]
+          }
+        ],
+        "costs": [
+          {
+            "en": "The guide’s tuition table explicitly uses 2026 rates; no verified 2027 tuition amount is entered.",
+            "ko": "요강 학비 표는 2026년 금액이므로 2027 확정 학비로 입력하지 않습니다.",
+            "sourceId": "snu-ug",
+            "pdfPages": [
+              56
+            ]
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Department-specific exceptions and International Admissions II are not fully normalized.",
+        "Scholarship applicability is not evaluated."
+      ]
+    },
+    {
+      "recordId": "snu-master-2027",
+      "universityName": "Seoul National University",
+      "degreeLevels": [
+        "master"
+      ],
+      "applicantScope": "international_admissions_I",
+      "intakes": [
+        "2027-03"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Bachelor’s degree by 2027-02-28, subject to recognised-equivalence rules; applicant and both parents must be non-Korean. Nationality-history exceptions need documentary review.",
+            "ko": "학사 학위를 2027-02-28까지 충족해야 하며 인정 학력 규칙이 적용됩니다. 본인·부모 모두 외국 국적, 국적 변경 이력은 별도 증빙 검토.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              38
+            ]
+          }
+        ],
+        "language": [
+          {
+            "en": "Minimum alternatives: TOPIK 3, Korean-university language level 4, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80 (4.0 for tests from 2026-01-21), or qualifying full-curriculum Korean/English instruction evidence. Scores dated from 2024-07-09 and available by the application deadline.",
+            "ko": "최저 대안: TOPIK 3급, 국내 대학 한국어 4급 수료, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80(2026-01-21 이후 시험 4.0), 또는 해당 전체 교육과정 한국어·영어 수학 증빙. 2024-07-09 이후 성적으로 접수 마감 전 확인되어야 합니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              40
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "en": "Application, study plan/personal statement, two recommendation letter(s), language proof, graduation/transcripts, nationality and family relationship evidence. PhD requires bachelor and master records. Foreign academic records require authentication after preliminary acceptance; translations and country exceptions apply.",
+            "ko": "지원서·자기소개/수학계획·추천서 2부·어학·학력/성적·국적/가족관계 증빙. 박사는 학사·석사 기록 제출. 예비합격 후 해외 학력 인증 및 번역·국가별 예외 확인.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              39,
+              40,
+              41,
+              42
+            ]
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Spring application closed 2026-07-09 17:00 KST; recommendation deadline 2026-07-10 17:00 KST. Do not present this as an open intake.",
+            "ko": "2027 전기 접수는 2026-07-09 17:00 KST 종료. 추천서 2026-07-10 17:00 KST. 현재 모집 중으로 표시하면 안 됩니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              36,
+              37
+            ]
+          }
+        ],
+        "costs": [
+          {
+            "en": "The guide’s tuition table explicitly uses 2026 rates; no verified 2027 tuition amount is entered.",
+            "ko": "요강 학비 표는 2026년 금액이므로 2027 확정 학비로 입력하지 않습니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              65
+            ]
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Department-specific exceptions and International Admissions II are not fully normalized.",
+        "Scholarship applicability is not evaluated."
+      ]
+    },
+    {
+      "recordId": "snu-phd-2027",
+      "universityName": "Seoul National University",
+      "degreeLevels": [
+        "phd"
+      ],
+      "applicantScope": "international_admissions_I",
+      "intakes": [
+        "2027-03"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Master’s degree by 2027-02-28, subject to recognised-equivalence rules; applicant and both parents must be non-Korean. Nationality-history exceptions need documentary review.",
+            "ko": "석사 학위를 2027-02-28까지 충족해야 하며 인정 학력 규칙이 적용됩니다. 본인·부모 모두 외국 국적, 국적 변경 이력은 별도 증빙 검토.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              38
+            ]
+          }
+        ],
+        "language": [
+          {
+            "en": "Minimum alternatives: TOPIK 3, Korean-university language level 4, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80 (4.0 for tests from 2026-01-21), or qualifying full-curriculum Korean/English instruction evidence. Scores dated from 2024-07-09 and available by the application deadline.",
+            "ko": "최저 대안: TOPIK 3급, 국내 대학 한국어 4급 수료, IELTS Academic 6.0, TEPS 269, TOEFL iBT 80(2026-01-21 이후 시험 4.0), 또는 해당 전체 교육과정 한국어·영어 수학 증빙. 2024-07-09 이후 성적으로 접수 마감 전 확인되어야 합니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              40
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "en": "Application, study plan/personal statement, two recommendation letter(s), language proof, graduation/transcripts, nationality and family relationship evidence. PhD requires bachelor and master records. Foreign academic records require authentication after preliminary acceptance; translations and country exceptions apply.",
+            "ko": "지원서·자기소개/수학계획·추천서 2부·어학·학력/성적·국적/가족관계 증빙. 박사는 학사·석사 기록 제출. 예비합격 후 해외 학력 인증 및 번역·국가별 예외 확인.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              39,
+              40,
+              41,
+              42
+            ]
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Spring application closed 2026-07-09 17:00 KST; recommendation deadline 2026-07-10 17:00 KST. Do not present this as an open intake.",
+            "ko": "2027 전기 접수는 2026-07-09 17:00 KST 종료. 추천서 2026-07-10 17:00 KST. 현재 모집 중으로 표시하면 안 됩니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              36,
+              37
+            ]
+          }
+        ],
+        "costs": [
+          {
+            "en": "The guide’s tuition table explicitly uses 2026 rates; no verified 2027 tuition amount is entered.",
+            "ko": "요강 학비 표는 2026년 금액이므로 2027 확정 학비로 입력하지 않습니다.",
+            "sourceId": "snu-grad",
+            "pdfPages": [
+              65
+            ]
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Department-specific exceptions and International Admissions II are not fully normalized.",
+        "Scholarship applicability is not evaluated."
+      ]
+    },
+    {
+      "recordId": "kaist-ug-2027",
+      "universityName": "KAIST",
+      "degreeLevels": [
+        "undergraduate"
+      ],
+      "applicantScope": "international_freshman",
+      "intakes": [
+        "2027-03",
+        "2027-09"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "High-school completion by 2027-02-28 for Spring, or 2027-08-31 for Fall. No Korean dual citizenship. Parent-nationality or complete overseas-schooling route applies.",
+            "ko": "전기는 2027-02-28, 후기는 2027-08-31까지 고교 졸업. 한국 복수국적 불가. 부모 국적 또는 전 교육과정 해외 이수 경로 적용.",
+            "sourceId": "kaist-ug",
+            "pdfPages": []
+          }
+        ],
+        "selection": [
+          {
+            "en": "International applicants enter as freshmen without a declared major; major selection follows the second semester. This is not direct departmental admission.",
+            "ko": "외국인 신입생은 무학과로 입학 후 2학기 말 전공 선택. 학과별 직접 입학으로 해석하면 안 됩니다.",
+            "sourceId": "kaist-ug",
+            "pdfPages": []
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Language, documents, undergraduate deadlines and funding still need 2027 guide review."
+      ]
+    },
+    {
+      "recordId": "kaist-grad-2027",
+      "universityName": "KAIST",
+      "degreeLevels": [
+        "master",
+        "phd"
+      ],
+      "applicantScope": "international_graduate_regular",
+      "intakes": [
+        "2027-03",
+        "2027-09"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Master entry requires a bachelor-equivalent qualification; PhD requires a master-equivalent qualification by enrolment. Applicants must be non-Korean; Korean-origin cases have additional evidence rules.",
+            "ko": "석사는 학사 상당, 박사는 석사 상당 학력이 입학 전 필요합니다. 외국 국적 및 한국계 지원자 추가 증빙 규칙 적용.",
+            "sourceId": "kaist-grad",
+            "pdfPages": []
+          }
+        ],
+        "language": [
+          {
+            "en": "IELTS Academic 6.5, TOEIC 720, TEPS 326, or TOEFL iBT 83 before 2026-01-21 / 4.5 from that date. Specific programme exemptions and country/MOI waivers exist; revised waivers apply from Fall 2027, not automatically to Spring.",
+            "ko": "IELTS Academic 6.5, TOEIC 720, TEPS 326, TOEFL iBT 83(2026-01-21 전)/4.5(이후). 과정 면제 및 국가·MOI 예외 존재. 개정 면제 규칙은 2027 후기부터이며 전기에 소급 적용하지 않습니다.",
+            "sourceId": "kaist-grad",
+            "pdfPages": []
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Spring 2027 application: 2026-08-18–09-01 (closed). Fall 2027: 2027-01-07–02-05. Separate recommendation/document deadlines still require checking.",
+            "ko": "전기: 2026-08-18~09-01(종료). 후기: 2027-01-07~02-05. 추천서·서류별 마감은 추가 확인.",
+            "sourceId": "kaist-dates",
+            "pdfPages": []
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Required documents, department-specific requirements and financial conditions are incomplete."
+      ]
+    },
+    {
+      "recordId": "dcu-meng-2027",
+      "universityName": "Dublin City University",
+      "degreeLevels": [
+        "master"
+      ],
+      "applicantScope": "non_eu_new_full_time_meng_electronic_computer_engineering",
+      "intakes": [
+        "2027-01",
+        "2027-09"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Level-8 honours degree, H2.2 or higher, in electronic/electrical/computer engineering, applied physics, computer science or another engineering discipline.",
+            "ko": "전자·전기·컴퓨터공학, 응용물리, 컴퓨터과학 또는 기타 공학 분야 Level 8 honours 학위와 H2.2 이상.",
+            "sourceId": "dcu-meng",
+            "pdfPages": []
+          }
+        ],
+        "documents": [
+          {
+            "en": "Transcripts for every study year, with English translation where needed; evidence meeting DCU English-language rules where applicable. Exact language thresholds remain to be checked.",
+            "ko": "매 학년 성적표 및 필요한 영어 번역, 해당자 DCU 영어 요건 증빙. 정확한 어학 점수는 추가 확인.",
+            "sourceId": "dcu-meng",
+            "pdfPages": []
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Non-EU deadlines: January 2027 intake — 2026-12-04; September 2027 intake — 2027-07-01. Rolling admission can close earlier when full.",
+            "ko": "Non-EU 마감: 2027년 1월 입학 2026-12-04, 9월 입학 2027-07-01. 정원 충원 시 조기 종료 가능.",
+            "sourceId": "dcu-meng",
+            "pdfPages": []
+          }
+        ],
+        "costs": [
+          {
+            "en": "Page lists annual full-time non-EU tuition EUR 25,000; verify the intake-specific fee invoice. A competitive international fee reduction is mentioned, not guaranteed.",
+            "ko": "페이지 기재 연간 전일제 Non-EU 학비는 EUR 25,000. 입학 시기별 청구액 확인 필요. 국제 장학 감면은 선발형이며 보장되지 않습니다.",
+            "sourceId": "dcu-meng",
+            "pdfPages": []
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "Verify exact English requirements, fee year and scholarship conditions."
+      ]
+    },
+    {
+      "recordId": "twente-bme-2027",
+      "universityName": "University of Twente",
+      "degreeLevels": [
+        "master"
+      ],
+      "applicantScope": "international_new_biomedical_engineering",
+      "intakes": [
+        "2027-02",
+        "2027-09"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "eligibility": [
+          {
+            "en": "Related bachelor qualification; Biomedical Technology is an example. CGPA at least 75% of the maximum and clear motivation. A pre-master may be required after individual review.",
+            "ko": "관련 학사 학위(예: Biomedical Technology), CGPA 만점 대비 75% 이상 및 지원 동기. 개별 심사 후 예비석사 요구 가능.",
+            "sourceId": "twente-bme",
+            "pdfPages": []
+          }
+        ],
+        "deadlines": [
+          {
+            "en": "Non-EU: February 2027 intake deadline 2026-10-01 (closed); September 2027 deadline 2027-05-01.",
+            "ko": "Non-EU: 2027년 2월 입학 마감 2026-10-01(종료), 9월 입학 마감 2027-05-01.",
+            "sourceId": "twente-bme",
+            "pdfPages": []
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "English tests, required documents and fee billing period need additional source review.",
+        "This programme is a research data record, not yet added to the 93-entry search catalogue."
+      ]
+    },
+    {
+      "recordId": "oregon-ece-2027",
+      "universityName": "Oregon State University",
+      "degreeLevels": [
+        "master",
+        "phd"
+      ],
+      "applicantScope": "international_new_research_electrical_computer_engineering",
+      "intakes": [
+        "2027-09"
+      ],
+      "admissionYear": 2027,
+      "verificationStatus": "needs_check",
+      "reviewStatus": "source_reviewed_partial",
+      "sections": {
+        "deadlines": [
+          {
+            "en": "Fall 2027 priority consideration: PhD 2026-12-10; MS 2027-01-05. These are priority/funding-review dates, not asserted final deadlines.",
+            "ko": "2027 가을 우선심사: 박사 2026-12-10, MS 2027-01-05. 우선·재원 심사 일정이며 최종 접수 마감으로 단정하지 않습니다.",
+            "sourceId": "oregon-ece",
+            "pdfPages": []
+          }
+        ]
+      },
+      "unresolvedItems": [
+        "MS/PhD requirements must be separated from MEng; detailed academic, language and document rules not yet normalized.",
+        "This ECE record is not mapped to Computer Science programmes."
+      ]
+    }
+  ],
+  "programLinks": {
+    "catalogue_ajou_undergraduate_9b3289a3": {
+      "recordId": "ajou-ug-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_snu_undergraduate_7c839c0f": {
+      "recordId": "snu-undergraduate-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_snu_master_7c839c0f": {
+      "recordId": "snu-master-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_snu_phd_7c839c0f": {
+      "recordId": "snu-phd-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_kaist_undergraduate_f035532a": {
+      "recordId": "kaist-ug-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_kaist_master_f035532a": {
+      "recordId": "kaist-grad-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_kaist_phd_f035532a": {
+      "recordId": "kaist-grad-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_dcu_master_d417e506": {
+      "recordId": "dcu-meng-2027",
+      "mappingBasis": "exact programme",
+      "departmentOverrideStatus": "needs_check"
+    },
+    "catalogue_ajou_undergraduate_0765767f": {
+      "recordId": "ajou-ug-2027",
+      "mappingBasis": "university-degree-track common rules",
+      "departmentOverrideStatus": "needs_check"
+    }
+  },
+  "sources": {
+    "ajou-ug": {
+      "sourceId": "ajou-ug",
+      "url": "https://www.ajou.ac.kr/iadmissions/undergraduate/notice.do?mode=download&articleNo=374602&attachNo=332961",
+      "title": "Ajou 2027 Spring International Undergraduate Admission Guide",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/ajou_ug_pdf.pdf",
+      "sha256": "178f879fa093b31c28ed575d31bb2bd7543e17a63125a5e73ece6fc7732e9efa"
+    },
+    "snu-ug": {
+      "sourceId": "snu-ug",
+      "url": "https://admission.snu.ac.kr/webdata/admission/files/2027Spring_under.pdf",
+      "title": "SNU 2027 Spring International Undergraduate Guide",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/snu_ug_pdf.pdf",
+      "sha256": "efd6a4de95f1c3c292bb27e69f052fe31b1c0ce15dede730dbea3793ec8e4dd6"
+    },
+    "snu-grad": {
+      "sourceId": "snu-grad",
+      "url": "https://admission.snu.ac.kr/webdata/admission/files/2027Spring_graduate.pdf",
+      "title": "SNU 2027 Spring International Graduate Guide",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/snu_grad_pdf.pdf",
+      "sha256": "a4217ac53c9b548da83b8a58a4c2189407947cadf65ce4b4562f1a669a9cdd31"
+    },
+    "kaist-ug": {
+      "sourceId": "kaist-ug",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/before/sub02",
+      "title": "KAIST 2027 international undergraduate eligibility",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/kaist_ug.txt",
+      "sha256": "c3d075423610f48da48772e09e1c05506f6446756be06f8a514196f6a9ae9b9a"
+    },
+    "kaist-grad": {
+      "sourceId": "kaist-grad",
+      "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/Eligibility",
+      "title": "KAIST international graduate eligibility; Fall 2027 waiver rules",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/kaist_grad.txt",
+      "sha256": "fb0b7dff5e1025157f7b07d2e2aac18b1325ab843126c517cfe4ef4c8e2379d7"
+    },
+    "kaist-dates": {
+      "sourceId": "kaist-dates",
+      "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
+      "title": "KAIST 2027 graduate entry dates",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/kaist_dates.txt",
+      "sha256": "eddc9c4ce0057581812da60a98c7dd784d40ac2b17b1dd958f1a590fe0c6d577"
+    },
+    "dcu-meng": {
+      "sourceId": "dcu-meng",
+      "url": "https://www.dcu.ie/courses/postgraduate/school-electronic-engineering/meng-electronic-and-computer-engineering",
+      "title": "DCU MEng January and September 2027",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/dcu_meng.txt",
+      "sha256": "88096e074510530fe5b998e53c8de8a8b6210f3b04ec8823f6c2b9c524fdb123"
+    },
+    "twente-bme": {
+      "sourceId": "twente-bme",
+      "url": "https://www.utwente.nl/en/education/master/programmes/biomedical-engineering/masters-structure/factsheet/",
+      "title": "Twente Biomedical Engineering 2027 factsheet",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/twente_biomedical.txt",
+      "sha256": "b6d17b4e5e9743fbc50f806a544fd198867396afea84051ba90e03100ed35b4f"
+    },
+    "oregon-ece": {
+      "sourceId": "oregon-ece",
+      "url": "https://engineering.oregonstate.edu/academics/programs/electrical-computer-engineering/graduate",
+      "title": "Oregon State ECE Fall 2027 priority deadlines",
+      "reviewedAt": "2026-11-09",
+      "year": 2027,
+      "localFile": "sources/oregon_ece.txt",
+      "sha256": "2d36db972e00307754aa2a78a3787f9a1ea557a97ff4d427ab94ffc8b5452ae6"
+    }
+  }
+}

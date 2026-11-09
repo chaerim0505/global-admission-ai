@@ -1,0 +1,443 @@
+[
+  {
+    "id": "KR-undergraduate-computing",
+    "country": "KR",
+    "degree": "undergraduate",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_ajou_undergraduate_9b3289a3",
+      "catalogue_snu_undergraduate_7c839c0f",
+      "catalogue_kaist_undergraduate_f035532a",
+      "catalogue_hanyang_undergraduate_445ddaa5",
+      "catalogue_skku_undergraduate_7c839c0f"
+    ]
+  },
+  {
+    "id": "KR-undergraduate-electrical_electronic",
+    "country": "KR",
+    "degree": "undergraduate",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_ajou_undergraduate_0765767f"
+    ]
+  },
+  {
+    "id": "KR-undergraduate-aerospace",
+    "country": "KR",
+    "degree": "undergraduate",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "KR-master-computing",
+    "country": "KR",
+    "degree": "master",
+    "field": "computing",
+    "expectedProgramIds": [
+      "prog_50ac6f9f06f1ef6efa1965e6",
+      "catalogue_snu_master_7c839c0f",
+      "catalogue_kaist_master_f035532a",
+      "catalogue_hanyang_master_445ddaa5",
+      "catalogue_skku_master_7c839c0f"
+    ]
+  },
+  {
+    "id": "KR-master-electrical_electronic",
+    "country": "KR",
+    "degree": "master",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_ajou_master_0765767f"
+    ]
+  },
+  {
+    "id": "KR-master-aerospace",
+    "country": "KR",
+    "degree": "master",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "KR-phd-computing",
+    "country": "KR",
+    "degree": "phd",
+    "field": "computing",
+    "expectedProgramIds": [
+      "prog_fb8c8f400619ef9cbf6a6a3f",
+      "catalogue_snu_phd_7c839c0f",
+      "catalogue_kaist_phd_f035532a",
+      "catalogue_hanyang_phd_445ddaa5",
+      "catalogue_skku_phd_7c839c0f"
+    ]
+  },
+  {
+    "id": "KR-phd-electrical_electronic",
+    "country": "KR",
+    "degree": "phd",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_ajou_phd_0765767f"
+    ]
+  },
+  {
+    "id": "KR-phd-aerospace",
+    "country": "KR",
+    "degree": "phd",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "US-undergraduate-computing",
+    "country": "US",
+    "degree": "undergraduate",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_asu_undergraduate_445ddaa5",
+      "catalogue_iowa_undergraduate_7481c54b",
+      "catalogue_oregon_undergraduate_445ddaa5",
+      "catalogue_buffalo_undergraduate_445ddaa5",
+      "catalogue_utd_undergraduate_445ddaa5",
+      "catalogue_asu_undergraduate_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-undergraduate-electrical_electronic",
+    "country": "US",
+    "degree": "undergraduate",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_iowa_undergraduate_7481c54b",
+      "catalogue_asu_undergraduate_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-undergraduate-aerospace",
+    "country": "US",
+    "degree": "undergraduate",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "US-master-computing",
+    "country": "US",
+    "degree": "master",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_asu_master_445ddaa5",
+      "catalogue_iowa_master_7481c54b",
+      "catalogue_oregon_master_445ddaa5",
+      "catalogue_buffalo_master_7c839c0f",
+      "catalogue_utd_master_445ddaa5",
+      "catalogue_asu_master_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-master-electrical_electronic",
+    "country": "US",
+    "degree": "master",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_iowa_master_7481c54b",
+      "catalogue_asu_master_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-master-aerospace",
+    "country": "US",
+    "degree": "master",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "US-phd-computing",
+    "country": "US",
+    "degree": "phd",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_asu_phd_445ddaa5",
+      "catalogue_iowa_phd_7481c54b",
+      "catalogue_oregon_phd_445ddaa5",
+      "catalogue_buffalo_phd_7c839c0f",
+      "catalogue_utd_phd_445ddaa5",
+      "catalogue_asu_phd_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-phd-electrical_electronic",
+    "country": "US",
+    "degree": "phd",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_iowa_phd_7481c54b",
+      "catalogue_asu_phd_ceac8daf"
+    ]
+  },
+  {
+    "id": "US-phd-aerospace",
+    "country": "US",
+    "degree": "phd",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "GB-undergraduate-computing",
+    "country": "GB",
+    "degree": "undergraduate",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_manchester_undergraduate_445ddaa5",
+      "catalogue_sheffield_undergraduate_445ddaa5",
+      "catalogue_southampton_undergraduate_445ddaa5",
+      "catalogue_birmingham_undergraduate_445ddaa5",
+      "catalogue_york_undergraduate_445ddaa5"
+    ]
+  },
+  {
+    "id": "GB-undergraduate-electrical_electronic",
+    "country": "GB",
+    "degree": "undergraduate",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_southampton_undergraduate_b55696e7"
+    ]
+  },
+  {
+    "id": "GB-undergraduate-aerospace",
+    "country": "GB",
+    "degree": "undergraduate",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "GB-master-computing",
+    "country": "GB",
+    "degree": "master",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_manchester_master_3dbe588c",
+      "catalogue_sheffield_master_3dbe588c",
+      "catalogue_southampton_master_445ddaa5",
+      "catalogue_birmingham_master_4f22cba7",
+      "catalogue_york_master_3b446e38"
+    ]
+  },
+  {
+    "id": "GB-master-electrical_electronic",
+    "country": "GB",
+    "degree": "master",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_southampton_master_b55696e7"
+    ]
+  },
+  {
+    "id": "GB-master-aerospace",
+    "country": "GB",
+    "degree": "master",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "GB-phd-computing",
+    "country": "GB",
+    "degree": "phd",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_manchester_phd_445ddaa5",
+      "catalogue_sheffield_phd_445ddaa5",
+      "catalogue_southampton_phd_91ebdc3e",
+      "catalogue_birmingham_phd_445ddaa5",
+      "catalogue_york_phd_445ddaa5"
+    ]
+  },
+  {
+    "id": "GB-phd-electrical_electronic",
+    "country": "GB",
+    "degree": "phd",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_southampton_phd_91ebdc3e"
+    ]
+  },
+  {
+    "id": "GB-phd-aerospace",
+    "country": "GB",
+    "degree": "phd",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "NL-undergraduate-computing",
+    "country": "NL",
+    "degree": "undergraduate",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_delft_undergraduate_7c839c0f",
+      "catalogue_eindhoven_undergraduate_7c839c0f",
+      "catalogue_twente_undergraduate_d50805b9",
+      "catalogue_groningen_undergraduate_4b42dcfb",
+      "catalogue_maastricht_undergraduate_445ddaa5"
+    ]
+  },
+  {
+    "id": "NL-undergraduate-electrical_electronic",
+    "country": "NL",
+    "degree": "undergraduate",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_twente_undergraduate_9392ddb5"
+    ]
+  },
+  {
+    "id": "NL-undergraduate-aerospace",
+    "country": "NL",
+    "degree": "undergraduate",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "NL-master-computing",
+    "country": "NL",
+    "degree": "master",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_delft_master_445ddaa5",
+      "catalogue_eindhoven_master_7c839c0f",
+      "catalogue_twente_master_445ddaa5",
+      "catalogue_groningen_master_4b42dcfb",
+      "catalogue_maastricht_master_80f921dc"
+    ]
+  },
+  {
+    "id": "NL-master-electrical_electronic",
+    "country": "NL",
+    "degree": "master",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_twente_master_9392ddb5"
+    ]
+  },
+  {
+    "id": "NL-master-aerospace",
+    "country": "NL",
+    "degree": "master",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "NL-phd-computing",
+    "country": "NL",
+    "degree": "phd",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_delft_phd_db81b072",
+      "catalogue_eindhoven_phd_db81b072",
+      "catalogue_twente_phd_db81b072",
+      "catalogue_groningen_phd_af28aefe",
+      "catalogue_maastricht_phd_623ef12f"
+    ]
+  },
+  {
+    "id": "NL-phd-electrical_electronic",
+    "country": "NL",
+    "degree": "phd",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_twente_phd_d7a30ea3"
+    ]
+  },
+  {
+    "id": "NL-phd-aerospace",
+    "country": "NL",
+    "degree": "phd",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "IE-undergraduate-computing",
+    "country": "IE",
+    "degree": "undergraduate",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_trinity_undergraduate_445ddaa5",
+      "catalogue_ucd_undergraduate_445ddaa5",
+      "catalogue_dcu_undergraduate_445ddaa5",
+      "catalogue_galway_undergraduate_84430946",
+      "catalogue_ucc_undergraduate_445ddaa5"
+    ]
+  },
+  {
+    "id": "IE-undergraduate-electrical_electronic",
+    "country": "IE",
+    "degree": "undergraduate",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_dcu_undergraduate_d417e506"
+    ]
+  },
+  {
+    "id": "IE-undergraduate-aerospace",
+    "country": "IE",
+    "degree": "undergraduate",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "IE-master-computing",
+    "country": "IE",
+    "degree": "master",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_trinity_master_445ddaa5",
+      "catalogue_ucd_master_7a2976a9",
+      "catalogue_dcu_master_f035532a",
+      "catalogue_galway_master_62862ee5",
+      "catalogue_ucc_master_4b42dcfb"
+    ]
+  },
+  {
+    "id": "IE-master-electrical_electronic",
+    "country": "IE",
+    "degree": "master",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_dcu_master_d417e506"
+    ]
+  },
+  {
+    "id": "IE-master-aerospace",
+    "country": "IE",
+    "degree": "master",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  },
+  {
+    "id": "IE-phd-computing",
+    "country": "IE",
+    "degree": "phd",
+    "field": "computing",
+    "expectedProgramIds": [
+      "catalogue_trinity_phd_445ddaa5",
+      "catalogue_ucd_phd_445ddaa5",
+      "catalogue_dcu_phd_94b9cf55",
+      "catalogue_galway_phd_067243fa",
+      "catalogue_ucc_phd_db81b072"
+    ]
+  },
+  {
+    "id": "IE-phd-electrical_electronic",
+    "country": "IE",
+    "degree": "phd",
+    "field": "electrical_electronic",
+    "expectedProgramIds": [
+      "catalogue_dcu_phd_b27cb48c"
+    ]
+  },
+  {
+    "id": "IE-phd-aerospace",
+    "country": "IE",
+    "degree": "phd",
+    "field": "aerospace",
+    "expectedProgramIds": []
+  }
+]

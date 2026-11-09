@@ -1,0 +1,56 @@
+{
+  "university": "아주대학교",
+  "program": null,
+  "degree": null,
+  "intake": "2027학년도 전기",
+  "requirements": {
+    "gpa": {
+      "value": null,
+      "evidenceText": null,
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    },
+    "english": {
+      "value": "TOEFL IBT 71, IELTS 5.5, TEPS 600점(New TEPS 234점) 이상",
+      "evidenceText": "① 한국어능력시험(TOPIK) 4급 이상 또는 ② 영어능력시험(TOEFL IBT 71, IELTS 5.5, TEPS 600점(New TEPS 234점)) 이상인 자",
+      "verificationStatus": "evidence_found",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    },
+    "tuition": {
+      "value": "공학계열 수업료 7,451,000, 이학계열 수업료 6,439,000, 인문사회계열 수업료 5,599,000, 금융공학계열 수업료 7,022,000, 의학계열 수업료 8,683,000, 약학계열 수업료 8,067,000",
+      "evidenceText": "공학계열 수업료 7,451,000, 이학계열 수업료 6,439,000, 인문사회계열 수업료 5,599,000, 금융공학계열 수업료 7,022,000, 의학계열 수업료 8,683,000, 약학계열 수업료 8,067,000",
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    },
+    "scholarship": {
+      "value": "외국인 연구장학: 석사과정 수업료의 40%, 박사과정 수업료의 80% / 외국인 우수연구장학: 석사 수업료의 60%, 박사 수업료의 100% / 의학계열 및 간호학 계열 외국인장학: 석·박사과정 수업료의 100%",
+      "evidenceText": "석사과정 수업료의 40% / 박사과정 수업료의 80% / 석사 외국인우수연구장학(석사) 수업료의 60% / 박사 외국인우수연구장학(박사) 수업료의 100% / 석사과정: 수업료의 100% 박사과정: 수업료의 100%",
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    },
+    "deadline": {
+      "value": "2026.10.07.(수) 09:00 ~ 11.25.(수) 17:00",
+      "evidenceText": "2026.10.07.(수) 09:00 ~ 11.25.(수) 17:00",
+      "verificationStatus": "evidence_found",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    },
+    "eligibility": {
+      "value": "부모가 모두 외국인인 외국인 또는 국내의 초ㆍ중ㆍ고ㆍ대학에 해당하는 16년 이상의 전 교육과정을 외국에서 이수한 자로서 해당 학과에서 과목 수강을 할 수 있는 일정 수준의 어학 구사 능력을 갖춘 자",
+      "evidenceText": "부모가 모두 외국인인 외국인 또는 국내의 초ㆍ중ㆍ고ㆍ대학에 해당하는 16년 이상의 전 교육과정을 외국에서 이수한 자로서 해당 학과에서 과목 수강을 할 수 있는 일정 수준의 어학(한국어 또는 영어) 구사 능력을 갖춘 자",
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/cms/etcResourceDown.do?site=%24cms%24OYZw+gpgdsQ&key=%24cms%24BQJgbAjADCDMCUACA2gQQFYHsCuiCqAdgJYBuApgE4DORALgJ4C6iIMYA+gMoAOFRBAc3YBxCgEMAJtjG0yXAMYALTJgA27VBIC2RKjUwER2IhLIA6bhIBmQA"
+    }
+  },
+  "pdfPages": [
+    6,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "documentType": "official_admission_guide",
+  "admissionYear": 2027,
+  "admissionTerm": "spring",
+  "applicantCategory": "international"
+}

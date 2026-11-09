@@ -1,0 +1,206 @@
+[
+  {
+    "scholarship_id": "ajou_global_2027_spring",
+    "name": "Ajou Global Scholarship",
+    "university": "Ajou University",
+    "school": "General Graduate School",
+    "intake": "2027 Spring",
+    "applicant_stage": "new_students",
+    "selection": {
+      "department_recommendation_required": true,
+      "committee_selection_required": true,
+      "guaranteed_by_test_score_alone": false
+    },
+    "benefits": [
+      {
+        "degree": "master",
+        "tuition_coverage_percent": 40,
+        "maximum_semesters": 4
+      },
+      {
+        "degree": "doctoral",
+        "tuition_coverage_percent": 80,
+        "maximum_semesters": 6
+      },
+      {
+        "degree": "integrated_master_doctoral",
+        "maximum_semesters": 8,
+        "phases": [
+          {
+            "semesters": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "tuition_coverage_percent": 40
+          },
+          {
+            "semesters": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "tuition_coverage_percent": 80
+          }
+        ]
+      }
+    ],
+    "entrance_fee_covered": false,
+    "language_requirements": {
+      "logic": "any_of_with_applicable_country_group",
+      "TOPIK_minimum_level": 5,
+      "english_test_alternatives": [
+        {
+          "source_country_group": "English",
+          "minimum_scores": {
+            "TOEFL iBT": 85,
+            "TEPS": 640,
+            "New TEPS": 285,
+            "IELTS": 6.0
+          }
+        },
+        {
+          "source_country_group": "Non-English",
+          "minimum_scores": {
+            "TOEFL iBT": 71,
+            "TEPS": 600,
+            "New TEPS": 234,
+            "IELTS": 5.5
+          }
+        }
+      ],
+      "country_group_mapping_status": "not_verified",
+      "conditional_alternative": {
+        "condition": "Applicant is from an English mother-tongue country",
+        "evidence": "Certificate of higher education with English as medium of instruction",
+        "replaces": "Official language test score"
+      },
+      "interpretation_note": "One accepted test alternative is sufficient for the language condition. Do not require every listed test. Country-group assignment must be checked, not inferred from test language."
+    },
+    "renewal_conditions": {
+      "minimum_credits_each_semester": 4,
+      "minimum_gpa_each_semester": 3.5,
+      "gpa_scale": null,
+      "forbidden_grades": [
+        "F",
+        "U"
+      ],
+      "general_leave_of_absence_disqualifies": true
+    },
+    "excluded_departments": [
+      "Medical Sciences",
+      "Biomedical Sciences",
+      "Nursing",
+      "Molecular Science & Technology"
+    ],
+    "excluded_department_note": "Excluded students follow their respective departmental scholarship systems; this does not mean no funding is available.",
+    "teaching_assistant_duties": {
+      "source_scope": "Admitted full-time international students belonging to College of Engineering and Department of Computer Engineering",
+      "mandatory": true,
+      "doctoral_hours_per_week": 8,
+      "other_degree_hours_per_week": null,
+      "department_scope_mapping_status": "pending"
+    },
+    "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+    "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+    "source_pdf_page": 19,
+    "source_page_text": " | Do\ncuments to Conﬁrm Eligibility\nEligibility Documents \n F\noreigners who have foreign nationality’s parents\n① Birth Certiﬁcate or Family Relationship Certiﬁcate of the applicant and the parent(s)\n-  If a parent is not listed on the certiﬁcate due to divorce, death, etc., additional documents (e.g.,\ndivorce certiﬁcate or death certiﬁcate) must be submitted\n※  \nApplicants with Chinese nationality must submit a Household Register (Hukoubu) or a Certiﬁcate of Family\nRelationship\n② C\nopy of passport of and the parent(s)\n-  If a passport is not available, a national ID card or citizenship certiﬁcate may be submitted instead.\nOverseas Koreans and foreigners who completed an \nentire curriculum for a period of 16 years or more in \nforeign countries\n•  Diplomas from elementary, junior high and high schools and oﬃcial transcripts of all grades\n※ A\nll the required documents for application must be submitted with the original copy and written in Korean or English.\n※ All submitted application documents cannot be returned\n | O\nptional Documents\n• C\nertiﬁcate of completion of Korean Language Study in Language Institute of Ajou University\n※ Only f\nor the applicants who completed 4 semesters of Korean Language study in Language Institute of Ajou University\nA\ndmission Evaluation\n | Do\ncument review\n• T\nhe evaluation is conducted by the department based on undergraduate(Master’s & Integrated) or graduate(Doctoral) level grades\n | I\nnterview\n• T\nhe evaluation is based on ability regarding respective major, linguistic proﬁciency, aptitude, and personality\n•  Language proﬁciency (Korean or English) is evaluated to conﬁrm whether or not the applicant is at an appropriate level to take classes in the respective\nlanguages\n※ I\nnterview can be done through online\n※  For overseas applicants, the interview screening committee of each department may conduct the evaluation based on a phone interview and the submitted documents in place of a\npersonal interview depending on the recruiting plans of each department\nScholarships\n | A\njou Global Scholarship (for new students) \n• Q\nualiﬁcation: Selected by the University’s scholarship assessment committee upon departmental recommendation\n• Requirement: Beneﬁciary should satisfy any one of the following requirements\n- Advanced Standing in English or Korean Proﬁciency Test (TOPIK, TOEFL, IELTS, TEPS)\nC\nourse Amount Regions(Countries) TOEFL(iBT) TEPS NewTEPS IELTS TOPIK\nM\naster’s 40% of tuition English 85 640 285 6.0\nLevel 5\nNon-English 71 600 234 5.5\nDoctoral 80% of tuition English 85 640 285 6.0Non-English 71 600 234 5.5\n※ A\njou Global Scholarship does not waive Entrance fee\n※   Students who are from English mother-tongue country will be awarded “Ajou Global Scholarship(Master’s, Doctoral) by substituting certiﬁcate of higher education with English as a\nmedium of instruction for oﬃcial language score”\n•  \nTo be granted Scholarship continuously, students should take at least 4 credits and maintain a GPA of 3.5 or higher without F or U in each semester (Masters:\nup to 4 semesters, Doctoral: up to 6 semesters, Integrated Program: up to 8 semesters) \n※ F\nor Integrated Students will be given Master’s Scholarship for 1~4 semesters and Doctoral Scholarship for 5~8 semesters\n• T\nhose who apply for the General Leave of Absence are disqualiﬁed from the scholarship\n•   TA(Teaching Assistant) is mandatory for admitted full-time international students who belong to College of Engineering and Department of Computer\nEngineering (Doctoral: 8 hours/week)\n•  Students of Medical Sciences, Biomedical Sciences, Nursing and Molecular Science & Technology are excluded from the above scholarship(These students\nfollow the scholarship system of the respective departments)\n• Full-time international students can receive TA scholarships.\n아주대학교 일반대학원\n17",
+    "verification_scope": "Uploaded guide; later notices not checked",
+    "other_scholarship_combination_rules_status": "pending"
+  },
+  {
+    "scholarship_id": "ajou_entrance_fee_2027_spring",
+    "name": "Ajou Entrance Fee Scholarship",
+    "university": "Ajou University",
+    "school": "General Graduate School",
+    "intake": "2027 Spring",
+    "eligible_degrees_explicitly_listed": [
+      "master",
+      "doctoral"
+    ],
+    "integrated_program_eligibility": null,
+    "selection_description": "All qualified students",
+    "required_language_institute": "Korean Language Institute of Ajou University",
+    "study_duration_condition": {
+      "source_wording": "completed over 4 semesters",
+      "operator": ">",
+      "semesters": 4
+    },
+    "benefit_type": "entrance_fee_waiver",
+    "benefit_tiers": [
+      {
+        "TOPIK_minimum_level": 5,
+        "entrance_fee_waiver_percent": 100
+      },
+      {
+        "TOPIK_exact_level": 4,
+        "entrance_fee_waiver_percent": 75
+      }
+    ],
+    "tier_combination_rule": "Apply one matching tier; do not add percentages",
+    "can_combine_with": [
+      "ajou_global_2027_spring"
+    ],
+    "other_award_combinations": "not_verified",
+    "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+    "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+    "source_pdf_page": 20,
+    "source_page_text": " |  A\njou Research Scholarship (Selected and Awarded during each semester)\n• Q\nualiﬁcation: Selected by the University's scholarship assessment committee upon departmental recommendation\nC\nourse Amount Qualification  Number of students  \nM\naster’s 60% of tuition Selected and awarded to students with excellent research \nperformance recommended by the department every \nsemester\nMaximum 50% \nof registered students\nfor each semesterDoctoral 100% of tuition\n※ F\nreshman(1st semester after admission) cannot be awarded ‘Ajou Research Scholarship’\n※  Both Ajou Global Scholarship and Ajou Research Scholarship CANNOT be awarded at the same time, and successful candidate of Ajou Global Scholarship can be awarded extra 20% of\nTuition\n※  AUT Scholarship(Master’s) and Ajou Research Scholarship CANNOT be awarded at the same time, and successful candidate of AUT Scholarship(Master’s) can be awarded extra 20% of\nTuition\n※ Selected in 50% of registered international students every semester(excluding new students)\n※ Those who have not earned ‘at least 4 credits’ ‘GPA of 3.5 or higher without F or U’ in previous semester and return from leave of absence CANNOT be awarded\n※ Those who have a record of General Leave of Absence are excluded from the scholarship\n |  A\njou Medicine and Nursing Scholarship for International Students\nField C\nourse Amount Subject Qualification\nM\nedicine\nMaster’s 100% of Tuition\nAll selected\nstudents A holder of foreign nationality\nDoctoral 100% of Tuition\nNursing\nMaster’s 100% of Tuition\nDoctoral 100% of Tuition\n※ \nThose who have earned GPA of 3.0 or higher can be awarded the scholarship for 4 semesters in Master’s, 6 semesters in Doctoral and 8 semesters in Integrated\n※ Integrated Students will be given Master’s Scholarship for 1~4 semesters and Doctoral Scholarship for 5~8 semesters\n |  Sp\necial Scholarship for AUT Graduates\n• Q\nualiﬁcation: AUT Bachelor’s Degree Graduates\n• AUT Entrance Fee Scholarship\nC\nourse Amount Subject Qualification\nM\naster’s 100% Waiveof Entrance Fee All Qualiﬁed Students Full-time students entering Ajou Graduate Schoolimmediately after graduating from AUT\n• A\nUT Tuition Scholarship\nC\nourse Scholarship Amount Subject Qualification BenefitPeriod TA\nM\naster’s\nAUT Scholarship\n(Master’s) 60% of Tuition All Qualiﬁed Students AUT graduates who satisfy the language requirements for Ajou Global Scholarship(Non-English) Up to\n4 semesters\n-\nAUT Special Scholarship\n(Master’s) 100% of Tuition 6 studentsper year Students recommended by the head of AUT Project Management Oﬃce 8 hoursper week\n※T\no be granted Scholarship continuously, students should take at least 4 credits and maintain a GPA of 3.5 or higher without F or U in each semester\n※ Doctoral students can be awarded Ajou Global Scholarship\n※ TA duties are imposed only upon the request of the head of AUT Project Management Oﬃce\n | A\njou Entrance Fee Scholarship\nC\nourse Amount Subject Qualification\nM\naster’s\nand\nDoctoral\n100% Waive\nof Entrance Fee\nAll Qualiﬁed\nStudents\nThose who have completed over 4 semesters of Korean Language Institute  \nin Ajou University and hold TOPIK level 5 or above\n75% Waive\nof Entrance Fee\nThose who have completed over 4 semesters of Korean Language Institute  \nin Ajou University and hold TOPIK level 4\n※ S\ntudents can be awarded both Ajou Global Scholarship and Entrance Fee Scholarship at the same time\n2027학년도 전기 신입생 모집요강\nⅣ. Admission Guide for International Students\n18",
+    "verification_scope": "Uploaded guide; later notices not checked"
+  },
+  {
+    "scholarship_id": "ajou_research_2027_spring",
+    "name": "Ajou Research Scholarship",
+    "university": "Ajou University",
+    "school": "General Graduate School",
+    "guide_intake": "2027 Spring",
+    "applicant_stage": "continuing_students",
+    "first_semester_eligible": false,
+    "benefits": [
+      {
+        "degree": "master",
+        "tuition_coverage_percent": 60
+      },
+      {
+        "degree": "doctoral",
+        "tuition_coverage_percent": 100
+      }
+    ],
+    "integrated_program_eligibility": null,
+    "selection": {
+      "department_recommendation_required": true,
+      "committee_selection_required": true,
+      "basis": "Excellent research performance",
+      "frequency": "Each semester",
+      "guaranteed": false,
+      "maximum_recipient_percent": 50,
+      "recipient_pool_note": "Guide refers to registered international students, excluding new students. Exact denominator requires confirmation."
+    },
+    "academic_conditions": {
+      "assessment_period": "previous_semester",
+      "minimum_credits": 4,
+      "minimum_gpa": 3.5,
+      "gpa_scale": null,
+      "forbidden_grades": [
+        "F",
+        "U"
+      ]
+    },
+    "leave_restrictions": [
+      "Students returning from leave of absence cannot receive the award",
+      "Students with a record of general leave of absence are excluded"
+    ],
+    "award_combination_rules": {
+      "status": "requires_clarification",
+      "source_summary": "The guide prohibits simultaneous Global and Research awards, but also mentions extra 20% tuition support for successful Global Scholarship candidates. It gives similar wording for AUT master's scholarship recipients.",
+      "automatic_combined_discount_calculation_allowed": false
+    },
+    "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+    "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+    "source_pdf_page": 20,
+    "source_page_text": " |  A\njou Research Scholarship (Selected and Awarded during each semester)\n• Q\nualiﬁcation: Selected by the University's scholarship assessment committee upon departmental recommendation\nC\nourse Amount Qualification  Number of students  \nM\naster’s 60% of tuition Selected and awarded to students with excellent research \nperformance recommended by the department every \nsemester\nMaximum 50% \nof registered students\nfor each semesterDoctoral 100% of tuition\n※ F\nreshman(1st semester after admission) cannot be awarded ‘Ajou Research Scholarship’\n※  Both Ajou Global Scholarship and Ajou Research Scholarship CANNOT be awarded at the same time, and successful candidate of Ajou Global Scholarship can be awarded extra 20% of\nTuition\n※  AUT Scholarship(Master’s) and Ajou Research Scholarship CANNOT be awarded at the same time, and successful candidate of AUT Scholarship(Master’s) can be awarded extra 20% of\nTuition\n※ Selected in 50% of registered international students every semester(excluding new students)\n※ Those who have not earned ‘at least 4 credits’ ‘GPA of 3.5 or higher without F or U’ in previous semester and return from leave of absence CANNOT be awarded\n※ Those who have a record of General Leave of Absence are excluded from the scholarship\n |  A\njou Medicine and Nursing Scholarship for International Students\nField C\nourse Amount Subject Qualification\nM\nedicine\nMaster’s 100% of Tuition\nAll selected\nstudents A holder of foreign nationality\nDoctoral 100% of Tuition\nNursing\nMaster’s 100% of Tuition\nDoctoral 100% of Tuition\n※ \nThose who have earned GPA of 3.0 or higher can be awarded the scholarship for 4 semesters in Master’s, 6 semesters in Doctoral and 8 semesters in Integrated\n※ Integrated Students will be given Master’s Scholarship for 1~4 semesters and Doctoral Scholarship for 5~8 semesters\n |  Sp\necial Scholarship for AUT Graduates\n• Q\nualiﬁcation: AUT Bachelor’s Degree Graduates\n• AUT Entrance Fee Scholarship\nC\nourse Amount Subject Qualification\nM\naster’s 100% Waiveof Entrance Fee All Qualiﬁed Students Full-time students entering Ajou Graduate Schoolimmediately after graduating from AUT\n• A\nUT Tuition Scholarship\nC\nourse Scholarship Amount Subject Qualification BenefitPeriod TA\nM\naster’s\nAUT Scholarship\n(Master’s) 60% of Tuition All Qualiﬁed Students AUT graduates who satisfy the language requirements for Ajou Global Scholarship(Non-English) Up to\n4 semesters\n-\nAUT Special Scholarship\n(Master’s) 100% of Tuition 6 studentsper year Students recommended by the head of AUT Project Management Oﬃce 8 hoursper week\n※T\no be granted Scholarship continuously, students should take at least 4 credits and maintain a GPA of 3.5 or higher without F or U in each semester\n※ Doctoral students can be awarded Ajou Global Scholarship\n※ TA duties are imposed only upon the request of the head of AUT Project Management Oﬃce\n | A\njou Entrance Fee Scholarship\nC\nourse Amount Subject Qualification\nM\naster’s\nand\nDoctoral\n100% Waive\nof Entrance Fee\nAll Qualiﬁed\nStudents\nThose who have completed over 4 semesters of Korean Language Institute  \nin Ajou University and hold TOPIK level 5 or above\n75% Waive\nof Entrance Fee\nThose who have completed over 4 semesters of Korean Language Institute  \nin Ajou University and hold TOPIK level 4\n※ S\ntudents can be awarded both Ajou Global Scholarship and Entrance Fee Scholarship at the same time\n2027학년도 전기 신입생 모집요강\nⅣ. Admission Guide for International Students\n18",
+    "verification_scope": "Uploaded guide; later notices not checked"
+  }
+]
