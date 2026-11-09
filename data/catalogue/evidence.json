@@ -1,0 +1,611 @@
+{
+  "catalogue_ajou_undergraduate_9b3289a3": {
+    "sourceUrl": "https://www.ajou.ac.kr/iadmissions/undergraduate/notice.do?mode=download&articleNo=374602&attachNo=332961",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_snu_undergraduate_7c839c0f": {
+    "sourceUrl": "https://cse.snu.ac.kr/en",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_snu_master_7c839c0f": {
+    "sourceUrl": "https://cse.snu.ac.kr/en/admissions/graduate/regular-admission",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_snu_phd_7c839c0f": {
+    "sourceUrl": "https://cse.snu.ac.kr/en/admissions/graduate/regular-admission",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "KR"
+  },
+  "catalogue_kaist_undergraduate_f035532a": {
+    "sourceUrl": "https://cs.kaist.ac.kr/content?menu=318",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_kaist_master_f035532a": {
+    "sourceUrl": "https://cs.kaist.ac.kr/content?menu=156",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_kaist_phd_f035532a": {
+    "sourceUrl": "https://cs.kaist.ac.kr/content?menu=156",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "KR"
+  },
+  "catalogue_hanyang_undergraduate_445ddaa5": {
+    "sourceUrl": "https://cs.hanyang.ac.kr/en/-01-2-1",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_hanyang_master_445ddaa5": {
+    "sourceUrl": "https://cs.hanyang.ac.kr/en/-01-2-1",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_hanyang_phd_445ddaa5": {
+    "sourceUrl": "https://cs.hanyang.ac.kr/en/-01-2-1",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "KR"
+  },
+  "catalogue_skku_undergraduate_7c839c0f": {
+    "sourceUrl": "https://ics.skku.edu/eng_sw/under_sw_curriculum.do?lang=All&pager.offset=135",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_skku_master_7c839c0f": {
+    "sourceUrl": "https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_skku_phd_7c839c0f": {
+    "sourceUrl": "https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "KR"
+  },
+  "catalogue_asu_undergraduate_445ddaa5": {
+    "sourceUrl": "https://scai.engineering.asu.edu/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_asu_master_445ddaa5": {
+    "sourceUrl": "https://scai.engineering.asu.edu/graduate-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_asu_phd_445ddaa5": {
+    "sourceUrl": "https://scai.engineering.asu.edu/graduate-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_iowa_undergraduate_7481c54b": {
+    "sourceUrl": "https://catalog.iastate.edu/collegeofengineering/computerengineering/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_iowa_master_7481c54b": {
+    "sourceUrl": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_iowa_phd_7481c54b": {
+    "sourceUrl": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_oregon_undergraduate_445ddaa5": {
+    "sourceUrl": "https://engineering.oregonstate.edu/academics/programs/computer-science/undergraduate",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_oregon_master_445ddaa5": {
+    "sourceUrl": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_oregon_phd_445ddaa5": {
+    "sourceUrl": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_buffalo_undergraduate_445ddaa5": {
+    "sourceUrl": "https://engineering.buffalo.edu/computer-science-engineering/undergraduate/degrees-and-programs/bs-in-computer-science.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_buffalo_master_7c839c0f": {
+    "sourceUrl": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_buffalo_phd_7c839c0f": {
+    "sourceUrl": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_utd_undergraduate_445ddaa5": {
+    "sourceUrl": "https://cs.utdallas.edu/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_utd_master_445ddaa5": {
+    "sourceUrl": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_utd_phd_445ddaa5": {
+    "sourceUrl": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_manchester_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00560/bsc-computer-science/application-and-selection/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_manchester_master_3dbe588c": {
+    "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_manchester_phd_445ddaa5": {
+    "sourceUrl": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/02954/phd-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_sheffield_undergraduate_445ddaa5": {
+    "sourceUrl": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_sheffield_master_3dbe588c": {
+    "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2026/advanced-computer-science-msc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_sheffield_phd_445ddaa5": {
+    "sourceUrl": "https://sheffield.ac.uk/cs/phd-study",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_southampton_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.southampton.ac.uk/courses/computer-science-degree-bsc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_southampton_master_445ddaa5": {
+    "sourceUrl": "https://www.southampton.ac.uk/courses/computer-science-masters-msc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_southampton_phd_91ebdc3e": {
+    "sourceUrl": "https://www.southampton.ac.uk/study/postgraduate-research/electronics-computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_birmingham_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.birmingham.ac.uk/study/undergraduate/subjects/computer-science-courses/computer-science-bsc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_birmingham_master_4f22cba7": {
+    "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/computer-science-msc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_birmingham_phd_445ddaa5": {
+    "sourceUrl": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/computer-science/postgraduate-research",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_york_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.york.ac.uk/study/undergraduate/courses/bsc-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_york_master_3b446e38": {
+    "sourceUrl": "https://www.york.ac.uk/computer-science/study/postgraduate-research/msc-computer-science-by-research/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_york_phd_445ddaa5": {
+    "sourceUrl": "https://www.york.ac.uk/computer-science/study/postgraduate-research/phd-computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "GB"
+  },
+  "catalogue_delft_undergraduate_7c839c0f": {
+    "sourceUrl": "https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/computer-science/education",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_delft_master_445ddaa5": {
+    "sourceUrl": "https://www.tudelft.nl/en/education/programmes/masters/cs/msc-computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_delft_phd_db81b072": {
+    "sourceUrl": "https://www.tudelft.nl/en/eemcs/study/eemcs-graduate-school/doctoral-education-programme",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_eindhoven_undergraduate_7c839c0f": {
+    "sourceUrl": "https://research.tue.nl/p/en/courses/scope-computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_eindhoven_master_7c839c0f": {
+    "sourceUrl": "https://research.tue.nl/p/en/persons/olav-bunte",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_eindhoven_phd_db81b072": {
+    "sourceUrl": "https://research.tue.nl/en/organisations/computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_twente_undergraduate_d50805b9": {
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/index.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_twente_master_445ddaa5": {
+    "sourceUrl": "https://www.utwente.nl/en/education/master/programmes/computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_twente_phd_db81b072": {
+    "sourceUrl": "https://www.utwente.nl/en/eemcs/discipline-cs/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_groningen_undergraduate_4b42dcfb": {
+    "sourceUrl": "https://www.rug.nl/bachelors/computing-science/?lang=en",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_groningen_master_4b42dcfb": {
+    "sourceUrl": "https://www.rug.nl/masters/computing-science/?lang=en",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_groningen_phd_af28aefe": {
+    "sourceUrl": "https://www.rug.nl/research/bernoulli/?lang=en",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_maastricht_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/computer-science",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_maastricht_master_80f921dc": {
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/master/programmes/artificial-intelligence/why-this-programme",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_maastricht_phd_623ef12f": {
+    "sourceUrl": "https://www.maastrichtuniversity.nl/research/department-advanced-computing-sciences/education",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_trinity_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.tcd.ie/courses/undergraduate/courses/computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_trinity_master_445ddaa5": {
+    "sourceUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_trinity_phd_445ddaa5": {
+    "sourceUrl": "https://www.tcd.ie/courses/postgraduate/postgraduate-research/engineering-mathematics-and-science/school-of-computer-science-and-statistics/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_ucd_undergraduate_445ddaa5": {
+    "sourceUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?AUDIENCE=Int&MAJR=CSSF&p_tag=COURSE",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_ucd_master_7a2976a9": {
+    "sourceUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T150&p_tag=PROG",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_ucd_phd_445ddaa5": {
+    "sourceUrl": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T113&p_tag=COURSE",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_dcu_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.dcu.ie/special-instructions/comsci",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_dcu_master_f035532a": {
+    "sourceUrl": "https://www.dcu.ie/courses/postgraduate/school-computing/msc-computing",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_dcu_phd_94b9cf55": {
+    "sourceUrl": "https://www.dcu.ie/sites/default/files/inline-files/phd-scholarship-computing.pdf",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_galway_undergraduate_84430946": {
+    "sourceUrl": "https://www.universityofgalway.ie/science-engineering/school-of-computer-science/currentstudents/handbooks/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_galway_master_62862ee5": {
+    "sourceUrl": "https://www.universityofgalway.ie/science-engineering/postgraduateprogrammes/phd-and-masters/computer-science-masters.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_galway_phd_067243fa": {
+    "sourceUrl": "https://www.universityofgalway.ie/courses/research-postgraduate-programmes/structured-phd/computer-science.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_ucc_undergraduate_445ddaa5": {
+    "sourceUrl": "https://www.ucc.ie/en/ck401/index.html",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_ucc_master_4b42dcfb": {
+    "sourceUrl": "https://www.ucc.ie/en/ckr40/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_ucc_phd_db81b072": {
+    "sourceUrl": "https://www.ucc.ie/en/compsci/researchincomputerscience/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_asu_undergraduate_ceac8daf": {
+    "sourceUrl": "https://scai.engineering.asu.edu/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_asu_master_ceac8daf": {
+    "sourceUrl": "https://scai.engineering.asu.edu/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "US"
+  },
+  "catalogue_asu_phd_ceac8daf": {
+    "sourceUrl": "https://scai.engineering.asu.edu/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "US"
+  },
+  "catalogue_southampton_undergraduate_b55696e7": {
+    "sourceUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-degree-beng",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_southampton_master_b55696e7": {
+    "sourceUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-masters-msc",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "GB"
+  },
+  "catalogue_twente_undergraduate_9392ddb5": {
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/electrical-engineering/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_twente_master_9392ddb5": {
+    "sourceUrl": "https://www.utwente.nl/en/education/master/programmes/electrical-engineering/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "NL"
+  },
+  "catalogue_twente_phd_d7a30ea3": {
+    "sourceUrl": "https://www.utwente.nl/en/eemcs/ne/vacancies/",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "NL"
+  },
+  "catalogue_dcu_undergraduate_d417e506": {
+    "sourceUrl": "https://ece.eeng.dcu.ie/study",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_dcu_master_d417e506": {
+    "sourceUrl": "https://www.dcu.ie/courses/postgraduate/school-electronic-engineering/meng-electronic-and-computer-engineering",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "IE"
+  },
+  "catalogue_dcu_phd_b27cb48c": {
+    "sourceUrl": "https://www.dcu.ie/electronics/research-innovation-future-research-students",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "IE"
+  },
+  "catalogue_ajou_undergraduate_0765767f": {
+    "sourceUrl": "https://it.ajou.ac.kr/it/faculty/staff.do",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_ajou_master_0765767f": {
+    "sourceUrl": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "course",
+    "country": "KR"
+  },
+  "catalogue_ajou_phd_0765767f": {
+    "sourceUrl": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+    "checkedAt": "2026-11-08",
+    "evidenceScope": "programme_existence_only",
+    "admissionRoute": "research",
+    "country": "KR"
+  }
+}

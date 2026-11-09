@@ -1,0 +1,17 @@
+{
+    "countries": ["KR", "US", "GB", "NL", "IE"],
+    "degreeLevels": ["undergraduate", "master", "phd"],
+    "engineeringFields": [
+      "computing",
+      "electrical_electronic",
+      "mechanical",
+      "civil_environmental",
+      "chemical_materials",
+      "industrial_systems",
+      "aerospace",
+      "biomedical",
+      "other_engineering"
+    ],
+    "officialSourcesOnly": true,
+    "retrievalTopK": 5
+  }

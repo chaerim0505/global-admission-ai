@@ -1,0 +1,33 @@
+[
+    {
+      "programId": "galway-1mai1-2027",
+      "universityName": "University of Galway",
+      "country": "IE",
+      "programName": "MSc (Computer Science-Artificial Intelligence)",
+      "degreeLevel": "master",
+      "engineeringFields": ["computing"],
+      "topics": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Natural Language Processing"
+      ],
+      "fieldClassification": {
+        "status": "included",
+        "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+        "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+        "checkedAt": "2026-11-04"
+      },
+      "intake": "2027-09",
+      "academicRequirementText": "First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+      "minimumGpa": null,
+      "minimumGpaScale": null,
+      "applicationDeadline": null,
+      "languageRequirements": null,
+      "tuition": null,
+      "scholarships": [],
+      "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+      "checkedAt": "2026-11-04",
+      "verificationStatus": "needs_check"
+    }
+  ]

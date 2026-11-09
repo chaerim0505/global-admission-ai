@@ -1,0 +1,1307 @@
+{
+  "status": "existing_extracted_source_not_independently_reverified",
+  "sourcePackage": "../../sample/ajou_admissions",
+  "engineeringClassification": "pending; some rows may be outside engineering scope",
+  "data": {
+    "graduate_admission_deadlines": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "application_route": "international_admission",
+        "opens_at_local": "2026-10-07T09:00:00",
+        "deadline_at_local": "2026-11-25T17:00:00",
+        "timezone": "Asia/Seoul",
+        "timezone_basis": "Inferred from university location; not explicit on this page",
+        "required": true,
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 13,
+        "verification_scope": "Checked against uploaded guide; later notices not checked",
+        "event": "online_application",
+        "submission_method": [
+          "online"
+        ],
+        "deadline_basis": "submission_completed",
+        "notes": "Complete the online application through Study in Korea. Print the application form and submit it with the documents. Online application and document submission are both required."
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "application_route": "international_admission",
+        "opens_at_local": "2026-10-07T09:00:00",
+        "deadline_at_local": "2026-11-25T17:00:00",
+        "timezone": "Asia/Seoul",
+        "timezone_basis": "Inferred from university location; not explicit on this page",
+        "required": true,
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 13,
+        "verification_scope": "Checked against uploaded guide; later notices not checked",
+        "event": "document_submission",
+        "submission_method": [
+          "postal_mail",
+          "in_person"
+        ],
+        "deadline_basis": "received_by_university",
+        "notes": "Documents must arrive by the deadline. Late arrivals are not accepted even if posted earlier. In-person submissions are unavailable on weekends and holidays."
+      }
+    ],
+    "graduate_basic_eligibility": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "requirement_type": "international_applicant_eligibility",
+        "logic": "any_of",
+        "alternatives": [
+          {
+            "route": "applicant_and_parents_non_korean",
+            "logic": "all_of",
+            "conditions": [
+              "Applicant does not hold Korean citizenship",
+              "Applicant's parents do not hold Korean citizenship"
+            ]
+          },
+          {
+            "route": "entire_education_abroad",
+            "conditions": [
+              "Completed the entire curriculum of 16 years or more abroad",
+              "Curriculum equivalent to elementary, junior high, high school, and university"
+            ],
+            "logic": "all_of"
+          }
+        ],
+        "supporting_document_rules_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "scope_note": "Basic eligibility only. Education, language, department, document and deadline requirements must also be checked. Do not infer eligibility from nationality alone."
+      }
+    ],
+    "graduate_department_requirements": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Mechanical Engineering",
+        "major": "Mechanical Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Industrial Engineering",
+        "major": "Industrial Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Chemical Engineering",
+        "major": "Chemical Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "B",
+        "professor_precontact_required": true,
+        "some_classes_in_english": false,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Materials Science and Engineering",
+        "major": "Materials Science and Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Environmental Engineering",
+        "major": "Environmental Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Environmental Engineering",
+        "major": "Chemical Safety",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Civil Systems Engineering",
+        "major": "Civil Systems Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Smart Convergence Architecture",
+        "major": "Architecture",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Smart Convergence Architecture",
+        "major": "Architectural Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Molecular science & Technology",
+        "major": "Applied Chemistry(E)",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Molecular science & Technology",
+        "major": "Biological Engineering(E)",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Molecular science & Technology",
+        "major": "Medical Science(NS)",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "natural_science_label_review_needed",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Molecular science & Technology",
+        "major": "Pharmaceutical Science(NS)",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "natural_science_label_review_needed",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Electrical and Computer Engineering",
+        "major": "Electrical and Computer Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Space Electronics and Information Engineering",
+        "major": "Space Electronics and Information Engineering(E)",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "B",
+        "professor_precontact_required": true,
+        "some_classes_in_english": false,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Intelligence Semiconductor Engineering",
+        "major": "Intelligence Semiconductor Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Mobility Engineering",
+        "major": "Mobility Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Computer Engineering",
+        "major": "Computer Engineering",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Digital Media",
+        "major": "Digital Media",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "B",
+        "professor_precontact_required": true,
+        "some_classes_in_english": false,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Military Digital Convergence",
+        "major": "IT Convergence",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "B",
+        "professor_precontact_required": true,
+        "some_classes_in_english": false,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Military Digital Convergence",
+        "major": "Cyber warfare",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "B",
+        "professor_precontact_required": true,
+        "some_classes_in_english": false,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Artificial Intelligence",
+        "major": "Artificial Intelligence",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Artificial Intelligence",
+        "major": "Artificial Intelligence in Psychology",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Artificial Intelligence",
+        "major": "Artificial Intelligence in Medicine",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Artificial Intelligence Convergence Network",
+        "major": "Computer Engineering and Security",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "department": "Cybersecurity",
+        "major": "Cybersecurity",
+        "available_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "language_group": "A",
+        "professor_precontact_required": true,
+        "some_classes_in_english": true,
+        "fully_english_taught": null,
+        "engineering_scope_review": "pending",
+        "government_catalogue_match_status": "pending",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 16
+      }
+    ],
+    "graduate_education_requirements": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "application_degree": "master",
+        "requirement_type": "prior_education",
+        "required_degree": "bachelor",
+        "expected_graduation_accepted": true,
+        "degree_completion_deadline": "2027-02-28",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "scope_note": "Education requirement only; other conditions also apply."
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "application_degree": "doctoral",
+        "requirement_type": "prior_education",
+        "required_degree": "master",
+        "expected_graduation_accepted": true,
+        "degree_completion_deadline": "2027-02-28",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "scope_note": "Education requirement only; other conditions also apply."
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "application_degree": "integrated_master_doctoral",
+        "requirement_type": "prior_education",
+        "required_degree": "bachelor",
+        "expected_graduation_accepted": true,
+        "degree_completion_deadline": "2027-02-28",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "scope_note": "Education requirement only; other conditions also apply."
+      }
+    ],
+    "graduate_language_requirements": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "requirement_type": "language",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "department_mapping_status": "pending",
+        "language_group": "A",
+        "logic": "any_of",
+        "accepted_tests": [
+          {
+            "test": "TOPIK",
+            "minimum_level": 4
+          },
+          {
+            "test": "TOEFL iBT",
+            "minimum_score": 71
+          },
+          {
+            "test": "IELTS",
+            "minimum_score": 5.5
+          },
+          {
+            "test": "TEPS",
+            "minimum_score": 600
+          },
+          {
+            "test": "New TEPS",
+            "minimum_score": 234
+          }
+        ],
+        "conditional_alternative": {
+          "evidence": "Certificate of higher education with English as the medium of instruction",
+          "condition": "Applicants from countries where English is a mother tongue or an official language",
+          "replaces": "Official English proficiency test score"
+        },
+        "scope_note": "Only for departments assigned language group A."
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "requirement_type": "language",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 15,
+        "department_mapping_status": "pending",
+        "language_group": "B",
+        "logic": "TOPIK_required",
+        "accepted_tests": [
+          {
+            "test": "TOPIK",
+            "minimum_level": 4
+          }
+        ],
+        "conditional_alternative": null,
+        "scope_note": "Only for departments assigned language group B. Some departments or majors may require a higher TOPIK level."
+      }
+    ],
+    "graduate_required_documents": [
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_application_form",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Application form",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "Apply through Study in Korea. Application Form IV includes a financial affidavit that the financial guarantor must sign.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_color_photo",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Color photo",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "3.5 × 4.5 cm, with a white background.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_undergraduate_transcript",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Undergraduate transcript",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "Must show subject credits and marks, plus cumulative GPA or overall percentage. If neither is shown, provide an official grade-conversion document from the university. Authentication and language requirements also apply.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_graduate_transcript",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Graduate transcript",
+        "application_degrees": [
+          "doctoral"
+        ],
+        "requirement_condition": "Required for doctoral applicants",
+        "preparation_notes": "Same transcript-content requirements as above. Authentication and language requirements also apply.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_undergraduate_diploma",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Undergraduate diploma",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required; expected-graduate document handling needs review",
+        "preparation_notes": "The guide provides different certification instructions for Chinese and other applicants. Check the source before generating a personalized certification checklist.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_graduate_diploma",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Graduate diploma",
+        "application_degrees": [
+          "doctoral"
+        ],
+        "requirement_condition": "Required for doctoral applicants; expected-graduate handling needs review",
+        "preparation_notes": "Country-specific certification instructions apply.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_study_plan",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Study plan",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "Use the Graduate School's designated form.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_professor_precontact_letter",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Professor pre-contact confirmation letter",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required when the department requires professor pre-contact",
+        "preparation_notes": "Use the designated form. The contacted professor must write the confirmation letter. Submit by the document deadline.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_recommendation_letter",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Recommendation letter",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "Free format, from the academic advisor, department chief, or college dean of the university attended.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_financial_certification",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Financial certification",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required, with sponsorship exceptions",
+        "preparation_notes": "Bank balance of at least USD 20,000 maintained for at least one month, from a bank in the applicant's home country or Korea. Account holder: applicant, parent, or spouse. A parent or spouse must complete and sign the relevant section of Form IV. External scholarship recipients must submit a scholarship certificate. If an Ajou faculty member is the financial guarantor, the guide says no additional financial documents are required.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_passport_copy",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Passport copy",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required",
+        "preparation_notes": "Applicants who have an Alien Registration Card must also submit a copy of that card.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_language_certificate",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Language proficiency evidence",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Required, subject to the applicable language rules",
+        "preparation_notes": "Listed tests: TOEFL, TEPS, IELTS, TOPIK. Results must be valid on the submission date. Applicants meeting the guide's English country/language and English-medium higher-education conditions may submit an institution-issued MOI certificate instead of an English test score. Apply the department's language group.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 18
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_family_relationship_and_parent_identity",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "Family relationship and parent identity evidence",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Applies to the non-Korean citizenship route for the applicant and parents.",
+        "preparation_notes": "Provide a birth or family relationship certificate and copies of parents' passports. Ajou lists alternative identity documents and extra evidence for some family situations. Applicants with Chinese citizenship should check the household register or family certificate rule.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 19
+      },
+      {
+        "document_requirement_id": "ajou_grad_2027_spring_school_history_abroad",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "document_name": "School diplomas and transcripts for education abroad",
+        "application_degrees": [
+          "master",
+          "doctoral",
+          "integrated_master_doctoral"
+        ],
+        "requirement_condition": "Applies to the route based on completing the full curriculum abroad.",
+        "preparation_notes": "Provide diplomas from elementary, middle, and high school and official transcripts for all grades. Check the guide for originals, language, and authentication requirements.",
+        "validation_status": "draft",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 19
+      }
+    ],
+    "graduate_scholarships": [
+      {
+        "scholarship_id": "ajou_global_2027_spring",
+        "name": "Ajou Global Scholarship",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "applicant_stage": "new_students",
+        "selection": {
+          "department_recommendation_required": true,
+          "committee_selection_required": true,
+          "guaranteed_by_test_score_alone": false
+        },
+        "benefits": [
+          {
+            "degree": "master",
+            "tuition_coverage_percent": 40,
+            "maximum_semesters": 4
+          },
+          {
+            "degree": "doctoral",
+            "tuition_coverage_percent": 80,
+            "maximum_semesters": 6
+          },
+          {
+            "degree": "integrated_master_doctoral",
+            "maximum_semesters": 8,
+            "phases": [
+              {
+                "semesters": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tuition_coverage_percent": 40
+              },
+              {
+                "semesters": [
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "tuition_coverage_percent": 80
+              }
+            ]
+          }
+        ],
+        "entrance_fee_covered": false,
+        "language_requirements": {
+          "logic": "any_of_with_applicable_country_group",
+          "TOPIK_minimum_level": 5,
+          "english_test_alternatives": [
+            {
+              "source_country_group": "English",
+              "minimum_scores": {
+                "TOEFL iBT": 85,
+                "TEPS": 640,
+                "New TEPS": 285,
+                "IELTS": 6.0
+              }
+            },
+            {
+              "source_country_group": "Non-English",
+              "minimum_scores": {
+                "TOEFL iBT": 71,
+                "TEPS": 600,
+                "New TEPS": 234,
+                "IELTS": 5.5
+              }
+            }
+          ],
+          "country_group_mapping_status": "not_verified",
+          "conditional_alternative": {
+            "condition": "Applicant is from an English mother-tongue country",
+            "evidence": "Certificate of higher education with English as medium of instruction",
+            "replaces": "Official language test score"
+          },
+          "interpretation_note": "One accepted test alternative is sufficient for the language condition. Do not require every listed test. Country-group assignment must be checked, not inferred from test language."
+        },
+        "renewal_conditions": {
+          "minimum_credits_each_semester": 4,
+          "minimum_gpa_each_semester": 3.5,
+          "gpa_scale": null,
+          "forbidden_grades": [
+            "F",
+            "U"
+          ],
+          "general_leave_of_absence_disqualifies": true
+        },
+        "excluded_departments": [
+          "Medical Sciences",
+          "Biomedical Sciences",
+          "Nursing",
+          "Molecular Science & Technology"
+        ],
+        "excluded_department_note": "Excluded students follow their respective departmental scholarship systems; this does not mean no funding is available.",
+        "teaching_assistant_duties": {
+          "source_scope": "Admitted full-time international students belonging to College of Engineering and Department of Computer Engineering",
+          "mandatory": true,
+          "doctoral_hours_per_week": 8,
+          "other_degree_hours_per_week": null,
+          "department_scope_mapping_status": "pending"
+        },
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 19,
+        "verification_scope": "Uploaded guide; later notices not checked",
+        "other_scholarship_combination_rules_status": "pending"
+      },
+      {
+        "scholarship_id": "ajou_entrance_fee_2027_spring",
+        "name": "Ajou Entrance Fee Scholarship",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "intake": "2027 Spring",
+        "eligible_degrees_explicitly_listed": [
+          "master",
+          "doctoral"
+        ],
+        "integrated_program_eligibility": null,
+        "selection_description": "All qualified students",
+        "required_language_institute": "Korean Language Institute of Ajou University",
+        "study_duration_condition": {
+          "source_wording": "completed over 4 semesters",
+          "operator": ">",
+          "semesters": 4
+        },
+        "benefit_type": "entrance_fee_waiver",
+        "benefit_tiers": [
+          {
+            "TOPIK_minimum_level": 5,
+            "entrance_fee_waiver_percent": 100
+          },
+          {
+            "TOPIK_exact_level": 4,
+            "entrance_fee_waiver_percent": 75
+          }
+        ],
+        "tier_combination_rule": "Apply one matching tier; do not add percentages",
+        "can_combine_with": [
+          "ajou_global_2027_spring"
+        ],
+        "other_award_combinations": "not_verified",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 20,
+        "verification_scope": "Uploaded guide; later notices not checked"
+      },
+      {
+        "scholarship_id": "ajou_research_2027_spring",
+        "name": "Ajou Research Scholarship",
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "applicant_stage": "continuing_students",
+        "first_semester_eligible": false,
+        "benefits": [
+          {
+            "degree": "master",
+            "tuition_coverage_percent": 60
+          },
+          {
+            "degree": "doctoral",
+            "tuition_coverage_percent": 100
+          }
+        ],
+        "integrated_program_eligibility": null,
+        "selection": {
+          "department_recommendation_required": true,
+          "committee_selection_required": true,
+          "basis": "Excellent research performance",
+          "frequency": "Each semester",
+          "guaranteed": false,
+          "maximum_recipient_percent": 50,
+          "recipient_pool_note": "Guide refers to registered international students, excluding new students. Exact denominator requires confirmation."
+        },
+        "academic_conditions": {
+          "assessment_period": "previous_semester",
+          "minimum_credits": 4,
+          "minimum_gpa": 3.5,
+          "gpa_scale": null,
+          "forbidden_grades": [
+            "F",
+            "U"
+          ]
+        },
+        "leave_restrictions": [
+          "Students returning from leave of absence cannot receive the award",
+          "Students with a record of general leave of absence are excluded"
+        ],
+        "award_combination_rules": {
+          "status": "requires_clarification",
+          "source_summary": "The guide prohibits simultaneous Global and Research awards, but also mentions extra 20% tuition support for successful Global Scholarship candidates. It gives similar wording for AUT master's scholarship recipients.",
+          "automatic_combined_discount_calculation_allowed": false
+        },
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 20,
+        "verification_scope": "Uploaded guide; later notices not checked"
+      }
+    ],
+    "graduate_tuition_fees": [
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Engineering",
+        "currency": "KRW",
+        "tuition_amount": 7451000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 8351000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Natural Science",
+        "currency": "KRW",
+        "tuition_amount": 6439000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 7339000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Humanity & Business & Social Science",
+        "currency": "KRW",
+        "tuition_amount": 5599000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 6499000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Financial Engineering",
+        "currency": "KRW",
+        "tuition_amount": 7022000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 7922000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Medical Science",
+        "currency": "KRW",
+        "tuition_amount": 8683000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 9583000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      },
+      {
+        "university": "Ajou University",
+        "school": "General Graduate School",
+        "guide_intake": "2027 Spring",
+        "fee_reference_year": 2026,
+        "field_of_study": "Pharmacy",
+        "currency": "KRW",
+        "tuition_amount": 8067000,
+        "entrance_fee_amount": 900000,
+        "listed_total_amount": 8967000,
+        "tuition_billing_period": null,
+        "billing_period_status": "not_explicit_in_source_table",
+        "confirmed_for_2027": false,
+        "department_mapping_status": "pending",
+        "notes": "The guide states these are 2026 fees and may change. The listed total is tuition plus entrance fee, not the total cost of completing the degree.",
+        "source_document_id": "3eb1ecaec6fd611c1059164feddf1c956f266957dfa9492fa6e6dc8b3b61ad09",
+        "source_file": "(261023)_[Ajou_University]_2026_Spring_Graduate_School_Admission_Guide.pdf",
+        "source_pdf_page": 21
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+# 골든 케이스 — 형식 예시 5개. 팀원이 20개로 늘린다.
+# 각 케이스는 ac 번호로 SPEC.md 6절 수용 기준과 연결한다.
+# 실행: PYTHONPATH=src python -m admission.evaluator
+#
+# expected에 쓸 수 있는 키:
+#   status (200|422), input_error_fields, countries_only, degree_only,
+#   must_include, must_exclude, excluded_include, candidates_empty,
+#   must_have_source, scope_notice, needs_check_items, budget_fit,
+#   follow_ups_nonempty
+
+- id: GC-01
+  ac: [AC1, AC2, AC4]
+  query: "미얀마에서 학사 졸업, GPA 3.4/4.0. 아일랜드 컴퓨터 석사를 찾아요."
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    engineeringFields: [computing]
+    interests: [AI]
+    preferredCountries: [IE]
+  expected:
+    countries_only: [IE]
+    degree_only: master
+    must_include: [galway-1mai1-2027]
+    must_have_source: true
+
+- id: GC-02
+  ac: [AC15]
+  query: "석사 가고 싶어요."
+  input:
+    applicantType: master
+  expected:
+    status: 422
+    input_error_fields: [currentEducationLevel, transcriptCountry, academicScore, gradingSystem, interests]
+
+- id: GC-03
+  ac: [AC13]
+  query: "캐나다 컴퓨터 석사 추천해 주세요."
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    engineeringFields: [computing]
+    preferredCountries: [CA]
+  expected:
+    scope_notice: true
+    candidates_empty: true
+
+- id: GC-04
+  ac: [AC5]
+  query: "어학 점수 없이 아일랜드 AI 석사를 찾아요."
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    interests: [Artificial Intelligence]
+    preferredCountries: [IE]
+  expected:
+    must_include: [galway-1mai1-2027]
+    needs_check_items: [academic, language]
+    follow_ups_nonempty: true
+
+- id: GC-05
+  ac: [AC2, AC9]
+  query: "아일랜드 학부 과정을 찾아요."
+  input:
+    applicantType: undergraduate
+    currentEducationLevel: high_school
+    transcriptCountry: MM
+    academicScore: 90
+    gradingSystem: percentage
+    engineeringFields: [computing]
+    preferredCountries: [IE]
+  expected:
+    candidates_empty: true
+    follow_ups_nonempty: true

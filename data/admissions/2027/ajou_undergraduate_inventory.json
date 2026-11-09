@@ -1,0 +1,31 @@
+{
+  "intake": "2027-03",
+  "applicantScope": "international_freshman_korean_track",
+  "sourceId": "ajou-ug",
+  "pdfPages": [
+    4
+  ],
+  "requirementsRecordId": "ajou-ug-2027",
+  "inventory": [
+    "Mechanical Engineering",
+    "Industrial Engineering",
+    "Chemical Engineering",
+    "Material Science and Engineering",
+    "Eco-Energy Engineering",
+    "Civil System Engineering",
+    "Transportation System Engineering",
+    "Architecture Engineering Major (4 years)",
+    "Architecture Major (5 years)",
+    "Electrical and Computer Engineering",
+    "Mobility Engineering",
+    "AI Computer Engineering",
+    "Computer Science and Technology Major",
+    "Cyber Security",
+    "Digital Media"
+  ],
+  "mappingStatus": "candidate units transcribed; catalogue expansion and field classification pending",
+  "notes": [
+    "Architecture five-year professional degree and Digital Media need scope decisions.",
+    "Computer Science and Technology is a named major under AI Computer Engineering, not a separate department."
+  ]
+}

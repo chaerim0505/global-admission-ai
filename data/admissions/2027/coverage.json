@@ -1,0 +1,1767 @@
+[
+  {
+    "country": "GB",
+    "universityName": "University of Birmingham",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/computer-science-courses/computer-science-bsc",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Birmingham",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/computer-science-msc",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Birmingham",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/computer-science/postgraduate-research",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Manchester",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00560/bsc-computer-science/application-and-selection/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Manchester",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Manchester",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/02954/phd-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Sheffield",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Sheffield",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://sheffield.ac.uk/postgraduate/taught/courses/2026/advanced-computer-science-msc",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Sheffield",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://sheffield.ac.uk/cs/phd-study",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Southampton",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.southampton.ac.uk/courses/computer-science-degree-bsc",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.southampton.ac.uk/courses/electronic-engineering-degree-beng",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Southampton",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.southampton.ac.uk/courses/computer-science-masters-msc",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.southampton.ac.uk/courses/electronic-engineering-masters-msc",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of Southampton",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.southampton.ac.uk/study/postgraduate-research/electronics-computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of York",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of York",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.york.ac.uk/computer-science/study/postgraduate-research/msc-computer-science-by-research/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "GB",
+    "universityName": "University of York",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.york.ac.uk/computer-science/study/postgraduate-research/phd-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Dublin City University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.dcu.ie/special-instructions/comsci",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://ece.eeng.dcu.ie/study",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Dublin City University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_dcu_master_d417e506"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.dcu.ie/courses/postgraduate/school-computing/msc-computing",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.dcu.ie/courses/postgraduate/school-electronic-engineering/meng-electronic-and-computer-engineering",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Dublin City University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.dcu.ie/sites/default/files/inline-files/phd-scholarship-computing.pdf",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.dcu.ie/electronics/research-innovation-future-research-students",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Trinity College Dublin",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tcd.ie/courses/undergraduate/courses/computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Trinity College Dublin",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "Trinity College Dublin",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tcd.ie/courses/postgraduate/postgraduate-research/engineering-mathematics-and-science/school-of-computer-science-and-statistics/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Cork",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ucc.ie/en/ck401/index.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Cork",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ucc.ie/en/ckr40/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Cork",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ucc.ie/en/compsci/researchincomputerscience/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Dublin",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?AUDIENCE=Int&MAJR=CSSF&p_tag=COURSE",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Dublin",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T150&p_tag=PROG",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University College Dublin",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://hub.ucd.ie/usis/%21W_HU_MENU.P_PUBLISH?MAJR=T113&p_tag=COURSE",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University of Galway",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.universityofgalway.ie/science-engineering/school-of-computer-science/currentstudents/handbooks/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University of Galway",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.universityofgalway.ie/science-engineering/postgraduateprogrammes/phd-and-masters/computer-science-masters.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "IE",
+    "universityName": "University of Galway",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.universityofgalway.ie/courses/research-postgraduate-programmes/structured-phd/computer-science.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Ajou University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_ajou_undergraduate_9b3289a3",
+      "catalogue_ajou_undergraduate_0765767f"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ajou.ac.kr/iadmissions/undergraduate/notice.do?mode=download&articleNo=374602&attachNo=332961",
+        "fetchStatus": null,
+        "fetchError": null
+      },
+      {
+        "url": "https://it.ajou.ac.kr/it/faculty/staff.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Ajou University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [
+      "prog_efbb2f93024b0d07c66b1beb",
+      "prog_50ac6f9f06f1ef6efa1965e6",
+      "prog_d232c4fa7e5e09d2805334de"
+    ],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Ajou University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [
+      "prog_be1d3941977bfc7d5fa7276e",
+      "prog_fb8c8f400619ef9cbf6a6a3f",
+      "prog_8912baae8957a1cc8919d67c"
+    ],
+    "sourceCandidates": [
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.ajou.ac.kr/gs_eng/admission/foreigner01.do",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Hanyang University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.hanyang.ac.kr/en/-01-2-1",
+        "fetchStatus": null,
+        "fetchError": "403 Client Error: Forbidden for url: https://cs.hanyang.ac.kr/en/-01-2-1"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Hanyang University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.hanyang.ac.kr/en/-01-2-1",
+        "fetchStatus": null,
+        "fetchError": "403 Client Error: Forbidden for url: https://cs.hanyang.ac.kr/en/-01-2-1"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Hanyang University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.hanyang.ac.kr/en/-01-2-1",
+        "fetchStatus": null,
+        "fetchError": "403 Client Error: Forbidden for url: https://cs.hanyang.ac.kr/en/-01-2-1"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "KAIST",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_kaist_undergraduate_f035532a"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.kaist.ac.kr/content?menu=318",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "KAIST",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_kaist_master_f035532a"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.kaist.ac.kr/content?menu=156",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "KAIST",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_kaist_phd_f035532a"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.kaist.ac.kr/content?menu=156",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Seoul National University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_snu_undergraduate_7c839c0f"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cse.snu.ac.kr/en",
+        "fetchStatus": null,
+        "fetchError": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Seoul National University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_snu_master_7c839c0f"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cse.snu.ac.kr/en/admissions/graduate/regular-admission",
+        "fetchStatus": null,
+        "fetchError": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Seoul National University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "partial_2027_requirements",
+    "linkedProgrammeIds": [
+      "catalogue_snu_phd_7c839c0f"
+    ],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cse.snu.ac.kr/en/admissions/graduate/regular-admission",
+        "fetchStatus": null,
+        "fetchError": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Sungkyunkwan University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://ics.skku.edu/eng_sw/under_sw_curriculum.do?lang=All&pager.offset=135",
+        "fetchStatus": null,
+        "fetchError": "503 Server Error: Service Unavailable for url: https://ics.skku.edu/eng_sw/under_sw_curriculum.do?lang=All&pager.offset=135"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Sungkyunkwan University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90",
+        "fetchStatus": null,
+        "fetchError": "503 Server Error: Service Unavailable for url: https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "KR",
+    "universityName": "Sungkyunkwan University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90",
+        "fetchStatus": null,
+        "fetchError": "503 Server Error: Service Unavailable for url: https://sme.skku.edu/eng_sw/grad_sw_curriculum.do?lang=All&pager.offset=90"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Delft University of Technology",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/computer-science/education",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Delft University of Technology",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tudelft.nl/en/education/programmes/masters/cs/msc-computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Delft University of Technology",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.tudelft.nl/en/eemcs/study/eemcs-graduate-school/doctoral-education-programme",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Eindhoven University of Technology",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://research.tue.nl/p/en/courses/scope-computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Eindhoven University of Technology",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://research.tue.nl/p/en/persons/olav-bunte",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Eindhoven University of Technology",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://research.tue.nl/en/organisations/computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Maastricht University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Maastricht University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.maastrichtuniversity.nl/education/master/programmes/artificial-intelligence/why-this-programme",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "Maastricht University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.maastrichtuniversity.nl/research/department-advanced-computing-sciences/education",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Groningen",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.rug.nl/bachelors/computing-science/?lang=en",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Groningen",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.rug.nl/masters/computing-science/?lang=en",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Groningen",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.rug.nl/research/bernoulli/?lang=en",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Twente",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/index.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.utwente.nl/en/education/bachelor/programmes/electrical-engineering/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Twente",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.utwente.nl/en/education/master/programmes/computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.utwente.nl/en/education/master/programmes/electrical-engineering/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "NL",
+    "universityName": "University of Twente",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.utwente.nl/en/eemcs/discipline-cs/",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://www.utwente.nl/en/eemcs/ne/vacancies/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Arizona State University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://scai.engineering.asu.edu/",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://scai.engineering.asu.edu/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Arizona State University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://scai.engineering.asu.edu/graduate-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://scai.engineering.asu.edu/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Arizona State University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://scai.engineering.asu.edu/graduate-computer-science/",
+        "fetchStatus": 200,
+        "fetchError": null
+      },
+      {
+        "url": "https://scai.engineering.asu.edu/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Iowa State University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://catalog.iastate.edu/collegeofengineering/computerengineering/",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Iowa State University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Iowa State University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://www.grad-college.iastate.edu/programs/computer_engineering",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Oregon State University",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.oregonstate.edu/academics/programs/computer-science/undergraduate",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Oregon State University",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "Oregon State University",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.oregonstate.edu/academics/programs/computer-science/graduate",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University at Buffalo",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.buffalo.edu/computer-science-engineering/undergraduate/degrees-and-programs/bs-in-computer-science.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University at Buffalo",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University at Buffalo",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://engineering.buffalo.edu/computer-science-engineering/graduate/degrees-and-programs.html",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University of Texas at Dallas",
+    "degreeLevel": "undergraduate",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://cs.utdallas.edu/",
+        "fetchStatus": null,
+        "fetchError": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University of Texas at Dallas",
+    "degreeLevel": "master",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  },
+  {
+    "country": "US",
+    "universityName": "University of Texas at Dallas",
+    "degreeLevel": "phd",
+    "targetYear": 2027,
+    "fullEngineeringCoverage": false,
+    "status": "2027_requirements_not_verified",
+    "linkedProgrammeIds": [],
+    "existingAjouDetailIds": [],
+    "sourceCandidates": [
+      {
+        "url": "https://catalog.utdallas.edu/2026/graduate/programs/ecs/computer-science",
+        "fetchStatus": 200,
+        "fetchError": null
+      }
+    ],
+    "remaining": [
+      "Enumerate all engineering admission units and tracks.",
+      "Confirm 2027 intake, international new-entry eligibility and department overrides.",
+      "Extract documents, language alternatives, fees, scholarships and typed deadlines with sources."
+    ]
+  }
+]

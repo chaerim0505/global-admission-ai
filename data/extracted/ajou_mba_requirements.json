@@ -1,0 +1,44 @@
+{
+  "university": "아주대학교",
+  "program": "자산경영학과(재테크MBA)",
+  "degree": "경영학석사(재무금융)",
+  "intake": "2027학년도 전기",
+  "requirements": {
+    "gpa": {
+      "value": null,
+      "evidenceText": null,
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    },
+    "english": {
+      "value": null,
+      "evidenceText": null,
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    },
+    "tuition": {
+      "value": null,
+      "evidenceText": null,
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    },
+    "scholarship": {
+      "value": null,
+      "evidenceText": null,
+      "verificationStatus": "needs_check",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    },
+    "deadline": {
+      "value": "2026. 11. 1.(일) ~ 12. 23.(수)",
+      "evidenceText": "2026. 11. 1.(일) ~ 12. 23.(수)",
+      "verificationStatus": "evidence_found",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    },
+    "eligibility": {
+      "value": "국내외 4년제 대학 학사학위 소지자 또는 졸업예정자, 동등 학력 인정자.",
+      "evidenceText": "국내외 4년제 대학 학사학위 소지자 또는 졸업예정자, 동등 학력 인정자.",
+      "verificationStatus": "evidence_found",
+      "sourceUrl": "https://www.ajou.ac.kr/kr/admission/grad-board.do?mode=download&articleNo=378899&attachNo=336492"
+    }
+  }
+}
