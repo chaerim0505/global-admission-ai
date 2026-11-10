@@ -740,14 +740,14 @@ def send_message() -> None:
     })
 
     try:
-        response = requests.post(
-            f"{API_BASE_URL}/agent/run",
-            json={
-                "text": message,
-                "previousContext": state.get("agent_context"),
-            },
-            timeout=60,
-        )
+    response = requests.post(
+        f"{API_BASE_URL}/agent/run",
+        json={
+            "text": message,
+            "previousContext": state.get("agent_context"),
+        },
+        timeout=(10, 120),
+    )
         response.raise_for_status()
         result = response.json()
 
