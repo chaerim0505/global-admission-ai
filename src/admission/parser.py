@@ -1,6 +1,6 @@
+import os
 from pathlib import Path
-
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
@@ -43,10 +43,10 @@ def parse_query(text: str) -> RequestContext:
     if not text.strip():
         raise ValueError("입력 문장이 비어 있습니다.")
 
-    settings = dotenv_values(PROJECT_ROOT / ".env")
-    api_key = settings.get("GEMINI_API_KEY")
-    model = settings.get("GEMINI_MODEL")
+    load_dotenv(PROJECT_ROOT / ".env")
 
+    api_key = os.getenv("GEMINI_API_KEY")
+    model = os.getenv("GEMINI_MODEL")
     if not api_key or not model:
         raise RuntimeError("Gemini API 키 또는 모델 설정이 없습니다.")
 
