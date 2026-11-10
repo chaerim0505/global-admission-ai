@@ -632,10 +632,16 @@ def show_card(program: dict) -> None:
                     for line in lines:
                         st.write(line)
 
-        st.info(
-            "Catalogue match only. Admission eligibility "
-            "has not yet been assessed."
-        )
+        if program.get("verificationStatus") == "ai_suggested":
+            st.info(
+                "Found by Gemini web search. Admission eligibility "
+                "has not yet been assessed."
+            )
+        else:
+            st.info(
+                "Catalogue match only. Admission eligibility "
+                "has not yet been assessed."
+            )
 
         url = str(program.get("sourceUrl") or "")
         if missing:
@@ -1404,6 +1410,214 @@ Use this response format:
         "the linked official university pages."
     )
 
+def _parse_json_list(text: str) -> list:
+    """Extract the first JSON array from a model response."""
+    import re
+
+    text = text or ""
+    fenced = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", text, re.S)
+    candidate = fenced.group(1) if fenced else None
+
+    if candidate is None:
+        start, end = text.find("["), text.rfind("]")
+        if start == -1 or end <= start:
+            return []
+        candidate = text[start:end + 1]
+
+    try:
+        data = json.loads(candidate)
+    except json.JSONDecodeError:
+        return []
+
+    return data if isinstance(data, list) else []
+
+
+def _number(value):
+    try:
+        return float(value) if value not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
+def search_programmes_with_gemini(context: dict, exclude: set) -> list[dict]:
+    """Ask Gemini (with Google Search) for programmes matching the context."""
+    import hashlib
+    from datetime import date
+
+    from dotenv import load_dotenv
+    from google import genai
+    from google.genai import types
+
+    load_dotenv(ROOT / ".env")
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY is missing.")
+
+    countries = context.get("preferredCountries") or []
+    country_names = ", ".join(
+        f"{COUNTRIES.get(code, code)} ({code})" for code in countries
+    )
+    degree = DEGREES.get(
+        context.get("applicantType"), context.get("applicantType")
+    )
+    fields = ", ".join(
+        FIELDS.get(field, field)
+        for field in (context.get("engineeringFields") or [])
+    ) or "engineering"
+    interests = ", ".join(context.get("interests") or []) or "none given"
+    budget = context.get("maximumTuition")
+    budget_text = (
+        f"{budget:,.0f} {context.get('tuitionCurrency') or ''} per "
+        f"{context.get('tuitionPeriod') or 'year'}"
+        if isinstance(budget, (int, float)) and budget > 0
+        else "not specified"
+    )
+    skip = ", ".join(sorted(name for name in exclude if name)) or "none"
+
+    prompt = f"""
+You are an international university admissions research assistant.
+Use Google Search to find real {degree} programmes for an international
+student, using official university websites.
+
+Countries: {country_names}
+Degree level: {degree}
+Fields: {fields}
+Interests: {interests}
+Maximum tuition: {budget_text}
+Do not include these universities: {skip}
+
+Return up to 5 programmes, spread across the countries above.
+Only include programmes that really exist and that you found on an
+official university website. Never invent URLs or numbers; use null
+when a value is not published.
+
+Reply with ONLY a JSON array, no other text. Each item:
+{{
+  "universityName": "...",
+  "programName": "...",
+  "country": "two-letter code from the list above",
+  "sourceUrl": "https://official programme page",
+  "tuitionAmount": number or null,
+  "tuitionCurrency": "GBP/USD/EUR/KRW" or null,
+  "tuitionPeriod": "year" or "programme" or null,
+  "ieltsOverall": number or null,
+  "applicationDeadline": "YYYY-MM-DD" or null,
+  "intake": "e.g. September 2027" or null
+}}
+"""
+
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            tools=[types.Tool(google_search=types.GoogleSearch())],
+            temperature=0,
+        ),
+    )
+
+    today = date.today().isoformat()
+    programmes = []
+    seen = set()
+
+    for item in _parse_json_list(response.text):
+        if not isinstance(item, dict):
+            continue
+
+        university = str(item.get("universityName") or "").strip()
+        programme = str(item.get("programName") or "").strip()
+        url = str(item.get("sourceUrl") or "").strip()
+        country = str(item.get("country") or "").strip().upper()
+
+        if not university or not programme or not url.startswith("https://"):
+            continue
+        if university.lower() in exclude:
+            continue
+        key = (university.lower(), programme.lower())
+        if key in seen:
+            continue
+        seen.add(key)
+
+        amount = _number(item.get("tuitionAmount"))
+        ielts = _number(item.get("ieltsOverall"))
+
+        programmes.append({
+            "programId": "ai_" + hashlib.sha256(
+                f"{university}|{programme}".encode()
+            ).hexdigest()[:12],
+            "universityName": university,
+            "programName": programme,
+            "country": country if country in COUNTRIES else country or None,
+            "degreeLevel": context.get("applicantType"),
+            "intake": item.get("intake"),
+            "applicationDeadline": item.get("applicationDeadline"),
+            "tuition": (
+                {
+                    "amount": amount,
+                    "currency": item.get("tuitionCurrency") or "",
+                    "period": item.get("tuitionPeriod") or "year",
+                }
+                if amount is not None
+                else None
+            ),
+            "languageRequirements": (
+                [{"testType": "IELTS", "minimumScore": ielts}]
+                if ielts is not None
+                else None
+            ),
+            "sourceUrl": url,
+            "verificationStatus": "ai_suggested",
+            "checkedAt": today,
+        })
+
+    return programmes[:5]
+
+
+def show_ai_suggestions(context: dict, exclude: set, auto: bool) -> None:
+    """Show Gemini-found programmes when the dataset has few or no matches."""
+    cache_key = "ai_programmes_" + json.dumps(
+        context, sort_keys=True, default=str
+    )
+
+    if cache_key not in st.session_state:
+        if not auto and not st.button(
+            "🔎 Find more universities with Gemini",
+            key="ai_programmes_btn",
+        ):
+            return
+
+        try:
+            with st.spinner("Gemini is searching university websites..."):
+                st.session_state[cache_key] = {
+                    "items": search_programmes_with_gemini(context, exclude)
+                }
+        except Exception as error:
+            message = str(error)
+            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+                message = "Gemini API quota exceeded. Please try again later."
+            st.session_state[cache_key] = {"error": message}
+
+    result = st.session_state[cache_key]
+
+    if result.get("error"):
+        st.error(result["error"])
+        return
+
+    items = result.get("items") or []
+    if not items:
+        st.warning(
+            "Gemini could not find programmes with official sources "
+            "for these conditions."
+        )
+        return
+
+    for program in items:
+        show_card(program)
+        show_official_search(program)
+
+
 def show_results(programs: list[dict]) -> None:
     """Compare applicant conditions with documented programme requirements."""
     context = st.session_state.get("search")
@@ -1523,11 +1737,10 @@ def show_results(programs: list[dict]) -> None:
     )
 
     if not shown:
-        st.warning(
-            "No programmes remain after applying documented "
-            "requirements and selected filters."
+        st.info(
+            "No programmes in our verified data match these conditions. "
+            "Gemini is searching official university websites instead."
         )
-        return
 
     for program, issues, unknown, passed in shown:
         show_card(program)
@@ -1538,6 +1751,15 @@ def show_results(programs: list[dict]) -> None:
 
         if unknown:
             st.warning("Needs verification: " + "; ".join(unknown))
+
+    show_ai_suggestions(
+        context,
+        exclude={
+            str(program.get("universityName", "")).lower()
+            for program, _, _, _ in shown
+        },
+        auto=True,
+    )
 
     excluded = len(evaluated) - len(eligible)
     if excluded:
