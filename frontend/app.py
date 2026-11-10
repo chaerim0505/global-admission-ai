@@ -554,9 +554,60 @@ def show_admission_evidence(program_id: str) -> None:
 
 
 def show_card(program: dict) -> None:
-    """Display programme information."""
+    """Display programme information. Empty fields are hidden."""
+    def filled(value):
+        return value is not None and value != ""
+
     def display(value):
-        return str(value) if value is not None and value != "" else "Not published"
+        return str(value) if filled(value) else "-"
+
+    # (label, lines) for fields that have data
+    fields = []
+    missing = []
+
+    gpa = program.get("minimumGpa")
+    scale = program.get("minimumGpaScale")
+    if filled(gpa):
+        fields.append(("Minimum GPA", [f"{gpa} / {scale}" if scale else str(gpa)]))
+    else:
+        missing.append("GPA")
+
+    languages = [
+        f"{item.get('testType', 'Test')}: {item.get('minimumScore')}"
+        for item in (program.get("languageRequirements") or [])
+        if filled(item.get("minimumScore"))
+    ]
+    if languages:
+        fields.append(("Language requirements", languages))
+    else:
+        missing.append("language scores")
+
+    tuition = program.get("tuition")
+    amount = tuition.get("amount") if isinstance(tuition, dict) else None
+    if isinstance(amount, (int, float)):
+        fields.append((
+            "Tuition fee",
+            [f"{amount:,.0f} {tuition.get('currency', '')} / {tuition.get('period', '')}"],
+        ))
+    else:
+        missing.append("tuition")
+
+    deadline = program.get("applicationDeadline")
+    if filled(deadline):
+        fields.append(("Application deadline", [str(deadline)]))
+    else:
+        missing.append("deadline")
+
+    scholarships = [
+        item.get("name", "Scholarship")
+        for item in (program.get("scholarships") or [])
+    ]
+    if scholarships:
+        fields.append(("Scholarships", scholarships))
+
+    requirement = program.get("academicRequirementText")
+    if filled(requirement):
+        fields.append(("Academic requirement", [str(requirement)]))
 
     with st.container(border=True):
         st.subheader(program.get("universityName", "University"))
@@ -568,67 +619,18 @@ def show_card(program: dict) -> None:
         degree = DEGREES.get(
             program.get("degreeLevel"), program.get("degreeLevel", "")
         )
+        meta = [country, degree]
+        if filled(program.get("intake")):
+            meta.append(f"Intake: {program.get('intake')}")
+        st.caption(" · ".join(str(m) for m in meta if m))
 
-        st.caption(
-            f"{country} · {degree} · "
-            f"Intake: {display(program.get('intake'))}"
-        )
-
-        left, right = st.columns(2)
-
-        with left:
-            st.markdown("**Minimum GPA**")
-            gpa = program.get("minimumGpa")
-            scale = program.get("minimumGpaScale")
-
-            if gpa is not None:
-                st.write(f"{gpa} / {scale}" if scale else str(gpa))
-            else:
-                st.write("Not published")
-
-            st.markdown("**Language requirements**")
-            languages = program.get("languageRequirements")
-
-            if languages:
-                for item in languages:
-                    st.write(
-                        f"{item.get('testType', 'Test')}: "
-                        f"{display(item.get('minimumScore'))}"
-                    )
-            else:
-                st.write("Not verified")
-
-            st.markdown("**Application deadline**")
-            st.write(display(program.get("applicationDeadline")))
-
-        with right:
-            st.markdown("**Tuition fee**")
-            tuition = program.get("tuition")
-
-            if isinstance(tuition, dict):
-                amount = tuition.get("amount")
-                if isinstance(amount, (int, float)):
-                    st.write(
-                        f"{amount:,.0f} "
-                        f"{tuition.get('currency', '')} / "
-                        f"{tuition.get('period', '')}"
-                    )
-                else:
-                    st.write("Not published")
-            else:
-                st.write("Not published")
-
-            st.markdown("**Scholarships**")
-            scholarships = program.get("scholarships") or []
-
-            if scholarships:
-                for item in scholarships:
-                    st.write(item.get("name", "Scholarship"))
-            else:
-                st.write("No verified scholarship information")
-
-            st.markdown("**Academic requirement**")
-            st.write(display(program.get("academicRequirementText")))
+        if fields:
+            left, right = st.columns(2)
+            for index, (label, lines) in enumerate(fields):
+                with (left if index % 2 == 0 else right):
+                    st.markdown(f"**{label}**")
+                    for line in lines:
+                        st.write(line)
 
         st.info(
             "Catalogue match only. Admission eligibility "
@@ -636,7 +638,14 @@ def show_card(program: dict) -> None:
         )
 
         url = str(program.get("sourceUrl") or "")
-        if url.startswith("https://"):
+        if missing:
+            note = ", ".join(missing)
+            note = note[0].upper() + note[1:]
+            if url.startswith("https://"):
+                st.caption(f"{note}: please check the [official source]({url}).")
+            else:
+                st.caption(f"{note}: please check the university's official website.")
+        elif url.startswith("https://"):
             st.markdown(f"[Official source]({url})")
 
         st.caption(
