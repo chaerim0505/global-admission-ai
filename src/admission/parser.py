@@ -53,15 +53,15 @@ def parse_query(text: str) -> RequestContext:
     with genai.Client(
         api_key=api_key,
         http_options=types.HttpOptions(
-            timeout=20_000,
+            timeout=60_000,
             retry_options=types.HttpRetryOptions(
-                attempts=1,
-                http_status_codes=[503, 504],
+                attempts=3,
+                http_status_codes=[429, 500, 502, 503, 504],
                 initial_delay=2,
-                max_delay=8,
+                max_delay=10,
                 jitter=1,
-            ),
-        ),
+    ),
+),
     ) as client:
         response = client.models.generate_content(
             model=model,
