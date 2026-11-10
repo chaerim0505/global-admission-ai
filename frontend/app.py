@@ -1553,22 +1553,43 @@ def return_to_login():
 
 def login_user(email, password):
     import requests
+
     try:
         response = requests.post(
             f"{API_BASE_URL}/auth/login",
-            json={"email": email.strip(), "password": password},
-            timeout=15,
+            json={
+                "email": email.strip(),
+                "password": password,
+            },
+            timeout=45,
         )
+
         if response.status_code != 200:
             return {
-                "error": f"로그인 실패: HTTP {response.status_code} - {response.text}"
+                "error": (
+                    f"로그인 실패: HTTP {response.status_code} "
+                    f"- {response.text}"
+                )
             }
+
         data = response.json()
+
         if not data.get("access_token"):
-            return {"error": "서버에서 로그인 토큰을 받지 못했습니다."}
+            return {
+                "error": "서버에서 로그인 토큰을 받지 못했습니다."
+            }
+
         return data
-    except requests.RequestException:
-        return {"error": "FastAPI 서버에 연결할 수 없습니다. 포트 8001을 확인해 주세요."}
+
+    except requests.Timeout:
+        return {
+            "error": "서버 응답 시간이 초과되었습니다. 잠시 후 다시 시도해 주세요."
+        }
+
+    except requests.RequestException as error:
+        return {
+            "error": f"FastAPI 연결 오류: {type(error).__name__}"
+        }
 
 
 
