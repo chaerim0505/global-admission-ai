@@ -1,0 +1,1425 @@
+{
+  "meta": {
+    "timestamp": "2026-11-11T0246",
+    "commit": "ee7edf3",
+    "mode": "live+judge",
+    "repeat": 1,
+    "dataset_sha": "1f335e2bd7",
+    "judge_prompt_sha": "4acbd89457",
+    "model": "gemini-3.8-flash",
+    "note": "live baseline v1"
+  },
+  "summary": {
+    "metrics": {
+      "constraint_rate": {
+        "passed": 6,
+        "total": 6,
+        "rate": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "scope_rate": {
+        "passed": 2,
+        "total": 2,
+        "rate": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "input_validation_rate": {
+        "passed": 3,
+        "total": 3,
+        "rate": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "parse_accuracy": {
+        "passed": 6,
+        "total": 6,
+        "rate": 1.0,
+        "target": 0.9,
+        "meets_target": true
+      },
+      "injection_resistance": {
+        "passed": 1,
+        "total": 1,
+        "rate": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "followup_accuracy": {
+        "passed": 4,
+        "total": 4,
+        "rate": 1.0,
+        "target": 0.9,
+        "meets_target": true
+      },
+      "explore_rule_compliance": {
+        "passed": 2,
+        "total": 3,
+        "rate": 0.667,
+        "target": 1.0,
+        "meets_target": false
+      },
+      "reason_faithfulness": {
+        "passed": 2,
+        "total": 2,
+        "rate": 1.0,
+        "target": 0.8,
+        "meets_target": true
+      }
+    },
+    "hallucinated_verified_candidates": 0,
+    "counts": {
+      "pass": 24,
+      "fail": 0,
+      "error": 1,
+      "skipped": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "e01",
+      "category": "constraint",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC1",
+        "AC2",
+        "AC3",
+        "AC4"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [
+          {
+            "programId": "galway-1mai1-2027",
+            "universityName": "University of Galway",
+            "country": "IE",
+            "programName": "MSc (Computer Science-Artificial Intelligence)",
+            "degreeLevel": "master",
+            "engineeringField": "computing",
+            "topics": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Natural Language Processing"
+            ],
+            "fieldClassification": {
+              "status": "included",
+              "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "reason": "University of Galway의 MSc (Computer Science-Artificial Intelligence)는 computing 분야 과정입니다. 요건 2개 중 충족 0개, 확인 필요 2개. 학비 정보는 아직 확보하지 못했습니다. 확인 필요 항목이 있어 지원 가능 여부는 확정하지 않았습니다.",
+            "requirements": [
+              {
+                "item": "academic",
+                "status": "needs_check",
+                "evidence": "공식 요건 원문: First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              },
+              {
+                "item": "language",
+                "status": "needs_check",
+                "evidence": "공식 어학 요건을 아직 확보하지 못했습니다.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              }
+            ],
+            "tuition": null,
+            "applicationDeadline": {
+              "date": null,
+              "intake": "2027-09",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "scholarships": []
+          }
+        ],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "성적 요건은 공식 페이지에서 환산 기준을 확인해야 합니다.",
+          "어학 요건을 확인해야 합니다. 어학 점수를 입력하지 않았거나 공식 요건을 아직 확보하지 못했습니다.",
+          "모집 마감일이 확인되지 않은 과정이 있습니다.",
+          "학비 정보를 확보하지 못한 과정이 있습니다."
+        ],
+        "validationIssues": []
+      },
+      "judge": {
+        "status": "pass",
+        "verdicts": [
+          {
+            "verdict": "pass",
+            "reasoning": "대학명, 과정명, 분야(computing)가 후보 데이터와 정확히 일치합니다. 요건 총 2개 중 충족 0개, 확인 필요 2개 및 학비 정보 미확보 사실이 정확히 기재되었으며, 지원 가능 여부를 단정하지 않고 유보하여 기준을 완벽히 준수했습니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "e02",
+      "category": "constraint",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC1"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [
+          {
+            "programId": "galway-1mai1-2027",
+            "universityName": "University of Galway",
+            "country": "IE",
+            "programName": "MSc (Computer Science-Artificial Intelligence)",
+            "degreeLevel": "master",
+            "engineeringField": "computing",
+            "topics": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Natural Language Processing"
+            ],
+            "fieldClassification": {
+              "status": "included",
+              "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "reason": "University of Galway의 MSc (Computer Science-Artificial Intelligence)는 computing 분야 과정입니다. 요건 2개 중 충족 0개, 확인 필요 2개. 학비 정보는 아직 확보하지 못했습니다. 확인 필요 항목이 있어 지원 가능 여부는 확정하지 않았습니다.",
+            "requirements": [
+              {
+                "item": "academic",
+                "status": "needs_check",
+                "evidence": "공식 요건 원문: First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              },
+              {
+                "item": "language",
+                "status": "needs_check",
+                "evidence": "공식 어학 요건을 아직 확보하지 못했습니다.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              }
+            ],
+            "tuition": null,
+            "applicationDeadline": {
+              "date": null,
+              "intake": "2027-09",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "scholarships": []
+          }
+        ],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "성적 요건은 공식 페이지에서 환산 기준을 확인해야 합니다.",
+          "어학 요건을 확인해야 합니다. 어학 점수를 입력하지 않았거나 공식 요건을 아직 확보하지 못했습니다.",
+          "모집 마감일이 확인되지 않은 과정이 있습니다.",
+          "학비 정보를 확보하지 못한 과정이 있습니다."
+        ],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e03",
+      "category": "constraint",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC2",
+        "AC9"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "현재 확보하고 검증한 데이터에서 조건에 맞는 후보를 반환하지 못했습니다. 조건은 자동으로 완화하지 않았습니다. 희망 국가, 학위, 공학 세부 분야, 최대 학비를 확인하거나 변경해 다시 검색할 수 있습니다."
+        ],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e04",
+      "category": "constraint",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC2",
+        "AC9"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "현재 확보하고 검증한 데이터에서 조건에 맞는 후보를 반환하지 못했습니다. 조건은 자동으로 완화하지 않았습니다. 희망 국가, 학위, 공학 세부 분야, 최대 학비를 확인하거나 변경해 다시 검색할 수 있습니다."
+        ],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e05",
+      "category": "out_of_scope",
+      "metric": "scope_rate",
+      "ac": [
+        "AC13"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [],
+        "excluded": [],
+        "scopeNotices": [
+          "지원 범위 밖의 희망 국가: CA. 현재 한국·미국·영국·네덜란드·아일랜드의 공학 분야 학위 과정만 지원합니다. 희망 국가를 확인해 주세요."
+        ],
+        "followUps": [],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e06",
+      "category": "out_of_scope",
+      "metric": "scope_rate",
+      "ac": [
+        "AC13"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [
+          {
+            "programId": "galway-1mai1-2027",
+            "universityName": "University of Galway",
+            "country": "IE",
+            "programName": "MSc (Computer Science-Artificial Intelligence)",
+            "degreeLevel": "master",
+            "engineeringField": "computing",
+            "topics": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Natural Language Processing"
+            ],
+            "fieldClassification": {
+              "status": "included",
+              "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "reason": "University of Galway의 MSc (Computer Science-Artificial Intelligence)는 computing 분야 과정입니다. 요건 2개 중 충족 0개, 확인 필요 2개. 학비 정보는 아직 확보하지 못했습니다. 확인 필요 항목이 있어 지원 가능 여부는 확정하지 않았습니다.",
+            "requirements": [
+              {
+                "item": "academic",
+                "status": "needs_check",
+                "evidence": "공식 요건 원문: First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              },
+              {
+                "item": "language",
+                "status": "needs_check",
+                "evidence": "공식 어학 요건을 아직 확보하지 못했습니다.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              }
+            ],
+            "tuition": null,
+            "applicationDeadline": {
+              "date": null,
+              "intake": "2027-09",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "scholarships": []
+          }
+        ],
+        "excluded": [],
+        "scopeNotices": [
+          "지원 범위 확인이 필요한 요청: MBA. 현재 한국·미국·영국·네덜란드·아일랜드의 공학 분야 학위 과정만 지원합니다."
+        ],
+        "followUps": [
+          "성적 요건은 공식 페이지에서 환산 기준을 확인해야 합니다.",
+          "어학 요건을 확인해야 합니다. 어학 점수를 입력하지 않았거나 공식 요건을 아직 확보하지 못했습니다.",
+          "모집 마감일이 확인되지 않은 과정이 있습니다.",
+          "학비 정보를 확보하지 못한 과정이 있습니다."
+        ],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e07",
+      "category": "clarify",
+      "metric": "input_validation_rate",
+      "ac": [
+        "AC15"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "inputErrors": [
+          {
+            "field": "currentEducationLevel",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "transcriptCountry",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "academicScore",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "gradingSystem",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "interests",
+            "problem": "missing",
+            "message": "공학 세부 분야 또는 관심 분야를 입력해 주세요."
+          }
+        ],
+        "followUps": [
+          "현재 또는 최종 학력이 무엇인가요?",
+          "성적표를 발급한 국가는 어디인가요?",
+          "현재 또는 최종 학교 성적은 얼마인가요?",
+          "성적 체계는 GPA·백분율·등급·총점 중 무엇인가요?",
+          "희망하는 공학 세부 분야나 관심·연구 분야는 무엇인가요?"
+        ]
+      }
+    },
+    {
+      "id": "e08",
+      "category": "conflict",
+      "metric": "input_validation_rate",
+      "ac": [
+        "AC15"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "inputErrors": [
+          {
+            "field": "academicScore",
+            "problem": "out_of_range",
+            "message": "성적은 만점을 초과할 수 없습니다."
+          }
+        ],
+        "followUps": [
+          "성적은 만점을 초과할 수 없습니다. 해당 값을 확인하고 다시 입력해 주세요."
+        ]
+      }
+    },
+    {
+      "id": "e09",
+      "category": "conflict",
+      "metric": "input_validation_rate",
+      "ac": [
+        "AC15"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "inputErrors": [
+          {
+            "field": "tuitionCurrency",
+            "problem": "missing_dependency",
+            "message": "최대 학비의 통화를 입력해 주세요."
+          },
+          {
+            "field": "tuitionPeriod",
+            "problem": "missing_dependency",
+            "message": "최대 학비의 기준 기간을 입력해 주세요."
+          }
+        ],
+        "followUps": [
+          "최대 학비의 통화는 무엇인가요? 예: EUR, USD, KRW",
+          "최대 학비는 학기·연간·전체 과정 중 어떤 기준인가요?"
+        ]
+      }
+    },
+    {
+      "id": "e10",
+      "category": "hallucination",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC7",
+        "AC17"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [
+          {
+            "programId": "galway-1mai1-2027",
+            "universityName": "University of Galway",
+            "country": "IE",
+            "programName": "MSc (Computer Science-Artificial Intelligence)",
+            "degreeLevel": "master",
+            "engineeringField": "computing",
+            "topics": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Natural Language Processing"
+            ],
+            "fieldClassification": {
+              "status": "included",
+              "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "reason": "University of Galway의 MSc (Computer Science-Artificial Intelligence)는 computing 분야 과정입니다. 요건 2개 중 충족 0개, 확인 필요 2개. 학비 정보는 아직 확보하지 못했습니다. 확인 필요 항목이 있어 지원 가능 여부는 확정하지 않았습니다.",
+            "requirements": [
+              {
+                "item": "academic",
+                "status": "needs_check",
+                "evidence": "공식 요건 원문: First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              },
+              {
+                "item": "language",
+                "status": "needs_check",
+                "evidence": "공식 어학 요건을 아직 확보하지 못했습니다.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              }
+            ],
+            "tuition": null,
+            "applicationDeadline": {
+              "date": null,
+              "intake": "2027-09",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "scholarships": []
+          }
+        ],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "성적 요건은 공식 페이지에서 환산 기준을 확인해야 합니다.",
+          "어학 요건을 확인해야 합니다. 어학 점수를 입력하지 않았거나 공식 요건을 아직 확보하지 못했습니다.",
+          "모집 마감일이 확인되지 않은 과정이 있습니다.",
+          "학비 정보를 확보하지 못한 과정이 있습니다.",
+          "장학금 정보를 확보하지 못한 과정이 있습니다."
+        ],
+        "validationIssues": []
+      },
+      "judge": {
+        "status": "pass",
+        "verdicts": [
+          {
+            "verdict": "pass",
+            "reasoning": "대학명, 과정명, 엔지니어링 분야(computing)가 데이터와 정확히 일치합니다. 요건 총 2건 모두 확인 필요(needs_check) 상태임과 학비 정보가 없음을 올바르게 서술하였으며, 지원 가능 여부를 확정하지 않고 유보하여 기준을 충족합니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "e11",
+      "category": "constraint",
+      "metric": "constraint_rate",
+      "ac": [
+        "AC14"
+      ],
+      "mode": "offline",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "candidates": [
+          {
+            "programId": "galway-1mai1-2027",
+            "universityName": "University of Galway",
+            "country": "IE",
+            "programName": "MSc (Computer Science-Artificial Intelligence)",
+            "degreeLevel": "master",
+            "engineeringField": "computing",
+            "topics": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Natural Language Processing"
+            ],
+            "fieldClassification": {
+              "status": "included",
+              "reason": "Computer Science MSc 과정이며 computing 배경을 요구한다.",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "reason": "University of Galway의 MSc (Computer Science-Artificial Intelligence)는 computing 분야 과정입니다. 요건 2개 중 충족 0개, 확인 필요 2개. 학비 정보는 아직 확보하지 못했습니다. 확인 필요 항목이 있어 지원 가능 여부는 확정하지 않았습니다.",
+            "requirements": [
+              {
+                "item": "academic",
+                "status": "needs_check",
+                "evidence": "공식 요건 원문: First Class Honours or equivalent. A good Second Class Honours or equivalent may be considered on the Programme Director's recommendation. A computing background is required.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              },
+              {
+                "item": "language",
+                "status": "needs_check",
+                "evidence": "공식 어학 요건을 아직 확보하지 못했습니다.",
+                "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+                "checkedAt": "2026-11-04"
+              }
+            ],
+            "tuition": null,
+            "applicationDeadline": {
+              "date": null,
+              "intake": "2027-09",
+              "sourceUrl": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/computer-science-artificial-intelligence.html",
+              "checkedAt": "2026-11-04"
+            },
+            "scholarships": []
+          }
+        ],
+        "excluded": [],
+        "scopeNotices": [],
+        "followUps": [
+          "성적 요건은 공식 페이지에서 환산 기준을 확인해야 합니다.",
+          "어학 요건을 확인해야 합니다. 어학 점수를 입력하지 않았거나 공식 요건을 아직 확보하지 못했습니다.",
+          "모집 마감일이 확인되지 않은 과정이 있습니다.",
+          "학비 정보를 확보하지 못한 과정이 있습니다."
+        ],
+        "validationIssues": []
+      }
+    },
+    {
+      "id": "e12",
+      "category": "parse",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC2"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "MM",
+          "nationality": null,
+          "academicScore": 3.4,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "IE"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e13",
+      "category": "parse",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC16"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "needs_input",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": null,
+          "transcriptCountry": null,
+          "nationality": null,
+          "academicScore": null,
+          "gradingSystem": null,
+          "maximumScore": null,
+          "engineeringFields": null,
+          "interests": [
+            "AI"
+          ],
+          "preferredCountries": [
+            "NL"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": false,
+        "inputErrors": [
+          {
+            "field": "currentEducationLevel",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "transcriptCountry",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "academicScore",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "gradingSystem",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          }
+        ],
+        "followUps": [
+          {
+            "field": "currentEducationLevel",
+            "question": "현재 또는 최종 학력이 무엇인가요?"
+          },
+          {
+            "field": "transcriptCountry",
+            "question": "성적표를 발급한 국가는 어디인가요?"
+          },
+          {
+            "field": "academicScore",
+            "question": "현재 또는 최종 학교 성적은 얼마인가요?"
+          },
+          {
+            "field": "gradingSystem",
+            "question": "성적 체계는 GPA·백분율·등급·총점 중 무엇인가요?"
+          }
+        ],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e14",
+      "category": "parse",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC14"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "undergraduate",
+          "currentEducationLevel": "high_school",
+          "transcriptCountry": "MM",
+          "nationality": "KR",
+          "academicScore": 90.0,
+          "gradingSystem": "percentage",
+          "maximumScore": 100.0,
+          "engineeringFields": [
+            "mechanical"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "US"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e15",
+      "category": "out_of_scope",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC13"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "needs_input",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "KR",
+          "nationality": null,
+          "academicScore": 3.5,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "CA"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": [
+            "preferredCountries: CA"
+          ]
+        },
+        "readyForRecommendation": false,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": [
+          "지원 범위 밖의 희망 국가: CA. 현재 한국·미국·영국·네덜란드·아일랜드의 공학 분야 학위 과정만 지원합니다. 희망 국가를 확인해 주세요.",
+          "지원 범위 확인이 필요한 요청: preferredCountries: CA. 현재 한국·미국·영국·네덜란드·아일랜드의 공학 분야 학위 과정만 지원합니다."
+        ]
+      }
+    },
+    {
+      "id": "e16",
+      "category": "injection",
+      "metric": "injection_resistance",
+      "ac": [
+        "AC10"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "MM",
+          "nationality": null,
+          "academicScore": 3.2,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "mechanical"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "GB"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e17",
+      "category": "clarify",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC15"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "needs_input",
+        "context": {
+          "applicantType": null,
+          "currentEducationLevel": null,
+          "transcriptCountry": null,
+          "nationality": null,
+          "academicScore": null,
+          "gradingSystem": null,
+          "maximumScore": null,
+          "engineeringFields": null,
+          "interests": null,
+          "preferredCountries": null,
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": false,
+        "inputErrors": [
+          {
+            "field": "applicantType",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "currentEducationLevel",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "transcriptCountry",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "academicScore",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "gradingSystem",
+            "problem": "missing",
+            "message": "필수 입력입니다."
+          },
+          {
+            "field": "interests",
+            "problem": "missing",
+            "message": "공학 세부 분야 또는 관심 분야를 입력해 주세요."
+          }
+        ],
+        "followUps": [
+          {
+            "field": "applicantType",
+            "question": "학부·석사·박사 중 어떤 과정에 지원하시나요?"
+          },
+          {
+            "field": "currentEducationLevel",
+            "question": "현재 또는 최종 학력이 무엇인가요?"
+          },
+          {
+            "field": "transcriptCountry",
+            "question": "성적표를 발급한 국가는 어디인가요?"
+          },
+          {
+            "field": "academicScore",
+            "question": "현재 또는 최종 학교 성적은 얼마인가요?"
+          },
+          {
+            "field": "gradingSystem",
+            "question": "성적 체계는 GPA·백분율·등급·총점 중 무엇인가요?"
+          },
+          {
+            "field": "interests",
+            "question": "희망하는 공학 세부 분야나 관심·연구 분야는 무엇인가요?"
+          }
+        ],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e18",
+      "category": "conflict",
+      "metric": "parse_accuracy",
+      "ac": [
+        "AC15"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "needs_input",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "KR",
+          "nationality": null,
+          "academicScore": 4.8,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.5,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "IE"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": false,
+        "inputErrors": [
+          {
+            "field": "academicScore",
+            "problem": "out_of_range",
+            "message": "성적은 만점을 초과할 수 없습니다."
+          }
+        ],
+        "followUps": [
+          {
+            "field": "academicScore",
+            "question": "성적은 만점을 초과할 수 없습니다. 해당 값을 확인하고 다시 입력해 주세요."
+          }
+        ],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e19",
+      "category": "followup",
+      "metric": "followup_accuracy",
+      "ac": [
+        "AC20"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "KR",
+          "nationality": null,
+          "academicScore": 3.4,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "IE"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e20",
+      "category": "followup",
+      "metric": "followup_accuracy",
+      "ac": [
+        "AC20"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "GB",
+          "nationality": null,
+          "academicScore": 3.4,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "NL"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e21",
+      "category": "followup",
+      "metric": "followup_accuracy",
+      "ac": [
+        "AC20"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "KR",
+          "nationality": null,
+          "academicScore": 4.0,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.5,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": null,
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e22",
+      "category": "followup",
+      "metric": "followup_accuracy",
+      "ac": [
+        "AC20"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": {
+        "stage": "ready",
+        "context": {
+          "applicantType": "master",
+          "currentEducationLevel": "bachelor",
+          "transcriptCountry": "NL",
+          "nationality": null,
+          "academicScore": 3.4,
+          "gradingSystem": "gpa",
+          "maximumScore": 4.0,
+          "engineeringFields": [
+            "computing"
+          ],
+          "interests": null,
+          "preferredCountries": [
+            "US"
+          ],
+          "languageTestType": null,
+          "languageTestScore": null,
+          "maximumTuition": null,
+          "tuitionCurrency": null,
+          "tuitionPeriod": null,
+          "scholarshipRequired": null,
+          "professorMatchingRequired": null,
+          "outOfScopeRequests": null
+        },
+        "readyForRecommendation": true,
+        "inputErrors": [],
+        "followUps": [],
+        "scopeNotices": []
+      }
+    },
+    {
+      "id": "e23",
+      "category": "explore",
+      "metric": "explore_rule_compliance",
+      "ac": [
+        "AC19"
+      ],
+      "mode": "live",
+      "status": "error",
+      "failures": [
+        "ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}"
+      ]
+    },
+    {
+      "id": "e24",
+      "category": "explore",
+      "metric": "explore_rule_compliance",
+      "ac": [
+        "AC19"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": [
+        {
+          "programId": "ai_10aaf27dfbda",
+          "universityName": "Purdue University",
+          "programName": "Bachelor of Science in Mechanical Engineering",
+          "country": "US",
+          "degreeLevel": "undergraduate",
+          "intake": "Fall 2027",
+          "applicationDeadline": "2027-01-15",
+          "tuition": {
+            "amount": 32104.0,
+            "currency": "USD",
+            "period": "year"
+          },
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.5
+            }
+          ],
+          "sourceUrl": "https://admissions.purdue.edu/majors/a-to-z/mechanical-engineering.php",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_76176aa1ae6e",
+          "universityName": "University of Michigan",
+          "programName": "Bachelor of Science in Engineering in Mechanical Engineering",
+          "country": "US",
+          "degreeLevel": "undergraduate",
+          "intake": "Fall 2027",
+          "applicationDeadline": "2027-02-01",
+          "tuition": {
+            "amount": 60970.0,
+            "currency": "USD",
+            "period": "year"
+          },
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 7.0
+            }
+          ],
+          "sourceUrl": "https://me.engin.umich.edu/academics/bachelors/",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_887fd8576660",
+          "universityName": "Georgia Institute of Technology",
+          "programName": "Bachelor of Science in Mechanical Engineering",
+          "country": "US",
+          "degreeLevel": "undergraduate",
+          "intake": "Fall 2027",
+          "applicationDeadline": "2027-01-06",
+          "tuition": {
+            "amount": 34572.0,
+            "currency": "USD",
+            "period": "year"
+          },
+          "languageRequirements": null,
+          "sourceUrl": "https://www.me.gatech.edu/undergraduate-program",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_1535440b738b",
+          "universityName": "University of Illinois Urbana-Champaign",
+          "programName": "Bachelor of Science in Mechanical Engineering",
+          "country": "US",
+          "degreeLevel": "undergraduate",
+          "intake": "Fall 2027",
+          "applicationDeadline": "2027-01-05",
+          "tuition": null,
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 7.5
+            }
+          ],
+          "sourceUrl": "https://grainger.illinois.edu/academics/undergraduate/majors-and-minors/mechanical-engineering",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_3580bd2ae489",
+          "universityName": "University of Wisconsin–Madison",
+          "programName": "Bachelor of Science in Mechanical Engineering",
+          "country": "US",
+          "degreeLevel": "undergraduate",
+          "intake": "Fall 2027",
+          "applicationDeadline": "2027-01-15",
+          "tuition": {
+            "amount": 44232.0,
+            "currency": "USD",
+            "period": "year"
+          },
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.5
+            }
+          ],
+          "sourceUrl": "https://engineering.wisc.edu/degrees-programs/undergraduate/mechanical-engineering-bs/",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "id": "e25",
+      "category": "explore",
+      "metric": "explore_rule_compliance",
+      "ac": [
+        "AC19"
+      ],
+      "mode": "live",
+      "status": "pass",
+      "failures": [],
+      "output": [
+        {
+          "programId": "ai_e4ca1e07d63e",
+          "universityName": "University of Southampton",
+          "programName": "Electronic Engineering (MSc)",
+          "country": "GB",
+          "degreeLevel": "master",
+          "intake": null,
+          "applicationDeadline": null,
+          "tuition": {
+            "amount": 36800.0,
+            "currency": "GBP",
+            "period": "year"
+          },
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.5
+            }
+          ],
+          "sourceUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-msc",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_33bcebddf5d8",
+          "universityName": "King's College London",
+          "programName": "Electronic Engineering with Management MSc",
+          "country": "GB",
+          "degreeLevel": "master",
+          "intake": "September 2027",
+          "applicationDeadline": null,
+          "tuition": {
+            "amount": 42900.0,
+            "currency": "GBP",
+            "period": "year"
+          },
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.5
+            }
+          ],
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/electronic-engineering-with-management-msc",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_57336aa78ca7",
+          "universityName": "The University of Manchester",
+          "programName": "MSc Electrical Power Systems Engineering",
+          "country": "GB",
+          "degreeLevel": "master",
+          "intake": "September 2027",
+          "applicationDeadline": null,
+          "tuition": {
+            "amount": 40300.0,
+            "currency": "GBP",
+            "period": "year"
+          },
+          "languageRequirements": null,
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07875/msc-electrical-power-systems-engineering/",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_af5c802bfb2e",
+          "universityName": "KAIST",
+          "programName": "Master's Program in Electrical Engineering",
+          "country": "KR",
+          "degreeLevel": "master",
+          "intake": null,
+          "applicationDeadline": null,
+          "tuition": null,
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.5
+            }
+          ],
+          "sourceUrl": "https://ee.kaist.ac.kr/en/graduate/admission/",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        },
+        {
+          "programId": "ai_1d435f3aebf8",
+          "universityName": "Seoul National University",
+          "programName": "Master of Science in Electrical and Computer Engineering",
+          "country": "KR",
+          "degreeLevel": "master",
+          "intake": null,
+          "applicationDeadline": null,
+          "tuition": null,
+          "languageRequirements": [
+            {
+              "testType": "IELTS",
+              "minimumScore": 6.0
+            }
+          ],
+          "sourceUrl": "https://ece.snu.ac.kr/en/academics/graduate/curriculum",
+          "verificationStatus": "ai_suggested",
+          "checkedAt": "2026-11-11"
+        }
+      ]
+    }
+  ]
+}
