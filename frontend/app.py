@@ -883,7 +883,16 @@ def send_message() -> None:
                         or item.get("candidate_id")
                         or "이름 확인 필요"
                     )
-                    lines.append(f"- {name}")
+                    university = item.get("universityName")
+                    lines.append(
+                        f"- {university} · {name}" if university else f"- {name}"
+                    )
+
+                lines.append("")
+                lines.append(
+                    "자세한 카드는 ② Results 탭에서 볼 수 있습니다. "
+                    "오른쪽 조건을 확인한 뒤 검색 버튼을 눌러 주세요."
+                )
 
             follow_ups = recommendation.get("followUps") or []
 
