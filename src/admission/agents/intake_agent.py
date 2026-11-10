@@ -1,3 +1,5 @@
+import re
+
 from admission.clarification import build_follow_ups
 from admission.context_merge import merge_context
 from admission.parser import parse_query
@@ -48,12 +50,23 @@ def country_code(text: str) -> str | None:
     return None
 
 
-def apply_pending_answer(
-    update: RequestContext,
-    text: str,
-    pending_fields: list[str],
-) -> RequestContext:
-    """A bare country answer to the transcript question fills that field."""
+NUMBER_ANSWER = re.compile(
+    r"^\s*(?:만점은?|최고점은?|max(?:imum)?\s*(?:is)?)?\s*"
+    r"(\d+(?:\.\d+)?)\s*(?:점|만점|점 만점|점이요|점입니다|입니다|이요|요)?\s*[.!]?\s*$",
+    re.IGNORECASE,
+)
+
+# Fields that take a single number, in the order the questions are asked.
+NUMBER_FIELDS = ("academicScore", "maximumScore", "maximumTuition")
+
+
+def number_answer(text: str) -> float | None:
+    """Turn a bare number answer such as '4.5' or '4.5점' into a float."""
+    match = NUMBER_ANSWER.match(text.replace(",", ""))
+    return float(match.group(1)) if match else None
+
+
+def _apply_country(update, text, pending_fields):
     if "transcriptCountry" not in pending_fields or update.transcriptCountry:
         return update
 
@@ -69,6 +82,39 @@ def apply_pending_answer(
     return update.model_copy(
         update={"transcriptCountry": code, "preferredCountries": countries}
     )
+
+
+def _apply_number(update, text, pending_fields):
+    value = number_answer(text)
+    if value is None:
+        return update
+
+    asked = [field for field in NUMBER_FIELDS if field in pending_fields]
+    if len(asked) != 1:
+        # Zero or several numeric questions open: leave it to the model.
+        return update
+
+    target = asked[0]
+    changes = {target: value}
+
+    # The model may have put the number in a field that was not asked.
+    for field in NUMBER_FIELDS:
+        if field != target and field not in pending_fields:
+            if getattr(update, field) == value:
+                changes[field] = None
+
+    return update.model_copy(update=changes)
+
+
+def apply_pending_answer(
+    update: RequestContext,
+    text: str,
+    pending_fields: list[str],
+) -> RequestContext:
+    """Make a short answer fill the field the assistant just asked about."""
+    update = _apply_country(update, text, pending_fields)
+    update = _apply_number(update, text, pending_fields)
+    return update
 
 
 def run_intake_agent(

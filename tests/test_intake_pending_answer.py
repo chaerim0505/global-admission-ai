@@ -1,5 +1,9 @@
 from admission.agents import intake_agent
-from admission.agents.intake_agent import country_code, run_intake_agent
+from admission.agents.intake_agent import (
+    country_code,
+    number_answer,
+    run_intake_agent,
+)
 from admission.schemas import RequestContext
 
 
@@ -70,3 +74,47 @@ def test_model_answer_is_kept_when_it_already_filled_the_field(monkeypatch):
 
     assert result["context"]["transcriptCountry"] == "MM"
     assert result["context"]["preferredCountries"] == ["KR"]
+
+
+def test_number_answer_accepts_plain_numbers():
+    assert number_answer("4.5") == 4.5
+    assert number_answer("4.5점") == 4.5
+    assert number_answer("4.5 만점") == 4.5
+    assert number_answer("만점은 4.5점이요") == 4.5
+    assert number_answer("100") == 100
+    assert number_answer("GPA 4.0 out of 4.5") is None
+
+
+def test_number_answer_fills_maximum_score_when_asked(monkeypatch):
+    previous = PREVIOUS.model_copy(
+        update={"transcriptCountry": "KR", "maximumScore": None}
+    )
+
+    # Simulate the model reading 4.5 as the student's score.
+    monkeypatch.setattr(
+        intake_agent,
+        "parse_query",
+        lambda text, pending_questions=None: RequestContext(academicScore=4.5),
+    )
+
+    result = run_intake_agent("4.5", previous)
+
+    assert result["context"]["maximumScore"] == 4.5
+    assert result["context"]["academicScore"] == 4.0
+    assert result["readyForRecommendation"] is True
+
+
+def test_number_answer_fills_academic_score_when_asked(monkeypatch):
+    previous = PREVIOUS.model_copy(
+        update={"transcriptCountry": "KR", "academicScore": None}
+    )
+    monkeypatch.setattr(
+        intake_agent,
+        "parse_query",
+        lambda text, pending_questions=None: RequestContext(),
+    )
+
+    result = run_intake_agent("3.8", previous)
+
+    assert result["context"]["academicScore"] == 3.8
+    assert result["context"]["maximumScore"] == 4.5
