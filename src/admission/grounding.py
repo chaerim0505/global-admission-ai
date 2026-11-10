@@ -28,7 +28,7 @@ def retrieve_candidate_evidence(
     candidates: Iterable[Mapping[str, object]],
     interests: Sequence[str] = (),
     *,
-    top_k: int = 5,
+    top_k: int | None = None,
     path: Path | None = None,
 ) -> dict[str, list[dict[str, object]]]:
     """Return up to five official evidence chunks per candidate."""
@@ -39,6 +39,10 @@ def retrieve_candidate_evidence(
         if isinstance(program_id := candidate.get("programId"), str)
         and program_id
     }
+    if top_k is None:
+        from admission.rag_config import retrieval_top_k
+
+        top_k = retrieval_top_k()  # config/rag.yaml retrieval.top_k
     limit = max(0, min(top_k, 5))
     if not candidate_ids or limit == 0:
         return {}

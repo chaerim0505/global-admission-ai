@@ -42,7 +42,7 @@ def run_root_agent(
 
     # 4. Catalogue Search
     # 검증된 추천 후보와 별도로 탐색용 대학 목록 조회
-    from admission.catalogue_routes import search_catalogue
+    from admission.tools import search_catalogue
 
     countries = context.preferredCountries or [
         "KR", "US", "GB", "NL", "IE"
@@ -54,7 +54,7 @@ def run_root_agent(
         code.strip().upper() for code in countries
     ):
         try:
-            result = search_catalogue(
+            items = search_catalogue(
                 country=country,
                 degree=context.applicantType,
                 limit=3,
@@ -62,7 +62,7 @@ def run_root_agent(
         except HTTPException:
             # 카탈로그 DB가 없어도 추천 결과는 반환한다.
             continue
-        catalogue_items.extend(result["items"])
+        catalogue_items.extend(items)
 
     # 5. Grounding Agent
     grounding = run_grounding_agent(
@@ -79,4 +79,5 @@ def run_root_agent(
         "catalogueMatches": catalogue_items,
         "retrievedEvidence": grounding["retrievedEvidence"],
         "groundingStatus": grounding["groundingStatus"],
+        "candidatesLackingEvidence": grounding.get("candidatesLackingEvidence", []),
     }

@@ -21,14 +21,16 @@ def run_matching_agent(
         project_root = Path(__file__).resolve().parents[3]
         data_path = project_root / "data" / "programs_integrated.json"
         programs = load_programs(data_path)
+        result = recommend(
+            context,
+            programs=programs,
+            allowed_hosts=load_allowed_hosts(),
+        )
     else:
-        programs = load_programs()
+        # 기본 경로는 도구(search_programs)로 호출해 호출 로그를 남긴다.
+        from admission.tools import search_programs
 
-    result = recommend(
-        context,
-        programs=programs,
-        allowed_hosts=load_allowed_hosts(),
-    )
+        result = search_programs(context)
 
     return {
         "stage": "matching",

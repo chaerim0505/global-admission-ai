@@ -1,0 +1,2 @@
+timestamp,commit,mode,dataset,judge_prompt,note,constraint_rate,scope_rate,input_validation_rate,parse_accuracy,injection_resistance,followup_accuracy,explore_rule_compliance,reason_faithfulness,hallucinated,pass,fail,error,skipped
+2026-11-11T0216,7f4f75d,offline,1f335e2bd7,4acbd89457,baseline v1 offline (7f4f75d + 미커밋 변경: AI 탐색 모듈·도구·rag.yaml). live/judge 미실행,1.0,1.0,1.0,,,,,,0,11,0,0,14

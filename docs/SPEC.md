@@ -19,6 +19,17 @@
 | F03 | 학비·장학금 안내 | 학비를 예산과 비교하고, 관련 장학금의 금액·자격·신청 마감일·공식 링크를 제공한다. |
 | F04 | 과정 추천 | 요건 판정, 세부 분야 적합성, 학비·장학금 조건을 근거로 후보와 추천 이유를 제공한다. |
 | F05 | 지도교수 추천 | 석사·박사 지원자가 선택한 경우, **지원 과정과의 연관성이 확인된 교수**의 연구 분야·최근 논문 초록을 관심 분야와 비교해 후보와 관련 논문을 제시한다. |
+| F06 | AI 탐색 (검증 전) | 검증 데이터에 없는 과정을 Gemini 웹 검색(Google Search)으로 공식 대학 사이트에서 찾아, **검증 후보와 분리해** "검증 전" 결과로 보여 준다. 요건 판정은 하지 않는다. |
+### 3.0 결과 유형 — 검증 후보와 AI 탐색 결과
+검색 결과는 출처와 검증 수준이 다른 세 가지로 나누고, 화면과 API에서 섞지 않는다.
+| 유형 | 출처 | 요건 판정(F02) | 적용 AC | 표시 |
+| --- | --- | --- | --- | --- |
+| **검증 후보** (`candidates`) | 팀이 공식 출처로 검증해 넣은 `data/programs.json` | 함 (`met / unmet / needs_check`) | AC1–AC9, AC12, AC17 | 기본 결과 |
+| **AI 탐색 결과(검증 전)** | Gemini 웹 검색으로 찾은 공식 대학 페이지 (`verificationStatus: "ai_suggested"`) | 하지 않음 | AC19 | "Found by Gemini web search" 표시, 공식 페이지 링크 필수 |
+| 탐색용 카탈로그 목록 (`catalogueMatches`) | `data/admission_ai_five_countries.sqlite` (있을 때만) | 하지 않음 | AC1, AC2 | 이름만 안내 |
+- **AC3(데이터에 있는 항목만 반환)은 검증 후보에만 적용한다.** AI 탐색 결과는 데이터 밖의 과정이므로 AC19의 별도 규칙(공식 링크, 검증 전 표시, 판정 금지)으로 관리한다.
+- AI 탐색은 **같은 조건**(국가·학위·분야)으로 범위를 넓히는 것이지, 조건을 완화하는 것이 아니다(AC9와 충돌하지 않음). 요청하지 않은 국가의 과정은 AI 탐색 결과에도 넣지 않는다.
+- AI 탐색 결과에서 학생이 관심 있는 과정은 팀이 공식 출처로 검증한 뒤 검증 데이터에 추가한다. 그 전까지 "지원 가능"으로 표현하지 않는다.
 ### 3.1 지원 국가 (5개국)
 | 코드 | 국가 | 비고 |
 | --- | --- | --- |
@@ -60,6 +71,8 @@
 - 추천 이유, 공학 분야 분류 근거, 항목별 공식 출처 URL·확인일 제공
 - 범위 밖 요청(국가·분야)에 대한 지원 범위 안내
 - 석사·박사 지원자 선택 시 지도교수 후보·관련 논문 추천
+- 검증 후보 외에 AI 탐색 결과(검증 전)를 분리해 표시 (F06, 3.0절)
+- 채팅 대화에서 짧은 답변을 직전 질문의 항목으로 해석 (AC20)
 ### 4.2 비포함 *(온톨로지 "범위 밖"과 일치시킨다)*
 - 5개국 외 국가, 공학 외 분야 과정 추천
 - 합격 확률 예측, 종합 점수를 합격 가능성으로 표현하는 것
@@ -103,7 +116,7 @@
 - 장학금 신청 자격과 실제 수혜 여부를 구분한다. 수혜가 확정되지 않은 장학금을 학비에서 자동으로 빼지 않는다.
 - 장학금 공고에 국적 제한이 명시되지 않았으면 "지원 가능"이 아니라 `확인 필요`로 안내한다(로그 10).
 - 학부 지원자에게는 지도교수 추천을 적용하지 않는다. 교수의 연구 적합성을 학생 모집 여부로 해석하지 않는다.
-- 결과가 없으면 조건을 임의로 완화하지 않고, 제외 사유와 바꿀 수 있는 검색 조건을 안내한다.
+- 결과가 없으면 조건을 임의로 완화하지 않고, 제외 사유와 바꿀 수 있는 검색 조건을 안내한다. 같은 조건의 AI 탐색 결과(검증 전)는 검증 후보와 분리해 함께 보여 줄 수 있다(3.0절).
 - 초기에는 항목별 판정 근거만 제공한다. 종합 적합도 점수는 산식과 가중치를 확정한 뒤 적용하며, 합격 확률로 표현하지 않는다.
 - 후보 정렬은 결정론적이어야 한다 — 같은 입력에는 같은 순서. 동점이면 `programId` 오름차순.
 ## 5. 인터페이스
@@ -161,12 +174,20 @@
 - 출력: `{ professors: [{ professorName, department, programId, programRelationSource, researchFields[], matchedPapers: [{ title, year, url }], profileUrl, checkedAt }], followUps[] }`
 - `applicantType`이 `undergraduate`이면 400과 사유를 반환한다.
 - `interests`가 비어 있으면 교수 후보 없이 `followUps`에 연구 관심 분야 질문을 넣는다.
+**AI 탐색 결과(검증 전)** — F06, AC19. 현재는 화면(`frontend/app.py`)이 `src/admission/ai_exploration.py`를 호출한다.
+```json
+[{ "programId": "ai_<hash>", "universityName": "string", "programName": "string", "country": "KR | US | GB | NL | IE",
+   "degreeLevel": "string", "intake": "string | null", "applicationDeadline": "YYYY-MM-DD | null",
+   "tuition": { "amount": 0, "currency": "string", "period": "string" } , "languageRequirements": [{ "testType": "IELTS", "minimumScore": 6.5 }],
+   "sourceUrl": "https://...", "verificationStatus": "ai_suggested", "checkedAt": "YYYY-MM-DD" }]
+```
+- 금액·점수는 모델이 공식 페이지에서 읽은 값을 **표시용으로만** 둔다. 예산 적합성(`budgetFit`)과 요건 판정을 하지 않는다.
 **`GET /health`** — `{ "status": "ok" }`
 ## 6. 수용 기준 (테스트로 검증 — Definition of Done)
 각 AC는 EARS 문형 "[조건]일 때, Global Admission AI는 [동작]한다"로 쓰고, 조건 자리의 유형을 [ ]에 표시한다. AC1–AC11은 10월 7일 판의 번호를 유지하고 AC12부터 원본 명세서에서 되살린 기준을 붙였다.
 - **AC1 [상시 적용]:** Global Admission AI는 항상 5개국(`KR`, `US`, `GB`, `NL`, `IE`)의 공학 분야 과정만 후보로 반환한다 — 희망 국가를 입력하지 않은 요청을 포함해, 응답의 `country`가 5개 코드 밖이거나 `engineeringField`가 3.2절 목록 밖이면 실패.
 - **AC2 [이벤트 기반]:** 사용자가 `preferredCountries`나 학위를 지정해 추천을 요청하면, Global Admission AI는 해당 국가·학위의 과정만 반환한다 — 지정하지 않은 국가·학위가 결과에 하나라도 있으면 실패.
-- **AC3 [상시 적용]:** Global Admission AI는 항상 데이터에 존재하는 대학·과정·장학금·교수만 반환한다 — 모든 `programId`가 데이터에 있어야 하고, 이름을 생성하면 실패.
+- **AC3 [상시 적용]:** Global Admission AI는 항상 **검증 후보(`candidates`)에** 데이터에 존재하는 대학·과정·장학금·교수만 반환한다 — `candidates`의 모든 `programId`가 데이터에 있어야 하고, 이름을 생성하면 실패. AI 탐색 결과(검증 전)는 이 기준이 아니라 AC19로 검사한다(3.0절).
 - **AC4 [상시 적용]:** Global Admission AI는 항상 학비·마감일·장학금·요건 판정·분야 분류마다 공식 출처 URL과 확인일을 포함한다 — 하나라도 `sourceUrl` 또는 `checkedAt`이 비면 실패.
 - **AC5 [예외 대응]:** 사용자가 어학 점수·국적·전공 정보를 입력하지 않았거나, 공식 성적 환산 기준이 없거나, 장학금 공고에 국적 제한 여부가 명시되지 않았으면, Global Admission AI는 해당 요건을 `needs_check`로 표시하고 `unmet`으로 단정하지 않으며 확인할 항목을 `followUps`에 넣는다.
 - **AC6 [이벤트 기반]:** 공식 마감일이 요청 시점보다 이전인 과정 또는 필수 요건이 명확히 `unmet`인 과정이 있으면, Global Admission AI는 그 과정을 `candidates`에서 빼고 `excluded`에 사유와 함께 넣는다.
@@ -182,7 +203,9 @@
 - **AC16 [예외 대응]:** 사용자가 공학 세부 분야를 정하지 않았으면, Global Admission AI는 특정 세부 분야를 임의로 고르지 않는다 — 파서 출력의 `engineeringFields`는 null(언급 없음) 또는 9개 값 전체("공학 전반")여야 하며, 발화에 없는 특정 분야(예: "AI니까 `computing`")만 들어 있으면 실패.
 - **AC17 [상시 적용]:** Global Admission AI는 항상 수혜가 확정되지 않은 장학금을 학비에서 빼지 않는다 — `tuition.amount`와 `budgetFit`이 장학금 차감 금액으로 계산되어 있으면 실패.
 - **AC18 [상시 적용]:** Global Admission AI는 항상 요청한 `programId` 과정과의 관계가 데이터로 확인된 교수만 지도교수 후보로 반환한다 — `programRelationSource`가 비었거나 다른 과정 소속 교수가 있으면 실패.
-> 실행 가능한 골든 케이스: `tests/harness/golden_cases.yaml` (케이스마다 `ac:` 필드로 AC 번호를 연결한다). AC11은 구현 상태 확인용, AC10은 레드티밍 케이스로 검증한다.
+- **AC19 [상시 적용]:** Global Admission AI는 항상 AI 탐색 결과(검증 전)를 검증 후보와 분리해 반환한다 — 모든 항목이 `verificationStatus: "ai_suggested"`이고 `https://` 공식 페이지 링크(`sourceUrl`)를 가져야 하며, 요청한 국가의 과정만 담고, 검증 후보와 같은 대학을 다시 넣지 않으며, 최대 5개이고, 요건 판정(`requirements`, eligibility)을 포함하지 않아야 한다. 모델 응답이 JSON이 아니거나 지시문만 있으면 결과 0개로 처리하고 지어내지 않는다. 하나라도 어기면 실패.
+- **AC20 [이벤트 기반]:** 채팅에서 Global Admission AI가 필수 항목을 질문한 뒤 사용자가 짧게 답하면(예: 성적표 국가에 "KR"·"영국", 만점에 "4.5"), Global Admission AI는 그 답을 질문한 항목에 채운다 — 질문하지 않은 항목(예: 희망 국가)에 넣거나 같은 질문을 반복하면 실패.
+> 실행 가능한 골든 케이스: `tests/harness/golden_cases.yaml` — 검증 후보(케이스마다 `ac:` 필드로 AC 번호를 연결한다), `tests/harness/ai_exploration_cases.yaml` — AI 탐색 결과(AC19), `tests/test_intake_pending_answer.py` — 짧은 답변 해석(AC20). AC11은 구현 상태 확인용, AC10은 레드티밍 케이스로 검증한다. 확률적 품질(파서 정확도, 근거 설명 품질)은 `evals/`에서 측정한다.
 ## 7. 데이터 기준
 - 입학·학비·장학금 레코드에는 공식 출처 URL, 확인일, 적용 모집 연도·학기를 기록한다.
 - 학비는 금액·통화·기간(학기/연간/전체 과정)을 함께 저장한다. 입학 마감일과 장학금 마감일은 다른 필드다.

@@ -29,7 +29,11 @@ def _all_sourced(candidate: dict) -> bool:
     return all(item.get("sourceUrl") and item.get("checkedAt") for item in items)
 
 
-def check_case(case: dict, result: dict) -> list[str]:
+def check_case(
+    case: dict,
+    result: dict,
+    known_ids: set[str] | None = None,
+) -> list[str]:
     """실패 사유 목록을 반환한다. 비어 있으면 통과."""
     expected = case.get("expected", {})
     failures = []
@@ -105,6 +109,17 @@ def check_case(case: dict, result: dict) -> list[str]:
     if expected.get("follow_ups_nonempty") and not result["followUps"]:
         failures.append("followUps 없음")
 
+    if expected.get("ids_in_data") and known_ids is not None:
+        bad = sorted(ids - known_ids)
+        if bad:
+            failures.append(f"데이터에 없는 programId: {bad}")
+
+    if expected.get("budget_fit_undecided"):
+        for c in candidates:
+            fit = (c["tuition"] or {}).get("budgetFit")
+            if fit in ("within", "over"):
+                failures.append(f'{c["programId"]} budgetFit 확정됨: {fit}')
+
     return failures
 
 
@@ -121,7 +136,9 @@ def run(
     for case in cases:
         context = RequestContext.model_validate(case.get("input", {}))
         result = recommend(context, programs=programs, today=today)
-        failures = check_case(case, result)
+        failures = check_case(
+            case, result, {program.programId for program in programs}
+        )
         hallucinations += len(result.get("validationIssues", []))
 
         for ac in case.get("ac", []):

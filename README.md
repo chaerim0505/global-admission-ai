@@ -26,6 +26,10 @@ RAG and Embedding-based AI Agent
 
 대학마다 과정 소개와 외국인 모집요강이 다른 곳에 있어 지원 후보와 입학 요건을 확인하려면 여러 페이지를 찾아야 합니다. Global Admission AI의 이번 MVP에서는 **희망 국가, 지원 학위, 관심 분야로 공학계열 과정 후보를 검색하고 대학 공식 자료를 열 수 있습니다.** 과정 목록은 한국, 미국, 영국, 네덜란드, 아일랜드의 25개 대학 93개 과정을 포함합니다. 대학별 상세 요건은 계속 보완하고 있습니다.
 
+결과는 두 종류로 나뉩니다.
+- **검증 후보** — 팀이 공식 자료로 확인해 데이터에 넣은 과정입니다. 요건별 판정과 공식 출처가 함께 나옵니다.
+- **AI 탐색 결과(검증 전)** — 데이터에 없는 과정을 Gemini가 대학 공식 사이트에서 웹 검색으로 찾은 결과입니다. 카드에 **"Found by Gemini web search"**라고 표시되며, 지원 자격은 판정하지 않습니다. 반드시 카드의 공식 링크에서 직접 확인하세요.
+
 ### 접속 및 계정 만들기
 
 - [Global Admission AI 실행](https://admission-ai-iframfvos6c4n4lnxfvcq3.streamlit.app/)
@@ -55,6 +59,10 @@ RAG and Embedding-based AI Agent
 
 </details>
 
+### AI와 대화하며 조건 입력하기 (선택)
+
+왼쪽 채팅 창에 계획을 자유롭게 적으면(예: "미얀마에서 학사 졸업했고 GPA 3.4/4.0이에요. 아일랜드 컴퓨터공학 석사를 찾아요") AI가 오른쪽 입력 폼을 자동으로 채웁니다. 빠진 정보가 있으면 AI가 질문하고, "KR", "영국", "4.5"처럼 짧게 답해도 질문한 항목에 들어갑니다. 폼을 확인한 뒤 **Find sample programmes →**를 누르세요.
+
 ### 현재 제한과 오류 대응
 
 | 상황 | 확인하거나 다시 시도할 방법 |
@@ -63,5 +71,71 @@ RAG and Embedding-based AI Agent
 | 검색 결과가 없거나 이전 결과가 그대로 표시됨 | 조건을 바꾼 뒤 검색 버튼을 다시 눌렀는지 확인합니다. 조건에 맞는 후보가 없으면 국가나 학위를 바꾸거나 앱에 표시된 검색 가능 분야를 선택해 다시 시도합니다. |
 | 과정 카드의 상세 요건이 비어 있거나 미확인으로 표시됨 | 카드의 **Official source** 링크에서 해당 대학의 공식 모집요강을 확인합니다. 링크가 없으면 대학 공식 입학 안내 페이지에서 해당 과정의 모집요강을 찾아 확인합니다. |
 | GPA, 어학 점수, 학비, 장학금을 입력해도 후보가 달라지지 않음 | 현재 샘플 검색은 국가, 학위, 공학 분야를 사용합니다. 개인별 지원 자격, 비용, 장학금 조건은 각 대학의 공식 자료에서 확인하세요. |
-| AI 대화에서 응답이 없거나 연결 오류가 표시됨 | 배포 환경에서 AI 대화와 추천을 검증 중입니다. 과정 검색은 **① Enter conditions** 탭의 검색 폼에서 이용할 수 있습니다. |
+| AI 대화에서 응답이 없거나 연결 오류가 표시됨 | 서버가 쉬고 있다가 깨어나는 중일 수 있습니다(무료 서버, 첫 요청은 약 50초). 잠시 후 다시 보내 주세요. 계속되면 **① Enter conditions** 탭의 검색 폼을 이용하세요. |
+| AI 탐색 결과(Found by Gemini web search)가 늦게 나오거나 비어 있음 | Gemini 웹 검색에 10–30초가 걸립니다. 결과가 비면 공식 링크를 확인할 수 있는 과정을 찾지 못한 것입니다. 이 결과는 검증 전이므로 공식 페이지에서 직접 확인하세요. |
+
+---
+
+## 개발자용: 로컬 실행
+
+### 1. 설치
+
+```bash
+git clone https://github.com/chaerim0505/global-admission-ai.git
+cd global-admission-ai
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2. 환경 변수 (`.env`, 저장소에 올리지 않음)
+
+```bash
+GEMINI_API_KEY=발급받은_키
+GEMINI_MODEL=gemini-3.8-flash
+AUTH_SECRET_KEY=32자_이상의_임의_문자열
+# DATABASE_URL=postgresql://...   # 없으면 database/users.sqlite 사용
+```
+
+### 3. 실행
+
+```bash
+# 백엔드 (FastAPI)
+PYTHONPATH=src uvicorn admission.main:app --port 8001 --reload
+# 화면 (Streamlit) — 다른 터미널
+streamlit run frontend/app.py
+```
+
+화면은 `API_BASE_URL`(기본 `http://127.0.0.1:8001`)로 백엔드에 연결합니다.
+
+### 4. 테스트와 품질 측정
+
+```bash
+PYTHONPATH=src pytest -q                                   # 골든 케이스·도구 계약·AI 탐색 규칙 포함
+PYTHONPATH=src python -m admission.evaluator               # 골든 케이스 리포트(AC별)
+PYTHONPATH=src python evals/run_evals.py                   # evals offline (모델 호출 없음)
+PYTHONPATH=src python evals/run_evals.py --live --judge --repeat 3 --note "변경 내역"   # Gemini 포함
+```
+
+결과는 `evals/results/`에 저장됩니다.
+
+### 5. 배포
+
+| 대상 | 플랫폼 | 필요한 환경 변수 |
+| --- | --- | --- |
+| 백엔드 | Render | `GEMINI_API_KEY`, `GEMINI_MODEL`, `AUTH_SECRET_KEY`, `PYTHON_VERSION=3.12.7`, `DATABASE_URL`(Neon, 계정 영구 저장) |
+| 화면 | Streamlit Community Cloud | Secrets: `API_BASE_URL`, `GEMINI_API_KEY`, `GEMINI_MODEL` |
+
+### 6. 문서
+
+| 문서 | 내용 |
+| --- | --- |
+| [`docs/PROBLEM.md`](docs/PROBLEM.md) | 문제 정의 |
+| [`docs/SPEC.md`](docs/SPEC.md) | 스펙, 수용 기준(AC1–AC20) |
+| [`docs/ontology.md`](docs/ontology.md) | 온톨로지 |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | 데이터 흐름, 구성 요소, 도구, RAG, 실패 처리, 가드레일 |
+| [`config/rag.yaml`](config/rag.yaml) | RAG 설정 |
+| [`AGENTS.md`](AGENTS.md) | 코딩 에이전트 공통 지침 |
+| [`tests/harness/`](tests/harness/) | 골든 케이스 |
+| [`docs/prompts/`](docs/prompts/) | 위임·검증 기록 |
+| [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) | 품질 측정 설계, 베이스라인 |
 

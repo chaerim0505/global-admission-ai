@@ -1,3 +1,6 @@
+import logging
+import os
+
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from google.genai import errors as genai_errors
@@ -14,6 +17,12 @@ from admission.schemas import RequestContext
 from admission.scope import check_scope
 from admission.validation import validate_request
 from admission.auth import router as auth_router
+
+# 도구 호출 로그(ARCHITECTURE.md 8절). Render 로그에서 확인한다.
+logging.basicConfig(
+    level=os.getenv("LOG_LEVEL", "INFO"),
+    format="%(asctime)s %(name)s %(levelname)s %(message)s",
+)
 
 app = FastAPI(title="Admission AI", version="0.2.0")
 app.include_router(program_router)

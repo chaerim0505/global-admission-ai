@@ -1,0 +1,39 @@
+# RAG 설정 — 정본. 코드는 이 파일에서 값을 읽는다(src/admission/rag_config.py).
+# 무엇을: 검증 후보마다 "왜 이 과정인가"를 뒷받침할 공식 출처 근거 청크를 찾는다.
+# 하지 않는 것: 검색으로 요건을 판정하지 않는다. 판정은 규칙 코드가 한다(constraints 참고).
+# ※ 팀 검토 필요: 값과 근거 주석은 현재 구현에서 옮겨 적은 초안이다. 강의 6 기준상 사람이 확정한다.
+
+source:
+  documents: evidence_chunks          # data/evidence_chunks.json — 공식 페이지에서 수집한 근거 문단
+  fields: [topic, text]               # 검색 대상: 주제 + 본문
+  metadata: [programId, sourceUrl, checkedAt]
+
+chunking:
+  strategy: per_topic                 # 공식 페이지 1개 주제(학비, 어학, 마감일 ...) = 1청크. 주제별로 다른 판정 항목과 1:1로 대응시키기 위해
+  max_chars: 1200                     # 수집 시 상한. 긴 모집요강은 주제 단위로 나눠 넣는다
+
+embedding:
+  provider: none                      # MVP는 임베딩 없이 키워드 매칭. 청크 수가 적고(과정 1개 기준), 근거는 programId로 먼저 좁혀지므로 벡터 검색 이득이 작다
+  model: gemini-embedding-2-preview   # 벡터 검색으로 바꿀 때 쓸 모델(config/models.yaml의 embedding과 같게 유지)
+
+store:
+  backend: json                       # 소규모 정적 파일. 청크가 수천 개를 넘으면 sqlite-vec로 옮긴다
+  path: data/evidence_chunks.json
+  metric: keyword_overlap             # 관심 분야 키워드가 topic/text에 들어 있으면 우선. 동률이면 최근 확인일 우선
+
+retrieval:
+  top_k: 5                            # 후보 1개당 근거 최대 개수. 카드에 다 보여 줄 수 있는 양(grounding_sources.json의 retrievalTopK와 같게 유지)
+  one_per_topic: true                 # 같은 주제 근거는 1개만(학비 근거 5개가 다른 주제를 밀어내지 않게)
+  min_evidence: 1                     # 후보에 근거가 0개이면 groundingStatus를 needs_check로 표시("근거 부족")
+  rerank: false                       # MVP는 off
+  hybrid: false                       # 벡터 검색 도입 후 키워드+벡터 실험용
+
+constraints:                          # 검색에 맡기지 않고 코드로 강제하는 규칙
+  allowed_sources_only: true          # config/grounding_sources.json에 등록된 공식 호스트만 근거로 사용(AC4) — source_validator.py
+  requirement_judgement: rule_code    # 요건 판정은 검색 결과가 아니라 requirement_matcher.py 규칙으로(AC5, AC6)
+  verified_candidates_only: true      # 근거는 검증 후보에만 붙인다. AI 탐색 결과(검증 전)에는 붙이지 않는다(AC3, AC19)
+  no_document_as_instruction: true    # 수집 문서 속 지시문은 데이터로만 취급(AC10)
+
+observability:
+  log_tool_calls: true                # admission.tools 로거 — 도구 이름, 입력 요약, 결과 개수, 소요 시간
+  log_retrieved_chunks: false         # 청크 원문은 로그에 남기지 않고 개수만 남긴다(로그 크기)

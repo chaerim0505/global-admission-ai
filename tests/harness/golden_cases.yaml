@@ -6,7 +6,10 @@
 #   status (200|422), input_error_fields, countries_only, degree_only,
 #   must_include, must_exclude, excluded_include, candidates_empty,
 #   must_have_source, scope_notice, needs_check_items, budget_fit,
-#   follow_ups_nonempty
+#   follow_ups_nonempty, ids_in_data, budget_fit_undecided
+#
+# 검증 후보(SPEC 2.1절)만 이 파일로 검사한다. AI 탐색 결과(검증 전)는
+# tests/harness/ai_exploration_cases.yaml 에서 검사한다(AC19).
 
 - id: GC-01
   ac: [AC1, AC2, AC4]
@@ -83,3 +86,77 @@
   expected:
     candidates_empty: true
     follow_ups_nonempty: true
+
+- id: GC-06
+  ac: [AC3, AC12]
+  query: "미얀마에서 학사 졸업, GPA 3.4/4.0. 아일랜드 컴퓨터 석사, 관심은 AI."
+  note: 검증 후보는 data/programs.json에 있는 programId만 나와야 한다(AC3은 검증 후보에만 적용).
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    engineeringFields: [computing]
+    interests: [AI]
+    preferredCountries: [IE]
+  expected:
+    ids_in_data: true
+    must_include: [galway-1mai1-2027]
+
+- id: GC-07
+  ac: [AC7, AC17]
+  query: "연 20000 EUR 이하 아일랜드 컴퓨터 석사, 장학금 필요."
+  note: 공식 학비가 없으면 budgetFit을 within/over로 확정하지 않는다.
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    engineeringFields: [computing]
+    preferredCountries: [IE]
+    maximumTuition: 20000
+    tuitionCurrency: EUR
+    tuitionPeriod: year
+    scholarshipRequired: true
+  expected:
+    must_include: [galway-1mai1-2027]
+    budget_fit_undecided: true
+
+- id: GC-08
+  ac: [AC2, AC9]
+  query: "미국 컴퓨터 석사를 찾아요."
+  note: 검증 데이터에 미국 과정이 없으면 다른 국가로 바꾸지 않고 빈 후보와 followUps를 반환한다.
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: KR
+    academicScore: 4.0
+    gradingSystem: gpa
+    maximumScore: 4.5
+    engineeringFields: [computing]
+    preferredCountries: [US]
+  expected:
+    candidates_empty: true
+    follow_ups_nonempty: true
+    countries_only: [US]
+
+- id: GC-09
+  ac: [AC14]
+  query: "미얀마 국적, 미얀마 성적표. 아일랜드 컴퓨터 석사."
+  note: 국적·성적표 국가가 5개국 밖이라는 이유만으로 거절하거나 일괄 제외하지 않는다.
+  input:
+    applicantType: master
+    currentEducationLevel: bachelor
+    transcriptCountry: MM
+    nationality: MM
+    academicScore: 3.4
+    gradingSystem: gpa
+    maximumScore: 4.0
+    engineeringFields: [computing]
+    preferredCountries: [IE]
+  expected:
+    must_include: [galway-1mai1-2027]
