@@ -1,11 +1,10 @@
-
+import os
 from pathlib import Path
 
 from dotenv import dotenv_values
 from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
-
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -55,8 +54,8 @@ def extract_admission_requirements(
         raise ValueError("문서 내용이 비어 있습니다.")
 
     settings = dotenv_values(PROJECT_ROOT / ".env")
-    api_key = settings.get("GEMINI_API_KEY")
-    model = settings.get("GEMINI_MODEL")
+    api_key = settings.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+    model = settings.get("GEMINI_MODEL") or os.getenv("GEMINI_MODEL")
 
     if not api_key or not model:
         raise RuntimeError("Gemini 설정이 없습니다.")

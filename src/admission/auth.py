@@ -1,6 +1,7 @@
 
 import os
 import sqlite3
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -29,18 +30,71 @@ def get_secret():
     return secret
 
 
+# ---------------------------------------------------------------
+# Database
+# DATABASE_URL이 있으면 Postgres(Neon 등)에 영구 저장하고,
+# 없으면 로컬 개발용 SQLite 파일을 사용한다.
+# ---------------------------------------------------------------
+
+def database_url():
+    return (os.getenv("DATABASE_URL") or "").strip()
+
+
+def using_postgres():
+    return database_url().startswith(("postgres://", "postgresql://"))
+
+
+@contextmanager
 def get_db():
-    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(DB_PATH, timeout=10)
-    connection.row_factory = sqlite3.Row
-    return connection
+    """연결을 열고, 성공하면 commit, 끝나면 항상 close한다."""
+    if using_postgres():
+        import psycopg
+        from psycopg.rows import dict_row
+
+        connection = psycopg.connect(
+            database_url(),
+            row_factory=dict_row,
+            connect_timeout=10,
+        )
+    else:
+        DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+        connection = sqlite3.connect(DB_PATH, timeout=10)
+        connection.row_factory = sqlite3.Row
+
+    try:
+        yield connection
+        connection.commit()
+    except Exception:
+        connection.rollback()
+        raise
+    finally:
+        connection.close()
+
+
+def run(db, query, params=()):
+    """SQLite(?)와 Postgres(%s)의 placeholder 차이를 맞춘다."""
+    if using_postgres():
+        query = query.replace("?", "%s")
+    return db.execute(query, params)
+
+
+def is_duplicate_error(error):
+    if isinstance(error, sqlite3.IntegrityError):
+        return True
+    return type(error).__name__ == "UniqueViolation"
 
 
 def init_db():
+    id_column = (
+        "id BIGSERIAL PRIMARY KEY"
+        if using_postgres()
+        else "id INTEGER PRIMARY KEY AUTOINCREMENT"
+    )
+
     with get_db() as db:
-        db.execute("""
+        run(db, f"""
             CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                {id_column},
                 email TEXT NOT NULL UNIQUE,
                 password_hash TEXT NOT NULL,
                 created_at TEXT NOT NULL
@@ -85,25 +139,29 @@ def register(request: RegisterRequest):
 
     try:
         with get_db() as db:
-            cursor = db.execute(
+            row = run(
+                db,
                 """
                 INSERT INTO users
                     (email, password_hash, created_at)
                 VALUES (?, ?, ?)
+                RETURNING id
                 """,
                 (
                     email,
                     password_hash,
                     datetime.now(timezone.utc).isoformat(),
                 ),
-            )
-            user_id = cursor.lastrowid
+            ).fetchone()
+            user_id = row["id"]
 
-    except sqlite3.IntegrityError:
-        raise HTTPException(
-            status_code=409,
-            detail="This email is already registered.",
-        )
+    except Exception as error:
+        if is_duplicate_error(error):
+            raise HTTPException(
+                status_code=409,
+                detail="This email is already registered.",
+            )
+        raise
 
     return {
         "id": user_id,
@@ -119,7 +177,8 @@ def login(request: LoginRequest):
     email = normalize_email(request.email)
 
     with get_db() as db:
-        user = db.execute(
+        user = run(
+            db,
             "SELECT * FROM users WHERE email = ?",
             (email,),
         ).fetchone()
@@ -161,8 +220,11 @@ def current_user(
             detail="Invalid or expired token.",
         )
 
+    init_db()
+
     with get_db() as db:
-        user = db.execute(
+        user = run(
+            db,
             "SELECT id, email FROM users WHERE id = ?",
             (user_id,),
         ).fetchone()

@@ -118,9 +118,14 @@ CSS = """
 
 div[data-testid="stForm"] {
     background: #ffffff;
-    border: 1px solid #6387ee;
+    border: 1px solid #dbe3f1;
     border-radius: 16px;
     padding: 12px 14px;
+    box-shadow: 0 4px 16px rgba(31, 42, 68, 0.06);
+}
+
+div[data-testid="InputInstructions"] {
+    display: none;
 }
 
 .block-container {

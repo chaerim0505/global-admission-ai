@@ -1,3 +1,4 @@
+import os
 import re
 from pathlib import Path
 
@@ -23,8 +24,8 @@ NUMBER = re.compile(r"\d+(?:\.\d+)?")
 
 def gemini_reason(candidate: dict, draft: str) -> str:
     settings = dotenv_values(PROJECT_ROOT / ".env")
-    api_key = settings.get("GEMINI_API_KEY")
-    model = settings.get("GEMINI_MODEL")
+    api_key = settings.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+    model = settings.get("GEMINI_MODEL") or os.getenv("GEMINI_MODEL")
 
     if not api_key or not model:
         raise RuntimeError("Gemini API 키 또는 모델 설정이 없습니다.")

@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from admission.agents.intake_agent import run_intake_agent
 from admission.agents.diagnosis_agent import run_diagnosis_agent
 from admission.agents.matching_agent import run_matching_agent
@@ -52,11 +53,15 @@ def run_root_agent(
     for country in dict.fromkeys(
         code.strip().upper() for code in countries
     ):
-        result = search_catalogue(
-            country=country,
-            degree=context.applicantType,
-            limit=3,
-        )
+        try:
+            result = search_catalogue(
+                country=country,
+                degree=context.applicantType,
+                limit=3,
+            )
+        except HTTPException:
+            # 카탈로그 DB가 없어도 추천 결과는 반환한다.
+            continue
         catalogue_items.extend(result["items"])
 
     # 5. Grounding Agent
