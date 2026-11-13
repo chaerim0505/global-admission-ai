@@ -385,3 +385,59 @@ def requirement_status(program: dict, context: dict) -> list[dict]:
     checks.append({"item": "deadline", "status": "met" if deadline else "needs_check",
                    "reason": deadline or "not_recorded"})
     return checks
+
+
+# ---------------------------------------------------------------------------
+# Step 8: national (government) international scholarships per country (F09, AC26)
+# ---------------------------------------------------------------------------
+
+SCHOLARSHIP_DEGREES = {"bachelor": "undergraduate", "master": "master", "doctoral": "phd"}
+
+
+def load_scholarships() -> list[dict]:
+    import json
+    path = ROOT / "data" / "scholarships" / "scholarships_2027.json"
+    return json.loads(path.read_text(encoding="utf-8"))["scholarships"]
+
+
+def scholarships_for(context: dict, scholarships: list[dict] | None = None) -> dict:
+    """Government scholarships for the requested countries and degree; university ones are never judged.
+
+    National records are shown with their conditions and link, not as "eligible" (AC26).
+    A nationality note is added only where the record states it (e.g. myanmarEligible).
+    """
+    scholarships = scholarships if scholarships is not None else load_scholarships()
+    countries = set(context.get("preferredCountries") or [])
+    degree = DEGREE_ALIASES.get(context.get("applicantType"), context.get("applicantType"))
+    nationality = (context.get("nationality") or "").upper()
+
+    national = []
+    for s in scholarships:
+        if s.get("scope") != "national":
+            continue
+        if countries and s.get("destinationCountry") not in countries:
+            continue
+        degrees = {SCHOLARSHIP_DEGREES.get(d, d) for d in s.get("degrees", [])}
+        if degree and degrees and degree not in degrees:
+            continue
+        note = None
+        if nationality == "MM" and "myanmarEligible" in s:
+            note = {True: "listed_for_myanmar", "needs_check": "check_country_list"}.get(s["myanmarEligible"], "check_country_list")
+        national.append({
+            "scholarshipId": s["scholarshipId"],
+            "name": s["name"],
+            "country": s.get("destinationCountry"),
+            "provider": s.get("provider"),
+            "conditions": s.get("conditions") or [],
+            "benefits": s.get("benefits") or [],
+            "sourceUrl": s.get("sourceUrl"),
+            "nationalityNote": note,
+            "verificationStatus": s.get("verificationStatus", "needs_review"),
+            "status": "check_conditions",  # shown with conditions, never "eligible"
+        })
+    national.sort(key=lambda x: (x["country"] or "", x["name"]))
+    return {
+        "national": national,
+        "university": {"status": "check_official_page",
+                       "reason": "University scholarships depend on grades and change every intake."},
+    }

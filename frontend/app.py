@@ -36,6 +36,7 @@ from admission.recommend_v2 import (  # noqa: E402
     detect_language,
     load_catalogue as _load_catalogue,
     recommend as recommend_v2,
+    scholarships_for,
     web_results_from_gemini,
 )
 
@@ -1578,6 +1579,44 @@ def gemini_fill(context_json: str, exclude: tuple) -> list[dict]:
     return web_results_from_gemini(raw, context)
 
 
+def show_scholarships(context: dict, results: list[dict]) -> None:
+    """Government scholarships for the chosen countries; university scholarships link out (F09, AC26)."""
+    info = scholarships_for(context)
+    st.subheader(t("International scholarships"))
+    st.caption(t("Shown with their conditions. Being listed here does not mean you are eligible."))
+
+    if not info["national"]:
+        st.info(t("No government scholarship in our data for this country and degree."))
+    for item in info["national"]:
+        with st.container(border=True):
+            st.markdown(f"**{safe(item['name'])}** · {t(COUNTRIES.get(item['country'], item['country']))}")
+            if item.get("provider"):
+                st.caption(item["provider"])
+            for line in item["conditions"][:4]:
+                st.write("• " + line)
+            if item["benefits"]:
+                st.write(t("Benefits") + ": " + "; ".join(item["benefits"][:3]))
+            note = item.get("nationalityNote")
+            if note == "listed_for_myanmar":
+                st.success(t("Myanmar is listed for this scholarship. Check the current call before applying."))
+            elif note == "check_country_list":
+                st.warning(t("Check whether your country is on this scholarship's country list."))
+            if item.get("sourceUrl"):
+                st.markdown(f"[📄 {t('Official scholarship page')}]({item['sourceUrl']})")
+            if item.get("verificationStatus") != "verified":
+                st.caption(t("Collected from the official page; team review pending."))
+
+    sites = []
+    for program in results:
+        domain = program.get("officialDomain")
+        if domain and domain not in [d for d, _ in sites]:
+            sites.append((domain, program.get("universityNameEnglish") or program.get("universityName")))
+    st.markdown("**" + t("University scholarships") + "**")
+    st.write(t("University scholarships depend on your grades and change every intake, so they are not judged here. Check each university's official page."))
+    if sites:
+        st.markdown(" · ".join(f"[{safe(name)}](https://{domain})" for domain, name in sites))
+
+
 def show_results(programs: list[dict] | None = None) -> None:
     """Five distinct universities ranked by grade tier and budget (SPEC F06, F08)."""
     context = st.session_state.get("search")
@@ -1612,6 +1651,8 @@ def show_results(programs: list[dict] | None = None) -> None:
 
     for program in results:
         show_recommendation_card(program)
+
+    show_scholarships(context, results)
 
     excluded = outcome.get("excluded") or []
     if excluded:

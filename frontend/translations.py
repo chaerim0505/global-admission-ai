@@ -1,6 +1,16 @@
 """Interface translations for Admission AI."""
 
 KO = {
+    'International scholarships': '국제 장학금',
+    'Shown with their conditions. Being listed here does not mean you are eligible.': '조건과 함께 보여 줍니다. 목록에 있다고 지원 자격이 있다는 뜻은 아닙니다.',
+    'No government scholarship in our data for this country and degree.': '이 국가·학위에 해당하는 정부 장학금 데이터가 없습니다.',
+    'Benefits': '혜택',
+    'Myanmar is listed for this scholarship. Check the current call before applying.': '이 장학금은 미얀마가 대상 국가에 포함되어 있습니다. 지원 전 올해 공고를 확인하세요.',
+    "Check whether your country is on this scholarship's country list.": '내 국가가 이 장학금의 대상 국가 목록에 있는지 확인하세요.',
+    'Official scholarship page': '장학금 공식 페이지',
+    'Collected from the official page; team review pending.': '공식 페이지에서 수집했으며 팀 검토 전입니다.',
+    'University scholarships': '교내 장학금',
+    "University scholarships depend on your grades and change every intake, so they are not judged here. Check each university's official page.": '교내 장학금은 성적에 따라 다르고 모집마다 바뀌어 여기서 판정하지 않습니다. 각 대학 공식 페이지에서 확인하세요.',
     'Requirement check': '요건 확인',
     'Met': '충족',
     'Not met': '미충족',
