@@ -1,7 +1,14 @@
 import logging
 import os
+from pathlib import Path
 
-from fastapi import FastAPI
+from dotenv import load_dotenv
+
+# Local runs read keys (AUTH_SECRET_KEY, GEMINI_API_KEY, ...) from .env before anything uses them.
+# On Render the variables are set in the dashboard, and existing values are never overridden.
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
+from fastapi import FastAPI  # noqa: E402
 from fastapi.responses import JSONResponse
 from google.genai import errors as genai_errors
 from httpx import TimeoutException

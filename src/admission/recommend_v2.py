@@ -172,6 +172,9 @@ def recommend(context: dict, catalogue: list[dict], rates: dict | None = None,
         picked.sort(key=lambda c: (BUDGET_RANK.get(c["budgetFit"], 1), TIER_ORDER[c["admissionTier"]],
                                    closeness(c), c["programId"]))
 
+    if len(picked) < wanted and web_results:
+        picked += _web_fill(web_results, context, picked, best, wanted - len(picked), score)
+
     shortfall = None
     if len(picked) < wanted:
         shortfall = (f"Only {len(picked)} universities meet every condition "
@@ -200,3 +203,124 @@ def load_catalogue() -> list[dict]:
     import json
     path = ROOT / "data" / "catalogue" / "programs_unified.json"
     return json.loads(path.read_text(encoding="utf-8"))["programs"]
+
+
+# ---------------------------------------------------------------------------
+# Step 7: web results only when the link opens and the domain is the university's (AC19, AC23)
+# ---------------------------------------------------------------------------
+
+from functools import lru_cache  # noqa: E402
+from urllib.parse import urlparse  # noqa: E402
+
+
+def _host(url: str) -> str:
+    return (urlparse(url).hostname or "").lower().removeprefix("www.")
+
+
+def _domain_matches(url: str, domains: list[str]) -> bool:
+    host = _host(url)
+    for domain in domains or []:
+        domain = domain.lower().removeprefix("www.")
+        if domain and (host == domain or host.endswith("." + domain)):
+            return True
+    return False
+
+
+def filter_web_results(items: list[dict], probe=None, domains_for=None) -> list[dict]:
+    """Keep a web result only if its https link answers 200 and sits on the university's ROR domain.
+
+    `probe(url) -> status code` and `domains_for(name, country) -> [domains]` are injected so tests
+    stay offline; items may also carry `http_status` / `ror_domains` already (golden cases).
+    """
+    kept = []
+    for item in items:
+        url = str(item.get("sourceUrl") or "")
+        if not url.startswith("https://"):
+            continue
+        status = item.get("http_status")
+        if status is None and probe is not None:
+            status = probe(url)
+        domains = item.get("ror_domains")
+        if domains is None and domains_for is not None:
+            domains = domains_for(item.get("universityName", ""), item.get("country"))
+        if status == 200 and _domain_matches(url, domains or []):
+            kept.append({**item, "source": "web_verified", "officialDomain": _host(url)})
+    return kept
+
+
+def _norm_name(name: str) -> str:
+    return re.sub(r"[^a-z0-9가-힣]+", "", (name or "").lower().replace("the ", ""))
+
+
+def _web_fill(web_results, context, picked, best, room, score) -> list[dict]:
+    countries = set(context.get("preferredCountries") or [])
+    taken = {_norm_name(p["universityName"]) for p in best.values()} | {_norm_name(p.get("universityNameEnglish") or "") for p in best.values()}
+    taken |= {_host(p.get("sourceUrl") or "") for p in picked}
+    added = []
+    for item in web_results:
+        if len(added) >= room:
+            break
+        if item.get("source") != "web_verified" or (countries and item.get("country") not in countries):
+            continue
+        key = _norm_name(item.get("universityName", ""))
+        if not key or key in taken or _host(item["sourceUrl"]) in taken:
+            continue
+        taken |= {key, _host(item["sourceUrl"])}
+        added.append({
+            **item,
+            "programId": item.get("programId") or "web_" + _host(item["sourceUrl"]) + "_" + _norm_name(item.get("programName", ""))[:30],
+            "degreeLevel": DEGREE_ALIASES.get(context.get("applicantType"), context.get("applicantType")),
+            "engineeringFields": item.get("engineeringFields") or list(context.get("engineeringFields") or []),
+            "universityKey": "web:" + _host(item["sourceUrl"]),
+            "difficultyPercentile": None,
+            "budgetFit": "needs_check" if context.get("maximumTuition") else None,
+            "admissionTier": "unknown" if score is not None else None,
+            "verificationStatus": "needs_check",
+        })
+    return added
+
+
+# Live helpers used by the app (not by tests) -------------------------------
+
+def http_status(url: str, timeout: float = 6.0) -> int | None:
+    import requests
+    try:
+        response = requests.head(url, allow_redirects=True, timeout=timeout)
+        if response.status_code in (403, 405):  # some sites refuse HEAD
+            response = requests.get(url, allow_redirects=True, timeout=timeout, stream=True)
+        return response.status_code
+    except Exception:
+        return None
+
+
+@lru_cache(maxsize=512)
+def official_domains(name: str, country: str | None) -> tuple[str, ...]:
+    """University domains: first from our catalogue, then from the ROR registry."""
+    key = _norm_name(name)
+    for p in _catalogue_cached():
+        if p.get("officialDomain") and key in {_norm_name(p["universityName"]), _norm_name(p.get("universityNameEnglish") or "")}:
+            return (p["officialDomain"],)
+    import requests
+    try:
+        data = requests.get("https://api.ror.org/v2/organizations", params={"query": name}, timeout=8).json()
+    except Exception:
+        return ()
+    domains: list[str] = []
+    for org in data.get("items", [])[:3]:
+        codes = {loc.get("geonames_details", {}).get("country_code") for loc in org.get("locations", [])}
+        if country and country not in codes and not (country == "GB" and "UK" in codes):
+            continue
+        domains += org.get("domains", [])
+        domains += [_host(link.get("value", "")) for link in org.get("links", []) if link.get("type") == "website"]
+    return tuple(d for d in domains if d)
+
+
+@lru_cache(maxsize=1)
+def _catalogue_cached() -> tuple:
+    return tuple(load_catalogue())
+
+
+def web_results_from_gemini(raw_items: list[dict], context: dict) -> list[dict]:
+    """Shape Gemini exploration items and keep only verified ones (live network)."""
+    shaped = [{**i, "country": i.get("country") or (context.get("preferredCountries") or [None])[0]} for i in raw_items]
+    return filter_web_results(shaped, probe=http_status, domains_for=lambda n, c: list(official_domains(n, c)))

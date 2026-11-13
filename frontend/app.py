@@ -32,7 +32,17 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from admission.ai_exploration import explore_programmes  # noqa: E402
-from admission.recommend_v2 import detect_language  # noqa: E402
+from admission.recommend_v2 import (  # noqa: E402
+    detect_language,
+    load_catalogue as _load_catalogue,
+    recommend as recommend_v2,
+    web_results_from_gemini,
+)
+
+
+@st.cache_resource(show_spinner=False)
+def load_unified_catalogue() -> list[dict]:
+    return _load_catalogue()
 DATABASE_PATH = ROOT / "database" / "admission_catalogue.sqlite"
 
 COUNTRIES = {
@@ -269,6 +279,23 @@ FOLLOW_UP_QUESTIONS = {
     "tuitionPeriod": "Is your maximum tuition per semester, per year or for the whole programme?",
     "maximumTuition": "What is the most tuition you can afford?",
 }
+
+
+WORLD_COUNTRIES = json.loads(
+    (ROOT / "data" / "reference" / "countries.json").read_text(encoding="utf-8")
+)["countries"]
+WORLD_NAMES = {c["code"]: c for c in WORLD_COUNTRIES}
+
+
+def country_name(code: str | None) -> str:
+    """Country name in the current language, with its code (for pickers)."""
+    if not code:
+        return ""
+    item = WORLD_NAMES.get(code)
+    if not item:
+        return code
+    name = item["ko"] if st.session_state.get("ui_language") == "ko" else item["en"]
+    return f"{name} ({code})"
 
 
 def t(text: str) -> str:
@@ -696,24 +723,13 @@ def submit_search() -> None:
     state = st.session_state
     errors = []
 
-    transcript = state["transcript"].strip().upper()
-    nationality = state["nationality"].strip().upper()
+    transcript = (state.get("transcript") or "").strip().upper()
+    nationality = (state.get("nationality") or "").strip().upper()
     score = state["score"]
     maximum = state["maximum"]
 
-    if (
-        len(transcript) != 2
-        or not transcript.isascii()
-        or not transcript.isalpha()
-    ):
-        errors.append("Enter a two-letter transcript country code.")
-
-    if nationality and (
-        len(nationality) != 2
-        or not nationality.isascii()
-        or not nationality.isalpha()
-    ):
-        errors.append("Enter a two-letter nationality code.")
+    if transcript not in WORLD_NAMES:
+        errors.append("Choose the country that issued your transcript.")
 
     if score is None:
         errors.append("Enter your academic score.")
@@ -730,12 +746,6 @@ def submit_search() -> None:
         and score > 100
     ):
         errors.append("A percentage score cannot exceed 100.")
-
-    if not state["fields"]:
-        errors.append("Select at least one engineering field.")
-
-    if not state["countries"]:
-        errors.append("Select at least one destination country.")
 
     if state["test"] != "none" and state["test_score"] is None:
         errors.append("Enter a score for your selected language test.")
@@ -757,11 +767,12 @@ def submit_search() -> None:
         "academicScore": score,
         "gradingSystem": state["grading"],
         "maximumScore": maximum,
-        "engineeringFields": list(state["fields"]),
+        # Nothing selected = all engineering fields / all five countries (SPEC 3.1, AC16).
+        "engineeringFields": list(state["fields"]) or list(FIELDS),
         "interests": (
             (state.get("agent_context") or {}).get("interests")
         ),
-        "preferredCountries": list(state["countries"]),
+        "preferredCountries": list(state["countries"]) or list(COUNTRIES),
         "maximumTuition": state["budget"],
         "tuitionCurrency": state["currency"],
         "tuitionPeriod": state["period"],
@@ -886,6 +897,8 @@ def send_message() -> None:
 
             elif ui_field in ("transcript", "nationality"):
                 value = str(value).strip().upper()
+                if value not in WORLD_NAMES:
+                    continue
 
             state[ui_field] = value
 
@@ -1064,9 +1077,12 @@ def show_input(programs) -> None:
             with a:
                 choice("Degree", DEGREES, "degree", "master")
 
-                st.text_input(
-                    t("Transcript country code"),
-                    placeholder=t("For example: MM"),
+                st.selectbox(
+                    t("Country that issued your transcript"),
+                    list(WORLD_NAMES),
+                    index=None,
+                    placeholder=t("Type or choose a country"),
+                    format_func=country_name,
                     key="transcript",
                 )
 
@@ -1102,36 +1118,21 @@ def show_input(programs) -> None:
                 )
 
             if "fields" not in st.session_state:
-                st.session_state["fields"] = ["computing"]
+                st.session_state["fields"] = []
 
             if "countries" not in st.session_state:
-                st.session_state["countries"] = ["KR"]
+                st.session_state["countries"] = []
 
             st.multiselect(
                 t("Engineering fields"),
                 list(FIELDS),
                 format_func=lambda value: t(FIELDS[value]),
                 key="fields",
+                placeholder=t("Leave empty to search all engineering fields."),
             )
 
             st.caption(
-                t("Available fields")
-                + ": "
-                + ", ".join(
-                    t(FIELDS[field])
-                    for field in FIELDS
-                    if any(
-                        field in p["engineeringFields"]
-                        for p in programs
-                    )
-                )
-            )
-
-            st.caption(
-                t(
-                    "Coverage varies by country and degree. "
-                    "Other field options are reserved for future data."
-                )
+                t("All engineering fields in Korea, the US, the UK, the Netherlands and Ireland.")
             )
 
             st.multiselect(
@@ -1139,6 +1140,7 @@ def show_input(programs) -> None:
                 list(COUNTRIES),
                 format_func=lambda value: t(COUNTRIES[value]),
                 key="countries",
+                placeholder=t("Leave empty to search all five countries."),
             )
 
             a, b = st.columns(2)
@@ -1158,9 +1160,12 @@ def show_input(programs) -> None:
                     key="currency",
                 )
 
-                st.text_input(
-                    t("Nationality code — optional"),
-                    placeholder=t("For example: MM"),
+                st.selectbox(
+                    t("Nationality — optional"),
+                    list(WORLD_NAMES),
+                    index=None,
+                    placeholder=t("Type or choose a country"),
+                    format_func=country_name,
                     key="nationality",
                 )
 
@@ -1455,202 +1460,121 @@ Use this response format:
         "the linked official university pages."
     )
 
-def show_ai_suggestions(context: dict, exclude: set, auto: bool) -> None:
-    """Show Gemini-found programmes when the dataset has few or no matches."""
-    cache_key = "ai_programmes_" + json.dumps(
-        context, sort_keys=True, default=str
-    )
-
-    if cache_key not in st.session_state:
-        if not auto and not st.button(
-            "🔎 Find more universities with Gemini",
-            key="ai_programmes_btn",
-        ):
-            return
-
-        try:
-            with st.spinner("Gemini is searching university websites..."):
-                st.session_state[cache_key] = {
-                    "items": explore_programmes(context, exclude)
-                }
-        except Exception as error:
-            message = str(error)
-            if "429" in message or "RESOURCE_EXHAUSTED" in message:
-                message = "Gemini API quota exceeded. Please try again later."
-            st.session_state[cache_key] = {"error": message}
-
-    result = st.session_state[cache_key]
-
-    if result.get("error"):
-        st.error(result["error"])
-        return
-
-    items = result.get("items") or []
-    if not items:
-        st.warning(
-            "Gemini could not find programmes with official sources "
-            "for these conditions."
-        )
-        return
-
-    for program in items:
-        show_card(program)
-        show_official_search(program)
+SOURCE_LABELS = {
+    "team_verified": "✓ Official admission guide checked",
+    "official_dataset": "✓ Government open data",
+    "web_verified": "🔎 Web search · official link checked",
+}
+TIER_LABELS = {
+    "reach": "Reach",
+    "match": "Match",
+    "safety": "Safety",
+    "unknown": "Difficulty not available",
+}
+BUDGET_LABELS = {
+    "within": "Within your budget",
+    "needs_check": "Tuition to be checked",
+}
 
 
-def show_results(programs: list[dict]) -> None:
-    """Compare applicant conditions with documented programme requirements."""
+def v2_context(context: dict) -> dict:
+    """Search context for recommend_v2: a grade tier only when the score has a numeric scale."""
+    ctx = dict(context)
+    grading = context.get("gradingSystem")
+    if grading == "percentage":
+        ctx["maximumScore"] = 100
+    elif grading not in ("gpa", "total_score"):
+        ctx["academicScore"] = None
+    return ctx
+
+
+def show_recommendation_card(program: dict) -> None:
+    """One result card: tier, budget, source and official link (SPEC F08, AC24, AC25, AC27)."""
+    english = st.session_state.get("ui_language") != "ko"
+    university = (program.get("universityNameEnglish") if english else None) or program.get("universityName")
+    with st.container(border=True):
+        st.markdown(f"### {safe(university)}")
+        st.markdown(f"**{safe(program.get('programName'))}**")
+        country = t(COUNTRIES.get(program.get("country"), program.get("country") or ""))
+        degree = t({"undergraduate": "Undergraduate", "master": "Master", "phd": "PhD"}.get(program.get("degreeLevel"), ""))
+        st.caption(f"{country} · {degree}")
+
+        badges = []
+        tier = program.get("admissionTier")
+        if tier:
+            badges.append(t(TIER_LABELS[tier]))
+        fit = program.get("budgetFit")
+        if fit in BUDGET_LABELS:
+            badges.append(t(BUDGET_LABELS[fit]))
+        if badges:
+            st.markdown(" · ".join(f"`{b}`" for b in badges))
+
+        tuition = program.get("tuition") or {}
+        if tuition.get("amount"):
+            st.write(
+                f"{t('Tuition')}: {tuition['amount']:,.0f} {tuition.get('currency', '')} / "
+                f"{t(tuition.get('period', 'year'))}"
+                + (f" ({t(tuition['basis'])})" if tuition.get("basis") else "")
+            )
+        if program.get("difficultyPercentile") is not None:
+            st.caption(
+                f"{t('Difficulty index')}: {program['difficultyPercentile']:.0f}/100 — "
+                f"{t(program.get('difficultyBasis') or '')}. "
+                + t("Estimate from public indicators, not an admission prediction.")
+            )
+
+        link = program.get("sourceUrl")
+        if link:
+            st.markdown(f"[{t('Official source')}]({link})")
+        st.caption(t(SOURCE_LABELS.get(program.get("source"), "")))
+
+        if program.get("academicRequirementText"):
+            with st.expander(t("Admission details from the official guide")):
+                show_card(program)
+
+
+@st.cache_data(show_spinner=False)
+def gemini_fill(context_json: str, exclude: tuple) -> list[dict]:
+    """Ask Gemini for more programmes, then keep only links that open on the university's domain."""
+    context = json.loads(context_json)
+    raw = explore_programmes(context, set(exclude))
+    return web_results_from_gemini(raw, context)
+
+
+def show_results(programs: list[dict] | None = None) -> None:
+    """Five distinct universities ranked by grade tier and budget (SPEC F06, F08)."""
     context = st.session_state.get("search")
     if not context:
-        st.info("Enter your conditions and search first.")
+        st.info(t("Enter your conditions and search first."))
         return
 
-    def evaluate(program):
-        issues = []
-        unknown = []
-        passed = []
+    ctx = v2_context(context)
+    catalogue = load_unified_catalogue()
+    outcome = recommend_v2(ctx, catalogue)
 
-        # GPA: compare only when the grading scales match.
-        minimum = program.get("minimumGpa")
-        scale = program.get("minimumGpaScale")
-        score = context.get("academicScore")
-        maximum = context.get("maximumScore")
+    if outcome["shortfallReason"]:
+        exclude = tuple(sorted(str(p.get("universityName", "")).lower() for p in outcome["results"]))
+        try:
+            with st.spinner(t("Searching official university websites for more programmes...")):
+                web = gemini_fill(json.dumps(context, sort_keys=True, default=str), exclude)
+            outcome = recommend_v2(ctx, catalogue, web_results=web)
+        except Exception as error:  # web search is optional; dataset results still stand
+            message = str(error)
+            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+                message = t("Gemini API quota exceeded. Please try again later.")
+            st.caption(f"{t('Web search unavailable')}: {message}")
 
-        if minimum is None:
-            unknown.append("Minimum GPA not published")
-        elif context.get("gradingSystem") != "gpa":
-            unknown.append("GPA conversion requires verification")
-        elif score is None or maximum is None or scale is None:
-            unknown.append("GPA scale cannot be compared")
-        elif abs(float(maximum) - float(scale)) > 0.001:
-            unknown.append("Different GPA scales require verification")
-        elif float(score) < float(minimum):
-            issues.append("GPA below documented minimum")
-        else:
-            passed.append("GPA meets documented minimum")
-
-        # Language tests: evaluate alternatives for the selected test.
-        test = context.get("languageTestType")
-        test_score = context.get("languageTestScore")
-        requirements = program.get("languageRequirements")
-
-        if not requirements:
-            unknown.append("Language requirements not verified")
-        elif not test or test_score is None:
-            unknown.append("English language eligibility not assessed")
-        else:
-            applicable = [
-                item for item in requirements
-                if isinstance(item, dict)
-                and str(item.get("testType", "")).lower()
-                == str(test).lower()
-            ]
-            thresholds = [
-                item.get("minimumScore") for item in applicable
-                if isinstance(item.get("minimumScore"), (int, float))
-            ]
-
-            if not thresholds:
-                unknown.append("Selected language test threshold not verified")
-            elif float(test_score) >= min(thresholds):
-                passed.append("Language score meets recorded threshold")
-            else:
-                issues.append("Language score below recorded threshold")
-
-        # Tuition: do not compare different currencies or periods.
-        budget = context.get("maximumTuition")
-        tuition = program.get("tuition")
-
-        if budget is not None:
-            if not isinstance(tuition, dict) or tuition.get("amount") is None:
-                unknown.append("Tuition amount not verified")
-            elif (
-                tuition.get("currency") != context.get("tuitionCurrency")
-                or tuition.get("period") != context.get("tuitionPeriod")
-            ):
-                unknown.append("Tuition currency or period differs")
-            elif float(tuition["amount"]) > float(budget):
-                issues.append("Tuition exceeds budget")
-            else:
-                passed.append("Tuition is within budget")
-
-        # Scholarship availability is not a scholarship guarantee.
-        if context.get("scholarshipRequired"):
-            if program.get("scholarships"):
-                unknown.append("Scholarship eligibility needs verification")
-            else:
-                unknown.append("Scholarship information not verified")
-
-        return issues, unknown, passed
-
-    matches = [
-        program for program in programs
-        if program.get("country") in context.get("preferredCountries", [])
-        and program.get("degreeLevel") == context.get("applicantType")
-        and bool(
-            set(program.get("engineeringFields") or [])
-            & set(context.get("engineeringFields") or [])
-        )
-    ]
-
-    evaluated = []
-    for program in matches:
-        issues, unknown, passed = evaluate(program)
-        evaluated.append((program, issues, unknown, passed))
-
-    # Exclude only documented failures; keep unknowns visible.
-    eligible = [item for item in evaluated if not item[1]]
-    eligible.sort(
-        key=lambda item: (
-            len(item[2]),
-            -len(item[3]),
-            str(item[0].get("universityName", "")),
-        )
-    )
-
-    shown = eligible[:5]
-
-    st.subheader(f"Programme recommendations · {len(shown)}")
+    results = outcome["results"]
+    st.subheader(f"{t('Recommended universities')} · {len(results)}")
     st.caption(
-        "Based on available records, not admission predictions. "
-        "Unknown requirements must be checked against official sources."
+        t("Ranked by your grade and budget using public indicators. "
+          "Tiers are estimates, not admission predictions. Check requirements on each official source.")
     )
+    if outcome["shortfallReason"]:
+        st.info(t("Fewer than five universities meet every condition. Conditions were not relaxed."))
 
-    if not shown:
-        st.info(
-            "No programmes in our verified data match these conditions. "
-            "Gemini is searching official university websites instead."
-        )
-
-    for program, issues, unknown, passed in shown:
-        show_card(program)
-        show_official_search(program)
-
-        if passed:
-            st.success("Verified comparisons: " + "; ".join(passed))
-
-        if unknown:
-            st.warning("Needs verification: " + "; ".join(unknown))
-
-    show_ai_suggestions(
-        context,
-        exclude={
-            str(program.get("universityName", "")).lower()
-            for program, _, _, _ in shown
-        },
-        auto=True,
-    )
-
-    excluded = len(evaluated) - len(eligible)
-    if excluded:
-        with st.expander(f"Excluded by documented requirements ({excluded})"):
-            for program, issues, _, _ in evaluated:
-                if issues:
-                    st.write(
-                        f"**{program.get('universityName', 'University')}** "
-                        f"— {program.get('programName', 'Programme')}: "
-                        + "; ".join(issues)
-                    )
+    for program in results:
+        show_recommendation_card(program)
 
 
 def enter_guest_mode() -> None:
