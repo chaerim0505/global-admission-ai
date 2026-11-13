@@ -32,10 +32,13 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from admission.ai_exploration import explore_programmes  # noqa: E402
+from admission.requirement_finder import find_requirements  # noqa: E402
 from admission.recommend_v2 import (  # noqa: E402
     detect_language,
     load_catalogue as _load_catalogue,
+    official_domains,
     recommend as recommend_v2,
+    requirement_status,
     scholarships_for,
     web_results_from_gemini,
 )
@@ -1462,9 +1465,9 @@ Use this response format:
     )
 
 SOURCE_LABELS = {
-    "team_verified": "✓ Official admission guide checked",
-    "official_dataset": "✓ Government open data",
-    "web_verified": "🔎 Web search · official link checked",
+    "team_verified": "Official admission guide (team checked)",
+    "official_dataset": "Government open data",
+    "web_verified": "Found by web search",
 }
 TIER_LABELS = {
     "reach": "Reach",
@@ -1510,65 +1513,81 @@ def v2_context(context: dict) -> dict:
 
 
 def show_recommendation_card(program: dict) -> None:
-    """One result card: tier, budget, source and official link (SPEC F08, AC24, AC25, AC27)."""
+    """Result card: what the applicant needs, with official links (SPEC F02, F08, AC24, AC25, AC27)."""
     english = st.session_state.get("ui_language") != "ko"
     university = (program.get("universityNameEnglish") if english else None) or program.get("universityName")
     with st.container(border=True):
         st.markdown(f"### {safe(university)}")
-        st.markdown(f"**{safe(program.get('programName'))}**")
         country = t(COUNTRIES.get(program.get("country"), program.get("country") or ""))
         degree = t({"undergraduate": "Undergraduate", "master": "Master", "phd": "PhD"}.get(program.get("degreeLevel"), ""))
-        st.caption(f"{country} · {degree}")
-
         badges = []
-        tier = program.get("admissionTier")
-        if tier:
-            badges.append(t(TIER_LABELS[tier]))
-        fit = program.get("budgetFit")
-        if fit in BUDGET_LABELS:
-            badges.append(t(BUDGET_LABELS[fit]))
-        if badges:
-            st.markdown(" · ".join(f"`{b}`" for b in badges))
+        if program.get("admissionTier"):
+            badges.append(t(TIER_LABELS[program["admissionTier"]]))
+        if program.get("budgetFit") == "within":
+            badges.append(t("Within your budget"))
+        st.markdown(
+            f"**{safe(program.get('programName'))}** · {country} · {degree}"
+            + ("  " + " ".join(f"`{b}`" for b in badges) if badges else "")
+        )
 
         tuition = program.get("tuition") or {}
         if tuition.get("amount"):
-            st.write(
-                f"{t('Tuition')}: {tuition['amount']:,.0f} {tuition.get('currency', '')} / "
-                f"{t(tuition.get('period', 'year'))}"
-                + (f" ({t(tuition['basis'])})" if tuition.get("basis") else "")
-            )
-        if program.get("difficultyPercentile") is not None:
-            st.caption(
-                f"{t('Difficulty index')}: {program['difficultyPercentile']:.0f}/100 — "
-                f"{t(program.get('difficultyBasis') or '')}. "
-                + t("Estimate from public indicators, not an admission prediction.")
-            )
+            st.write(f"💰 {t('Tuition')}: {tuition['amount']:,.0f} {tuition.get('currency', '')} / {t(tuition.get('period', 'year'))}")
 
-        checks = program.get("requirements") or []
-        if checks:
-            st.markdown("**" + t("Requirement check") + "**")
-            for check in checks:
-                icon, word = STATUS_LABELS[check["status"]]
-                reason = REASON_LABELS.get(check["reason"], check["reason"])
-                st.write(f"{icon} {t(ITEM_LABELS[check['item']])}: **{t(word)}** — {t(reason)}")
-
-        links = []
-        domain = program.get("officialDomain")
-        if domain:
-            links.append(f"[🏛 {t('University website')}](https://{domain})")
-        link = program.get("sourceUrl") or ""
-        if link:
-            on_campus_site = bool(domain) and domain in link and link.rstrip("/").count("/") > 2
-            label = t("Programme page (official)") if on_campus_site else t("Data source")
-            links.append(f"[📄 {label}]({link})")
-        if links:
-            st.markdown(" · ".join(links))
-        source_name = program.get("source_name_override") or program.get("sourceName") or ""
-        st.caption(t(SOURCE_LABELS.get(program.get("source"), "")) + (f" · {source_name}" if source_name else ""))
-
-        if program.get("academicRequirementText"):
+        if program.get("academicRequirementText") and program.get("source") == "official_dataset":
             with st.expander(t("Admission details from the official guide")):
                 show_card(program)
+
+        sources = program.get("requirementSources") or {}
+        program_page = program.get("programPageUrl") or next(iter(sources.values()), None)
+        if not program_page and program.get("source") in ("team_verified", "web_verified"):
+            program_page = program.get("sourceUrl")
+        st.caption(t("Check the details on the official page below."))
+        links = []
+        if program_page:
+            links.append(f"[📄 **{t('Official programme page')}**]({program_page})")
+        elif program.get("officialDomain"):
+            links.append(f"[🏛 {t('University website')}](https://{program['officialDomain']})")
+        if program.get("sourceUrl") and program.get("sourceUrl") != program_page:
+            links.append(f"[📊 {t(SOURCE_LABELS.get(program.get('source'), 'Data source'))}]({program['sourceUrl']})")
+        st.markdown(" · ".join(links))
+        if program.get("difficultyPercentile") is not None:
+            st.caption(f"{t('Difficulty index')} {program['difficultyPercentile']:.0f}/100 · {t(program.get('difficultyBasis') or '')}")
+
+
+def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:
+    """Look up each result's requirements on its official site, in parallel, cached per programme."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    cache = st.session_state.setdefault("requirement_cache", {})
+
+    def domain_for(p):
+        return p.get("officialDomain") or next(iter(official_domains(p.get("universityNameEnglish") or p["universityName"], p.get("country"))), None)
+
+    todo = [p for p in results if p["programId"] not in cache]
+    if todo:
+        def work(p):
+            try:
+                domain = domain_for(p)
+                return p["programId"], domain, find_requirements(p, ctx, domain)
+            except Exception:
+                return p["programId"], None, {"sources": {}}
+        with st.spinner(t("Loading programme information...")):
+            with ThreadPoolExecutor(max_workers=5) as pool:
+                for pid, domain, found in pool.map(work, todo):
+                    cache[pid] = {"domain": domain, "found": found}
+
+    enriched = []
+    for p in results:
+        entry = cache.get(p["programId"], {"found": {"sources": {}}})
+        found = entry["found"]
+        merged = {**p, **{k: v for k, v in found.items() if k != "sources" and not p.get(k)}}
+        merged["requirementSources"] = found.get("sources") or {}
+        if not merged.get("officialDomain") and entry.get("domain"):
+            merged["officialDomain"] = entry["domain"]
+        merged["requirements"] = requirement_status(merged, ctx)
+        enriched.append(merged)
+    return enriched
 
 
 @st.cache_data(show_spinner=False)
@@ -1640,7 +1659,7 @@ def show_results(programs: list[dict] | None = None) -> None:
                 message = t("Gemini API quota exceeded. Please try again later.")
             st.caption(f"{t('Web search unavailable')}: {message}")
 
-    results = outcome["results"]
+    results = enrich_with_requirements(outcome["results"], ctx)
     st.subheader(f"{t('Recommended universities')} · {len(results)}")
     st.caption(
         t("Ranked by your grade and budget using public indicators. "
@@ -1654,12 +1673,6 @@ def show_results(programs: list[dict] | None = None) -> None:
 
     show_scholarships(context, results)
 
-    excluded = outcome.get("excluded") or []
-    if excluded:
-        with st.expander(f"{t('Left out because a documented requirement is not met')} ({len(excluded)})"):
-            for item in excluded:
-                reasons = ", ".join(t(ITEM_LABELS[i]) for i in item["unmet"])
-                st.write(f"**{item['universityName']}** — {item.get('programName') or ''}: {reasons}")
 
 
 def enter_guest_mode() -> None:
