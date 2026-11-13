@@ -70,6 +70,8 @@ def _run(case):
 
 @pytest.mark.parametrize("case", SPEC["cases"], ids=[c["id"] for c in SPEC["cases"]])
 def test_recommend_v2_golden(case):
-    if rv is None:
-        pytest.xfail("recommend_v2 not implemented yet (golden cases written first)")
+    needed = {"language": "detect_language", "tier": "tier_for", "web_check": "filter_web_results",
+              "scholarships": "scholarships_for", "recommend": "recommend"}[case["kind"]]
+    if rv is None or not hasattr(rv, needed):
+        pytest.xfail(f"{needed} not implemented yet (golden cases written first)")
     _run(case)

@@ -12,10 +12,15 @@ from translations import KO
 from admission_2027_panel import show_2027_panel
 import requests
 
-API_BASE_URL = st.secrets.get(
-    "API_BASE_URL",
-    os.getenv("API_BASE_URL", "http://127.0.0.1:8001")
-).rstrip("/")
+def _secret(name: str, default: str) -> str:
+    """Read a Streamlit secret, falling back to the environment when no secrets.toml exists (local runs)."""
+    try:
+        return st.secrets.get(name, os.getenv(name, default))
+    except Exception:  # StreamlitSecretNotFoundError when running locally without secrets.toml
+        return os.getenv(name, default)
+
+
+API_BASE_URL = _secret("API_BASE_URL", "http://127.0.0.1:8001").rstrip("/")
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +32,7 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from admission.ai_exploration import explore_programmes  # noqa: E402
+from admission.recommend_v2 import detect_language  # noqa: E402
 DATABASE_PATH = ROOT / "database" / "admission_catalogue.sqlite"
 
 COUNTRIES = {
@@ -247,6 +253,22 @@ div[data-testid="stFormSubmitButton"] button {
 }
 </style>
 """
+
+
+# Follow-up questions keyed by field, in English; t() gives the Korean version (AC21).
+FOLLOW_UP_QUESTIONS = {
+    "applicantType": "Which degree are you applying for: undergraduate, master's or PhD?",
+    "currentEducationLevel": "What is your current or highest level of education?",
+    "transcriptCountry": "Which country issued your transcript?",
+    "academicScore": "What is your current or final school grade?",
+    "gradingSystem": "Which grading system is it: GPA, percentage, grade or total score?",
+    "maximumScore": "What is the maximum possible score for that grade?",
+    "interests": "Which engineering field or research area are you interested in?",
+    "engineeringFields": "Which engineering field are you interested in?",
+    "tuitionCurrency": "What currency is your maximum tuition in? e.g. EUR, USD, KRW",
+    "tuitionPeriod": "Is your maximum tuition per semester, per year or for the whole programme?",
+    "maximumTuition": "What is the most tuition you can afford?",
+}
 
 
 def t(text: str) -> str:
@@ -767,6 +789,13 @@ def send_message() -> None:
         "text": message,
     })
 
+    # AC21: answer in the language the user writes in (runs in the Send callback,
+    # before the language selector widget is drawn).
+    state["ui_language"] = detect_language(
+        [item["text"] for item in history if item["role"] == "user"],
+        default=state.get("ui_language", "en"),
+    )
+
     try:
         response = requests.post(
             f"{API_BASE_URL}/agent/run",
@@ -867,21 +896,21 @@ def send_message() -> None:
             catalogue = result.get("catalogueMatches") or []
 
             lines = [
-                "Root Agent 분석이 완료되었습니다.",
-                f"검증된 추천 후보: {len(candidates)}개",
-                f"탐색 가능한 대학 과정: {len(catalogue)}개",
+                t("Analysis complete."),
+                f"{t('Verified candidates')}: {len(candidates)}",
+                f"{t('Matching programmes')}: {len(catalogue)}",
             ]
 
             if catalogue:
                 lines.append("")
-                lines.append("탐색용 대학 과정 (입학 요건 검증 전):")
+                lines.append(t("Matching programmes (admission requirements not yet checked):"))
 
                 for item in catalogue:
                     name = (
                         item.get("program_name")
                         or item.get("programName")
                         or item.get("candidate_id")
-                        or "이름 확인 필요"
+                        or t("Name to be confirmed")
                     )
                     university = item.get("universityName")
                     lines.append(
@@ -889,10 +918,7 @@ def send_message() -> None:
                     )
 
                 lines.append("")
-                lines.append(
-                    "자세한 카드는 ② Results 탭에서 볼 수 있습니다. "
-                    "오른쪽 조건을 확인한 뒤 검색 버튼을 눌러 주세요."
-                )
+                lines.append(t("See the detailed cards in the Results tab. Check the conditions on the right, then press Search."))
 
             follow_ups = recommendation.get("followUps") or []
 
@@ -910,7 +936,12 @@ def send_message() -> None:
 
             for item in follow_ups:
                 if isinstance(item, dict):
-                    question = item.get("question")
+                    field = item.get("field")
+                    question = (
+                        t(FOLLOW_UP_QUESTIONS[field])
+                        if field in FOLLOW_UP_QUESTIONS
+                        else item.get("question")
+                    )
                     if question:
                         questions.append(question)
                 elif isinstance(item, str):
@@ -919,10 +950,7 @@ def send_message() -> None:
             if questions:
                 assistant_text = "\n".join(questions)
             else:
-                assistant_text = (
-                    "추가 정보가 필요합니다. "
-                    "오른쪽 입력 조건을 확인해 주세요."
-                )
+                assistant_text = t("More information is needed. Please check the conditions on the right.")
 
         history.append({
             "role": "assistant",
@@ -932,13 +960,13 @@ def send_message() -> None:
     except requests.RequestException as error:
         history.append({
             "role": "assistant",
-            "text": f"Backend 연결 오류: {error}",
+            "text": f"{t('Could not reach the server')}: {error}",
         })
 
     except (ValueError, TypeError, KeyError) as error:
         history.append({
             "role": "assistant",
-            "text": f"Intake Agent 응답 처리 오류: {error}",
+            "text": f"{t('Could not read the assistant response')}: {error}",
         })
 
     state["chat_draft"] = ""
@@ -1655,7 +1683,7 @@ def login_user(email, password):
         if response.status_code != 200:
             return {
                 "error": (
-                    f"로그인 실패: HTTP {response.status_code} "
+                    f"{t('Sign-in failed')}: HTTP {response.status_code} "
                     f"- {response.text}"
                 )
             }
@@ -1664,19 +1692,19 @@ def login_user(email, password):
 
         if not data.get("access_token"):
             return {
-                "error": "서버에서 로그인 토큰을 받지 못했습니다."
+                "error": t("The server did not return a sign-in token.")
             }
 
         return data
 
     except requests.Timeout:
         return {
-            "error": "서버 응답 시간이 초과되었습니다. 잠시 후 다시 시도해 주세요."
+            "error": t("The server took too long to respond. Please try again shortly.")
         }
 
     except requests.RequestException as error:
         return {
-            "error": f"FastAPI 연결 오류: {type(error).__name__}"
+            "error": f"{t('Could not reach the server')}: {type(error).__name__}"
         }
 
 
@@ -1718,13 +1746,13 @@ def show_login():
 
             if submitted:
                 if not email.strip() or not password:
-                    st.error("이메일과 비밀번호를 입력해 주세요.")
+                    st.error(t("Please enter your email and password."))
                 elif mode == "Create account":
                     result = register_user(email, password)
                     if result.get("error"):
                         st.error(result["error"])
                     else:
-                        st.success("회원가입 완료! Sign in을 선택해 로그인하세요.")
+                        st.success(t("Account created. Choose Sign in to log in."))
                 else:
                     result = login_user(email, password)
                     if result.get("error"):
@@ -1872,20 +1900,20 @@ def register_user(email, password):
             return response.json()
 
         if response.status_code == 409:
-            return {"error": "이미 가입된 이메일입니다."}
+            return {"error": t("This email is already registered.")}
 
         if response.status_code == 422:
             return {
-                "error": "올바른 이메일과 8자 이상의 비밀번호를 입력해 주세요."
+                "error": t("Enter a valid email and a password of at least 8 characters.")
             }
 
         return {
-            "error": "회원가입 실패: HTTP " + str(response.status_code)
+            "error": t("Sign-up failed") + ": HTTP " + str(response.status_code)
         }
 
     except requests.RequestException:
         return {
-            "error": "FastAPI 서버에 연결할 수 없습니다."
+            "error": t("Could not reach the server")
         }
 
 
@@ -1905,7 +1933,7 @@ def get_current_user(token):
             return response.json()
 
         return {
-            "error": "로그인 토큰이 만료되었거나 유효하지 않습니다."
+            "error": t("Your session has expired. Please sign in again.")
         }
 
     except requests.RequestException:
