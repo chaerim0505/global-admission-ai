@@ -38,6 +38,7 @@ def _run(case):
         out = rv.scholarships_for(case["context"])
         ids = {s["scholarshipId"] for s in out["national"]}
         assert set(exp["includes_national"]) <= ids
+        assert not set(exp.get("excludes_national", [])) & ids
         assert out["university"]["status"] == exp["university_status"]
     elif kind == "recommend":
         out = rv.recommend(case["context"], fx["catalogue"], fx["rates_to_usd"], case.get("web_results"))

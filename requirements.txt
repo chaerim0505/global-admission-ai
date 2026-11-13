@@ -10,3 +10,5 @@ PyJWT>=2.8,<3
 argon2-cffi>=23.1.0
 email-validator>=2.0
 psycopg[binary]>=3.2
+requests>=2.31
+pypdf>=4.0

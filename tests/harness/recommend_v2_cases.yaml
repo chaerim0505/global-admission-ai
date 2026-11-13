@@ -108,3 +108,15 @@ cases:
     note: national scholarships for requested country shown; university scholarships never judged eligible
     context: {preferredCountries: [KR], applicantType: master}
     expected: {includes_national: [kr_gks_graduate_2026], university_status: check_official_page}
+  - id: RV-15
+    ac: [AC26]
+    kind: scholarships
+    note: closed country lists that do not include the applicant are hidden (GREAT, Commonwealth for Myanmar)
+    context: {preferredCountries: [GB], applicantType: master, nationality: MM}
+    expected: {includes_national: [gb_chevening_2027], excludes_national: [gb_great_2026, gb_commonwealth_shared_2027], university_status: check_official_page}
+  - id: RV-16
+    ac: [AC26]
+    kind: scholarships
+    note: every country and degree the app covers has at least one government scholarship where one exists
+    context: {preferredCountries: [KR, NL, IE], applicantType: undergraduate}
+    expected: {includes_national: [kr_gks_undergraduate_2027, nl_nl_scholarship_2027], university_status: check_official_page}

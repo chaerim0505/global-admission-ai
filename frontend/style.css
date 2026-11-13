@@ -1,0 +1,172 @@
+/* Global Admission AI — refined theme: ivory paper, deep navy ink, muted gold accent. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap');
+
+:root {
+    --ink: #14213d;
+    --ink-soft: #3a4560;
+    --muted: #7a7f8c;
+    --paper: #f7f4ee;
+    --card: #ffffff;
+    --line: #e6dfd2;
+    --gold: #b08d57;
+    --gold-soft: #f3ebdc;
+    --shadow: 0 1px 2px rgba(20, 33, 61, 0.04), 0 8px 24px rgba(20, 33, 61, 0.06);
+}
+
+html, body, [class*="css"], .stApp, .stMarkdown, button, input, textarea, select {
+    font-family: "Inter", "Noto Sans KR", -apple-system, sans-serif;
+}
+.stApp { background: var(--paper); color: var(--ink); }
+header[data-testid="stHeader"] { background: transparent; }
+
+.block-container { max-width: 1180px; padding-top: 2.2rem; padding-bottom: 4rem; }
+
+h1, h2, h3, h4 {
+    font-family: "Playfair Display", "Noto Serif KR", Georgia, serif !important;
+    color: var(--ink) !important;
+    letter-spacing: -0.01em;
+    font-weight: 600 !important;
+}
+h1 { font-size: 2.6rem !important; line-height: 1.15 !important; }
+h2 { font-size: 1.7rem !important; }
+h3 { font-size: 1.35rem !important; }
+
+p, li, label, .stCaption, [data-testid="stCaptionContainer"] { color: var(--ink-soft); }
+[data-testid="stCaptionContainer"] { color: var(--muted) !important; font-size: 0.86rem; }
+
+/* links: navy with a thin gold underline */
+.stMarkdown a {
+    color: var(--ink) !important;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    transition: color .15s, border-color .15s;
+}
+.stMarkdown a:hover { color: var(--gold) !important; border-bottom-color: var(--ink); }
+
+/* brand bar */
+.topbar {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 0 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+}
+.topbar .mark {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--ink); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Playfair Display", serif; font-size: 20px; font-weight: 700;
+}
+.topbar .name {
+    font-family: "Playfair Display", serif; font-size: 22px; font-weight: 600; color: var(--ink);
+}
+.topbar .tag {
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--gold); border-radius: 999px; padding: 3px 10px; margin-left: 6px;
+}
+
+/* hero on the sign-in page */
+.hero { padding: 40px 0 28px; }
+.hero .eyebrow {
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 600;
+}
+.hero h1 { margin: 14px 0 14px; }
+.hero p { font-size: 1.08rem; max-width: 520px; line-height: 1.7; }
+.feature { display: flex; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+.feature .num {
+    font-family: "Playfair Display", serif; font-size: 26px; color: var(--gold); min-width: 34px; line-height: 1;
+}
+.feature .title { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.feature .text { color: var(--muted); font-size: .95rem; }
+
+/* cards (st.container(border=True)) */
+[data-testid="stVerticalBlockBorderWrapper"], div[class*="st-key-card-"] {
+    background: var(--card);
+    border: 1px solid var(--line) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--shadow);
+    padding: 6px 10px;
+    transition: box-shadow .2s, transform .2s;
+}
+[data-testid="stVerticalBlockBorderWrapper"]:hover, div[class*="st-key-card-prog"]:hover { box-shadow: 0 12px 32px rgba(20, 33, 61, 0.10); }
+[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stVerticalBlockBorderWrapper"], div[class*="st-key-card-"] { box-shadow: none; }
+
+/* badges: `Match`, `Within your budget` written as inline code */
+[data-testid="stMarkdownContainer"] code {
+    background: var(--gold-soft);
+    color: #7a5a2b;
+    border: 1px solid #e7d7b8;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+/* buttons */
+div[data-testid="stButton"] button,
+div[data-testid="stFormSubmitButton"] button,
+div[data-testid="stDownloadButton"] button {
+    border-radius: 999px;
+    min-height: 42px;
+    padding: 0 22px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    font-weight: 500;
+    transition: all .15s;
+}
+div[data-testid="stButton"] button:hover,
+div[data-testid="stFormSubmitButton"] button:hover {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+}
+button[kind="primary"], button[data-testid="stBaseButton-primary"],
+button[data-testid="stBaseButton-primaryFormSubmit"] {
+    background: var(--ink) !important; color: #fff !important; border-color: var(--ink) !important;
+}
+button[kind="primary"]:hover, button[data-testid="stBaseButton-primary"]:hover,
+button[data-testid="stBaseButton-primaryFormSubmit"]:hover {
+    background: #0c1630 !important; box-shadow: 0 6px 18px rgba(20, 33, 61, .25);
+}
+
+/* inputs */
+div[data-baseweb="input"], div[data-baseweb="select"] > div, div[data-baseweb="textarea"] {
+    background: #fff !important;
+    border-radius: 10px !important;
+    border-color: var(--line) !important;
+}
+div[data-baseweb="input"]:focus-within, div[data-baseweb="select"] > div:focus-within {
+    border-color: var(--gold) !important; box-shadow: 0 0 0 3px rgba(176, 141, 87, .15) !important;
+}
+span[data-baseweb="tag"] { background: var(--ink) !important; border-radius: 999px !important; }
+
+/* tabs */
+div[data-baseweb="tab-list"] { gap: 28px; border-bottom: 1px solid var(--line); }
+button[data-baseweb="tab"] {
+    background: transparent !important; padding: 10px 2px !important;
+    font-family: "Playfair Display", "Noto Serif KR", serif; font-size: 1.05rem;
+    color: var(--muted) !important;
+}
+button[data-baseweb="tab"][aria-selected="true"] { color: var(--ink) !important; }
+div[data-baseweb="tab-highlight"] { background: var(--gold) !important; height: 2px !important; }
+
+/* forms, alerts, expanders */
+div[data-testid="stForm"] {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+}
+div[data-testid="InputInstructions"] { display: none; }
+div[data-testid="stAlert"] { border-radius: 12px; border: 1px solid var(--line); }
+details[data-testid="stExpander"] { border: 1px solid var(--line) !important; border-radius: 12px !important; background: #fff; }
+hr { border-color: var(--line) !important; }
+
+/* chat (kept from the earlier design, recoloured) */
+.chat-speaker { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin: 18px 4px 8px; }
+.chat-bubble { padding: 18px 22px; border-radius: 16px; font-size: 15.5px; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 18px; }
+.user-bubble { background: #fff; color: var(--ink); border: 1px solid var(--line); border-bottom-right-radius: 4px; }
+.assistant-bubble { background: var(--gold-soft); color: var(--ink-soft); border: 1px solid #ecdfc6; border-bottom-left-radius: 4px; }
+.chat-empty { text-align: center; padding: 80px 24px; color: var(--muted); }
+.chat-empty h3 { font-size: 20px; margin-top: 14px; }
+.chat-empty-icon { font-size: 30px; color: var(--gold); }
+.muted { color: var(--muted); font-size: 14px; }

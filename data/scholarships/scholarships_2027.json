@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-11",
+  "checkedAt": "2026-11-14",
   "note": "Collected from official pages for review. verificationStatus stays needs_review until a team member confirms each record against the source. Do not use for eligibility judgement before confirmation.",
   "scholarships": [
     {
@@ -8,24 +8,59 @@
       "scope": "national",
       "destinationCountry": "KR",
       "provider": "NIIED (Korean government)",
-      "degrees": ["master", "doctoral"],
+      "degrees": [
+        "master",
+        "doctoral"
+      ],
       "applicantStage": "new_students",
       "openTo": "designated_countries",
       "myanmarEligible": true,
-      "myanmarQuota": {"embassyTrack": 16, "universityTrack": 43},
-      "exclusions": ["Korean citizenship or dual citizenship (applicant or parents)", "Graduated or expected to graduate from a Korean high school or university"],
+      "myanmarQuota": {
+        "embassyTrack": 16,
+        "universityTrack": 43
+      },
+      "exclusions": [
+        "Korean citizenship or dual citizenship (applicant or parents)",
+        "Graduated or expected to graduate from a Korean high school or university"
+      ],
       "ageLimit": "under 40 (born after 1986-09-01)",
-      "minimumGpa": {"options": ["2.64/4.0", "2.80/4.3", "2.91/4.5", "3.23/5.0", "80/100", "top 20% class rank"]},
-      "language": {"required": false, "note": "TOPIK not required to apply; TOPIK 3+ needed after 1-year Korean course"},
+      "minimumGpa": {
+        "options": [
+          "2.64/4.0",
+          "2.80/4.3",
+          "2.91/4.5",
+          "3.23/5.0",
+          "80/100",
+          "top 20% class rank"
+        ]
+      },
+      "language": {
+        "required": false,
+        "note": "TOPIK not required to apply; TOPIK 3+ needed after 1-year Korean course"
+      },
       "selection": "embassy_or_university_then_niied",
-      "benefits": ["Airfare", "Tuition (university covers admission fee)", "Monthly allowance", "1-year Korean language course"],
+      "benefits": [
+        "Airfare",
+        "Tuition (university covers admission fee)",
+        "Monthly allowance",
+        "1-year Korean language course"
+      ],
       "duration": "master 3 years (1 language + 2 degree), doctoral 4 years (1 + 3)",
       "applicationPeriod": "Embassy track 2026-02-12 to 2026-02-25 (2026 round); next round expected early 2027",
-      "evidence": {"nationality": "must hold citizenship of NIIED designated countries", "gpa": "equal to or above 2.64/4.0, 2.80/4.3, 2.91/4.5 or 3.23/5.0"},
+      "evidence": {
+        "nationality": "must hold citizenship of NIIED designated countries",
+        "gpa": "equal to or above 2.64/4.0, 2.80/4.3, 2.91/4.5 or 3.23/5.0"
+      },
       "sourceUrl": "https://www.studyinkorea.go.kr",
       "sourceDocument": "2026 GKS-G Application Guidelines (English), copy: https://www.esteri.it/wp-content/uploads/2026/02/2026-GKS-G-Application-Guidelines-English.pdf",
       "verificationStatus": "needs_review",
-      "reviewNotes": "Confirm benefit amounts in the official table; 2027 guidelines not yet published."
+      "reviewNotes": "Confirm benefit amounts in the official table; 2027 guidelines not yet published.",
+      "conditions": [
+        "Citizen of a GKS participating country (no Korean citizenship, applicant or parents)",
+        "Under 40 years old",
+        "CGPA at least 2.64/4.0, 2.80/4.3, 2.91/4.5, 3.23/5.0, 80/100 or top 20%",
+        "Bachelor's degree (master's) or master's degree (doctoral) by the start date"
+      ]
     },
     {
       "scholarshipId": "gb_chevening_2027",
@@ -33,16 +68,32 @@
       "scope": "national",
       "destinationCountry": "GB",
       "provider": "UK government (FCDO)",
-      "degrees": ["master"],
+      "degrees": [
+        "master"
+      ],
       "applicantStage": "new_students",
       "openTo": "chevening_eligible_countries",
       "myanmarEligible": "needs_check",
-      "conditions": ["Citizen of a Chevening-eligible country", "Return to country of award for at least 2 years after the award", "At least 2 years (2,800 hours) work experience after undergraduate degree", "Undergraduate degree completed at least 2 years before the deadline", "Apply to 3 eligible UK courses; unconditional offer from one by the deadline"],
-      "exclusions": ["British or dual British citizenship", "Resident in the UK at time of application", "Previous UK government-funded scholarship study in the UK"],
+      "conditions": [
+        "Citizen of a Chevening-eligible country",
+        "Return to country of award for at least 2 years after the award",
+        "At least 2 years (2,800 hours) work experience after undergraduate degree",
+        "Undergraduate degree completed at least 2 years before the deadline",
+        "Apply to 3 eligible UK courses; unconditional offer from one by the deadline"
+      ],
+      "exclusions": [
+        "British or dual British citizenship",
+        "Resident in the UK at time of application",
+        "Previous UK government-funded scholarship study in the UK"
+      ],
       "minimumGpa": null,
-      "language": {"required": "not stated on eligibility page"},
+      "language": {
+        "required": "not stated on eligibility page"
+      },
       "selection": "committee_and_interview",
-      "benefits": ["Fully funded one-year master's (tuition, living allowance, travel)"],
+      "benefits": [
+        "Fully funded one-year master's (tuition, living allowance, travel)"
+      ],
       "evidence": {},
       "sourceUrl": "https://www.chevening.org/scholarships/eligibility/",
       "verificationStatus": "needs_review",
@@ -54,17 +105,32 @@
       "scope": "national",
       "destinationCountry": "NL",
       "provider": "Dutch Ministry of Education and participating institutions",
-      "degrees": ["bachelor", "master"],
+      "degrees": [
+        "bachelor",
+        "master"
+      ],
       "applicantStage": "new_students",
       "openTo": "non_eea",
       "myanmarEligible": true,
-      "conditions": ["Non-EEA nationality", "Full-time bachelor's or master's at a participating institution", "Meet the institution's admission requirements", "No previous degree from a Dutch institution"],
+      "conditions": [
+        "Non-EEA nationality",
+        "Full-time bachelor's or master's at a participating institution",
+        "Meet the institution's admission requirements",
+        "No previous degree from a Dutch institution"
+      ],
       "minimumGpa": null,
-      "language": {"required": "institution admission requirement"},
+      "language": {
+        "required": "institution admission requirement"
+      },
       "selection": "institution",
-      "benefits": ["EUR 5,000 in the first year (not full tuition)"],
+      "benefits": [
+        "EUR 5,000 in the first year (not full tuition)"
+      ],
       "applicationPeriod": "2027-2028 round open; deadlines set by each institution",
-      "evidence": {"nationality": "Your nationality is non-EEA.", "priorStudy": "You do not have a degree from an education institution in the Netherlands."},
+      "evidence": {
+        "nationality": "Your nationality is non-EEA.",
+        "priorStudy": "You do not have a degree from an education institution in the Netherlands."
+      },
       "sourceUrl": "https://studyinnl.org/finances/nl-scholarship",
       "verificationStatus": "needs_review",
       "reviewNotes": "Participating institutions change yearly: check whether TU Delft, TU/e, Twente, Groningen, Maastricht are on the 2027-2028 list."
@@ -75,18 +141,31 @@
       "scope": "national",
       "destinationCountry": "IE",
       "provider": "Higher Education Authority (HEA)",
-      "degrees": ["master", "doctoral"],
+      "degrees": [
+        "master",
+        "doctoral"
+      ],
       "applicantStage": "new_students",
       "openTo": "domicile_outside_eu_eea_ch_uk",
       "myanmarEligible": true,
-      "conditions": ["Domiciliary of origin outside EU/EEA, Switzerland and UK", "Not a Russian or Belarusian citizen", "Offer (conditional or final) from an eligible Irish HEI", "Full-time NFQ level 9 or 10 programme of at least one year"],
+      "conditions": [
+        "Domiciliary of origin outside EU/EEA, Switzerland and UK",
+        "Not a Russian or Belarusian citizen",
+        "Offer (conditional or final) from an eligible Irish HEI",
+        "Full-time NFQ level 9 or 10 programme of at least one year"
+      ],
       "minimumGpa": null,
       "academicNote": "Record of outstanding academic achievement; minimum 60/100 marks overall",
       "selection": "committee",
-      "benefits": ["EUR 10,000 stipend", "Full tuition and registration fee waiver for one year"],
+      "benefits": [
+        "EUR 10,000 stipend",
+        "Full tuition and registration fee waiver for one year"
+      ],
       "awards": "about 60",
       "applicationPeriod": "2026 round deadline 2026-03-12; 2027 call expected late 2026 / early 2027",
-      "evidence": {"nationality": "Have a domiciliary of origin outside the EU/EEA, Switzerland and the United Kingdom"},
+      "evidence": {
+        "nationality": "Have a domiciliary of origin outside the EU/EEA, Switzerland and the United Kingdom"
+      },
       "sourceUrl": "https://hea.ie/assets/uploads/2026/01/2026-GOI-IES-Call-Document.pdf",
       "verificationStatus": "needs_review",
       "reviewNotes": "Myanmar not named; inferred from domicile rule. Check FAQs."
@@ -97,16 +176,33 @@
       "scope": "national",
       "destinationCountry": "US",
       "provider": "US Department of State (via binational commission or US Embassy)",
-      "degrees": ["master", "doctoral"],
+      "degrees": [
+        "master",
+        "doctoral"
+      ],
       "applicantStage": "new_students",
       "openTo": "by_country_of_nomination",
       "myanmarEligible": "needs_check",
-      "conditions": ["Apply through the Fulbright Commission or US Embassy in home country", "Reside in country of nomination when applying", "US bachelor's equivalent by start date with good academic record"],
-      "exclusions": ["US citizens and dual US citizens", "Clinical fields (medicine, dentistry, pharmacy, nursing)"],
+      "conditions": [
+        "Apply through the Fulbright Commission or US Embassy in home country",
+        "Reside in country of nomination when applying",
+        "US bachelor's equivalent by start date with good academic record"
+      ],
+      "exclusions": [
+        "US citizens and dual US citizens",
+        "Clinical fields (medicine, dentistry, pharmacy, nursing)"
+      ],
       "minimumGpa": null,
-      "language": {"recommended": {"TOEFL iBT": 79, "IELTS": 6.5}},
+      "language": {
+        "recommended": {
+          "TOEFL iBT": 79,
+          "IELTS": 6.5
+        }
+      },
       "selection": "country_commission_or_embassy",
-      "benefits": ["Varies by country"],
+      "benefits": [
+        "Varies by country"
+      ],
       "evidence": {},
       "sourceUrl": "https://foreign.fulbrightonline.org/apply",
       "verificationStatus": "needs_review",
@@ -118,15 +214,37 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Ajou University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "first_semester_freshmen",
       "openTo": "international",
       "myanmarEligible": true,
       "tiers": [
-        {"benefit": "100% tuition", "TOPIK": 6, "IELTS": 8.0, "TOEFL iBT": 100},
-        {"benefit": "70% tuition", "TOPIK": 5, "IELTS": 7.0, "TOEFL iBT": 90},
-        {"benefit": "50% tuition", "TOPIK": 4, "IELTS": 6.5, "TOEFL iBT": 80},
-        {"benefit": "30% tuition", "TOPIK": 3, "IELTS": 5.5, "TOEFL iBT": 75}
+        {
+          "benefit": "100% tuition",
+          "TOPIK": 6,
+          "IELTS": 8.0,
+          "TOEFL iBT": 100
+        },
+        {
+          "benefit": "70% tuition",
+          "TOPIK": 5,
+          "IELTS": 7.0,
+          "TOEFL iBT": 90
+        },
+        {
+          "benefit": "50% tuition",
+          "TOPIK": 4,
+          "IELTS": 6.5,
+          "TOEFL iBT": 80
+        },
+        {
+          "benefit": "30% tuition",
+          "TOPIK": 3,
+          "IELTS": 5.5,
+          "TOEFL iBT": 75
+        }
       ],
       "languageNote": "TOPIK for Korean track, IELTS/TOEFL for English track (inferred from table layout)",
       "duration": "1 semester",
@@ -142,12 +260,19 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Ajou University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "new_students",
       "openTo": "oda_recipient_countries_without_current_ajou_students",
       "myanmarEligible": "needs_check",
-      "conditions": ["National of OECD DAC ODA recipient country with no currently enrolled Ajou students (upper-middle-income excluded)", "Or urgent support cases (war, natural disaster)"],
-      "benefits": ["100% tuition"],
+      "conditions": [
+        "National of OECD DAC ODA recipient country with no currently enrolled Ajou students (upper-middle-income excluded)",
+        "Or urgent support cases (war, natural disaster)"
+      ],
+      "benefits": [
+        "100% tuition"
+      ],
       "duration": "1 semester to 4 years (by admission score and evaluation)",
       "selection": "committee",
       "sourceUrl": "https://www.ajou.ac.kr/iadmissions_en/undergraduate/scholarship.do",
@@ -160,12 +285,31 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Ajou University",
-      "degrees": ["master", "doctoral"],
+      "degrees": [
+        "master",
+        "doctoral"
+      ],
       "applicantStage": "new_students",
       "openTo": "international",
       "myanmarEligible": true,
-      "benefits": ["master 40% tuition (max 4 semesters)", "doctoral 80% tuition (max 6 semesters)"],
-      "language": {"TOPIK": 5, "english": {"English": {"TOEFL iBT": 85, "IELTS": 6.0}, "Non-English": {"TOEFL iBT": 71, "IELTS": 5.5}}, "countryGroupMapping": "not_verified"},
+      "benefits": [
+        "master 40% tuition (max 4 semesters)",
+        "doctoral 80% tuition (max 6 semesters)"
+      ],
+      "language": {
+        "TOPIK": 5,
+        "english": {
+          "English": {
+            "TOEFL iBT": 85,
+            "IELTS": 6.0
+          },
+          "Non-English": {
+            "TOEFL iBT": 71,
+            "IELTS": 5.5
+          }
+        },
+        "countryGroupMapping": "not_verified"
+      },
       "selection": "department_recommendation_and_committee",
       "sourceUrl": "see data/seed/ajou_admissions/graduate_scholarships.json",
       "verificationStatus": "needs_review",
@@ -177,15 +321,26 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "KAIST",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "new_students",
       "openTo": "international_admission",
       "myanmarEligible": true,
-      "conditions": ["Admitted through International Student Admission", "Tick 'KAIST scholarship' in the application"],
-      "benefits": ["Full tuition for 8 semesters", "KRW 350,000 monthly stipend", "Medical insurance"],
+      "conditions": [
+        "Admitted through International Student Admission",
+        "Tick 'KAIST scholarship' in the application"
+      ],
+      "benefits": [
+        "Full tuition for 8 semesters",
+        "KRW 350,000 monthly stipend",
+        "Medical insurance"
+      ],
       "continuation": "GPA over 2.7/4.3 after freshman year",
       "selection": "automatic_on_admission",
-      "evidence": {"continuation": "Students must maintain GPA over 2.7 out of 4.3 at KAIST after their freshman year."},
+      "evidence": {
+        "continuation": "Students must maintain GPA over 2.7 out of 4.3 at KAIST after their freshman year."
+      },
       "sourceUrl": "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships",
       "verificationStatus": "needs_review",
       "reviewNotes": ""
@@ -196,13 +351,23 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Sungkyunkwan University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "first_semester_freshmen",
       "openTo": "international_from_overseas_high_school",
       "myanmarEligible": true,
       "tiers": [
-        {"benefit": "100% tuition", "TOPIK": 6, "IELTS": 8.0},
-        {"benefit": "50% tuition", "TOPIK": 5, "IELTS": 7.0}
+        {
+          "benefit": "100% tuition",
+          "TOPIK": 6,
+          "IELTS": 8.0
+        },
+        {
+          "benefit": "50% tuition",
+          "TOPIK": 5,
+          "IELTS": 7.0
+        }
       ],
       "languageNote": "TOEFL iBT thresholds changed for tests after 2026-01-21; check guide",
       "duration": "1 semester",
@@ -217,12 +382,19 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Sungkyunkwan University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "new_students",
       "openTo": "criteria_based",
       "myanmarEligible": "needs_check",
-      "conditions": ["Criteria A: ODA recipient country with 3 or fewer SKKU students and visa-free entry to Korea", "Criteria B/C: outstanding freshmen in specific departments or global competencies"],
-      "benefits": ["50% tuition"],
+      "conditions": [
+        "Criteria A: ODA recipient country with 3 or fewer SKKU students and visa-free entry to Korea",
+        "Criteria B/C: outstanding freshmen in specific departments or global competencies"
+      ],
+      "benefits": [
+        "50% tuition"
+      ],
       "continuation": "12+ credits and GPA 3.5+ each semester",
       "selection": "nomination_after_admission",
       "sourceUrl": "same as skku_language_excellence_2027_spring",
@@ -232,14 +404,21 @@
     {
       "scholarshipId": "snu_gks_undergrad",
       "name": "GKS Undergraduate (at SNU)",
-      "scope": "national",
+      "scope": "university",
       "destinationCountry": "KR",
       "university": "Seoul National University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "new_students",
       "openTo": "designated_countries",
       "myanmarEligible": "needs_check",
-      "benefits": ["Full tuition 8 semesters", "Monthly allowance", "Airfare", "1-year Korean course (TOPIK 3 required to enter degree)"],
+      "benefits": [
+        "Full tuition 8 semesters",
+        "Monthly allowance",
+        "Airfare",
+        "1-year Korean course (TOPIK 3 required to enter degree)"
+      ],
       "selection": "embassy_then_niied",
       "sourceUrl": "https://en.snu.ac.kr/admission/undergraduate/scholarships/before_admission",
       "verificationStatus": "needs_review",
@@ -251,17 +430,247 @@
       "scope": "university",
       "destinationCountry": "KR",
       "university": "Hanyang University",
-      "degrees": ["bachelor"],
+      "degrees": [
+        "bachelor"
+      ],
       "applicantStage": "current_students",
       "openTo": "international",
       "myanmarEligible": true,
-      "conditions": ["TOPIK certificate", "GPA 3.0+ in previous semester", "Not receiving other scholarships incl. GKS"],
-      "benefits": ["70% / 50% / 30% tuition by evaluation"],
+      "conditions": [
+        "TOPIK certificate",
+        "GPA 3.0+ in previous semester",
+        "Not receiving other scholarships incl. GKS"
+      ],
+      "benefits": [
+        "70% / 50% / 30% tuition by evaluation"
+      ],
       "duration": "1 semester",
       "selection": "committee",
       "sourceUrl": "https://www.hanyang.ac.kr/web/eng/scholarships",
       "verificationStatus": "needs_review",
       "reviewNotes": "For current students, not freshmen. Freshman admission scholarship not found: check the latest Hanyang undergraduate admission guideline (oia.hanyang.ac.kr)."
+    },
+    {
+      "scholarshipId": "kr_gks_undergraduate_2027",
+      "name": "Global Korea Scholarship (GKS-U) for Undergraduate Degrees",
+      "scope": "national",
+      "destinationCountry": "KR",
+      "provider": "NIIED (Korean government)",
+      "degrees": [
+        "bachelor"
+      ],
+      "openTo": "designated_countries",
+      "myanmarEligible": true,
+      "conditions": [
+        "Citizen of a GKS participating country (Myanmar: embassy track quota listed)",
+        "Under 25 years old (born after 1 March 2002)",
+        "CGPA at least 2.64/4.0, 2.80/4.3, 2.91/4.5, 3.23/5.0, 80/100 or top 20%",
+        "High school diploma by the start date; any field (engineering gets +5% points)"
+      ],
+      "benefits": [
+        "Airfare",
+        "Tuition (NIIED up to 5,000,000 KRW/year, university covers the rest)",
+        "Monthly allowance",
+        "1-year Korean language course (skipped with TOPIK 5-6)"
+      ],
+      "applicationPeriod": "Embassy track 2026-09-15 to 2026-09-30; university track Sep-Nov 2026",
+      "sourceUrl": "https://www.studyinkorea.go.kr",
+      "sourceDocument": "2027 GKS-U Application Guidelines (English)",
+      "verificationStatus": "needs_review",
+      "reviewNotes": "Confirm amounts in the official benefit table."
+    },
+    {
+      "scholarshipId": "kr_koica_scholarship_2027",
+      "name": "KOICA Scholarship Program (CIAT)",
+      "scope": "national",
+      "destinationCountry": "KR",
+      "provider": "KOICA (Korean government)",
+      "degrees": [
+        "master",
+        "doctoral"
+      ],
+      "openTo": "oecd_dac_list",
+      "myanmarEligible": "needs_check",
+      "conditions": [
+        "Citizen of a country on the OECD DAC list",
+        "Public official or worker in a public-affiliated organisation",
+        "Bachelor's degree (master's) or master's degree (doctoral)",
+        "Only the programmes listed in that year's call"
+      ],
+      "benefits": [
+        "Tuition",
+        "Monthly allowance",
+        "Airfare",
+        "Accommodation",
+        "Insurance"
+      ],
+      "applicationPeriod": "Set by the KOICA office in each country (2026 round closed 31 July)",
+      "sourceUrl": "https://www.koica.go.kr/ciat/7815/subview.do",
+      "verificationStatus": "needs_review",
+      "reviewNotes": "Check which engineering programmes are in the 2027 call."
+    },
+    {
+      "scholarshipId": "gb_great_2026",
+      "name": "GREAT Scholarships",
+      "scope": "national",
+      "destinationCountry": "GB",
+      "provider": "British Council and UK universities",
+      "degrees": [
+        "master"
+      ],
+      "openTo": "listed_countries",
+      "myanmarEligible": false,
+      "eligibleNationalities": [
+        "BD",
+        "CN",
+        "EG",
+        "FR",
+        "GH",
+        "GR",
+        "IN",
+        "ID",
+        "IT",
+        "KE",
+        "MY",
+        "MX",
+        "NG",
+        "PK",
+        "ES",
+        "TH",
+        "TR",
+        "VN"
+      ],
+      "conditions": [
+        "Citizen of one of 18 listed countries",
+        "One-year taught master's at a participating UK university",
+        "Subjects differ by country and university"
+      ],
+      "benefits": [
+        "GBP 10,000 towards tuition"
+      ],
+      "applicationPeriod": "Spring 2026 for 2026-27 (each university sets its deadline)",
+      "sourceUrl": "https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships",
+      "verificationStatus": "needs_review",
+      "reviewNotes": "Country list changes every year."
+    },
+    {
+      "scholarshipId": "gb_commonwealth_shared_2027",
+      "name": "Commonwealth Shared Scholarships",
+      "scope": "national",
+      "destinationCountry": "GB",
+      "provider": "Commonwealth Scholarship Commission (FCDO)",
+      "degrees": [
+        "master"
+      ],
+      "openTo": "listed_countries",
+      "myanmarEligible": false,
+      "eligibleNationalities": [
+        "BD",
+        "BZ",
+        "BW",
+        "DM",
+        "SZ",
+        "FJ",
+        "GA",
+        "GH",
+        "GD",
+        "GY",
+        "IN",
+        "JM",
+        "KE",
+        "KI",
+        "LS",
+        "MW",
+        "MY",
+        "MV",
+        "MU",
+        "MS",
+        "MZ",
+        "NA",
+        "NR",
+        "NG",
+        "PK",
+        "PG",
+        "RW",
+        "SH",
+        "LC",
+        "VC",
+        "WS",
+        "SL",
+        "SB",
+        "ZA",
+        "LK",
+        "TZ",
+        "GM",
+        "TG",
+        "TO",
+        "TV",
+        "UG",
+        "VU",
+        "ZM"
+      ],
+      "conditions": [
+        "Citizen and resident of an eligible Commonwealth country",
+        "First degree at least upper second class (2:1)",
+        "Not studied or worked a year or more in a high-income country",
+        "Cannot afford UK study without the scholarship"
+      ],
+      "benefits": [
+        "Full tuition",
+        "Return airfare",
+        "Stipend GBP 1,712/month (GBP 2,000 in London)"
+      ],
+      "applicationPeriod": "Deadline 8 December 2026, 16:00 GMT (study from Sep 2027)",
+      "sourceUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships",
+      "verificationStatus": "needs_review"
+    },
+    {
+      "scholarshipId": "nl_erasmus_mundus",
+      "name": "Erasmus Mundus Joint Masters scholarships",
+      "scope": "national",
+      "destinationCountry": "NL",
+      "provider": "European Union (EACEA)",
+      "degrees": [
+        "master"
+      ],
+      "openTo": "all_countries",
+      "myanmarEligible": true,
+      "conditions": [
+        "Open to master's students from any country",
+        "Only for Erasmus Mundus joint master programmes (study in 2+ European countries)",
+        "Apply to the programme consortium, usually October to January"
+      ],
+      "benefits": [
+        "Tuition and participation costs",
+        "Monthly allowance (varies by programme)"
+      ],
+      "sourceUrl": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+      "verificationStatus": "needs_review",
+      "reviewNotes": "Check whether the programme includes a university in this country."
+    },
+    {
+      "scholarshipId": "ie_erasmus_mundus",
+      "name": "Erasmus Mundus Joint Masters scholarships",
+      "scope": "national",
+      "destinationCountry": "IE",
+      "provider": "European Union (EACEA)",
+      "degrees": [
+        "master"
+      ],
+      "openTo": "all_countries",
+      "myanmarEligible": true,
+      "conditions": [
+        "Open to master's students from any country",
+        "Only for Erasmus Mundus joint master programmes (study in 2+ European countries)",
+        "Apply to the programme consortium, usually October to January"
+      ],
+      "benefits": [
+        "Tuition and participation costs",
+        "Monthly allowance (varies by programme)"
+      ],
+      "sourceUrl": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+      "verificationStatus": "needs_review",
+      "reviewNotes": "Check whether the programme includes a university in this country."
     }
   ]
 }

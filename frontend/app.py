@@ -95,178 +95,22 @@ PERIODS = {
     "total": "Total",
 }
 
-CSS = """
-<style>
-.chat-speaker {
-    color: #8591aa;
-    font-size: 13px;
-    margin: 18px 4px 10px;
-}
+CSS = "<style>" + (Path(__file__).parent / "style.css").read_text(encoding="utf-8") + "</style>"
 
-.chat-bubble {
-    padding: 20px 22px;
-    border-radius: 18px;
-    font-size: 16px;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    margin-bottom: 22px;
-}
+_CARD_KEYS: set[str] = set()
 
-.user-bubble {
-    background: #ffffff;
-    color: #202b49;
-    border: 1px solid #d9e1ef;
-    border-bottom-right-radius: 5px;
-    box-shadow: 0 3px 12px rgba(32, 43, 73, 0.04);
-}
 
-.assistant-bubble {
-    background: #e9f0ff;
-    color: #344d79;
-    border: 1px solid #e9f0ff;
-    border-bottom-left-radius: 5px;
-}
+def card_key(prefix: str, value) -> str:
+    """Unique container key; Streamlit turns it into the CSS class st-key-card-... (see style.css)."""
+    import re
+    base = "card-" + prefix + "-" + re.sub(r"[^A-Za-z0-9_-]", "-", str(value or "x"))[:60]
+    key, n = base, 1
+    while key in _CARD_KEYS:
+        n += 1
+        key = f"{base}-{n}"
+    _CARD_KEYS.add(key)
+    return key
 
-.chat-empty {
-    text-align: center;
-    padding: 90px 24px;
-    color: #8591aa;
-}
-
-.chat-empty h3 {
-    font-size: 20px;
-    margin-top: 14px;
-}
-
-.chat-empty-icon {
-    font-size: 36px;
-    color: #386be8;
-}
-
-div[data-testid="stForm"] {
-    background: #ffffff;
-    border: 1px solid #dbe3f1;
-    border-radius: 16px;
-    padding: 12px 14px;
-    box-shadow: 0 4px 16px rgba(31, 42, 68, 0.06);
-}
-
-div[data-testid="InputInstructions"] {
-    display: none;
-}
-
-.block-container {
-    max-width: 1600px;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-}
-
-h1, h2, h3 {
-    color: #202b49;
-    letter-spacing: -0.025em;
-}
-
-.topbar {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: white;
-    padding: 24px 30px;
-    border-radius: 20px;
-    border: 1px solid #e1e7f1;
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-
-.logo {
-    width: 36px;
-    height: 36px;
-    border-radius: 11px;
-    background: linear-gradient(135deg, #386be8, #62b4df);
-}
-
-.muted {
-    color: #7885a0;
-    font-size: 14px;
-}
-
-div[data-testid="stButton"] button,
-div[data-testid="stFormSubmitButton"] button {
-    border-radius: 12px;
-    min-height: 44px;
-}
-
-.card {
-    background: white;
-    border: 1px solid #dce3f0;
-    border-radius: 18px;
-    padding: 26px;
-    margin-bottom: 18px;
-}
-
-.card h3 {
-    margin: 0 0 8px;
-    font-size: 22px;
-}
-
-.reason {
-    background: #f3f6fd;
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin: 18px 0;
-    color: #405477;
-}
-
-.details {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 24px;
-}
-
-.requirement {
-    padding: 12px 0;
-    border-bottom: 1px dashed #e1e7f1;
-    font-size: 14px;
-}
-
-.badge {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    background: #fff3db;
-    color: #a46a12;
-}
-
-.box {
-    border: 1px solid #e4e9f2;
-    border-radius: 12px;
-    padding: 14px;
-    margin: 8px 0 16px;
-}
-
-.source {
-    border-top: 1px solid #edf0f6;
-    padding-top: 14px;
-    margin-top: 16px;
-    font-size: 13px;
-    color: #7885a0;
-}
-
-.source a {
-    color: #386be8;
-}
-
-@media (max-width: 750px) {
-    .details {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-"""
 
 
 # Follow-up questions keyed by field, in English; t() gives the Korean version (AC21).
@@ -670,7 +514,7 @@ def show_card(program: dict) -> None:
     if filled(requirement):
         fields.append(("Academic requirement", [str(requirement)]))
 
-    with st.container(border=True):
+    with st.container(border=True, key=card_key("detail", program.get("programId"))):
         st.subheader(program.get("universityName", "University"))
         st.markdown(f"**{program.get('programName', 'Programme')}**")
 
@@ -1075,7 +919,7 @@ def show_input(programs) -> None:
             t("Complete the form to explore the sample catalogue.")
         )
 
-        with st.container(border=True):
+        with st.container(border=True, key="card-conditions"):
             a, b = st.columns(2)
 
             with a:
@@ -1233,237 +1077,6 @@ def show_input(programs) -> None:
 
 
 
-def show_official_search(program: dict) -> None:
-    """Search official admission requirements using Gemini Google Search."""
-    import os
-    import hashlib
-    from urllib.parse import urlparse
-
-    from dotenv import load_dotenv
-
-    uid = hashlib.sha256(
-        str(program.get("programId", program)).encode()
-    ).hexdigest()[:16]
-
-    state_key = "official_search_" + uid
-
-    if st.button(
-        "🔎 Search official admission requirements",
-        key="official_btn_" + uid,
-    ):
-        try:
-            load_dotenv(ROOT / ".env")
-
-            from google import genai
-            from google.genai import types
-
-            api_key = (
-                os.getenv("GEMINI_API_KEY")
-                or os.getenv("GOOGLE_API_KEY")
-            )
-            model = os.getenv(
-                "GEMINI_MODEL",
-                "gemini-3.8-flash",
-            )
-
-            if not api_key:
-                raise ValueError("GEMINI_API_KEY is missing.")
-
-            source_url = str(program.get("sourceUrl") or "")
-            university = program.get("universityName", "")
-            programme = program.get("programName", "")
-            degree = program.get("degreeLevel", "")
-
-            host = urlparse(source_url).hostname
-
-            if not source_url.startswith("https://") or not host:
-                raise ValueError(
-                    "Official university source URL is missing."
-                )
-
-            prompt = f"""
-You are an international university admissions research assistant.
-
-Search official university websites for the following programme.
-
-University: {university}
-Programme: {programme}
-Degree: {degree}
-Official starting URL: {source_url}
-
-Find and report:
-
-1. Academic requirements
-- Minimum GPA if officially published
-- Required degree classification
-- Country-specific international qualifications
-- Do not invent GPA conversions
-
-2. English language requirements
-- IELTS overall and minimum component scores
-- TOEFL iBT requirements
-- PTE or other accepted tests
-- Identify the applicable admission year
-
-3. Tuition fees
-- Amount
-- Currency
-- Billing period
-- International student tuition where available
-
-4. Scholarships
-- Scholarship name
-- Eligibility conditions
-- Official scholarship URL
-
-5. Application deadlines
-- Application year
-- Exact deadline where officially published
-
-6. Official verification links
-- Include the official university URL supporting each section
-- Do not use blogs or unofficial admission websites
-
-IMPORTANT RULES:
-- Use official university sources whenever possible.
-- Do not fabricate requirements.
-- Do not assume that a UK 2:1 degree equals a particular GPA.
-- If information cannot be verified, write NOT VERIFIED.
-- Distinguish programme-specific requirements from general requirements.
-- Do not predict admission probability.
-- Respond in Korean.
-
-Use this response format:
-
-## Academic requirements
-...
-
-## English language requirements
-...
-
-## Tuition fees
-...
-
-## Scholarships
-...
-
-## Application deadlines
-...
-
-## Official sources
-...
-"""
-
-            with st.spinner(
-                "Searching official university admission requirements..."
-            ):
-                client = genai.Client(api_key=api_key)
-
-                response = client.models.generate_content(
-                    model=model,
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        tools=[
-                            types.Tool(
-                                google_search=types.GoogleSearch()
-                            )
-                        ],
-                        temperature=0,
-                    ),
-                )
-
-            sources = []
-
-            if response.candidates:
-                metadata = getattr(
-                    response.candidates[0],
-                    "grounding_metadata",
-                    None,
-                )
-
-                chunks = (
-                    getattr(metadata, "grounding_chunks", None)
-                    or []
-                )
-
-                for chunk in chunks:
-                    web_source = getattr(chunk, "web", None)
-
-                    if web_source:
-                        url = getattr(web_source, "uri", None)
-                        title = getattr(web_source, "title", None)
-
-                        if url:
-                            sources.append({
-                                "title": title or "Source",
-                                "url": url,
-                            })
-
-            st.session_state[state_key] = {
-                "text": response.text or "No information returned.",
-                "sources": sources,
-                "model": model,
-            }
-
-        except Exception as error:
-            message = str(error)
-
-            if "429" in message or "RESOURCE_EXHAUSTED" in message:
-                message = (
-                    "Gemini API quota exceeded. "
-                    "Please try again later."
-                )
-
-            st.session_state[state_key] = {
-                "error": message
-            }
-
-    result = st.session_state.get(state_key)
-
-    if not result:
-        return
-
-    if result.get("error"):
-        st.error(result["error"])
-        return
-
-    st.markdown("### AI Admission Requirements Research")
-
-    st.caption(
-        "Gemini model: " + result.get("model", "")
-    )
-
-    st.markdown(result.get("text", ""))
-
-    sources = result.get("sources", [])
-
-    if sources:
-        st.markdown("### Search citations")
-
-        seen = set()
-
-        for source in sources:
-            url = source["url"]
-
-            if url in seen:
-                continue
-
-            seen.add(url)
-
-            st.markdown(
-                f"- [{source['title']}]({url})"
-            )
-    else:
-        st.warning(
-            "No search citations were returned. "
-            "The information is not independently verified."
-        )
-
-    st.info(
-        "AI-generated research must be checked against "
-        "the linked official university pages."
-    )
-
 SOURCE_LABELS = {
     "team_verified": "Official admission guide (team checked)",
     "official_dataset": "Government open data",
@@ -1501,6 +1114,137 @@ BUDGET_LABELS = {
 }
 
 
+def program_domains(program: dict) -> tuple[str, ...]:
+    found = official_domains(program.get("universityNameEnglish") or program["universityName"], program.get("country"))
+    domains = [d for d in [program.get("officialDomain"), *found] if d]
+    return tuple(dict.fromkeys(d.lower().removeprefix("www.") for d in domains))
+
+
+def official_link_ok(url: str, domains: tuple[str, ...]) -> str | None:
+    """Real official page for this link (redirects followed), or None if it is off-site or does not open."""
+    from admission.requirement_finder import _on_domain, fetch_page_text, resolve_url
+
+    url = resolve_url(url.rstrip(".,);"))
+    if not _on_domain(url, domains, check_alias=True):
+        return None
+    status, _ = fetch_page_text(url)
+    return url if status == 200 else None
+
+
+def clean_report_links(text: str, domains: tuple[str, ...]) -> str:
+    from admission.requirement_finder import clean_links
+    return clean_links(text, lambda u: official_link_ok(u, domains),
+                       lambda url: page_link(url).removeprefix(" · "))
+
+
+def show_official_search(program: dict) -> None:
+    """Button on each card: Gemini researches the official site and writes a report (demo flow).
+
+    Every link in the report and every citation is checked: it must open (HTTP 200) on the
+    university's official domain. Links that fail are removed, never shown as "not found".
+    """
+    import hashlib
+    import os
+
+    from dotenv import load_dotenv
+
+    uid = hashlib.sha256(str(program.get("programId", program)).encode()).hexdigest()[:16]
+    state_key = "official_search_" + uid
+    english = st.session_state.get("ui_language") != "ko"
+
+    if st.button("🔎 " + t("Search official admission requirements"), key="official_btn_" + uid):
+        try:
+            load_dotenv(ROOT / ".env")
+            from google import genai
+            from google.genai import types
+
+            api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+            model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+            if not api_key:
+                raise ValueError("GEMINI_API_KEY is missing.")
+
+            domains = program_domains(program)
+            if not domains:
+                raise ValueError(t("Official university website is not known for this result."))
+            university = program.get("universityNameEnglish") or program.get("universityName", "")
+            degree = {"undergraduate": "undergraduate (bachelor's)", "master": "master's", "phd": "PhD"}.get(
+                program.get("degreeLevel"), program.get("degreeLevel", ""))
+            start = program.get("programPageUrl") or f"https://{domains[0]}"
+            language = "English" if english else "Korean"
+
+            prompt = f"""You are an international university admissions research assistant.
+Research this programme for an INTERNATIONAL applicant, using ONLY the university's official website
+({", ".join(domains)} and their subdomains), including its admission guide (prospectus / 모집요강) PDFs.
+
+University: {university}
+Programme: {program.get("programName")}
+Degree: {degree}
+Start from: {start}
+
+Write these sections:
+
+## Academic requirements
+Required qualification, minimum GPA if published, country-specific rules for international applicants.
+
+## English / language requirements
+IELTS, TOEFL iBT, TOPIK, Duolingo or other tests with minimum scores, and which admission year it applies to.
+
+## Tuition fees
+Amount, currency, per year or semester, international student tuition.
+
+## Scholarships
+Each scholarship for international students: name, what it gives, conditions.
+
+## Application deadlines
+Intake and exact dates if published.
+
+## Official sources
+The official pages you used.
+
+Rules:
+- After each fact, put the official page URL where it is written, in full (https://...).
+- Only official university pages. No blogs, agents, rankings or document-sharing sites.
+- Do not invent anything. If a section is not on the official site, leave that section out.
+  Do not write "NOT VERIFIED" or "not found".
+- Do not convert grades or predict admission.
+- Write in {language}."""
+
+            with st.spinner(t("Searching official university admission requirements...")):
+                client = genai.Client(api_key=api_key)
+                response = client.models.generate_content(
+                    model=model, contents=prompt,
+                    config=types.GenerateContentConfig(tools=[types.Tool(google_search=types.GoogleSearch())], temperature=0),
+                )
+                text = clean_report_links(response.text or "", domains)
+                citations = []
+                from admission.requirement_finder import grounding_urls
+                for url in dict.fromkeys(grounding_urls(response)):
+                    good = official_link_ok(url, domains)
+                    if good and good not in citations:
+                        citations.append(good)
+
+            st.session_state[state_key] = {"text": text, "sources": citations, "model": model}
+        except Exception as error:
+            message = str(error)
+            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+                message = t("Gemini API quota exceeded. Please try again later.")
+            st.session_state[state_key] = {"error": message}
+
+    result = st.session_state.get(state_key)
+    if not result:
+        return
+    if result.get("error"):
+        st.error(result["error"])
+        return
+    st.markdown("### " + t("AI Admission Requirements Research"))
+    st.caption("Gemini · " + result.get("model", "") + " · " + t("Only links that open on the university's official site are shown."))
+    st.markdown(result.get("text", ""))
+    if result.get("sources"):
+        st.markdown("**" + t("Official pages used") + "**")
+        for url in result["sources"]:
+            st.markdown("- " + page_link(url).removeprefix(" · "))
+
+
 def v2_context(context: dict) -> dict:
     """Search context for recommend_v2: a grade tier only when the score has a numeric scale."""
     ctx = dict(context)
@@ -1512,11 +1256,63 @@ def v2_context(context: dict) -> dict:
     return ctx
 
 
+def page_link(url: str | None) -> str:
+    """The page address itself as a clickable link, e.g. grad.uw.edu/admission/apply."""
+    if not url:
+        return ""
+    from urllib.parse import urlparse
+    parts = urlparse(url)
+    text = (parts.hostname or "").removeprefix("www.") + parts.path.rstrip("/")
+    if len(text) > 60:
+        text = text[:57] + "..."
+    return f" · 🔗 [{text}]({url})"
+
+
+def show_requirement_summary(program: dict) -> None:
+    """Short summary of what the applicant needs; each line has its official link. Empty items are hidden."""
+    sources = program.get("requirementSources") or {}
+    team_link = program.get("sourceUrl") if program.get("academicRequirementText") else None
+
+    def link(field):
+        return page_link(sources.get(field) or team_link)
+
+    lines = []
+    if program.get("summary"):
+        lines.append(f"{safe(program['summary'])}{link('summary')}")
+    academic = program.get("academicRequirement") or program.get("academicRequirementText")
+    if academic:
+        lines.append(f"🎓 **{t('Education')}**: {safe(academic)}{link('academicRequirement')}")
+    if program.get("minimumGpa") is not None:
+        scale = program.get("minimumGpaScale")
+        gpa = f"{program['minimumGpa']:g}" + (f" / {scale:g}" if scale else "")
+        lines.append(f"📈 **{t('Minimum GPA')}**: {gpa}{link('minimumGpa')}")
+    languages = [f"{x.get('testType')} {x.get('minimumScore'):g}" for x in program.get("languageRequirements") or []
+                 if isinstance(x.get("minimumScore"), (int, float))]
+    if languages:
+        lines.append(f"🗣 **{t('Language')}**: {', '.join(languages)}{link('languageRequirements')}")
+    tuition = program.get("tuition") or {}
+    if isinstance(tuition.get("amount"), (int, float)):
+        tuition_link = link("tuition") if sources.get("tuition") else page_link(program.get("sourceUrl"))
+        lines.append(f"💰 **{t('Tuition')}**: {tuition['amount']:,.0f} {tuition.get('currency', '')} / "
+                     f"{t(tuition.get('period') or 'year')}{tuition_link}")
+    if program.get("applicationDeadline"):
+        lines.append(f"📅 **{t('Deadline')}**: {safe(program['applicationDeadline'])}{link('applicationDeadline')}")
+    documents = program.get("requiredDocuments") or []
+    if documents:
+        lines.append(f"📎 **{t('Documents')}**: {safe(', '.join(documents))}{link('requiredDocuments')}")
+    if program.get("intake"):
+        lines.append(f"🗓 **{t('Intake')}**: {safe(program['intake'])}{link('intake')}")
+    if program.get("scholarshipPageUrl"):
+        lines.append(f"🏅 **{t('University scholarships')}**{page_link(program['scholarshipPageUrl'])}")
+    for line in lines:
+        st.markdown(line)
+
+
 def show_recommendation_card(program: dict) -> None:
     """Result card: what the applicant needs, with official links (SPEC F02, F08, AC24, AC25, AC27)."""
     english = st.session_state.get("ui_language") != "ko"
     university = (program.get("universityNameEnglish") if english else None) or program.get("universityName")
-    with st.container(border=True):
+    with st.container(border=True, key=card_key("prog", program.get("programId"))):
         st.markdown(f"### {safe(university)}")
         country = t(COUNTRIES.get(program.get("country"), program.get("country") or ""))
         degree = t({"undergraduate": "Undergraduate", "master": "Master", "phd": "PhD"}.get(program.get("degreeLevel"), ""))
@@ -1530,22 +1326,17 @@ def show_recommendation_card(program: dict) -> None:
             + ("  " + " ".join(f"`{b}`" for b in badges) if badges else "")
         )
 
-        tuition = program.get("tuition") or {}
-        if tuition.get("amount"):
-            st.write(f"💰 {t('Tuition')}: {tuition['amount']:,.0f} {tuition.get('currency', '')} / {t(tuition.get('period', 'year'))}")
-
-        if program.get("academicRequirementText") and program.get("source") == "official_dataset":
-            with st.expander(t("Admission details from the official guide")):
-                show_card(program)
+        show_requirement_summary(program)
 
         sources = program.get("requirementSources") or {}
         program_page = program.get("programPageUrl") or next(iter(sources.values()), None)
-        if not program_page and program.get("source") in ("team_verified", "web_verified"):
+        if not program_page and (program.get("source") in ("team_verified", "web_verified")
+                                 or program.get("academicRequirementText")):
             program_page = program.get("sourceUrl")
-        st.caption(t("Check the details on the official page below."))
+        st.caption(t("Summary from the official site. Each link opens the page where it is written."))
         links = []
         if program_page:
-            links.append(f"[📄 **{t('Official programme page')}**]({program_page})")
+            links.append(f"📄 **{t('Official programme page')}**{page_link(program_page)}")
         elif program.get("officialDomain"):
             links.append(f"[🏛 {t('University website')}](https://{program['officialDomain']})")
         if program.get("sourceUrl") and program.get("sourceUrl") != program_page:
@@ -1553,6 +1344,7 @@ def show_recommendation_card(program: dict) -> None:
         st.markdown(" · ".join(links))
         if program.get("difficultyPercentile") is not None:
             st.caption(f"{t('Difficulty index')} {program['difficultyPercentile']:.0f}/100 · {t(program.get('difficultyBasis') or '')}")
+        show_official_search(program)
 
 
 def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:
@@ -1562,7 +1354,9 @@ def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:
     cache = st.session_state.setdefault("requirement_cache", {})
 
     def domain_for(p):
-        return p.get("officialDomain") or next(iter(official_domains(p.get("universityNameEnglish") or p["universityName"], p.get("country"))), None)
+        found = official_domains(p.get("universityNameEnglish") or p["universityName"], p.get("country"))
+        domains = [d for d in [p.get("officialDomain"), *found] if d]
+        return tuple(dict.fromkeys(d.lower().removeprefix("www.") for d in domains))
 
     todo = [p for p in results if p["programId"] not in cache]
     if todo:
@@ -1570,7 +1364,8 @@ def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:
             try:
                 domain = domain_for(p)
                 return p["programId"], domain, find_requirements(p, ctx, domain)
-            except Exception:
+            except Exception as error:
+                print(f"[requirements] {p.get('universityName')} / {p.get('programName')}: {error}", flush=True)
                 return p["programId"], None, {"sources": {}}
         with st.spinner(t("Loading programme information...")):
             with ThreadPoolExecutor(max_workers=5) as pool:
@@ -1584,7 +1379,7 @@ def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:
         merged = {**p, **{k: v for k, v in found.items() if k != "sources" and not p.get(k)}}
         merged["requirementSources"] = found.get("sources") or {}
         if not merged.get("officialDomain") and entry.get("domain"):
-            merged["officialDomain"] = entry["domain"]
+            merged["officialDomain"] = entry["domain"][0]
         merged["requirements"] = requirement_status(merged, ctx)
         enriched.append(merged)
     return enriched
@@ -1607,7 +1402,7 @@ def show_scholarships(context: dict, results: list[dict]) -> None:
     if not info["national"]:
         st.info(t("No government scholarship in our data for this country and degree."))
     for item in info["national"]:
-        with st.container(border=True):
+        with st.container(border=True, key=card_key("sch", item.get("scholarshipId"))):
             st.markdown(f"**{safe(item['name'])}** · {t(COUNTRIES.get(item['country'], item['country']))}")
             if item.get("provider"):
                 st.caption(item["provider"])
@@ -1625,15 +1420,17 @@ def show_scholarships(context: dict, results: list[dict]) -> None:
             if item.get("verificationStatus") != "verified":
                 st.caption(t("Collected from the official page; team review pending."))
 
-    sites = []
-    for program in results:
-        domain = program.get("officialDomain")
-        if domain and domain not in [d for d, _ in sites]:
-            sites.append((domain, program.get("universityNameEnglish") or program.get("universityName")))
     st.markdown("**" + t("University scholarships") + "**")
-    st.write(t("University scholarships depend on your grades and change every intake, so they are not judged here. Check each university's official page."))
-    if sites:
-        st.markdown(" · ".join(f"[{safe(name)}](https://{domain})" for domain, name in sites))
+    st.caption(t("University scholarships depend on your grades and change every intake. Press 'Search official admission requirements' on a card to see that university's scholarships with official links."))
+    seen = set()
+    for program in results:
+        name = program.get("universityNameEnglish") or program.get("universityName")
+        if name in seen:
+            continue
+        seen.add(name)
+        url = program.get("scholarshipPageUrl")
+        if url:
+            st.markdown(f"🏅 **{safe(name)}**{page_link(url)}")
 
 
 def show_results(programs: list[dict] | None = None) -> None:
@@ -1659,7 +1456,9 @@ def show_results(programs: list[dict] | None = None) -> None:
                 message = t("Gemini API quota exceeded. Please try again later.")
             st.caption(f"{t('Web search unavailable')}: {message}")
 
-    results = enrich_with_requirements(outcome["results"], ctx)
+    # Requirements are researched only when the user presses the button on a card
+    # (show_official_search); looking them up for all five cards up front took ~2 minutes.
+    results = outcome["results"]
     st.subheader(f"{t('Recommended universities')} · {len(results)}")
     st.caption(
         t("Ranked by your grade and budget using public indicators. "
@@ -1733,35 +1532,42 @@ def login_user(email, password):
 
 
 def show_login():
-    st.title(t("Welcome to Global Admission AI"))
-    st.write(t("Find your next engineering programme."))
-
-    left, right = st.columns([1.15, 1], gap="large")
+    left, right = st.columns([1.2, 1], gap="large")
 
     with left:
-        with st.container(border=True):
-            st.subheader("🌍 Compare programmes")
-            st.write("Explore engineering programmes across five countries.")
-        with st.container(border=True):
-            st.subheader("🔗 Check official sources")
-            st.write("Find university admission requirements.")
-        with st.container(border=True):
-            st.subheader("📋 Know what to prepare")
-            st.write("Compare your academic and language qualifications.")
+        features = [
+            ("Compare programmes", "Engineering programmes across Korea, the US, the UK, the Netherlands and Ireland."),
+            ("Check official sources", "Requirements, tuition and scholarships with links to the university's own pages."),
+            ("Know what to prepare", "Five universities matched to your grades and budget."),
+        ]
+        st.markdown(
+            '<div class="hero"><div class="eyebrow">' + safe(t("Global Admission AI")) + '</div>'
+            "<h1>" + safe(t("Find your next engineering programme.")) + "</h1>"
+            "<p>" + safe(t("Official data and official university pages, in one place.")) + "</p></div>"
+            + "".join(
+                f'<div class="feature"><div class="num">0{i}</div><div><div class="title">{safe(t(title))}</div>'
+                f'<div class="text">{safe(t(text))}</div></div></div>'
+                for i, (title, text) in enumerate(features, 1)
+            ),
+            unsafe_allow_html=True,
+        )
 
     with right:
-        with st.container(border=True):
+        with st.container(border=True, key="card-login"):
+            st.markdown("### " + t("Welcome"))
             mode = st.radio(
-                "Account",
+                t("Account"),
                 ["Sign in", "Create account"],
+                format_func=t,
                 horizontal=True,
+                label_visibility="collapsed",
             )
 
             with st.form("authentication_form"):
-                email = st.text_input("Email address")
-                password = st.text_input("Password", type="password")
+                email = st.text_input(t("Email address"))
+                password = st.text_input(t("Password"), type="password")
                 submitted = st.form_submit_button(
-                    "Sign in" if mode == "Sign in" else "Create account",
+                    t("Sign in") if mode == "Sign in" else t("Create account"),
                     type="primary",
                     use_container_width=True,
                 )
@@ -1802,13 +1608,15 @@ def main() -> None:
     )
 
     st.markdown(CSS, unsafe_allow_html=True)
+    _CARD_KEYS.clear()
 
     brand, language = st.columns([4, 1])
 
     with brand:
         st.markdown(
-            '<div class="topbar"><div class="logo"></div>'
-            "Global Admission AI</div>",
+            '<div class="topbar"><div class="mark">G</div>'
+            '<div class="name">Global Admission AI</div>'
+            '<div class="tag">Engineering · 2027</div></div>',
             unsafe_allow_html=True,
         )
 
@@ -1823,7 +1631,6 @@ def main() -> None:
             key="ui_language",
         )
 
-        st.caption("BridgeU · " + t("Sample preview"))
 
     is_guest = False
     is_logged_in = bool(st.session_state.get("auth_token"))
@@ -1833,7 +1640,7 @@ def main() -> None:
         return
 
     st.button(
-        "Log out",
+        t("Log out"),
         on_click=return_to_login,
         key="back_to_login",
     )

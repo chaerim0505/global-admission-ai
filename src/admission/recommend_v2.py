@@ -420,6 +420,11 @@ def scholarships_for(context: dict, scholarships: list[dict] | None = None) -> d
         degrees = {SCHOLARSHIP_DEGREES.get(d, d) for d in s.get("degrees", [])}
         if degree and degrees and degree not in degrees:
             continue
+        listed = s.get("eligibleNationalities")
+        if nationality and listed and nationality not in listed:
+            continue  # closed country list that does not include the applicant
+        if nationality == "MM" and s.get("myanmarEligible") is False:
+            continue
         note = None
         if nationality == "MM" and "myanmarEligible" in s:
             note = {True: "listed_for_myanmar", "needs_check": "check_country_list"}.get(s["myanmarEligible"], "check_country_list")
