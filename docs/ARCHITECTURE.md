@@ -91,3 +91,14 @@
 ## 9. 비범위
 
 합격 확률 예측, 지원서 작성·제출, 대학·교수 자동 연락, 결제, 생활비·비자·취업 분석, 순위 산출, 파인튜닝, 멀티 에이전트. (SPEC 4.2절, 온톨로지 "범위 밖"과 같은 경계)
+
+## University difficulty index (SPEC F08, AC25) — decision record, 2026-11-14
+
+The difficulty index (0–100, higher = harder to enter) is an estimate from public indicators, not an admission prediction. The team compared candidate indicators and recorded why each was kept or dropped.
+
+| Country | Indicator used | Source | Rejected alternatives and why |
+| --- | --- | --- | --- |
+| US | Within-US percentile of admission rate (lower = harder), averaged with SAT-average percentile | College Scorecard institution file (`scripts/build_us_institutions_scorecard.py`) | — |
+| KR, GB, NL, IE | Within-country percentile of `P_top_10` (top-10% cited papers), field "Physical sciences and engineering", 2021–2024, core pubs, fractional counting | CWTS Leiden Ranking Open Edition 2026 (`scripts/build_leiden_difficulty.py`) | **KR freshman competition rate** measures application volume (SNU 6.5:1, Gachon 24.8:1), so it inverted the order; **fill rate** is ~100% everywhere. **Leiden blend of `P_top_10` and `PP_top_10`** ranked small or citation-concentrated universities above national flagships (Sejong above SNU, Galway above Trinity College Dublin). |
+
+Known limits: research volume favours large universities (POSTECH is lower than its reputation), and the index says nothing about international-student admission criteria. Tier thresholds live in `config/tiers.yaml` and must be checked against real admission outcomes (see `evals/`).

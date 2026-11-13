@@ -22,6 +22,8 @@ import openpyxl
 ROOT = Path(__file__).resolve().parents[1]
 SRC = Path.home() / "Downloads" / "CWTS Leiden Ranking Open Edition 2026 - Results.xlsx"
 OUT = ROOT / "data" / "raw" / "leiden" / "leiden_results_5countries.csv"
+FIELDS = {"All sciences", "Physical sciences and engineering", "Mathematics and computer science"}
+MIN_PERIOD_END = 2022  # keep recent periods only
 COUNTRIES = {"South Korea", "Korea", "Republic of Korea", "United States", "United Kingdom", "Netherlands", "Ireland"}
 
 
@@ -40,26 +42,30 @@ def main() -> int:
                 if i >= 3:
                     break
         return 0
-    ws = wb.worksheets[0]
-    rows = ws.iter_rows(values_only=True)
-    header = [str(h) for h in next(rows)]
-    country_col = next((i for i, h in enumerate(header) if h.lower() == "country"), None)
-    if country_col is None:
-        print("No 'Country' column. Run with --inspect and send the output.")
-        return 1
+    sheets = [ws for ws in wb.worksheets if ws.title.lower().startswith("results")]
     OUT.parent.mkdir(parents=True, exist_ok=True)
     kept = total = 0
     start = time.time()
+    header = None
     with OUT.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(header)
-        for row in rows:
-            total += 1
-            if row[country_col] in COUNTRIES:
-                writer.writerow(row)
-                kept += 1
-            if total % 200000 == 0:
-                print(f"  {total:,} rows read, {kept:,} kept ({time.time() - start:.0f}s)")
+        for ws in sheets:
+            print(f"Reading sheet {ws.title} ...")
+            rows = ws.iter_rows(values_only=True)
+            sheet_header = [str(h) for h in next(rows)]
+            col = {h: i for i, h in enumerate(sheet_header)}
+            if header is None:
+                header = sheet_header
+                writer.writerow(header)
+            for row in rows:
+                total += 1
+                period = str(row[col["Period"]] or "")
+                if (row[col["Country"]] in COUNTRIES and row[col["Field"]] in FIELDS
+                        and period[-4:].isdigit() and int(period[-4:]) >= MIN_PERIOD_END):
+                    writer.writerow(row)
+                    kept += 1
+                if total % 200000 == 0:
+                    print(f"  {total:,} rows read, {kept:,} kept ({time.time() - start:.0f}s)")
     print(f"Done: kept {kept:,} of {total:,} rows -> {OUT}")
     return 0
 
