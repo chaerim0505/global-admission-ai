@@ -1,0 +1,11 @@
+# Admission difficulty tiers (F08, AC25) — team-owned rule, not AI.
+# applicant_score = academicScore / maximumScore * 100
+# university_index (0-100) comes from public indicators (see docs/ARCHITECTURE.md).
+# gap = university_index - applicant_score
+version: 1
+draft: true          # initial values; calibrate after user testing
+reach_if_gap_above: 10      # university much harder than the applicant
+safety_if_gap_below: -10    # university much easier than the applicant
+# otherwise: match
+mix_when_possible: {reach: 1, match: 3, safety: 1}
+results_per_request: 5

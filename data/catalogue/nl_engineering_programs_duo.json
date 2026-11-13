@@ -82,6 +82,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B484_60821_master",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations",
+   "programNameDutch": "Oudheidstudies",
+   "crohoCode": "60821",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B484_60364_master",
    "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
    "country": "NL",
@@ -194,6 +210,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B482_60821_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations",
+   "programNameDutch": "Oudheidstudies",
+   "crohoCode": "60821",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_60039_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations (research)",
+   "programNameDutch": "Oudheidstudies (research)",
+   "crohoCode": "60039",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B482_65014_master",
    "universityName": "Het College van Bestuur van de Vrije Universiteit",
    "country": "NL",
@@ -219,7 +267,6 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
     "computing"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
@@ -237,6 +284,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_59341_bachelor",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Circular Engineering",
+   "programNameDutch": "Circular Engineering",
+   "crohoCode": "59341",
+   "iscedCode": "0712",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -333,6 +396,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_69315_master",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Sustainability Science in Transforming Societies",
+   "programNameDutch": "Sustainability Science in Transforming Societies",
+   "crohoCode": "69315",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -467,6 +546,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B448_56226_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedische Technologie",
+   "crohoCode": "56226",
+   "iscedCode": "0512",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B448_56960_bachelor",
    "universityName": "Rijksuniversiteit Groningen",
    "country": "NL",
@@ -515,6 +610,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B448_56994_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Industrial Engineering & Management",
+   "programNameDutch": "Technische Bedrijfskunde",
+   "crohoCode": "56994",
+   "iscedCode": "0413",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "industrial_systems"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B448_56842_bachelor",
    "universityName": "Rijksuniversiteit Groningen",
    "country": "NL",
@@ -547,6 +658,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B448_66226_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedical Engineering",
+   "crohoCode": "66226",
+   "iscedCode": "0512",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B448_60437_master",
    "universityName": "Rijksuniversiteit Groningen",
    "country": "NL",
@@ -557,6 +684,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60821_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations",
+   "programNameDutch": "Oudheidstudies",
+   "crohoCode": "60821",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -595,6 +738,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B448_60608_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Energy and Environmental Sciences",
+   "programNameDutch": "Energy and Environmental Sciences",
+   "crohoCode": "60608",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60029_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Industrial Engineering and Management",
+   "programNameDutch": "Industrial Engineering and Management",
+   "crohoCode": "60029",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "industrial_systems"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B448_60439_master",
    "universityName": "Rijksuniversiteit Groningen",
    "country": "NL",
@@ -622,6 +797,38 @@
    "engineeringFields": [
     "electrical_electronic",
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_100B490_69299_master",
+   "universityName": "Stichting Hanzehogeschool Groningen",
+   "country": "NL",
+   "programName": "European Master in Renewable Energy",
+   "programNameDutch": "European Master in Renewable Energy",
+   "crohoCode": "69299",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_100B490_69298_master",
+   "universityName": "Stichting Hanzehogeschool Groningen",
+   "country": "NL",
+   "programName": "European Master in Sustainable Energy System Management",
+   "programNameDutch": "European Master in Sustainable Energy System Management",
+   "crohoCode": "69298",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -724,6 +931,54 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B544_60978_master",
+   "universityName": "Stichting Universiteit voor Humanistiek",
+   "country": "NL",
+   "programName": "Citizenship, Professionalism and Civil Society",
+   "programNameDutch": "Burgerschap en Kwaliteit van Samenleven",
+   "crohoCode": "60978",
+   "iscedCode": "0312",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56956_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Aerospace Engineering",
+   "programNameDutch": "Luchtvaart- en Ruimtevaarttechniek",
+   "crohoCode": "56956",
+   "iscedCode": "0716",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "aerospace"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56952_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Civil Engineering",
+   "programNameDutch": "Civiele Techniek",
+   "crohoCode": "56952",
+   "iscedCode": "0732",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B605_56964_bachelor",
    "universityName": "Technische Universiteit Delft",
    "country": "NL",
@@ -733,7 +988,6 @@
    "iscedCode": "0714",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "electrical_electronic",
     "computing"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
@@ -757,6 +1011,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B605_56955_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Industrial Design",
+   "programNameDutch": "Industrieel Ontwerpen",
+   "crohoCode": "56955",
+   "iscedCode": "0719",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56957_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Marine Technology",
+   "programNameDutch": "Maritieme Techniek",
+   "crohoCode": "56957",
+   "iscedCode": "0716",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B605_56966_bachelor",
    "universityName": "Technische Universiteit Delft",
    "country": "NL",
@@ -773,6 +1059,54 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B605_56995_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Systems Engineering, Policy Analysis & Management",
+   "programNameDutch": "Technische Bestuurskunde",
+   "crohoCode": "56995",
+   "iscedCode": "0413",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "industrial_systems"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_66956_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Aerospace Engineering",
+   "programNameDutch": "Aerospace Engineering",
+   "crohoCode": "66956",
+   "iscedCode": "0716",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "aerospace"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_66226_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedical Engineering",
+   "crohoCode": "66226",
+   "iscedCode": "0512",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B605_60437_master",
    "universityName": "Technische Universiteit Delft",
    "country": "NL",
@@ -783,6 +1117,38 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60352_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Civil Engineering",
+   "programNameDutch": "Civil Engineering",
+   "crohoCode": "60352",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60358_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Complex Systems Engineering and Management",
+   "programNameDutch": "Complex Systems Engineering and Management",
+   "crohoCode": "60358",
+   "iscedCode": "0413",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "industrial_systems"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -814,8 +1180,23 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
-    "computing"
+    "industrial_systems"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60337_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Construction Management and Engineering",
+   "programNameDutch": "Construction Management and Engineering",
+   "crohoCode": "60337",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -838,6 +1219,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B605_60355_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Design for Interaction",
+   "programNameDutch": "Design for Interaction",
+   "crohoCode": "60355",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B605_60353_master",
    "universityName": "Technische Universiteit Delft",
    "country": "NL",
@@ -848,6 +1245,54 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60985_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Environmental Engineering",
+   "programNameDutch": "Environmental Engineering",
+   "crohoCode": "60985",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60354_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Integrated Product Design",
+   "programNameDutch": "Integrated Product Design",
+   "crohoCode": "60354",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_66957_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Marine Technology",
+   "programNameDutch": "Marine Technology",
+   "crohoCode": "66957",
+   "iscedCode": "0716",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -886,6 +1331,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B605_60178_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Offshore and Dredging Engineering",
+   "programNameDutch": "Offshore and Dredging Engineering",
+   "crohoCode": "60178",
+   "iscedCode": "0724",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B605_65029_master",
    "universityName": "Technische Universiteit Delft",
    "country": "NL",
@@ -912,8 +1373,40 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
-    "computing"
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60356_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Strategic Product Design",
+   "programNameDutch": "Strategic Product Design",
+   "crohoCode": "60356",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60443_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Sustainable Energy Technology",
+   "programNameDutch": "Sustainable Energy Technology",
+   "crohoCode": "60443",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -937,6 +1430,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B605_60361_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Transport, Infrastructure and Logistics",
+   "programNameDutch": "Transport, Infrastructure and Logistics",
+   "crohoCode": "60361",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B450_1016O3577_bachelor",
    "universityName": "Technische Universiteit Eindhoven",
    "country": "NL",
@@ -947,6 +1456,22 @@
    "degreeLevel": "bachelor",
    "engineeringFields": [
     "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_56226_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedische Technologie",
+   "crohoCode": "56226",
+   "iscedCode": "0512",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "biomedical"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -978,7 +1503,6 @@
    "iscedCode": "0714",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "electrical_electronic",
     "computing"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
@@ -1012,6 +1536,38 @@
    "degreeLevel": "bachelor",
    "engineeringFields": [
     "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_50441_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Industrial Design",
+   "programNameDutch": "Industrial Design",
+   "crohoCode": "50441",
+   "iscedCode": "0719",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_56994_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Industrial Engineering",
+   "programNameDutch": "Technische Bedrijfskunde",
+   "crohoCode": "56994",
+   "iscedCode": "0413",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "industrial_systems"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1082,6 +1638,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B450_60428_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Automotive Technology",
+   "programNameDutch": "Automotive Technology",
+   "crohoCode": "60428",
+   "iscedCode": "0716",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_66226_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedical Engineering",
+   "crohoCode": "66226",
+   "iscedCode": "0512",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B450_60437_master",
    "universityName": "Technische Universiteit Eindhoven",
    "country": "NL",
@@ -1107,8 +1695,23 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60337_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Construction Management and Engineering",
+   "programNameDutch": "Construction Management and Engineering",
+   "crohoCode": "60337",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1164,6 +1767,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B450_60431_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Human-technology Interaction",
+   "programNameDutch": "Human-technology Interaction",
+   "crohoCode": "60431",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60441_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Industrial Design",
+   "programNameDutch": "Industrial Design",
+   "crohoCode": "60441",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B450_60439_master",
    "universityName": "Technische Universiteit Eindhoven",
    "country": "NL",
@@ -1174,6 +1809,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60443_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Sustainable Energy Technology",
+   "programNameDutch": "Sustainable Energy Technology",
+   "crohoCode": "60443",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1261,6 +1912,70 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B578_60821_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations",
+   "programNameDutch": "Oudheidstudies",
+   "crohoCode": "60821",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60039_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations (research)",
+   "programNameDutch": "Oudheidstudies (research)",
+   "crohoCode": "60039",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60855_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Classics and Ancient Civilizations",
+   "programNameDutch": "Classics and Ancient Civilizations",
+   "crohoCode": "60855",
+   "iscedCode": null,
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60873_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Classics and Ancient Civilizations (research)",
+   "programNameDutch": "Classics and Ancient Civilizations (research)",
+   "crohoCode": "60873",
+   "iscedCode": null,
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B578_60300_master",
    "universityName": "Universiteit Leiden",
    "country": "NL",
@@ -1309,6 +2024,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B523_50002_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Advanced Technology",
+   "programNameDutch": "Advanced Technology",
+   "crohoCode": "50002",
+   "iscedCode": "0710",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_56226_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedische Technologie",
+   "crohoCode": "56226",
+   "iscedCode": "0512",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B523_56066_bachelor",
    "universityName": "Universiteit Twente",
    "country": "NL",
@@ -1341,6 +2088,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B523_50352_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Civil Engineering",
+   "programNameDutch": "Civil Engineering",
+   "crohoCode": "50352",
+   "iscedCode": "0732",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_50447_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Creative Technology",
+   "programNameDutch": "Creative Technology",
+   "crohoCode": "50447",
+   "iscedCode": "0719",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B523_56953_bachelor",
    "universityName": "Universiteit Twente",
    "country": "NL",
@@ -1351,6 +2130,38 @@
    "degreeLevel": "bachelor",
    "engineeringFields": [
     "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_50975_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Industrial Design Engineering",
+   "programNameDutch": "Industrial Design Engineering",
+   "crohoCode": "50975",
+   "iscedCode": "0719",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_56994_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Industrial Engineering & Management Science",
+   "programNameDutch": "Technische Bedrijfskunde",
+   "crohoCode": "56994",
+   "iscedCode": "0413",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "industrial_systems"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1389,6 +2200,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B523_66226_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Biomedical Engineering",
+   "programNameDutch": "Biomedical Engineering",
+   "crohoCode": "66226",
+   "iscedCode": "0512",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "biomedical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B523_60025_master",
    "universityName": "Universiteit Twente",
    "country": "NL",
@@ -1421,6 +2248,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B523_60026_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Civil Engineering and Management",
+   "programNameDutch": "Civil Engineering and Management",
+   "crohoCode": "60026",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B523_60300_master",
    "universityName": "Universiteit Twente",
    "country": "NL",
@@ -1431,6 +2274,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60337_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Construction Management and Engineering",
+   "programNameDutch": "Construction Management and Engineering",
+   "crohoCode": "60337",
+   "iscedCode": "0732",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1464,6 +2323,70 @@
    "engineeringFields": [
     "electrical_electronic",
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_69319_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Environmental and Energy Management",
+   "programNameDutch": "Environmental and Energy Management",
+   "crohoCode": "69319",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60475_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Humanitarian Engineering",
+   "programNameDutch": "Humanitarian Engineering",
+   "crohoCode": "60475",
+   "iscedCode": "0710",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_66955_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Industrial Design Engineering",
+   "programNameDutch": "Industrial Design Engineering",
+   "crohoCode": "66955",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60029_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Industrial Engineering and Management",
+   "programNameDutch": "Industrial Engineering and Management",
+   "crohoCode": "60029",
+   "iscedCode": "0719",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "industrial_systems"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1511,8 +2434,24 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
-    "computing"
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60443_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Sustainable Energy Technology",
+   "programNameDutch": "Sustainable Energy Technology",
+   "crohoCode": "60443",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1647,6 +2586,38 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B449_65025_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Global Challenges for Sustainability (joint degree)",
+   "programNameDutch": "Global Challenges for Sustainability (joint degree)",
+   "crohoCode": "65025",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_65032_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Global Challenges for Sustainability (joint degree)",
+   "programNameDutch": "Global Challenges for Sustainability (joint degree)",
+   "crohoCode": "65032",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B449_60809_master",
    "universityName": "Universiteit Utrecht",
    "country": "NL",
@@ -1759,6 +2730,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B473_50993_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Science, Technology & Innovation",
+   "programNameDutch": "Science, Technology & Innovation",
+   "crohoCode": "50993",
+   "iscedCode": "0719",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "other_engineering"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B473_66981_master",
    "universityName": "Universiteit van Amsterdam",
    "country": "NL",
@@ -1801,6 +2788,22 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60821_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Classics & Ancient Civilizations",
+   "programNameDutch": "Oudheidstudies",
+   "crohoCode": "60821",
+   "iscedCode": "0222",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1880,7 +2883,6 @@
    "iscedCode": "0714",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic",
     "computing"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
@@ -1929,7 +2931,7 @@
    "iscedCode": "0715",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "mechanical"
+    "industrial_systems"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
@@ -1952,6 +2954,22 @@
    "verificationStatus": "needs_check"
   },
   {
+   "programId": "nl_duo_107B451_60961_master",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Biobased Sciences",
+   "programNameDutch": "Biobased Sciences",
+   "crohoCode": "60961",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
    "programId": "nl_duo_107B451_60983_master",
    "universityName": "Wageningen University",
    "country": "NL",
@@ -1962,6 +2980,38 @@
    "degreeLevel": "master",
    "engineeringFields": [
     "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B451_66831_master",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Master's Biosystems Engineering",
+   "programNameDutch": "Biosystems Engineering",
+   "crohoCode": "66831",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "industrial_systems"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B451_65005_master",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Water Technology (joint degree)",
+   "programNameDutch": "Water Technology (joint degree)",
+   "crohoCode": "65005",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "civil_environmental"
    ],
    "source": "DUO HO Opleidingsoverzicht (RIO)",
    "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",

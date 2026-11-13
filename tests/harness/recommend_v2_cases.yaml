@@ -1,0 +1,110 @@
+# Golden cases for the 2026-11-14 recommendation rules (SPEC F06-F09, AC21-AC27).
+# Written BEFORE implementation (test first). Fixtures are synthetic test data, not real records.
+# Runner: tests/test_recommend_v2_golden.py  (xfail until src/admission/recommend_v2.py exists)
+
+fixtures:
+  rates_to_usd: {USD: 1.0, KRW: 0.00072, GBP: 1.27, EUR: 1.08}
+  catalogue:
+    - {programId: p1, universityId: u1, universityName: Uni A, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 52000, currency: USD, period: year}, universityIndex: 96, source: official_dataset}
+    - {programId: p2, universityId: u2, universityName: Uni B, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 28000, currency: USD, period: year}, universityIndex: 88, source: official_dataset}
+    - {programId: p3, universityId: u3, universityName: Uni C, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 25000, currency: USD, period: year}, universityIndex: 80, source: official_dataset}
+    - {programId: p4, universityId: u4, universityName: Uni D, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 24000, currency: USD, period: year}, universityIndex: 78, source: official_dataset}
+    - {programId: p5, universityId: u5, universityName: Uni E, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: null, universityIndex: 76, source: official_dataset}
+    - {programId: p6, universityId: u6, universityName: Uni F, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 20000, currency: USD, period: year}, universityIndex: 62, source: official_dataset}
+    - {programId: p7, universityId: u7, universityName: Uni G, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 21000, currency: USD, period: year}, universityIndex: null, source: official_dataset}
+    - {programId: p8, universityId: u2, universityName: Uni B, country: US, degreeLevel: master, engineeringFields: [electrical_electronic], tuition: {amount: 28000, currency: USD, period: year}, universityIndex: 88, source: official_dataset}
+    - {programId: k1, universityId: k1u, universityName: KR Uni H, country: KR, degreeLevel: bachelor, engineeringFields: [civil_environmental], tuition: {amount: 9000000, currency: KRW, period: year}, universityIndex: 95, source: official_dataset}
+    - {programId: k2, universityId: k2u, universityName: KR Uni I, country: KR, degreeLevel: bachelor, engineeringFields: [civil_environmental], tuition: {amount: 8000000, currency: KRW, period: year}, universityIndex: 75, source: official_dataset}
+
+cases:
+  - id: RV-01
+    ac: [AC21]
+    kind: language
+    messages: ["I want a master's in electrical engineering in the US"]
+    expected: {language: en}
+  - id: RV-02
+    ac: [AC21]
+    kind: language
+    messages: ["미국에서 전자공학 석사를 하고 싶어요"]
+    expected: {language: ko}
+  - id: RV-03
+    ac: [AC21]
+    kind: language
+    note: mixed history — the last message decides
+    messages: ["미국 석사", "Actually please answer in English, budget 30000 USD"]
+    expected: {language: en}
+  - id: RV-04
+    ac: [AC22, AC27]
+    kind: recommend
+    note: 7 matching universities (u2 has two programmes) -> exactly 5 distinct universities, each with source
+    context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic]}
+    expected: {count: 5, distinct_universities: true, all_have_source: true}
+  - id: RV-05
+    ac: [AC22, AC9]
+    kind: recommend
+    note: only 2 KR civil programmes -> return 2 with shortfallReason, never add other countries or fields
+    context: {preferredCountries: [KR], applicantType: bachelor, engineeringFields: [civil_environmental]}
+    web_results: []
+    expected: {count: 2, has_shortfall_reason: true, countries_only: [KR]}
+  - id: RV-06
+    ac: [AC24]
+    kind: recommend
+    note: budget 30000 USD/year -> Uni A (52000) excluded; Uni E (no tuition) after all within-budget items
+    context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], maximumTuition: 30000, tuitionCurrency: USD, tuitionPeriod: year}
+    expected: {absent_universities: [Uni A], unknown_tuition_after_known: true}
+  - id: RV-07
+    ac: [AC24]
+    kind: recommend
+    note: KRW budget compared after conversion (40,000,000 KRW ~ 28,800 USD)
+    context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], maximumTuition: 40000000, tuitionCurrency: KRW, tuitionPeriod: year}
+    expected: {absent_universities: [Uni A]}
+  - id: RV-08
+    ac: [AC25]
+    kind: tier
+    note: GPA 4.4/4.5 = 97.8; index 96 -> match
+    applicant: {academicScore: 4.4, maximumScore: 4.5}
+    university_index: 96
+    expected: {tier: match}
+  - id: RV-09
+    ac: [AC25]
+    kind: tier
+    note: GPA 3.5/4.5 = 77.8; index 96 -> reach
+    applicant: {academicScore: 3.5, maximumScore: 4.5}
+    university_index: 96
+    expected: {tier: reach}
+  - id: RV-10
+    ac: [AC25]
+    kind: tier
+    note: GPA 4.4/4.5 = 97.8; index 62 -> safety
+    applicant: {academicScore: 4.4, maximumScore: 4.5}
+    university_index: 62
+    expected: {tier: safety}
+  - id: RV-11
+    ac: [AC25]
+    kind: tier
+    note: no public indicator -> unknown, never guessed
+    applicant: {academicScore: 4.0, maximumScore: 4.5}
+    university_index: null
+    expected: {tier: unknown}
+  - id: RV-12
+    ac: [AC25, AC22]
+    kind: recommend
+    note: GPA 3.6/4.5 = 80 -> mix 1 reach + 3 match + 1 safety when available
+    context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], academicScore: 3.6, maximumScore: 4.5}
+    expected: {tier_counts: {reach: 1, match: 3, safety: 1}}
+  - id: RV-13
+    ac: [AC23, AC19]
+    kind: web_check
+    note: web results only enter when the link opens and the domain matches the university's ROR domain
+    web_results:
+      - {universityName: Real Uni, sourceUrl: "https://www.real.edu/ee", http_status: 200, ror_domains: [real.edu]}
+      - {universityName: Broken Uni, sourceUrl: "https://www.broken.edu/ee", http_status: 404, ror_domains: [broken.edu]}
+      - {universityName: Blog Uni, sourceUrl: "https://studyblog.com/blog-uni", http_status: 200, ror_domains: [blog-uni.ac.uk]}
+      - {universityName: No ROR Uni, sourceUrl: "https://noror.edu/x", http_status: 200, ror_domains: []}
+    expected: {kept: [Real Uni], all_source: web_verified}
+  - id: RV-14
+    ac: [AC26]
+    kind: scholarships
+    note: national scholarships for requested country shown; university scholarships never judged eligible
+    context: {preferredCountries: [KR], applicantType: master}
+    expected: {includes_national: [kr_gks_graduate_2026], university_status: check_official_page}

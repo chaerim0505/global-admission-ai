@@ -26,32 +26,37 @@ DATASET_URL = "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht"
 
 ISCED_FIELDS = {
     "0611": ["computing"], "0612": ["computing"], "0613": ["computing"], "0619": ["computing"],
+    "0710": ["other_engineering"],
+    "0711": ["chemical_materials"],
+    "0712": ["civil_environmental"],
     "0713": ["electrical_electronic"],
     "0714": ["electrical_electronic", "computing"],
     "0715": ["mechanical"],
-    "0711": ["chemical_materials"],
+    "0716": ["mechanical"],
+    "0719": ["other_engineering"],
     "0722": ["chemical_materials"],
+    "0724": ["other_engineering"],
+    "0732": ["civil_environmental"],
 }
+# English-name overrides checked before the ISCED code (ISCED files some programmes elsewhere)
 KEYWORDS = [
+    ("aerospace", ["aerospace"]), ("biomedical engineering", ["biomedical"]),
+    ("materials", ["chemical_materials"]), ("industrial engineering", ["industrial_systems"]),
+    ("systems engineering", ["industrial_systems"]),
     ("electrical", ["electrical_electronic"]), ("embedded", ["electrical_electronic", "computing"]),
     ("computer", ["computing"]), ("artificial intelligence", ["computing"]), ("data science", ["computing"]),
     ("software", ["computing"]), ("mechanical", ["mechanical"]), ("robotics", ["mechanical", "electrical_electronic"]),
-    ("chemical", ["chemical_materials"]), ("materials", ["chemical_materials"]),
+    ("chemical", ["chemical_materials"]), ("civil", ["civil_environmental"]),
 ]
 LEVELS = {"WO-BA": "bachelor", "WO-MA": "master"}
 
 
 def fields_for(row: dict) -> list[str]:
-    if "materials" in english_name(row).lower():
-        return ["chemical_materials"]  # ISCED files some materials programmes under mechanics
-    by_code = ISCED_FIELDS.get(row["ISCED_RUBRIEK"][:4])
-    if by_code:
-        return by_code
     name = english_name(row).lower()
     for word, fields in KEYWORDS:
         if word in name:
             return fields
-    return []
+    return ISCED_FIELDS.get(row["ISCED_RUBRIEK"][:4], [])
 
 
 def english_name(row: dict) -> str:

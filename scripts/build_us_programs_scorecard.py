@@ -23,23 +23,19 @@ SRC = ROOT / "data" / "raw" / "scorecard" / "Most-Recent-Cohorts-Field-of-Study.
 OUT = ROOT / "data" / "catalogue" / "us_engineering_programs_scorecard.json"
 
 # CIP 4-digit code -> our engineering fields
+C, E, M, CH = ["computing"], ["electrical_electronic"], ["mechanical"], ["chemical_materials"]
+CV, IS, AE, BM, OT = ["civil_environmental"], ["industrial_systems"], ["aerospace"], ["biomedical"], ["other_engineering"]
+# CIP 4-digit code -> SPEC 3.2 engineering fields (all of CIP 14 + core computing in CIP 11)
 CIP_FIELDS: dict[str, list[str]] = {
-    "1101": ["computing"],  # Computer and Information Sciences, General
-    "1104": ["computing"],  # Information Science/Studies
-    "1107": ["computing"],  # Computer Science
-    "1109": ["computing"],  # Computer Systems Networking and Telecommunications
-    "1409": ["computing", "electrical_electronic"],  # Computer Engineering
-    "1410": ["electrical_electronic"],  # Electrical, Electronics, and Communications Engineering
-    "1447": ["electrical_electronic", "computing"],  # Electrical and Computer Engineering
-    "1419": ["mechanical"],  # Mechanical Engineering
-    "1441": ["mechanical", "electrical_electronic"],  # Electromechanical Engineering
-    "1442": ["mechanical", "electrical_electronic"],  # Mechatronics, Robotics, and Automation
-    "1407": ["chemical_materials"],  # Chemical Engineering
-    "1443": ["chemical_materials"],  # Biochemical Engineering
-    "1406": ["chemical_materials"],  # Ceramic Sciences and Engineering
-    "1418": ["chemical_materials"],  # Materials Engineering
-    "1420": ["chemical_materials"],  # Metallurgical Engineering
-    "1432": ["chemical_materials"],  # Polymer/Plastics Engineering
+    "1101": C, "1104": C, "1107": C, "1109": C,
+    "1401": OT, "1402": AE, "1403": OT, "1404": CV, "1405": BM, "1406": CH, "1407": CH,
+    "1408": CV, "1409": ["computing", "electrical_electronic"], "1410": E, "1411": M,
+    "1412": OT, "1413": OT, "1414": CV, "1418": CH, "1419": M, "1420": CH, "1421": OT,
+    "1422": OT, "1423": OT, "1424": OT, "1425": OT, "1427": IS, "1428": OT, "1432": CH,
+    "1433": CV, "1434": OT, "1435": IS, "1436": IS, "1437": IS, "1438": CV, "1439": OT,
+    "1440": OT, "1441": ["mechanical", "electrical_electronic"],
+    "1442": ["mechanical", "electrical_electronic"], "1443": CH, "1444": CH, "1445": BM,
+    "1447": ["electrical_electronic", "computing"], "1448": OT, "1499": OT,
 }
 DEGREES = {"3": "bachelor", "5": "master", "6": "doctoral"}
 
