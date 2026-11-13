@@ -127,6 +127,7 @@ def recommend(context: dict, catalogue: list[dict], rates: dict | None = None,
     score = applicant_score(context)
 
     best: dict[str, dict] = {}
+    excluded: list[dict] = []
     excluded_over_budget = 0
     requested = set(context.get("engineeringFields") or [])
 
@@ -146,6 +147,11 @@ def recommend(context: dict, catalogue: list[dict], rates: dict | None = None,
             continue
         uid = _university_id(program)
         if uid in best:  # one programme per university; the first is the most trusted source
+            continue
+        unmet = [c["item"] for c in requirement_status({**program, "budgetFit": fit}, context) if c["status"] == "unmet"]
+        if unmet:  # documented requirement clearly not met (AC6): leave it out, keep the reason
+            excluded.append({"programId": program["programId"], "universityName": program["universityName"],
+                             "programName": program.get("programName"), "unmet": unmet})
             continue
         index = _index(program)
         best[uid] = {**program, "source": program.get("source") or "official_dataset",
@@ -182,7 +188,9 @@ def recommend(context: dict, catalogue: list[dict], rates: dict | None = None,
                      "Conditions were not relaxed.")
         if excluded_over_budget:
             shortfall += f" {excluded_over_budget} programmes were over budget."
-    return {"results": picked, "shortfallReason": shortfall}
+    for item in picked:
+        item["requirements"] = requirement_status(item, context)
+    return {"results": picked, "shortfallReason": shortfall, "excluded": excluded}
 
 
 def _pick_mix(ordered: list[dict], mix: dict, wanted: int) -> list[dict]:
@@ -324,3 +332,56 @@ def web_results_from_gemini(raw_items: list[dict], context: dict) -> list[dict]:
     """Shape Gemini exploration items and keep only verified ones (live network)."""
     shaped = [{**i, "country": i.get("country") or (context.get("preferredCountries") or [None])[0]} for i in raw_items]
     return filter_web_results(shaped, probe=http_status, domains_for=lambda n, c: list(official_domains(n, c)))
+
+
+# ---------------------------------------------------------------------------
+# Requirement checklist per result (F02, AC5, AC6): met / unmet / needs_check
+# ---------------------------------------------------------------------------
+
+def requirement_status(program: dict, context: dict) -> list[dict]:
+    """Compare the applicant with what the programme record documents.
+
+    Missing data is always needs_check, never unmet (AC5). Only documented
+    thresholds can produce met or unmet.
+    """
+    checks: list[dict] = []
+
+    minimum, scale = program.get("minimumGpa"), program.get("minimumGpaScale")
+    score, maximum = context.get("academicScore"), context.get("maximumScore")
+    if minimum is None:
+        checks.append({"item": "academic", "status": "needs_check", "reason": "minimum_not_published"})
+    elif context.get("gradingSystem") != "gpa" or score is None or not maximum or scale is None:
+        checks.append({"item": "academic", "status": "needs_check", "reason": "scale_not_comparable"})
+    elif abs(float(maximum) - float(scale)) > 0.001:
+        checks.append({"item": "academic", "status": "needs_check", "reason": "different_scale"})
+    else:
+        ok = float(score) >= float(minimum)
+        checks.append({"item": "academic", "status": "met" if ok else "unmet",
+                       "reason": f"minimum {minimum}/{scale}"})
+
+    requirements = program.get("languageRequirements") or []
+    test, test_score = context.get("languageTestType"), context.get("languageTestScore")
+    if not requirements:
+        checks.append({"item": "language", "status": "needs_check", "reason": "not_recorded"})
+    elif not test or test_score is None:
+        checks.append({"item": "language", "status": "needs_check", "reason": "no_score_entered"})
+    else:
+        limits = [r.get("minimumScore") for r in requirements if isinstance(r, dict)
+                  and str(r.get("testType", "")).lower() == str(test).lower()
+                  and isinstance(r.get("minimumScore"), (int, float))]
+        if not limits:
+            checks.append({"item": "language", "status": "needs_check", "reason": "test_not_listed"})
+        else:
+            ok = float(test_score) >= min(limits)
+            checks.append({"item": "language", "status": "met" if ok else "unmet",
+                           "reason": f"minimum {min(limits)}"})
+
+    fit = program.get("budgetFit")
+    if fit is not None:
+        checks.append({"item": "tuition", "status": {"within": "met", "over": "unmet"}.get(fit, "needs_check"),
+                       "reason": "budget"})
+
+    deadline = program.get("applicationDeadline")
+    checks.append({"item": "deadline", "status": "met" if deadline else "needs_check",
+                   "reason": deadline or "not_recorded"})
+    return checks

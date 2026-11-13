@@ -1471,6 +1471,26 @@ TIER_LABELS = {
     "safety": "Safety",
     "unknown": "Difficulty not available",
 }
+STATUS_LABELS = {
+    "met": ("✅", "Met"),
+    "unmet": ("❌", "Not met"),
+    "needs_check": ("⚠️", "Needs checking"),
+}
+ITEM_LABELS = {
+    "academic": "Grade requirement",
+    "language": "Language requirement",
+    "tuition": "Tuition vs. budget",
+    "deadline": "Application deadline",
+}
+REASON_LABELS = {
+    "minimum_not_published": "minimum not published, check the official guide",
+    "scale_not_comparable": "grading scales cannot be compared",
+    "different_scale": "different grading scale, check the official conversion",
+    "not_recorded": "not recorded yet, check the official guide",
+    "no_score_entered": "enter your language test score to compare",
+    "test_not_listed": "your test is not listed for this programme",
+    "budget": "compared with your maximum tuition",
+}
 BUDGET_LABELS = {
     "within": "Within your budget",
     "needs_check": "Tuition to be checked",
@@ -1523,10 +1543,27 @@ def show_recommendation_card(program: dict) -> None:
                 + t("Estimate from public indicators, not an admission prediction.")
             )
 
-        link = program.get("sourceUrl")
+        checks = program.get("requirements") or []
+        if checks:
+            st.markdown("**" + t("Requirement check") + "**")
+            for check in checks:
+                icon, word = STATUS_LABELS[check["status"]]
+                reason = REASON_LABELS.get(check["reason"], check["reason"])
+                st.write(f"{icon} {t(ITEM_LABELS[check['item']])}: **{t(word)}** — {t(reason)}")
+
+        links = []
+        domain = program.get("officialDomain")
+        if domain:
+            links.append(f"[🏛 {t('University website')}](https://{domain})")
+        link = program.get("sourceUrl") or ""
         if link:
-            st.markdown(f"[{t('Official source')}]({link})")
-        st.caption(t(SOURCE_LABELS.get(program.get("source"), "")))
+            on_campus_site = bool(domain) and domain in link and link.rstrip("/").count("/") > 2
+            label = t("Programme page (official)") if on_campus_site else t("Data source")
+            links.append(f"[📄 {label}]({link})")
+        if links:
+            st.markdown(" · ".join(links))
+        source_name = program.get("source_name_override") or program.get("sourceName") or ""
+        st.caption(t(SOURCE_LABELS.get(program.get("source"), "")) + (f" · {source_name}" if source_name else ""))
 
         if program.get("academicRequirementText"):
             with st.expander(t("Admission details from the official guide")):
@@ -1575,6 +1612,13 @@ def show_results(programs: list[dict] | None = None) -> None:
 
     for program in results:
         show_recommendation_card(program)
+
+    excluded = outcome.get("excluded") or []
+    if excluded:
+        with st.expander(f"{t('Left out because a documented requirement is not met')} ({len(excluded)})"):
+            for item in excluded:
+                reasons = ", ".join(t(ITEM_LABELS[i]) for i in item["unmet"])
+                st.write(f"**{item['universityName']}** — {item.get('programName') or ''}: {reasons}")
 
 
 def enter_guest_mode() -> None:
