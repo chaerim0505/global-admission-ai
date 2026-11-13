@@ -1,0 +1,5 @@
+# Approximate exchange rates to USD for budget comparison (SPEC AC24).
+# Static values, updated by hand; tuition near the budget limit should still be checked.
+as_of: 2026-11-14
+source: approximate market rates, rounded
+to_usd: {USD: 1.0, KRW: 0.00072, GBP: 1.27, EUR: 1.08}

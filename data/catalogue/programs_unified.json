@@ -35293,8 +35293,7 @@
 "programName": "지구환경시스템과학부(공간정보시스템공학",
 "degreeLevel": "master",
 "engineeringFields": [
-"civil_environmental",
-"industrial_systems"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.pknu.ac.kr",
@@ -35455,7 +35454,7 @@
 "programName": "행정공간정보화드론학과",
 "degreeLevel": "master",
 "engineeringFields": [
-"electrical_electronic"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.pknu.ac.kr",
@@ -36242,8 +36241,7 @@
 "programName": "지구환경시스템과학부(공간정보시스템공학",
 "degreeLevel": "phd",
 "engineeringFields": [
-"civil_environmental",
-"industrial_systems"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.pknu.ac.kr",
@@ -36404,7 +36402,7 @@
 "programName": "행정공간정보화드론학과",
 "degreeLevel": "phd",
 "engineeringFields": [
-"electrical_electronic"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.pknu.ac.kr",
@@ -47045,7 +47043,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "master",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.nsu.ac.kr/",
@@ -47085,7 +47083,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "phd",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.nsu.ac.kr/",
@@ -47150,7 +47148,7 @@
 "programName": "드론공간정보공학과",
 "degreeLevel": "undergraduate",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.nsu.ac.kr/",
@@ -57013,7 +57011,7 @@
 "programName": "공간정보시스템학과",
 "degreeLevel": "master",
 "engineeringFields": [
-"industrial_systems"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.deu.ac.kr",
@@ -68055,7 +68053,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "master",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.uos.ac.kr",
@@ -68461,7 +68459,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "phd",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.uos.ac.kr",
@@ -68831,7 +68829,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "undergraduate",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.uos.ac.kr",
@@ -85990,7 +85988,7 @@
 "programName": "드론공간정보공학과",
 "degreeLevel": "undergraduate",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.ysu.ac.kr",
@@ -92394,7 +92392,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "master",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.inha.ac.kr",
@@ -92959,7 +92957,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "phd",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.inha.ac.kr",
@@ -93453,7 +93451,7 @@
 "programName": "공간정보공학과",
 "degreeLevel": "undergraduate",
 "engineeringFields": [
-"computing"
+"civil_environmental"
 ],
 "source": "official_dataset",
 "sourceUrl": "https://www.inha.ac.kr",

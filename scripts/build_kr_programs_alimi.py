@@ -34,6 +34,7 @@ NAME_RULES = [  # every matching rule adds its fields (max 2), in this order
     (r"의공|의용|바이오메디컬|biomedical|뇌공학|바이오.*공학", ["biomedical"]),
     (r"항공|우주", ["aerospace"]),
     (r"원자력|원자핵|양자공학|조선|해양공학|에너지자원|자원공학", ["other_engineering"]),
+    (r"공간정보|측량|지리정보", ["civil_environmental"]),
     (r"반도체|전기|전자|제어", ["electrical_electronic"]),
     (r"컴퓨터|전산|소프트웨어|인공지능|AI|데이터|정보보호|보안|사이버|정보통신|정보공학|SW|통신", ["computing"]),
     (r"기계|메카트로닉스|로봇|자동차|금속|모빌리티", ["mechanical"]),
@@ -62,6 +63,8 @@ def fields_for(row: dict) -> list[str]:
     if re.search(r"건축학전공|실내건축|건축학과\(건축학", name):
         return []  # architecture design degrees, not engineering
     matched: list[str] = []
+    if re.search(r"공간정보|측량|지리정보", name):
+        return ["civil_environmental"]  # geomatics, not computing
     for pattern, fields in NAME_RULES:
         if re.search(pattern, name, re.IGNORECASE):
             matched += [f for f in fields if f not in matched]

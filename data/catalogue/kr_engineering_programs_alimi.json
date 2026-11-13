@@ -35257,8 +35257,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "civil_environmental",
-    "industrial_systems"
+    "civil_environmental"
    ],
    "classificationCode": "D99999",
    "departmentStatus": "기존",
@@ -35435,7 +35434,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "electrical_electronic"
+    "civil_environmental"
    ],
    "classificationCode": "D15089",
    "departmentStatus": "기존",
@@ -36432,8 +36431,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "civil_environmental",
-    "industrial_systems"
+    "civil_environmental"
    ],
    "classificationCode": "D99999",
    "departmentStatus": "기존",
@@ -36610,7 +36608,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "electrical_electronic"
+    "civil_environmental"
    ],
    "classificationCode": "D15089",
    "departmentStatus": "기존",
@@ -46268,7 +46266,7 @@
    "college": "공과대학",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -46379,7 +46377,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -46445,7 +46443,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -57335,7 +57333,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "industrial_systems"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -67914,7 +67912,7 @@
    "college": "도시과학대학",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -68312,7 +68310,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -68334,7 +68332,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -68735,7 +68733,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -68757,7 +68755,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -85329,7 +85327,7 @@
    "college": "웰니스보건대학",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "변경",
@@ -91770,7 +91768,7 @@
    "college": "공과대학",
    "degreeLevel": "bachelor",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D16076",
    "departmentStatus": "기존",
@@ -92478,7 +92476,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "doctoral",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D99999",
    "departmentStatus": "기존",
@@ -93033,7 +93031,7 @@
    "college": "단과대구분없음",
    "degreeLevel": "master",
    "engineeringFields": [
-    "computing"
+    "civil_environmental"
    ],
    "classificationCode": "D99999",
    "departmentStatus": "기존",
