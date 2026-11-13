@@ -1,0 +1,275 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "applicantType": {
+      "anyOf": [
+        {
+          "enum": [
+            "undergraduate",
+            "master",
+            "phd"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Applicanttype"
+    },
+    "currentEducationLevel": {
+      "anyOf": [
+        {
+          "enum": [
+            "high_school",
+            "bachelor",
+            "master"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Currenteducationlevel"
+    },
+    "transcriptCountry": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Transcriptcountry"
+    },
+    "nationality": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Nationality"
+    },
+    "academicScore": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Academicscore"
+    },
+    "gradingSystem": {
+      "anyOf": [
+        {
+          "enum": [
+            "gpa",
+            "percentage",
+            "grade_rank",
+            "total_score",
+            "other"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gradingsystem"
+    },
+    "maximumScore": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximumscore"
+    },
+    "engineeringFields": {
+      "anyOf": [
+        {
+          "items": {
+            "enum": [
+              "computing",
+              "electrical_electronic",
+              "mechanical",
+              "civil_environmental",
+              "chemical_materials",
+              "industrial_systems",
+              "aerospace",
+              "biomedical",
+              "other_engineering"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Engineeringfields"
+    },
+    "interests": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Interests"
+    },
+    "preferredCountries": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Preferredcountries"
+    },
+    "languageTestType": {
+      "anyOf": [
+        {
+          "enum": [
+            "IELTS",
+            "TOEFL_iBT",
+            "Duolingo",
+            "TOPIK",
+            "other"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Languagetesttype"
+    },
+    "languageTestScore": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Languagetestscore"
+    },
+    "maximumTuition": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximumtuition"
+    },
+    "tuitionCurrency": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tuitioncurrency"
+    },
+    "tuitionPeriod": {
+      "anyOf": [
+        {
+          "enum": [
+            "semester",
+            "year",
+            "total"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tuitionperiod"
+    },
+    "scholarshipRequired": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scholarshiprequired"
+    },
+    "professorMatchingRequired": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Professormatchingrequired"
+    },
+    "outOfScopeRequests": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Outofscoperequests"
+    }
+  },
+  "title": "RequestContext",
+  "type": "object"
+}

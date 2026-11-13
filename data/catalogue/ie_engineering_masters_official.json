@@ -1,0 +1,476 @@
+{
+ "note": "Taught master's collected from official university pages on 2026-11-11. Requirements not yet extracted.",
+ "programs": [
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-electronic-information-engineering",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Electronic Information Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/eleceng/teaching/postgraduate/electronic-information-engineering/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-mechanical-engineering",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Mechanical Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/mecheng/teaching/postgraduate/msc-in-mechanical-engineering/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-computational-engineering",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Computational Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/eleceng/teaching/postgraduate/computational-engineering/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-computer-science-data-science",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Data Science)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/data-science/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-computer-science-intelligent-systems",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Intelligent Systems)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/intelligent-systems-ai/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-computer-science-augmented-virtual-reality",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Augmented & Virtual Reality)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/augmented--virtual-reality/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_trinity-college-dublin-msc-computer-science-future-networked-systems",
+   "universityName": "Trinity College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Future Networked Systems)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.tcd.ie/scss/courses/postgraduate/computer-science/future-networked-systems/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-me-electronic-computer-engineering",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "ME Electronic & Computer Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "http://www.ucd.ie/programmes/t163",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-me-electrical-power-engineering",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "ME Electrical Power Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MAJR&MAJR=t335",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-me-mechanical-engineering",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "ME Mechanical Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "http://www.ucd.ie/programmes/t165",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-me-chemical-bioprocess-engineering",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "ME Chemical & Bioprocess Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "http://www.ucd.ie/programmes/t309",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-me-materials-science-engineering",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "ME Materials Science & Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "http://www.ucd.ie/programmes/t275",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-msc-computer-science-conversion",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Conversion)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sisweb.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=PROG&MAJR=T195",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-msc-computer-science-negotiated-learning",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "MSc Computer Science (Negotiated Learning)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sisweb.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=PROG&MAJR=T150",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-msc-cybersecurity",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "MSc Cybersecurity",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=PROG&MAJR=T380",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-dublin-msc-advanced-artificial-intelligence",
+   "universityName": "University College Dublin",
+   "country": "IE",
+   "programName": "MSc Advanced Artificial Intelligence",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=COURSE&MAJR=T413",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-cork-mengsc-mechanical-engineering-manufacturing-process-and-automation-systems",
+   "universityName": "University College Cork",
+   "country": "IE",
+   "programName": "MEngSc Mechanical Engineering (Manufacturing, Process, and Automation Systems)",
+   "award": "MEngSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.ucc.ie/en/mechanical/taught/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-cork-msc-computing-science",
+   "universityName": "University College Cork",
+   "country": "IE",
+   "programName": "MSc Computing Science",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.ucc.ie/en/compsci/courses/tpostgraduate/msccs/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-college-cork-msc-data-science-and-analytics",
+   "universityName": "University College Cork",
+   "country": "IE",
+   "programName": "MSc Data Science and Analytics",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.ucc.ie/en/compsci/courses/tpostgraduate/mscdsa/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-computer-science-artificial-intelligence",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Computer Science - Artificial Intelligence",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/computer-science-artificial-intelligence.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-computer-science-adaptive-cybersecurity",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Computer Science - Adaptive Cybersecurity",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/computer-science-adaptive-cybersecurity.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-computer-science-data-analytics",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Computer Science - Data Analytics",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/msc-in-computer-science-data-analytics.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-software-design-development",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Software Design & Development",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/software-design-development.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-me-electrical-and-electronic-engineering",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "ME Electrical and Electronic Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/electrical-electronic-engineering.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-me-electronic-computer-engineering",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "ME Electronic & Computer Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/electronic-computer-engineering.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-mechanical-engineering",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Mechanical Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/mechanical-engineering-msc.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-me-mechanical-engineering",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "ME Mechanical Engineering",
+   "award": "ME",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/mechanical-engineering.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_university-of-galway-msc-intelligent-robotics",
+   "universityName": "University of Galway",
+   "country": "IE",
+   "programName": "MSc Intelligent Robotics",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://universityofgalway.ie/science-engineering/international-students/internationalpostgraduatetaughtprogrammes/intelligent-robotics.html",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_dublin-city-university-meng-mechanical-and-manufacturing-engineering",
+   "universityName": "Dublin City University",
+   "country": "IE",
+   "programName": "MEng Mechanical and Manufacturing Engineering",
+   "award": "MEng",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.dcu.ie/courses/Postgraduate/mechanical_engineering/MEng-Mechanical-and-Manufacturing-Engineering.shtml",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_dublin-city-university-meng-electronic-and-computer-engineering",
+   "universityName": "Dublin City University",
+   "country": "IE",
+   "programName": "MEng Electronic and Computer Engineering",
+   "award": "MEng",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.dcu.ie/courses/Postgraduate/electronics/MEng-Electronic-Systems.shtml",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "ie_off_dublin-city-university-msc-computing-with-major-options",
+   "universityName": "Dublin City University",
+   "country": "IE",
+   "programName": "MSc Computing (with Major Options)",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.dcu.ie/courses/Postgraduate/computing/MSc-Computing-Major-Options.shtml",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  }
+ ]
+}

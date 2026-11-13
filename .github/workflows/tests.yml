@@ -1,0 +1,26 @@
+# 골든 테스트(결정 층)를 커밋·PR마다 자동 실행한다. 1건이라도 실패하면 병합하지 않는다.
+# (evals 게이트: evals/EVAL_DESIGN.md 5절)
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Golden cases and unit tests
+        run: PYTHONPATH=src pytest -q
+      - name: Golden case report (AC별)
+        run: PYTHONPATH=src python -m admission.evaluator
+      - name: Evals (offline, 모델 호출 없음)
+        run: PYTHONPATH=src python evals/run_evals.py --no-save

@@ -6,7 +6,7 @@
 provider: vertex_ai   # 로컬 실험은 Gemini API(GEMINI_API_KEY)
 
 models:
-  request_parser:            # 사용자 발화 -> RequestContext (src/global_admission/prompts/parse_query.md)
+  request_parser:            # 사용자 발화 -> RequestContext (src/admission/prompts/parse_query.md)
     id: gemini-3.8-flash     # 최신 stable Flash
     temperature: 0
   requirement_extractor:     # 공식 페이지 -> AdmissionRequirement/Program (docs/spikes/requirement_extraction)

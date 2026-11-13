@@ -260,3 +260,6 @@ __marimo__/
 .env
 __pycache__/
 .pytest_cache/
+
+# Large raw downloads (re-download from official sources)
+data/raw/

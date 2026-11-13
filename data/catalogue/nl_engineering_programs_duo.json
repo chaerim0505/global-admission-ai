@@ -1,0 +1,1971 @@
+{
+ "source": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+ "programs": [
+  {
+   "programId": "nl_duo_107B576_60453_master",
+   "universityName": "Erasmus Universiteit Rotterdam",
+   "country": "NL",
+   "programName": "Business Information Management",
+   "programNameDutch": "Business Information Management",
+   "crohoCode": "60453",
+   "iscedCode": "0612",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B576_65024_master",
+   "universityName": "Erasmus Universiteit Rotterdam",
+   "country": "NL",
+   "programName": "Research Master Business Data Science (joint degree)",
+   "programNameDutch": "Research Master Business Data Science (joint degree)",
+   "crohoCode": "65024",
+   "iscedCode": "0413",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_56945_bachelor",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "56945",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_59326_bachelor",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Computing Science",
+   "programNameDutch": "Computing Science",
+   "crohoCode": "59326",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_66981_master",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "66981",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_60364_master",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Computing Science",
+   "programNameDutch": "Computing Science",
+   "crohoCode": "60364",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_60255_master",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Information Sciences",
+   "programNameDutch": "Information Sciences",
+   "crohoCode": "60255",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B484_60863_master",
+   "universityName": "Het College van Bestuur van de Radboud Universiteit Nijmegen",
+   "country": "NL",
+   "programName": "Medical Data Science",
+   "programNameDutch": "Medical Data Science",
+   "crohoCode": "60863",
+   "iscedCode": null,
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_56945_bachelor",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "56945",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_50426_bachelor",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "50426",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_59332_bachelor",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Econometrics and Data Science",
+   "programNameDutch": "Econometrics and Data Science",
+   "crohoCode": "59332",
+   "iscedCode": "0311",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_66981_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "66981",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_65014_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Computer Science (joint degree)",
+   "programNameDutch": "Computer Science (joint degree)",
+   "crohoCode": "65014",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_60802_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Computer Security",
+   "programNameDutch": "Computer Security",
+   "crohoCode": "60802",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B482_60255_master",
+   "universityName": "Het College van Bestuur van de Vrije Universiteit",
+   "country": "NL",
+   "programName": "Information Sciences",
+   "programNameDutch": "Information Sciences",
+   "crohoCode": "60255",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_50426_bachelor",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "50426",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_50300_bachelor",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Data Science and Artificial Intelligence",
+   "programNameDutch": "Data Science and Artificial Intelligence",
+   "crohoCode": "50300",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_60955_master",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Biobased Materials",
+   "programNameDutch": "Biobased Materials",
+   "crohoCode": "60955",
+   "iscedCode": "0712",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_60959_master",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Business Intelligence and Smart Services",
+   "programNameDutch": "Business Intelligence and Smart Services",
+   "crohoCode": "60959",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_60990_master",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Health and Digital Transformation",
+   "programNameDutch": "Health and Digital Transformation",
+   "crohoCode": "60990",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B471_61001_master",
+   "universityName": "Maastricht University",
+   "country": "NL",
+   "programName": "Responsible Data Science",
+   "programNameDutch": "Responsible Data Science",
+   "crohoCode": "61001",
+   "iscedCode": null,
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_56978_bachelor",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Informatica",
+   "programNameDutch": "Informatica",
+   "crohoCode": "56978",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_56842_bachelor",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Information Science",
+   "programNameDutch": "Informatiekunde",
+   "crohoCode": "56842",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_55014_bachelor",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Software Development and Testing (joint degree)",
+   "programNameDutch": "Software Development and Testing (joint degree)",
+   "crohoCode": "55014",
+   "iscedCode": null,
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_67088_master",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "67088",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_60300_master",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "60300",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_60094_master",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Digital Business Transformation",
+   "programNameDutch": "Digital Business Transformation",
+   "crohoCode": "60094",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B497_60228_master",
+   "universityName": "Open Universiteit Nederland",
+   "country": "NL",
+   "programName": "Software Engineering",
+   "programNameDutch": "Software Engineering",
+   "crohoCode": "60228",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_56981_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Kunstmatige Intelligentie",
+   "crohoCode": "56981",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_56960_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Chemical Engineering",
+   "programNameDutch": "Scheikundige Technologie",
+   "crohoCode": "56960",
+   "iscedCode": "0711",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_56978_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Computing Science",
+   "programNameDutch": "Informatica",
+   "crohoCode": "56978",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_50982_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Data Science and Society",
+   "programNameDutch": "Data Science and Society",
+   "crohoCode": "50982",
+   "iscedCode": "0542",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_56842_bachelor",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Information Science",
+   "programNameDutch": "Informatiekunde",
+   "crohoCode": "56842",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_66981_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "66981",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60437_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Chemical Engineering",
+   "programNameDutch": "Chemical Engineering",
+   "crohoCode": "60437",
+   "iscedCode": "0711",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60653_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Computational Cognitive Science",
+   "programNameDutch": "Computational Cognitive Science",
+   "crohoCode": "60653",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60364_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Computing Science",
+   "programNameDutch": "Computing Science",
+   "crohoCode": "60364",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60439_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "60439",
+   "iscedCode": "0715",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B448_60359_master",
+   "universityName": "Rijksuniversiteit Groningen",
+   "country": "NL",
+   "programName": "Systems and Control",
+   "programNameDutch": "Systems and Control",
+   "crohoCode": "60359",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_1016O1094_bachelor",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "B Data Science (joint degree)",
+   "programNameDutch": "B Data Science (joint degree)",
+   "crohoCode": "1016O1094",
+   "iscedCode": null,
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_59338_bachelor",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "Cognitive Science and Artificial Intelligence",
+   "programNameDutch": "Cognitive Science and Artificial Intelligence",
+   "crohoCode": "59338",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_60969_master",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "Cognitive Science and Artificial Intelligence",
+   "programNameDutch": "Cognitive Science and Artificial Intelligence",
+   "crohoCode": "60969",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_60964_master",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "Data Science and Society",
+   "programNameDutch": "Data Science and Society",
+   "crohoCode": "60964",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_65018_master",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "Data Science in Business and Entrepreneurship (joint degree)",
+   "programNameDutch": "Data Science in Business and Entrepreneurship (joint degree)",
+   "crohoCode": "65018",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B481_60055_master",
+   "universityName": "Stichting Katholieke Universiteit Brabant",
+   "country": "NL",
+   "programName": "Information Management",
+   "programNameDutch": "Information Management",
+   "crohoCode": "60055",
+   "iscedCode": "0612",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56964_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Computer Science & Engineering",
+   "programNameDutch": "Technische Informatica",
+   "crohoCode": "56964",
+   "iscedCode": "0714",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56953_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "56953",
+   "iscedCode": "0713",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_56966_bachelor",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Werktuigbouwkunde",
+   "crohoCode": "56966",
+   "iscedCode": "0715",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60437_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Chemical Engineering",
+   "programNameDutch": "Chemical Engineering",
+   "crohoCode": "60437",
+   "iscedCode": "0711",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60300_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "60300",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60988_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Computer and Embedded-Systems Engineering",
+   "programNameDutch": "Computer and Embedded-Systems Engineering",
+   "crohoCode": "60988",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60992_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Data Science and Artificial Intelligence Technology",
+   "programNameDutch": "Data Science and Artificial Intelligence Technology",
+   "crohoCode": "60992",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60353_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "60353",
+   "iscedCode": "0713",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_66958_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Materials Science and Engineering",
+   "programNameDutch": "Materials Science and Engineering",
+   "crohoCode": "66958",
+   "iscedCode": "0715",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60439_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "60439",
+   "iscedCode": "0715",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_65029_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Quantum Information Science & Technology (joint degree)",
+   "programNameDutch": "Quantum Information Science & Technology (joint degree)",
+   "crohoCode": "65029",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60973_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Robotics",
+   "programNameDutch": "Robotics",
+   "crohoCode": "60973",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B605_60359_master",
+   "universityName": "Technische Universiteit Delft",
+   "country": "NL",
+   "programName": "Systems and Control",
+   "programNameDutch": "Systems and Control",
+   "crohoCode": "60359",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_1016O3577_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "B Mechanical Engineering",
+   "programNameDutch": "B Mechanical Engineering",
+   "crohoCode": "1016O3577",
+   "iscedCode": null,
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_56960_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Chemical Engineering and Chemistry",
+   "programNameDutch": "Scheikundige Technologie",
+   "crohoCode": "56960",
+   "iscedCode": "0711",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_56964_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Computer Science & Engineering",
+   "programNameDutch": "Technische Informatica",
+   "crohoCode": "56964",
+   "iscedCode": "0714",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_55018_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Data Science (joint degree)",
+   "programNameDutch": "Data Science (joint degree)",
+   "crohoCode": "55018",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_56953_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "56953",
+   "iscedCode": "0713",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_50439_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "50439",
+   "iscedCode": "0715",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_1001O6165_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Werktuigbouwkunde",
+   "crohoCode": "1001O6165",
+   "iscedCode": "0715",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_55824_bachelor",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Psychology & Technology",
+   "programNameDutch": "Psychology & Technology",
+   "crohoCode": "55824",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_66476_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Artificial Intelligence & Engineering Systems",
+   "programNameDutch": "Artificial Intelligence & Engineering Systems",
+   "crohoCode": "66476",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60437_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Chemical Engineering",
+   "programNameDutch": "Chemical Engineering",
+   "crohoCode": "60437",
+   "iscedCode": "0711",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60438_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Computer Science and Engineering",
+   "programNameDutch": "Computer Science and Engineering",
+   "crohoCode": "60438",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60976_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Data Science and Artificial Intelligence",
+   "programNameDutch": "Data Science and Artificial Intelligence",
+   "crohoCode": "60976",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60353_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "60353",
+   "iscedCode": "0713",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60331_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Embedded Systems",
+   "programNameDutch": "Embedded Systems",
+   "crohoCode": "60331",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60439_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "60439",
+   "iscedCode": "0715",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B450_60359_master",
+   "universityName": "Technische Universiteit Eindhoven",
+   "country": "NL",
+   "programName": "Systems and Control",
+   "programNameDutch": "Systems and Control",
+   "crohoCode": "60359",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_56978_bachelor",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Informatica",
+   "crohoCode": "56978",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_59348_bachelor",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Cybersecurity & Cybercrime",
+   "programNameDutch": "Cybersecurity & Cybercrime",
+   "crohoCode": "59348",
+   "iscedCode": "0612",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_50300_bachelor",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Data Science and Artificial Intelligence",
+   "programNameDutch": "Data Science and Artificial Intelligence",
+   "crohoCode": "50300",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_55009_bachelor",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Molecular Science and Technology (joint degree)",
+   "programNameDutch": "Molecular Science and Technology (joint degree)",
+   "crohoCode": "55009",
+   "iscedCode": "0711",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60300_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "60300",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60205_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "ICT in Business and the Public Sector",
+   "programNameDutch": "ICT in Business and the Public Sector",
+   "crohoCode": "60205",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B578_60957_master",
+   "universityName": "Universiteit Leiden",
+   "country": "NL",
+   "programName": "Statistics and Data Science",
+   "programNameDutch": "Statistics and Data Science",
+   "crohoCode": "60957",
+   "iscedCode": "0542",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_56066_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Business Information Technology",
+   "programNameDutch": "Business Information Technology",
+   "crohoCode": "56066",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_56960_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Chemical Science & Engineering",
+   "programNameDutch": "Scheikundige Technologie",
+   "crohoCode": "56960",
+   "iscedCode": "0711",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_56953_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "56953",
+   "iscedCode": "0713",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_50439_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "50439",
+   "iscedCode": "0715",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_59335_bachelor",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Technical Computer Science",
+   "programNameDutch": "Technical Computer Science",
+   "crohoCode": "59335",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60025_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Business Information Technology",
+   "programNameDutch": "Business Information Technology",
+   "crohoCode": "60025",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60977_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Chemical Science & Engineering",
+   "programNameDutch": "Chemical Science & Engineering",
+   "crohoCode": "60977",
+   "iscedCode": "0711",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60300_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Computer Science",
+   "crohoCode": "60300",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60353_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Electrical Engineering",
+   "programNameDutch": "Electrical Engineering",
+   "crohoCode": "60353",
+   "iscedCode": "0713",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60331_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Embedded Systems",
+   "programNameDutch": "Embedded Systems",
+   "crohoCode": "60331",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60030_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Interaction Technology",
+   "programNameDutch": "Interaction Technology",
+   "crohoCode": "60030",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60439_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Mechanical Engineering",
+   "programNameDutch": "Mechanical Engineering",
+   "crohoCode": "60439",
+   "iscedCode": "0715",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B523_60973_master",
+   "universityName": "Universiteit Twente",
+   "country": "NL",
+   "programName": "Robotics",
+   "programNameDutch": "Robotics",
+   "crohoCode": "60973",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_56981_bachelor",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Kunstmatige Intelligentie",
+   "crohoCode": "56981",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_56978_bachelor",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Informatica",
+   "crohoCode": "56978",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_56842_bachelor",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Information Science",
+   "programNameDutch": "Informatiekunde",
+   "crohoCode": "56842",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_60971_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Applied Data Science",
+   "programNameDutch": "Applied Data Science",
+   "crohoCode": "60971",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_66981_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "66981",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_60706_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Chemical Sciences",
+   "programNameDutch": "Chemische Wetenschappen",
+   "crohoCode": "60706",
+   "iscedCode": "0531",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_66978_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Informatica",
+   "crohoCode": "66978",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_60967_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Energy Science",
+   "programNameDutch": "Energy Science",
+   "crohoCode": "60967",
+   "iscedCode": "0713",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_60809_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Information Science",
+   "programNameDutch": "Information Science",
+   "crohoCode": "60809",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B449_60384_master",
+   "universityName": "Universiteit Utrecht",
+   "country": "NL",
+   "programName": "Methodology, Statistics and Data Science",
+   "programNameDutch": "Methodology and Statistics for the Behavioural, Biomedical and Social Sciences (research)",
+   "crohoCode": "60384",
+   "iscedCode": "0314",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_56981_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Kunstmatige Intelligentie",
+   "crohoCode": "56981",
+   "iscedCode": "0619",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_56978_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Computer Science",
+   "programNameDutch": "Informatica",
+   "crohoCode": "56978",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_59332_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Econometrics and Data Science",
+   "programNameDutch": "Econometrics and Data Science",
+   "crohoCode": "59332",
+   "iscedCode": "0311",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_56842_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Information Science",
+   "programNameDutch": "Informatiekunde",
+   "crohoCode": "56842",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_56573_bachelor",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Medical Informatics",
+   "programNameDutch": "Medische Informatiekunde",
+   "crohoCode": "56573",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_66981_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Artificial Intelligence",
+   "programNameDutch": "Artificial Intelligence",
+   "crohoCode": "66981",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60323_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Brain and Cognitive Sciences (research)",
+   "programNameDutch": "Brain and Cognitive Sciences (research)",
+   "crohoCode": "60323",
+   "iscedCode": "0619",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60476_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Business Information Technology Management",
+   "programNameDutch": "Business Information Technology Management",
+   "crohoCode": "60476",
+   "iscedCode": "0612",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_65015_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Computational Science (joint degree)",
+   "programNameDutch": "Computational Science (joint degree)",
+   "crohoCode": "65015",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60984_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Data Science and Business Analytics",
+   "programNameDutch": "Data Science and Business Analytics",
+   "crohoCode": "60984",
+   "iscedCode": "0413",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60229_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Information Studies",
+   "programNameDutch": "Information Studies",
+   "crohoCode": "60229",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_66573_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Medical Informatics",
+   "programNameDutch": "Medical Informatics",
+   "crohoCode": "66573",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60274_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Quantum Computer Science",
+   "programNameDutch": "Quantum Computer Science",
+   "crohoCode": "60274",
+   "iscedCode": "0714",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60227_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Security and Network Engineering",
+   "programNameDutch": "Security and Network Engineering",
+   "crohoCode": "60227",
+   "iscedCode": "0612",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B473_60228_master",
+   "universityName": "Universiteit van Amsterdam",
+   "country": "NL",
+   "programName": "Software Engineering",
+   "programNameDutch": "Software Engineering",
+   "crohoCode": "60228",
+   "iscedCode": "0613",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B451_56831_bachelor",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Biosystems Engineering",
+   "programNameDutch": "Agrotechnologie",
+   "crohoCode": "56831",
+   "iscedCode": "0715",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B451_59026_bachelor",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Data Science for Global Challenges",
+   "programNameDutch": "Data Science for Global Challenges",
+   "crohoCode": "59026",
+   "iscedCode": "0613",
+   "degreeLevel": "bachelor",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "nl_duo_107B451_60983_master",
+   "universityName": "Wageningen University",
+   "country": "NL",
+   "programName": "Data Science for Food and Health",
+   "programNameDutch": "Data Science for Food and Health",
+   "crohoCode": "60983",
+   "iscedCode": "0542",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "DUO HO Opleidingsoverzicht (RIO)",
+   "sourceUrl": "https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht",
+   "verificationStatus": "needs_check"
+  }
+ ]
+}

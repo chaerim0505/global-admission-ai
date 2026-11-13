@@ -1,0 +1,745 @@
+{
+ "note": "Taught master's collected from official university pages on 2026-11-11. Requirements not yet extracted.",
+ "programs": [
+  {
+   "programId": "gb_off_university-of-birmingham-communications-engineering-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Communications Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/electronic-electrical-and-systems-engineering-courses/communications-engineering-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-electrical-power-systems-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Electrical Power Systems MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/electronic-electrical-and-systems-engineering-courses/electrical-power-systems-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-electronic-and-computer-engineering-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Electronic and Computer Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/electronic-electrical-and-systems-engineering-courses/electronic-computer-engineering-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-advanced-mechanical-engineering-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Advanced Mechanical Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/mechanical-engineering-courses/advanced-mechanical-engineering-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-robotics-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Robotics MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/mechanical-engineering-courses/robotics-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-computer-science-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Computer Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/computer-science-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-advanced-computer-science-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Advanced Computer Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/advanced-computer-science-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-artificial-intelligence-ai-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Artificial Intelligence (AI) MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/artificial-intelligence-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-artificial-intelligence-ai-and-machine-learning-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Artificial Intelligence (AI) and Machine Learning MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/artificial-intelligence-machine-learning-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-cyber-security-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Cyber Security MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/cyber-security-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-birmingham-data-science-msc",
+   "universityName": "University of Birmingham",
+   "country": "GB",
+   "programName": "Data Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/computer-science-and-data-science-courses/data-science-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-advanced-control-and-systems-engineering",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Advanced Control and Systems Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-electrical-and-electronic-engineering/msc-advanced-control-and-systems-engineering",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-communications-and-signal-processing",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Communications and Signal Processing",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-electrical-and-electronic-engineering/msc-communications-and-signal-processing",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-electrical-power-systems-engineering",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Electrical Power Systems Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-electrical-and-electronic-engineering/msc-electrical-power-systems-engineering",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-robotics",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Robotics",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-electrical-and-electronic-engineering/msc-robotics",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-advanced-computer-science",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Advanced Computer Science",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-computer-science/msc-advanced-computer-science",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-artificial-intelligence",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Artificial Intelligence",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-computer-science/msc-artificial-intelligence",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-cyber-security",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Cyber Security",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-computer-science/msc-cyber-security",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-machine-learning",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Machine Learning",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-computer-science/msc-machine-learning",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-software-engineering",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Software Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-computer-science/msc-software-engineering",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-mechanical-engineering-design",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Mechanical Engineering Design",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-mechanical-engineering/msc-mechanical-engineering-design",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-advanced-manufacturing-technology-and-systems-management",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Advanced Manufacturing Technology and Systems Management",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-mechanical-engineering/msc-advanced-manufacturing-technology-and-systems-management",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-advanced-chemical-engineering",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Advanced Chemical Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-chemical-engineering/msc-advanced-chemical-engineering",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-advanced-engineering-materials",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Advanced Engineering Materials",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-materials-science/msc-advanced-engineering-materials",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-nanomaterials",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Nanomaterials",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-materials-science/msc-nanomaterials",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-manchester-msc-polymer-materials-science-and-engineering",
+   "universityName": "University of Manchester",
+   "country": "GB",
+   "programName": "MSc Polymer Materials Science and Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "chemical_materials"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.scieng.manchester.ac.uk/pgt/department-of-materials-science/msc-polymer-materials-science-and-engineering",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-advanced-control-and-systems-engineering-msc-eng",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Advanced Control and Systems Engineering MSc(Eng)",
+   "award": "MSc(Eng)",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/advanced-control-and-systems-engineering-msceng",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-artificial-intelligence-for-engineering-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Artificial Intelligence for Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic",
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/artificial-intelligence-engineering-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-electronic-and-electrical-engineering-msc-eng",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Electronic and Electrical Engineering MSc(Eng)",
+   "award": "MSc(Eng)",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/electronic-and-electrical-engineering-msceng",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-robotics-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Robotics MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical",
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/robotics-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-advanced-computer-science-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Advanced Computer Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/advanced-computer-science-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-artificial-intelligence-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Artificial Intelligence MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/artificial-intelligence-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-computer-science-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Computer Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/computer-science-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-computer-science-with-speech-and-natural-language-processing-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Computer Science with Speech and Natural Language Processing MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/computer-science-speech-and-natural-language-processing-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-cybersecurity-and-artificial-intelligence-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Cybersecurity and Artificial Intelligence MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/cybersecurity-and-artificial-intelligence-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-advanced-mechanical-engineering-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Advanced Mechanical Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/advanced-mechanical-engineering-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-sheffield-mechanical-engineering-with-industrial-management-msc",
+   "universityName": "University of Sheffield",
+   "country": "GB",
+   "programName": "Mechanical Engineering with Industrial Management MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "mechanical"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/mechanical-engineering-industrial-management-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-artificial-intelligence",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Artificial Intelligence",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/artificial-intelligence-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-computer-science",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Computer Science",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/computer-science-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-cyber-security",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Cyber Security",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/cyber-security-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-data-science",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Data Science",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/data-science-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-electrical-power-systems",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Electrical Power Systems",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/electrical-power-systems-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-southampton-msc-electronic-engineering",
+   "universityName": "University of Southampton",
+   "country": "GB",
+   "programName": "MSc Electronic Engineering",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "electrical_electronic"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.southampton.ac.uk/courses/electronic-engineering-masters-msc",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-advanced-computer-science-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Advanced Computer Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-advanced-computer-science/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-artificial-intelligence-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Artificial Intelligence MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-artificial-intelligence/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-artificial-intelligence-with-large-language-models-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Artificial Intelligence with Large Language Models MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/ai-llm/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-cyber-security-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Cyber Security MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-cyber-security/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-data-science-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Data Science MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-data-science-computational/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  },
+  {
+   "programId": "gb_off_university-of-york-safety-critical-systems-engineering-msc",
+   "universityName": "University of York",
+   "country": "GB",
+   "programName": "Safety Critical Systems Engineering MSc",
+   "award": "MSc",
+   "degreeLevel": "master",
+   "engineeringFields": [
+    "computing"
+   ],
+   "source": "Official university course page",
+   "sourceUrl": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-safety-critical-systems-engineering/",
+   "checkedAt": "2026-11-11",
+   "verificationStatus": "needs_check"
+  }
+ ]
+}

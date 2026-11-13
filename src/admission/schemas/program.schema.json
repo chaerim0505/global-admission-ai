@@ -1,0 +1,417 @@
+{
+  "$defs": {
+    "FieldClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceUrl": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Sourceurl",
+          "type": "string"
+        },
+        "checkedAt": {
+          "format": "date",
+          "title": "Checkedat",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "included",
+            "excluded",
+            "needs_review"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceUrl",
+        "checkedAt",
+        "status",
+        "reason"
+      ],
+      "title": "FieldClassification",
+      "type": "object"
+    },
+    "LanguageRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceUrl": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Sourceurl",
+          "type": "string"
+        },
+        "checkedAt": {
+          "format": "date",
+          "title": "Checkedat",
+          "type": "string"
+        },
+        "testType": {
+          "enum": [
+            "IELTS",
+            "TOEFL_iBT",
+            "Duolingo",
+            "TOPIK",
+            "other"
+          ],
+          "title": "Testtype",
+          "type": "string"
+        },
+        "minimumScore": {
+          "minimum": 0,
+          "title": "Minimumscore",
+          "type": "number"
+        }
+      },
+      "required": [
+        "sourceUrl",
+        "checkedAt",
+        "testType",
+        "minimumScore"
+      ],
+      "title": "LanguageRequirement",
+      "type": "object"
+    },
+    "Scholarship": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceUrl": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Sourceurl",
+          "type": "string"
+        },
+        "checkedAt": {
+          "format": "date",
+          "title": "Checkedat",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Amount"
+        },
+        "eligibility": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eligibility"
+        },
+        "nationalityRestriction": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nationalityrestriction"
+        },
+        "deadline": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Deadline"
+        },
+        "origin": {
+          "default": "database",
+          "enum": [
+            "database",
+            "web_search"
+          ],
+          "title": "Origin",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceUrl",
+        "checkedAt",
+        "name"
+      ],
+      "title": "Scholarship",
+      "type": "object"
+    },
+    "Tuition": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceUrl": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Sourceurl",
+          "type": "string"
+        },
+        "checkedAt": {
+          "format": "date",
+          "title": "Checkedat",
+          "type": "string"
+        },
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "number"
+        },
+        "currency": {
+          "maxLength": 3,
+          "minLength": 3,
+          "title": "Currency",
+          "type": "string"
+        },
+        "period": {
+          "enum": [
+            "semester",
+            "year",
+            "total"
+          ],
+          "title": "Period",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceUrl",
+        "checkedAt",
+        "amount",
+        "currency",
+        "period"
+      ],
+      "title": "Tuition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "programId": {
+      "minLength": 1,
+      "title": "Programid",
+      "type": "string"
+    },
+    "universityName": {
+      "minLength": 1,
+      "title": "Universityname",
+      "type": "string"
+    },
+    "country": {
+      "enum": [
+        "KR",
+        "US",
+        "GB",
+        "NL",
+        "IE"
+      ],
+      "title": "Country",
+      "type": "string"
+    },
+    "programName": {
+      "minLength": 1,
+      "title": "Programname",
+      "type": "string"
+    },
+    "degreeLevel": {
+      "enum": [
+        "undergraduate",
+        "master",
+        "phd"
+      ],
+      "title": "Degreelevel",
+      "type": "string"
+    },
+    "engineeringFields": {
+      "items": {
+        "enum": [
+          "computing",
+          "electrical_electronic",
+          "mechanical",
+          "civil_environmental",
+          "chemical_materials",
+          "industrial_systems",
+          "aerospace",
+          "biomedical",
+          "other_engineering"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Engineeringfields",
+      "type": "array"
+    },
+    "topics": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Topics",
+      "type": "array"
+    },
+    "fieldClassification": {
+      "$ref": "#/$defs/FieldClassification"
+    },
+    "intake": {
+      "anyOf": [
+        {
+          "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Intake"
+    },
+    "academicRequirementText": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Academicrequirementtext"
+    },
+    "minimumGpa": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimumgpa"
+    },
+    "minimumGpaScale": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimumgpascale"
+    },
+    "applicationDeadline": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Applicationdeadline"
+    },
+    "languageRequirements": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/LanguageRequirement"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Languagerequirements"
+    },
+    "tuition": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Tuition"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "scholarships": {
+      "items": {
+        "$ref": "#/$defs/Scholarship"
+      },
+      "title": "Scholarships",
+      "type": "array"
+    },
+    "sourceUrl": {
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "title": "Sourceurl",
+      "type": "string"
+    },
+    "checkedAt": {
+      "format": "date",
+      "title": "Checkedat",
+      "type": "string"
+    },
+    "verificationStatus": {
+      "default": "needs_check",
+      "enum": [
+        "needs_check",
+        "verified"
+      ],
+      "title": "Verificationstatus",
+      "type": "string"
+    }
+  },
+  "required": [
+    "programId",
+    "universityName",
+    "country",
+    "programName",
+    "degreeLevel",
+    "engineeringFields",
+    "topics",
+    "fieldClassification",
+    "sourceUrl",
+    "checkedAt"
+  ],
+  "title": "Program",
+  "type": "object"
+}

@@ -1,0 +1,105 @@
+{
+ "source": "CWTS Leiden Ranking Open Edition 2026 - Universities (ROR IDs)",
+ "universities": [
+  {
+   "universityName": "Ajou University",
+   "rorId": "https://ror.org/03tzb2h73"
+  },
+  {
+   "universityName": "Hanyang University",
+   "rorId": "https://ror.org/046865y68"
+  },
+  {
+   "universityName": "KAIST",
+   "rorId": "https://ror.org/05apxxy63"
+  },
+  {
+   "universityName": "Seoul National University",
+   "rorId": "https://ror.org/04h9pn542"
+  },
+  {
+   "universityName": "Sungkyunkwan University",
+   "rorId": "https://ror.org/04q78tk20"
+  },
+  {
+   "universityName": "Arizona State University",
+   "rorId": "https://ror.org/03efmqc40"
+  },
+  {
+   "universityName": "Iowa State University",
+   "rorId": "https://ror.org/04rswrd78"
+  },
+  {
+   "universityName": "Oregon State University",
+   "rorId": "https://ror.org/00ysfqy60"
+  },
+  {
+   "universityName": "University at Buffalo",
+   "rorId": "https://ror.org/01y64my43"
+  },
+  {
+   "universityName": "University of Texas at Dallas",
+   "rorId": "https://ror.org/049emcs32"
+  },
+  {
+   "universityName": "University of Birmingham",
+   "rorId": "https://ror.org/03angcq70"
+  },
+  {
+   "universityName": "University of Manchester",
+   "rorId": "https://ror.org/027m9bs27"
+  },
+  {
+   "universityName": "University of Sheffield",
+   "rorId": "https://ror.org/05krs5044"
+  },
+  {
+   "universityName": "University of Southampton",
+   "rorId": "https://ror.org/01ryk1543"
+  },
+  {
+   "universityName": "University of York",
+   "rorId": "https://ror.org/04m01e293"
+  },
+  {
+   "universityName": "Delft University of Technology",
+   "rorId": "https://ror.org/02e2c7k09"
+  },
+  {
+   "universityName": "Eindhoven University of Technology",
+   "rorId": "https://ror.org/02c2kyt77"
+  },
+  {
+   "universityName": "University of Twente",
+   "rorId": "https://ror.org/006hf6230"
+  },
+  {
+   "universityName": "University of Groningen",
+   "rorId": "https://ror.org/012p63287"
+  },
+  {
+   "universityName": "Maastricht University",
+   "rorId": "https://ror.org/02jz4aj89"
+  },
+  {
+   "universityName": "Trinity College Dublin",
+   "rorId": "https://ror.org/02tyrky19"
+  },
+  {
+   "universityName": "University College Dublin",
+   "rorId": "https://ror.org/05m7pjf47"
+  },
+  {
+   "universityName": "University College Cork",
+   "rorId": "https://ror.org/03265fv13"
+  },
+  {
+   "universityName": "University of Galway",
+   "rorId": "https://ror.org/03bea9k73"
+  },
+  {
+   "universityName": "Dublin City University",
+   "rorId": "https://ror.org/04a1a1e81"
+  }
+ ]
+}
