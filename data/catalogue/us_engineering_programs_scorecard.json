@@ -1721,22 +1721,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1447_bachelor",
-   "universityName": "Anglia  Ruskin University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electrical and Computer Engineering",
-   "cipCode": "14.47",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "electrical_electronic",
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_197869_1107_bachelor",
    "universityName": "Appalachian State University",
    "unitId": "197869",
@@ -3017,21 +3001,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?164562",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1401_bachelor",
-   "universityName": "Aston University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, General",
-   "cipCode": "14.01",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -8214,36 +8183,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1410_doctoral",
-   "universityName": "Brunel University London",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electrical, Electronics, and Communications Engineering",
-   "cipCode": "14.10",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1419_master",
-   "universityName": "Brunel University London",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mechanical Engineering",
-   "cipCode": "14.19",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "mechanical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_219790_1401_bachelor",
    "universityName": "Bryan College-Dayton",
    "unitId": "219790",
@@ -8543,98 +8482,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?150163",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1401_master",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, General",
-   "cipCode": "14.01",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1409_bachelor",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Engineering",
-   "cipCode": "14.09",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "computing",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1414_bachelor",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Environmental/Environmental Health Engineering",
-   "cipCode": "14.14",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1419_bachelor",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mechanical Engineering",
-   "cipCode": "14.19",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "mechanical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1435_bachelor",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Industrial Engineering",
-   "cipCode": "14.35",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1442_bachelor",
-   "universityName": "CETYS Universidad",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mechatronics, Robotics, and Automation Engineering",
-   "cipCode": "14.42",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "mechanical",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -14034,21 +13881,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?162061",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1437_master",
-   "universityName": "Cardiff University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Operations Research",
-   "cipCode": "14.37",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -26200,21 +26032,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1107_bachelor",
-   "universityName": "Edge Hill University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Science",
-   "cipCode": "11.07",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_238661_1101_bachelor",
    "universityName": "Edgewood University",
    "unitId": "238661",
@@ -26242,21 +26059,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?238661",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1107_master",
-   "universityName": "Edinburgh Napier University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Science",
-   "cipCode": "11.07",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -33382,21 +33184,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1414_master",
-   "universityName": "Glasgow Caledonian University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Environmental/Environmental Health Engineering",
-   "cipCode": "14.14",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_115083_1101_master",
    "universityName": "Golden Gate University",
    "unitId": "115083",
@@ -35341,22 +35128,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1442_master",
-   "universityName": "Heriot-Watt University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mechatronics, Robotics, and Automation Engineering",
-   "cipCode": "14.42",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "mechanical",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_235422_1107_bachelor",
    "universityName": "Heritage University",
    "unitId": "235422",
@@ -37287,126 +37058,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1407_bachelor",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Chemical Engineering",
-   "cipCode": "14.07",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1407_master",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Chemical Engineering",
-   "cipCode": "14.07",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1410_master",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electrical, Electronics, and Communications Engineering",
-   "cipCode": "14.10",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1418_master",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Materials Engineering",
-   "cipCode": "14.18",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1425_master",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Petroleum Engineering",
-   "cipCode": "14.25",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1445_master",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Biological/Biosystems Engineering",
-   "cipCode": "14.45",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "biomedical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1499_doctoral",
-   "universityName": "Imperial College of Science, Technology and Medicine",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, Other",
-   "cipCode": "14.99",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1109_bachelor",
-   "universityName": "Independence University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Systems Networking and Telecommunications",
-   "cipCode": "11.09",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_134608_1101_bachelor",
    "universityName": "Indian River State College",
    "unitId": "134608",
@@ -38293,21 +37944,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?151801",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1412_bachelor",
-   "universityName": "Instituto Tecnologico y de Estudios Superiores de Monterrey",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering Physics",
-   "cipCode": "14.12",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -39663,21 +39299,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?134945",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1443_bachelor",
-   "universityName": "James Cook University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Biochemical Engineering",
-   "cipCode": "14.43",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -43709,37 +43330,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?220613",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1104_master",
-   "universityName": "Leeds Beckett University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Information Science/Studies",
-   "cipCode": "11.04",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1409_master",
-   "universityName": "Leeds Beckett University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Engineering",
-   "cipCode": "14.09",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "computing",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -48347,51 +47937,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?164270",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1403_bachelor",
-   "universityName": "McGill University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Agricultural Engineering",
-   "cipCode": "14.03",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1403_master",
-   "universityName": "McGill University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Agricultural Engineering",
-   "cipCode": "14.03",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1421_master",
-   "universityName": "McGill University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mining and Mineral Engineering",
-   "cipCode": "14.21",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -61987,21 +61532,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1405_bachelor",
-   "universityName": "Nottingham Trent University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Biomedical/Medical Engineering",
-   "cipCode": "14.05",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "biomedical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_136215_1101_bachelor",
    "universityName": "Nova Southeastern University",
    "unitId": "136215",
@@ -65877,36 +65407,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1436_bachelor",
-   "universityName": "Oxford Brookes University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Manufacturing Engineering",
-   "cipCode": "14.36",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1436_master",
-   "universityName": "Oxford Brookes University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Manufacturing Engineering",
-   "cipCode": "14.36",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_194310_1101_bachelor",
    "universityName": "Pace University",
    "unitId": "194310",
@@ -67709,22 +67209,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?241410",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1441_bachelor",
-   "universityName": "Pontificia Universidad Catolica Madre y Maestra",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electromechanical Engineering",
-   "cipCode": "14.41",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "mechanical",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -78373,21 +77857,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1422_bachelor",
-   "universityName": "Solent University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Naval Architecture and Marine Engineering",
-   "cipCode": "14.22",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_123572_1107_bachelor",
    "universityName": "Sonoma State University",
    "unitId": "123572",
@@ -84073,21 +83542,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1109_master",
-   "universityName": "Stratford University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Systems Networking and Telecommunications",
-   "cipCode": "11.09",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_131803_1101_bachelor",
    "universityName": "Strayer University-District of Columbia",
    "unitId": "131803",
@@ -84205,21 +83659,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?216278",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1418_bachelor",
-   "universityName": "Swansea University",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Materials Engineering",
-   "cipCode": "14.18",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -95897,21 +95336,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1408_bachelor",
-   "universityName": "Universidad Cat lica Nordestana",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Civil Engineering",
-   "cipCode": "14.08",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_243577_1101_bachelor",
    "universityName": "Universidad Politecnica de Puerto Rico",
    "unitId": "243577",
@@ -96196,36 +95620,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?243443",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1411_bachelor",
-   "universityName": "Universite de Montreal",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering Mechanics",
-   "cipCode": "14.11",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "mechanical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1413_bachelor",
-   "universityName": "Universiteit Maastricht",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering Science",
-   "cipCode": "14.13",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -99999,21 +99393,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1101_bachelor",
-   "universityName": "University of Arkansas System eVersity",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer and Information Sciences, General",
-   "cipCode": "11.01",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_106245_1101_bachelor",
    "universityName": "University of Arkansas at Little Rock",
    "unitId": "106245",
@@ -100286,21 +99665,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1408_doctoral",
-   "universityName": "University of Auckland (The)",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Civil Engineering",
-   "cipCode": "14.08",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_161873_1101_bachelor",
    "universityName": "University of Baltimore",
    "unitId": "161873",
@@ -100358,22 +99722,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?161873",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1409_doctoral",
-   "universityName": "University of Bath",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Engineering",
-   "cipCode": "14.09",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "computing",
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -100542,96 +99890,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?128744",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1101_master",
-   "universityName": "University of Brighton",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer and Information Sciences, General",
-   "cipCode": "11.01",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1408_master",
-   "universityName": "University of Brighton",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Civil Engineering",
-   "cipCode": "14.08",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1410_bachelor",
-   "universityName": "University of Brighton",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electrical, Electronics, and Communications Engineering",
-   "cipCode": "14.10",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "electrical_electronic"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1407_doctoral",
-   "universityName": "University of British Columbia",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Chemical Engineering",
-   "cipCode": "14.07",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "chemical_materials"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1421_bachelor",
-   "universityName": "University of British Columbia",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Mining and Mineral Engineering",
-   "cipCode": "14.21",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1439_bachelor",
-   "universityName": "University of British Columbia",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Geological/Geophysical Engineering",
-   "cipCode": "14.39",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -104566,51 +103824,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?110714",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1499_master",
-   "universityName": "University of Cambridge - Christ's College",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, Other",
-   "cipCode": "14.99",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1499_bachelor",
-   "universityName": "University of Cambridge - Emmanuel College",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, Other",
-   "cipCode": "14.99",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1401_doctoral",
-   "universityName": "University of Cambridge - Hughes Hall",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering, General",
-   "cipCode": "14.01",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -109234,21 +108447,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1448_master",
-   "universityName": "University of Edinburgh",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Energy Systems Engineering",
-   "cipCode": "14.48",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_150534_1107_bachelor",
    "universityName": "University of Evansville",
    "unitId": "150534",
@@ -109988,21 +109186,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1405_master",
-   "universityName": "University of Galway",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Biomedical/Medical Engineering",
-   "cipCode": "14.05",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "biomedical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_139959_1101_doctoral",
    "universityName": "University of Georgia",
    "unitId": "139959",
@@ -110406,21 +109589,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?240754",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1413_master",
-   "universityName": "University of Guelph",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering Science",
-   "cipCode": "14.13",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -115049,21 +114217,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1405_doctoral",
-   "universityName": "University of Leeds",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Biomedical/Medical Engineering",
-   "cipCode": "14.05",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "biomedical"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_160658_1101_bachelor",
    "universityName": "University of Louisiana at Lafayette",
    "unitId": "160658",
@@ -116238,21 +115391,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?437097",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1427_master",
-   "universityName": "University of Manchester (The)",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Systems Engineering",
-   "cipCode": "14.27",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -118786,21 +117924,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?166513",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1439_master",
-   "universityName": "University of Melbourne",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Geological/Geophysical Engineering",
-   "cipCode": "14.39",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -125530,21 +124653,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1438_bachelor",
-   "universityName": "University of Newcastle upon Tyne",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Surveying Engineering",
-   "cipCode": "14.38",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_101879_1101_bachelor",
    "universityName": "University of North Alabama",
    "unitId": "101879",
@@ -127819,21 +126927,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1435_master",
-   "universityName": "University of Nottingham",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Industrial Engineering",
-   "cipCode": "14.35",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_207500_1104_bachelor",
    "universityName": "University of Oklahoma-Norman Campus",
    "unitId": "207500",
@@ -128612,22 +127705,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?209551",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1447_master",
-   "universityName": "University of Ottawa",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Electrical and Computer Engineering",
-   "cipCode": "14.47",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "electrical_electronic",
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -131261,21 +130338,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1412_doctoral",
-   "universityName": "University of Saskatchewan",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Engineering Physics",
-   "cipCode": "14.12",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "other_engineering"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_207722_1101_bachelor",
    "universityName": "University of Science and Arts of Oklahoma",
    "unitId": "207722",
@@ -131410,36 +130472,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?215929",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1104_doctoral",
-   "universityName": "University of Sheffield (The)",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Information Science/Studies",
-   "cipCode": "11.04",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1427_doctoral",
-   "universityName": "University of Sheffield (The)",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Systems Engineering",
-   "cipCode": "14.27",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "industrial_systems"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -134185,36 +133217,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?174914",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1402_master",
-   "universityName": "University of Staffordshire",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Aerospace, Aeronautical, and Astronautical/Space Engineering",
-   "cipCode": "14.02",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "aerospace"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1101_doctoral",
-   "universityName": "University of Strathclyde, Glasgow",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer and Information Sciences, General",
-   "cipCode": "11.01",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {
@@ -137340,21 +136342,6 @@
    "verificationStatus": "needs_check"
   },
   {
-   "programId": "us_sc_NA_1107_doctoral",
-   "universityName": "University of West London (The)",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Computer Science",
-   "cipCode": "11.07",
-   "degreeLevel": "doctoral",
-   "engineeringFields": [
-    "computing"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
    "programId": "us_sc_240268_1101_bachelor",
    "universityName": "University of Wisconsin-Eau Claire",
    "unitId": "240268",
@@ -139807,36 +138794,6 @@
    ],
    "source": "College Scorecard, Most Recent Cohorts Field of Study",
    "sourceUrl": "https://collegescorecard.ed.gov/school/?449870",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1433_master",
-   "universityName": "University of the West of England, Bristol",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Construction Engineering",
-   "cipCode": "14.33",
-   "degreeLevel": "master",
-   "engineeringFields": [
-    "civil_environmental"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
-   "verificationStatus": "needs_check"
-  },
-  {
-   "programId": "us_sc_NA_1402_bachelor",
-   "universityName": "University of the West of Scotland",
-   "unitId": "NA",
-   "country": "US",
-   "programName": "Aerospace, Aeronautical, and Astronautical/Space Engineering",
-   "cipCode": "14.02",
-   "degreeLevel": "bachelor",
-   "engineeringFields": [
-    "aerospace"
-   ],
-   "source": "College Scorecard, Most Recent Cohorts Field of Study",
-   "sourceUrl": "https://collegescorecard.ed.gov/school/?NA",
    "verificationStatus": "needs_check"
   },
   {

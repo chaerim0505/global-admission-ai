@@ -48,6 +48,8 @@ def build_records(rows) -> list[dict]:
         if cip not in CIP_FIELDS or level not in DEGREES or row["MAIN"].strip() != "1":
             continue
         unitid = row["UNITID"].strip()
+        if not unitid.isdigit():  # foreign institutions in the file have no US UNITID
+            continue
         program_id = f"us_sc_{unitid}_{cip}_{DEGREES[level]}"
         records[program_id] = {
             "programId": program_id,
