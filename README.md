@@ -11,6 +11,16 @@ RAG and Embedding-based AI Agent
 | SHWE WUTT MHONE | API 연동 및 배포, AI 기능 구현, 테스트 및 성능 평가 |
 | SHWE YEE PHOO | 사용자 화면 구현, 서버 개발, 데이터 처리 |
 
+## 저장소 구조
+
+백엔드 코드는 `src/admission/` Python 패키지에 있다. 주요 산출물의 위치는 다음과 같다.
+
+| 구분 | 실제 위치 | 내용 |
+| --- | --- | --- |
+| 스키마 | [`src/admission/schemas/`](src/admission/schemas/) | 추천 요청과 대학 과정 데이터의 JSON 스키마 |
+| 프롬프트 | [`src/admission/prompts/`](src/admission/prompts/) | 사용자 발화에서 지원 조건을 추출하는 프롬프트 |
+| 도구 | [`src/admission/tools/`](src/admission/tools/) | 과정 검색, 공식 근거 조회, 카탈로그 조회, 웹 탐색 도구 |
+
 ## MVP 사용자 가이드
 
 ### 서비스 소개
