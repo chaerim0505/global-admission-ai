@@ -11,15 +11,6 @@ RAG and Embedding-based AI Agent
 | SHWE WUTT MHONE | API 연동 및 배포, AI 기능 구현, 테스트 및 성능 평가 |
 | SHWE YEE PHOO | 사용자 화면 구현, 서버 개발, 데이터 처리 |
 
-## Collaboration
-
-
-* 모든 변경사항은 Pull Request를 통해 공유합니다.
-* 팀원 검토 후 `main` Branch에 병합합니다.
-* 개발 전에 요구사항과 완료 기준을 문서로 작성합니다.
-* API Key와 개인정보는 GitHub에 업로드하지 않습니다.
-
-
 ## MVP 사용자 가이드
 
 ### 서비스 소개
@@ -73,8 +64,11 @@ RAG and Embedding-based AI Agent
 | GPA, 어학 점수, 학비, 장학금을 입력해도 후보가 달라지지 않음 | 현재 샘플 검색은 국가, 학위, 공학 분야를 사용합니다. 개인별 지원 자격, 비용, 장학금 조건은 각 대학의 공식 자료에서 확인하세요. |
 | AI 대화에서 응답이 없거나 연결 오류가 표시됨 | 서버가 쉬고 있다가 깨어나는 중일 수 있습니다(무료 서버, 첫 요청은 약 50초). 잠시 후 다시 보내 주세요. 계속되면 **① Enter conditions** 탭의 검색 폼을 이용하세요. |
 | AI 탐색 결과(Found by Gemini web search)가 늦게 나오거나 비어 있음 | Gemini 웹 검색에 10–30초가 걸립니다. 결과가 비면 공식 링크를 확인할 수 있는 과정을 찾지 못한 것입니다. 이 결과는 검증 전이므로 공식 페이지에서 직접 확인하세요. |
-
 ---
+
+### 문제가 있으시면 메일 보내주세요.
+syp020320@ajou.ac.kr
+shwewuttmhone@ajou.ac.kr
 
 ## 개발자용: 로컬 실행
 
