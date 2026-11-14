@@ -32,12 +32,12 @@
 
 `src/admission/tools/__init__.py`에 아래 읽기 도구를 정의했다. 작업 순서는 애플리케이션 코드에서 정한다.
 
-| 도구 | 주요 입력 | 반환 내용 |
-| --- | --- | --- |
-| `search_programs` | `RequestContext` | 팀 검증 데이터에서 찾은 후보와 요건별 판정 |
-| `get_evidence` | 후보 목록, 관심 분야 | 후보별 공식 출처 근거 문단 |
-| `search_catalogue` | 국가, 학위, 최대 개수 | 탐색용 과정 목록 |
-| `explore_programmes_web` | `RequestContext`, 제외할 대학 집합 | Gemini 웹 검색에서 정리한 검증 전 후보 |
+| 도구 | 시그니처 | 설명 | 부작용 |
+| --- | --- | --- | --- |
+| search_programs | `(context: RequestContext) -> dict` | 사용자 조건에 맞는 검증 후보 과정을 검증 데이터에서 찾고 요건을 판정한다 | 없음(읽기) |
+| get_evidence | `(candidates: list[dict], interests=None) -> dict[str, list[dict]]` | 검증 후보마다 추천 근거가 될 공식 출처 근거 청크를 가져온다 | 없음(읽기) |
+| search_catalogue | `(country: str, degree=None, limit: int = 3) -> list[dict]` | 국가와 학위로 탐색용 대학 과정 목록을 읽는다(요건 판정 없음) | 없음(읽기) |
+| explore_programmes_web | `(context: RequestContext, exclude=None, client=None) -> list[dict]` | 검증 데이터에 없는 과정을 공식 대학 사이트 웹 검색으로 찾아 검증 전 결과로 돌려준다 | 없음(읽기) |
 
 평가 러너는 `explore_programmes_web`이 반환하는 검증 전 후보를 평가한다. Streamlit 결과 탭은 `ai_exploration.py`를 직접 호출한 뒤, `recommend_v2.py`에서 링크 검사를 거쳐 후보를 목록에 넣는다. 두 경로의 중간 결과와 화면 결과를 비교할 때 이 차이를 고려한다.
 
