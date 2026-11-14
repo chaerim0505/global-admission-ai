@@ -1,104 +1,114 @@
 # Global Admission AI — 아키텍처 설계서
 
-> **상태: 초안 — 팀 검토·확정 필요.** 강의 6 기준상 이 문서는 사람이 쓰고 확정한다. 아래 내용은 현재 저장소의 코드(`src/admission/`, `frontend/`)에서 옮겨 적은 것이며, 구성·파라미터를 왜 그렇게 두는지는 팀이 확인한 뒤 확정한다.
-> 선행 산출물: `docs/SPEC.md`(스펙·AC), `docs/ontology.md`(온톨로지), `tests/harness/golden_cases.yaml`(골든 케이스)
+> 상태 — 팀 검토용. 현재 저장소의 구현을 기준으로 작성했다. 기능 범위와 수용 기준은 [SPEC.md](SPEC.md), 데이터 개체는 [ontology.yaml](ontology.yaml), 평가 방법과 실행 결과는 [EVAL_DESIGN.md](../evals/EVAL_DESIGN.md)를 참고한다.
 
-## 1. 한눈에 보는 데이터 흐름
+## 1. 사용자의 입력이 결과로 이어지는 과정
 
-사용자 발화 → 파싱(`RequestContext`, 직전 질문 반영) → 입력 검증·후속 질문 → 검증 후보 검색·요건 판정(`search_programs`) → 공식 근거 검색(`get_evidence`) → 결과 표시 **+** 같은 조건의 AI 탐색 결과(검증 전, `explore_programmes_web`)를 분리해 표시
+서비스는 한국, 미국, 영국, 네덜란드, 아일랜드의 공학계열 학부·석사·박사 과정을 찾는 국제학생을 대상으로 한다. 사용자는 화면의 폼에 조건을 직접 입력하거나 채팅으로 입력할 수 있다.
+
+- **채팅 입력** — Streamlit이 사용자의 문장과 이전 입력 상태를 FastAPI의 `POST /agent/run`으로 보낸다. Gemini가 문장에서 지원 조건을 추출하고, 서버가 결과를 `RequestContext`로 검증한다. 필수 항목이 빠지면 후속 질문을 반환한다. 예를 들어 성적표 발급 국가를 물은 직후 사용자가 `KR`이라고 답하면, 이 값을 성적표 발급 국가에 넣는다.
+- **서버의 검증 후보 검색** — 조건 검증이 끝나면 서버가 팀이 관리하는 검증 데이터에서 후보를 찾고, 공개된 요건을 코드로 비교한다. 카탈로그 조회 결과와 검증 후보에 대한 공식 출처 근거도 응답에 포함할 수 있다.
+- **화면의 결과 탭** — 사용자가 제출한 폼 조건으로 통합 카탈로그를 검색하고 대학별 후보를 최대 5개 표시한다. 조건에 맞는 대학이 부족하면 Gemini 웹 검색으로 후보를 추가로 찾는다. 링크 검사를 통과한 웹 후보는 같은 목록에 넣고 출처를 구분한다.
+- **과정별 상세 조사** — 사용자가 카드의 공식 입학 요건 검색 버튼을 누르면 Gemini가 해당 대학의 공식 사이트를 조사한다. 화면은 공식 도메인과 접근 여부를 검사한 링크를 제공한다. 사용자는 링크에서 해당 모집 시기의 요건을 확인할 수 있다.
+
+채팅에서 호출하는 서버 추천 흐름과 결과 탭의 통합 카탈로그 검색은 사용하는 코드와 데이터가 다르다. 다음 절에서 두 경로를 구분한다.
 
 ## 2. 구성 요소
 
-| 파일 | 역할 | 출처 강의 | 이번 강의 대상 |
-| --- | --- | --- | --- |
-| `src/admission/parser.py` | 자연어 → `RequestContext` (Gemini, JSON 스키마 강제). 직전 질문을 함께 넘긴다 | 강의 3 | |
-| `src/admission/agents/intake_agent.py` | 대화 누적, 짧은 답변을 직전 질문 항목에 채움(AC20) | 강의 3 | |
-| `src/admission/validation.py`, `clarification.py`, `scope.py` | 필수 입력 검증, 후속 질문, 범위 밖 안내(AC13, AC15) | 강의 4 | |
-| `src/admission/recommend.py` + `requirement_matcher.py`, `cost_matcher.py`, `program_filter.py`, `ranker.py` | 검증 후보 필터·요건 판정·학비 비교·결정론적 정렬 | 강의 5 | |
-| `src/admission/source_validator.py`, `official_sources.py` | 공식 출처 호스트만 허용(AC4) | 강의 5 | |
-| `src/admission/grounding.py` + `rag_config.py` | 공식 근거 청크 검색(RAG). 파라미터는 `config/rag.yaml` | 강의 6 | **이번 강의 구현 대상** |
-| `src/admission/ai_exploration.py` | AI 탐색 결과(검증 전) — Gemini + Google Search, AC19 규칙 강제 | 강의 6 | **이번 강의 구현 대상** |
-| `src/admission/tools/__init__.py` | 도구 정의(3절 표) + 호출 로그 | 강의 6 | **이번 강의 구현 대상** |
-| `src/admission/orchestrator.py` | 단계 순서를 고정한 workflow (`POST /agent/run`) | 강의 6 | |
-| `src/admission/main.py` | FastAPI (Render 배포) | 강의 4 | |
-| `src/admission/auth.py` | 계정(Neon Postgres, 없으면 SQLite) | — | |
-| `frontend/app.py` | Streamlit 화면 (Streamlit Cloud 배포) | — | |
+| 구성 | 파일 | 역할 |
+| --- | --- | --- |
+| 화면 | `frontend/app.py` | 조건 입력, 채팅, 추천 카드, 공식 요건 상세 검색, 정부 장학금 안내를 제공한다. |
+| API | `src/admission/main.py` | `GET /health`, `POST /parse`, `POST /validate`, `POST /recommend`, `POST /agent/run` 등을 제공한다. |
+| 대화와 입력 검증 | `src/admission/parser.py`, `agents/intake_agent.py`, `validation.py`, `clarification.py`, `scope.py` | 입력을 구조화하고, 짧은 답변을 직전 질문에 연결하며, 입력 오류와 서비스 범위 이탈을 확인한다. |
+| 서버 추천 | `src/admission/orchestrator.py`, `recommend.py`, `requirement_matcher.py`, `cost_matcher.py` | 검증 후보를 검색하고 입학 요건과 예산을 비교한다. `/agent/run`은 카탈로그 조회와 근거 검색도 연결한다. |
+| 결과 탭 추천 | `src/admission/recommend_v2.py`, `data/catalogue/programs_unified.json` | 통합 카탈로그를 필터링하고, 예산과 난이도 등급을 반영해 대학별 후보를 정렬한다. |
+| 웹 검색과 출처 검사 | `src/admission/ai_exploration.py`, `recommend_v2.py`, `requirement_finder.py` | Gemini로 추가 과정을 탐색하고, 결과에 사용할 링크를 검사한다. |
+| 공식 근거 검색 | `src/admission/grounding.py`, `rag_config.py`, `config/rag.yaml` | 검증 후보와 연결된 공식 출처 문단을 찾아 반환한다. |
+| 계정 | `src/admission/auth.py` | 회원가입과 로그인을 처리한다. PostgreSQL 연결 설정이 있으면 이를 사용하고, 로컬 개발에서는 SQLite를 사용할 수 있다. |
 
-**오케스트레이션:** workflow — 처리 순서를 코드가 고정하고 별도 에이전트 프레임워크 없이 함수 조합으로 실행한다(5절). 파일 이름에 `agents/`가 있지만 각 "에이전트"는 모델이 다음 단계를 고르는 루프가 아니라 고정 순서의 함수다. 모델 호출은 요청당 파싱 1회(+ 화면에서 AI 탐색 1회, 사용자가 누르면 공식 요건 조사 1회).
+화면은 Streamlit Cloud에서, FastAPI는 Render에서 운영한다.
 
-## 3. 도구 목록
+## 3. 서버 흐름에서 사용하는 도구
 
-| 도구 | 시그니처 | 설명(모델이 언제 쓸지 판단할 문장) | 부작용 |
-| --- | --- | --- | --- |
-| search_programs | `(context: RequestContext) -> Recommendation` | 사용자 조건에 맞는 검증 후보 과정을 검증 데이터에서 찾고 요건을 판정한다 | 없음(읽기) |
-| get_evidence | `(candidates: [Program], interests: [str]) -> {programId: [EvidenceChunk]}` | 검증 후보마다 추천 근거가 될 공식 출처 근거 청크를 가져온다 | 없음(읽기) |
-| search_catalogue | `(country: Country, degree: DegreeLevel, limit: int) -> [CatalogueItem]` | 국가와 학위로 탐색용 대학 과정 목록을 읽는다(요건 판정 없음) | 없음(읽기) |
-| explore_programmes_web | `(context: RequestContext, exclude: {str}) -> [AIExplorationResult]` | 검증 데이터에 없는 과정을 공식 대학 사이트 웹 검색으로 찾아 검증 전 결과로 돌려준다 | 없음(읽기) |
+`src/admission/tools/__init__.py`에 아래 읽기 도구를 정의했다. 작업 순서는 애플리케이션 코드에서 정한다.
 
-원칙: 도구는 적게, 스키마는 좁게(`RequestContext`는 `extra="forbid"`, 허용값은 Literal), 쓰기 도구는 실행 전 사용자 승인.
+| 도구 | 주요 입력 | 반환 내용 |
+| --- | --- | --- |
+| `search_programs` | `RequestContext` | 팀 검증 데이터에서 찾은 후보와 요건별 판정 |
+| `get_evidence` | 후보 목록, 관심 분야 | 후보별 공식 출처 근거 문단 |
+| `search_catalogue` | 국가, 학위, 최대 개수 | 탐색용 과정 목록 |
+| `explore_programmes_web` | `RequestContext`, 제외할 대학 집합 | Gemini 웹 검색에서 정리한 검증 전 후보 |
 
-- `RequestContext`, `Program`은 온톨로지 클래스다. `Recommendation`은 `recommend()`의 응답(SPEC 5절 `POST /recommend` 출력), `EvidenceChunk`는 공식 페이지를 검색 단위로 나눈 파생 타입(`grounding.py`), `CatalogueItem`은 카탈로그 DB 행, `AIExplorationResult`는 SPEC 3.0절의 AI 탐색 결과(검증 전) 항목이다 — 모두 새 도메인 개념이 아니라 파생 타입이다.
-- **연결되는 기존 기능:** search_programs → `recommend.py`의 `recommend()` / get_evidence → `grounding.py`의 `retrieve_candidate_evidence()` / search_catalogue → `catalogue_routes.py`의 `search_catalogue()` / explore_programmes_web → `ai_exploration.py`의 `explore_programmes()`(Gemini API + Google Search).
-- **사용자 승인:** 쓰기 도구가 없다 — 지원서 제출, 대학·교수 연락, 결제는 비범위(9절)다. 계정 가입은 사용자가 직접 폼을 제출하는 동작이며 모델이 호출하는 도구가 아니다. 쓰기 도구를 추가하면 실행할 도구와 인자를 화면에 보여 주고 승인받은 인자 그대로 실행하도록, 흐름이 그 도구 앞에서 멈추는 구조로 만든다.
-- **계약 테스트:** `tests/test_tools.py` — 이 표와 코드의 이름·설명·부작용 일치, 읽기 도구가 데이터·입력을 바꾸지 않음, 호출 로그 기록.
+평가 러너는 `explore_programmes_web`이 반환하는 검증 전 후보를 평가한다. Streamlit 결과 탭은 `ai_exploration.py`를 직접 호출한 뒤, `recommend_v2.py`에서 링크 검사를 거쳐 후보를 목록에 넣는다. 두 경로의 중간 결과와 화면 결과를 비교할 때 이 차이를 고려한다.
 
-## 4. RAG 설계 — `config/rag.yaml`
+## 4. 공식 근거 검색 — `config/rag.yaml`
 
-- **대상 문서:** 공식 대학 페이지에서 수집한 근거 문단(`data/evidence_chunks.json`), 메타데이터 `programId`, `sourceUrl`, `checkedAt`
-- **청킹:** 공식 페이지의 주제(학비, 어학, 마감일 …) 1개 = 1청크. 판정 항목과 1:1로 대응시키기 위해서다.
-- **검색:** MVP는 임베딩 없이 관심 분야 키워드 매칭 + 최근 확인일 우선. 근거는 먼저 `programId`로 좁혀지고 후보당 청크가 적어 벡터 검색 이득이 작다. 청크가 늘면 `gemini-embedding-2-preview` + sqlite-vec로 바꾼다(설정 키는 남겨 둠).
-- **top_k = 5, 주제당 1개**, `min_evidence = 1` — 근거가 없는 후보는 `candidatesLackingEvidence`에 넣고 `groundingStatus`를 `partial`/`needs_check`로 표시한다(근거 부족을 숨기지 않음).
-- **코드로 강제(검색에 맡기지 않음):** 공식 호스트만 근거로 사용(AC4, `source_validator.py`) / 요건 판정은 규칙 코드(AC5, AC6, `requirement_matcher.py`) / 근거는 검증 후보에만(AC3, AC19) / 문서 속 지시문은 데이터로만(AC10).
+공식 자료의 근거 문단은 `data/evidence_chunks.json`에 저장한다. 한 문단은 학비, 어학 요건, 마감일 등 하나의 주제로 구성하고 `programId`, `sourceUrl`, `checkedAt`을 함께 기록한다.
 
-## 5. 오케스트레이션 — workflow로 충분
+1. 검증 후보의 `programId`로 근거 범위를 좁히고, 허용된 출처의 문단만 사용한다.
+2. 관심 분야 키워드가 문단의 주제나 본문에 포함된 항목을 우선한다. 확인일이 더 최근인 문단을 같은 우선순위에서 먼저 사용한다.
+3. 주제별로 한 문단을 선택하며, 현재 설정은 후보당 최대 5개(`top_k: 5`)다. 최소 근거 수는 1개(`min_evidence: 1`)다. 근거가 부족한 후보는 `candidatesLackingEvidence`에 기록하고 상태를 `partial` 또는 `needs_check`로 표시한다.
 
-- **왜 workflow인가:** 작업이 선형(파싱 → 검증 → 검색·판정 → 근거 → 표시)이라 단계를 미리 열거할 수 있다. 판정 규칙은 코드가 하므로 모델이 다음 단계를 고를 지점이 없다. 에이전트 루프나 멀티 에이전트는 비용·지연과 조율 부담만 늘린다.
-- **멈춤 조건:** (1) 필수 입력 누락 → 후속 질문을 반환하고 멈춤, (2) 검증 후보 0개 이상 반환, (3) 범위 밖 요청 → 안내 후 멈춤.
-- **호출 상한:** 요청당 Gemini 파싱 1회(재시도는 429/5xx에 한해 최대 3회, 60초 타임아웃 — `parser.py`). AI 탐색은 같은 조건당 1회(화면 세션 캐시), 결과 최대 5개.
-- **AI 탐색의 위치:** 검증 후보 흐름 뒤에 붙는 별도 단계다. 검증 후보의 판정이나 순서에 영향을 주지 않는다.
+현재 저장소는 JSON 파일과 키워드 검색을 사용한다. 후보별로 검색 범위를 먼저 좁힐 수 있어 MVP에서는 이 구조를 사용했다. 임베딩과 벡터 저장소는 미사용 상태다. 검색한 근거 문단은 출처를 보여주는 데 사용하며, 요건별 판정은 저장된 항목을 규칙 코드로 비교해 계산한다.
 
-## 6. 실패 처리 (실패를 전제)
+## 5. 추천, 웹 검색 보충, 난이도 등급
 
-| 유형 | 대응 |
+### 5.1 통합 카탈로그 검색과 웹 보충
+
+결과 탭은 희망 국가, 학위, 공학 분야로 카탈로그를 필터링한다. 예산 비교가 가능한 경우 기준을 초과하는 과정을 제외하고, 각 대학에서 대표 과정 한 개를 고른다. 결과는 최대 5개 대학이다.
+
+대학이 5개 미만이면 Gemini가 같은 조건으로 웹에서 추가 과정을 찾는다. 애플리케이션은 후보 링크의 HTTPS 사용 여부, HTTP 200 응답, 대학의 공식 도메인 일치 여부를 검사한다. 공식 도메인은 카탈로그에 저장된 정보나 ROR에서 찾는다. 검사와 대학 중복 제거를 통과한 결과를 `source: web_verified`로 추가한다. 이 표시는 링크 검사를 통과했다는 뜻이며, 해당 과정의 세부 요건은 공식 자료에서 확인해야 한다. 보충 후에도 후보가 부족하면 찾은 결과 수와 부족한 이유를 표시한다.
+
+### 5.2 학비와 요건 비교
+
+서버 추천의 `cost_matcher.py`는 통화와 기간이 같은 학비와 예산을 비교한다. 결과 탭의 `recommend_v2.py`는 `config/fx_rates.yaml`에 등록된 환율을 이용해 확인 가능한 학기·연간 금액을 연간 USD 기준으로 환산한다. 금액, 통화, 기간을 비교할 근거가 부족하면 `needs_check`로 둔다. 화면에 표시하는 학비에는 원래 금액과 단위를 사용한다.
+
+요건 판정에는 `met`, `unmet`, `needs_check`를 사용한다. 공식 최소 점수와 사용자의 점수를 같은 기준으로 비교할 수 있으면 충족 여부를 계산한다. 최소 점수가 없거나 성적 척도를 맞출 수 없으면 `needs_check`로 표시한다. 정부 장학금은 조건과 공식 링크를 안내하고, 교내 장학금은 대학의 안내 페이지에서 확인할 수 있게 연결한다.
+
+### 5.3 입학 난이도 등급 — F08, AC25
+
+`recommend_v2.py`는 지원자의 성적을 만점 대비 100점 기준으로 변환한다. 대학 지표와의 차이가 10점을 초과하면 상향, −10점 미만이면 안정, 그 사이면 적정으로 분류한다. 대학 지표가 없으면 `unknown`으로 둔다. 기준값과 목표 결과 구성은 `config/tiers.yaml`에서 관리하며, 현재 값은 초기 설정이다.
+
+| 대상 | 사용한 지표 | 계산 코드 |
+| --- | --- | --- |
+| 미국 | College Scorecard의 대학별 합격률을 미국 내 백분위로 변환한다. 합격률이 낮을수록 높은 값을 주며, SAT 평균 백분위도 있으면 두 값을 평균한다. | `scripts/build_us_institutions_scorecard.py` |
+| 한국·영국·네덜란드·아일랜드 | CWTS Leiden Ranking Open Edition의 물리과학·공학 분야 2021–2024년 `P_top_10`을 사용한다. 인용 상위 10% 논문 수를 국가별 백분위로 변환한다. | `scripts/build_leiden_difficulty.py` |
+
+국내 신입생 경쟁률은 지원자 수의 영향을 받고, 충원율은 대학 간 차이를 구분하기 어려워 지표에서 제외했다. Leiden의 상위 인용 논문 수는 대규모 연구 대학에 유리할 수 있다. 특히 대학의 연구 실적과 개별 과정의 국제학생 입학 기준은 측정 대상이 다르다. 따라서 이 등급은 후보를 살펴보는 순서를 정하는 참고값으로 사용한다. 실제 지원 가능 여부는 과정별 요건과 공식 모집요강을 확인해야 한다.
+
+## 6. 실행 방식과 예외 처리
+
+입력 수집, 검증, 검색, 요건 비교, 근거 조회 순서는 코드로 고정했다. 각 단계의 결과를 테스트에서 확인할 수 있고, 파싱이나 웹 탐색이 필요한 지점에서만 Gemini를 호출한다. 카드의 상세 요건 조사는 사용자가 요청한 과정에서 실행하므로, 결과 탭을 열 때 모든 카드의 상세 조사가 끝날 때까지 기다릴 필요가 없다.
+
+| 상황 | 처리 |
 | --- | --- |
-| 필수 입력 누락·범위 오류 | 추천하지 않고 422 + `inputErrors` + 후속 질문(AC15) |
-| 범위 밖 국가·분야 | `scopeNotices`로 안내, 다른 국가·분야로 바꾸지 않음(AC13) |
-| 검증 후보 없음 | 빈 `candidates` + 사유 + `followUps`, 조건 완화 없음(AC9). 같은 조건의 AI 탐색 결과는 "검증 전"으로 분리 표시 |
-| 근거 부족 | `candidatesLackingEvidence`, `groundingStatus: partial/needs_check` |
-| 카탈로그 DB 없음(배포 환경) | 해당 국가 건너뛰고 추천은 정상 반환(`orchestrator.py`) |
-| Gemini 429/5xx/타임아웃 | 파서 재시도 후 429/504로 응답, 화면은 오류 문구 표시(`main.py`) |
-| AI 탐색 응답이 JSON 아님·지시문만 있음 | 결과 0개, 지어내지 않음(AC19) |
-| AI 탐색 항목에 공식 https 링크 없음·요청 밖 국가 | 그 항목 버림(AC19) |
+| 필수 입력 누락 또는 입력값 충돌 | `/agent/run`은 `stage: needs_input`과 오류 항목 또는 후속 질문을 반환한다. `/recommend`는 입력 오류가 있으면 HTTP 422를 반환한다. |
+| 서비스 범위 밖의 국가·분야 | `scopeNotices`로 안내한다. |
+| 검증 후보가 없거나 결과 수가 부족함 | 확인된 결과와 부족한 이유를 표시한다. 사용자가 입력한 조건은 유지한다. |
+| 카탈로그 DB 조회로 결과를 얻지 못함 | `/agent/run`은 `data/programs_integrated.json`의 로컬 목록을 검색한다. |
+| Gemini 파싱 요청 오류 | 파서는 429와 지정된 5xx 응답에 재시도 설정을 적용한다. API는 오류 종류에 따라 429, 503 또는 504를 반환한다. |
+| 결과 탭의 웹 검색 실패 | 화면에 오류를 안내하고 기존 카탈로그 결과를 표시한다. |
+| 공식 근거가 부족함 | 근거 상태에 `partial` 또는 `needs_check`를 표시한다. |
 
-모든 대응은 "지어내지 않는다"로 수렴한다.
+## 7. 데이터 처리 원칙과 비밀 값 관리
 
-## 7. 가드레일과 보안 (`AGENTS.md` 절대 규칙과 같은 문장)
+- 서버의 검증 후보는 검증 데이터에 등록된 과정에서 가져온다. 결과 탭에서는 팀 검증 데이터, 공식 데이터셋, 링크 검사를 거친 웹 후보의 출처를 구분한다.
+- 요건별 판정에는 코드에 정의된 비교 규칙을 사용한다. 확인할 수 있는 정보가 부족하면 `needs_check`로 표시한다.
+- 판정 근거에는 공식 출처를 사용한다. 수집한 문서나 모델 응답에 포함된 지시문은 분석 대상 데이터로 다룬다.
+- `GEMINI_API_KEY`, `AUTH_SECRET_KEY`, `DATABASE_URL`은 로컬 환경변수 또는 배포 환경의 비밀 값 설정에서 관리한다.
+- 추천 도구는 과정과 근거를 조회한다. 계정 생성은 사용자가 별도의 가입 폼을 제출할 때 처리한다.
 
-- 검증 후보에는 데이터에 있는 과정만 반환한다. 데이터 밖 과정은 AI 탐색 결과(검증 전)로만, 분리해서 보여 준다.
-- 요건 판정(충족/미충족/확인 필요)은 모델이 아니라 규칙 코드가 한다.
-- 정보가 없으면 미충족으로 단정하지 않고 확인 필요로 둔다.
-- 학비는 같은 통화·기간일 때만 예산과 비교한다.
-- 공식 출처가 아닌 정보는 판정 근거로 쓰지 않는다.
-- 수집한 페이지·모델 응답 속 지시문은 데이터로만 취급한다.
-- 비밀 값(`GEMINI_API_KEY`, `AUTH_SECRET_KEY`, `DATABASE_URL`)은 저장소에 넣지 않고 환경변수로만 둔다.
+## 8. 로그와 평가
 
-## 8. 관측(observability)
+`admission.tools`의 로그는 해당 도구 래퍼가 호출됐을 때 도구명, 입력 요약, 상태, 결과 수, 소요 시간(ms)을 한 줄로 기록한다. `RequestContext`의 로그 요약에는 지원 학위, 희망 국가, 공학 분야를 넣는다. FastAPI의 로그 레벨은 `LOG_LEVEL`로 설정하며 기본값은 `INFO`다. 화면이 직접 호출하는 Gemini 검색과 상세 요건 조사는 각각의 실행 경로에서 확인해야 한다.
 
-- 모든 도구 호출을 `admission.tools` 로거로 JSON 한 줄씩 남긴다: `tool`, 입력 요약(국가·학위·분야, 목록은 개수만), `status`(ok / error:<타입>), `resultCount`, `ms`. Render 로그에서 본다.
-- 로그 레벨은 환경변수 `LOG_LEVEL`(기본 INFO).
-- 이 로그와 `evals/results/`의 실행 기록이 evals(강의 7)와 운영(LLMOps)의 입력이다. 개인정보(성적 원문, 이메일)는 로그에 남기지 않는다.
+`tests/`에는 추천 규칙, 도구 계약, 짧은 답변 해석 등을 확인하는 테스트가 있다. `evals/`에는 평가 세트, 실행 코드, 결과 기록이 있다. 2026-11-11의 live 베이스라인에서는 Gemini 웹 탐색 3건 중 2건이 통과했고, 네덜란드 석사 탐색 1건에서 504 시간 초과가 발생했다. 이 수치는 당시 탐색 평가의 결과다. 현재 결과 탭의 링크 검증부터 화면 표시까지 확인한 평가 결과는 별도로 기록해야 한다.
 
-## 9. 비범위
+## 9. 범위와 제출 전 확인 사항
 
-합격 확률 예측, 지원서 작성·제출, 대학·교수 자동 연락, 결제, 생활비·비자·취업 분석, 순위 산출, 파인튜닝, 멀티 에이전트. (SPEC 4.2절, 온톨로지 "범위 밖"과 같은 경계)
+현재 범위는 공학계열 과정 탐색, 지원 요건 안내, 확인 가능한 학비와 예산 비교, 정부 장학금 정보 제공이다. 합격 확률 계산, 대학 순위 발표, 지원서 작성·제출, 대학·교수 자동 연락, 결제, 생활비·비자·취업 분석은 서비스 범위 밖이다. 지도교수 추천은 SPEC에서 MVP 이후 기능으로 관리한다.
 
-## University difficulty index (SPEC F08, AC25) — decision record, 2026-11-14
-
-The difficulty index (0–100, higher = harder to enter) is an estimate from public indicators, not an admission prediction. The team compared candidate indicators and recorded why each was kept or dropped.
-
-| Country | Indicator used | Source | Rejected alternatives and why |
-| --- | --- | --- | --- |
-| US | Within-US percentile of admission rate (lower = harder), averaged with SAT-average percentile | College Scorecard institution file (`scripts/build_us_institutions_scorecard.py`) | — |
-| KR, GB, NL, IE | Within-country percentile of `P_top_10` (top-10% cited papers), field "Physical sciences and engineering", 2021–2024, core pubs, fractional counting | CWTS Leiden Ranking Open Edition 2026 (`scripts/build_leiden_difficulty.py`) | **KR freshman competition rate** measures application volume (SNU 6.5:1, Gachon 24.8:1), so it inverted the order; **fill rate** is ~100% everywhere. **Leiden blend of `P_top_10` and `PP_top_10`** ranked small or citation-concentrated universities above national flagships (Sejong above SNU, Galway above Trinity College Dublin). |
-
-Known limits: research volume favours large universities (POSTECH is lower than its reputation), and the index says nothing about international-student admission criteria. Tier thresholds live in `config/tiers.yaml` and must be checked against real admission outcomes (see `evals/`).
+- **웹 후보 표시** — 최신 SPEC의 F06·AC19·AC27과 결과 탭은 한 목록에 출처를 표시한다. SPEC 앞부분과 `AGENTS.md`에는 이전의 분리 표시 문구가 남아 있으므로 팀이 최종 표현을 통일한다.
+- **학비 비교 기준** — 기존 AC7과 `AGENTS.md`는 같은 통화·기간의 비교를 규정한다. 새 AC24와 결과 탭에는 환산 비교가 포함되어 있다. 팀이 두 규칙의 적용 경로와 환산 조건을 명세에 명시한다.
+- **웹 탐색 평가 범위** — 기존 AC19 평가의 `ai_suggested`는 Gemini 탐색 직후의 상태다. 최신 화면의 `web_verified`와 같은 목록 표시까지 검증하려면 링크 검사, 중복 제거, 출처 표시를 포함한 화면 경로의 결과를 확인한다.
+- **온톨로지 형식** — `docs/ontology.yaml`은 현재 Markdown 본문을 담고 있어 실제 YAML 구조로 변환해야 한다.
