@@ -237,8 +237,8 @@
 - 과정마다 공학 분야 분류 상태(`included / excluded / needs_review`), 분류 이유, 공식 근거 URL, 확인일을 기록한다.
 - 교수와 지원 과정의 관계, 소속, 연구 분야의 확인 근거(출처 URL)를 보존한다.
 - 누락·상충 정보는 추정해 채우지 않고 비워 둔 뒤 `needs_check`로 처리한다. **데이터 미확보와 실제 조건 미충족을 구분한다.**
-- 데이터 모델(클래스·속성·관계)은 `docs/ontology.md`를 따른다. 입력 필드는 그 `RequestContext`와 같다.
-**구현 전 온톨로지·스키마 반영 필요** (이 스펙이 요구하지만 `docs/ontology.md`에 아직 없는 것)
+- 데이터 모델(클래스·속성·관계)은 `docs/ontology.yaml`를 따른다. 입력 필드는 그 `RequestContext`와 같다.
+**구현 전 온톨로지·스키마 반영 필요** (이 스펙이 요구하지만 `docs/ontology.yaml`에 아직 없는 것)
 - `Program.fieldClassification` — `status`, `reason`, `sourceUrl`, `checkedAt` (3.2절, AC12)
 - `Professor` → `Program` 관계와 그 근거 URL (F05, AC18)
 - 범위 밖 요청을 파서가 표시할 필드(예: `RequestContext.outOfScopeRequests`)와 `src/admission/prompts/parse_query.md` 반영 (AC13)
