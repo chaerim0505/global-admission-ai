@@ -1,143 +1,249 @@
-# Global Admission AI Ontology
+name: "Global Admission AI"
+version: "1.0"
+purpose: "국제학생의 지원 조건을 공학계열 과정의 공식 정보와 비교해 과정 후보와 확인할 사항을 안내한다."
 
-## 1. 프로젝트 목적
+# 이 문서는 도메인 개체와 관계를 설명한다.
+# 실제 API 입력과 검증 과정 레코드의 형식은 아래 JSON 스키마에서 관리한다.
+schemas:
+  RequestContext: "../src/admission/schemas/request_context.schema.json"
+  Program: "../src/admission/schemas/program.schema.json"
 
-사용자의 학력, 전공, 성적, 관심 분야, 희망 국가, 학비 및 장학금 조건을 분석하여 적합한 해외 대학과 전공 과정을 추천한다. 대학원 지원자가 원하는 경우에는 관심 연구 분야와 교수의 연구 분야 및 최근 논문을 비교하여 지도교수 후보도 추천한다.
+scope:
+  destinationCountries: [KR, US, GB, NL, IE]
+  academicArea: engineering
+  degreeLevels: [undergraduate, master, phd]
+  outOfScope:
+    - "합격 확률 예측"
+    - "대학·전공 순위 산출"
+    - "지원서 작성·제출, 대학·교수 자동 연락, 결제"
+    - "생활비·비자·취업 분석"
 
-## 2. 주요 개체(Entities)
+enums:
+  degreeLevel: [undergraduate, master, phd]
+  educationLevel: [high_school, bachelor, master]
+  gradingSystem: [gpa, percentage, grade_rank, total_score, other]
+  languageTestType: [IELTS, TOEFL_iBT, Duolingo, TOPIK, other]
+  tuitionPeriod: [semester, year, total]
+  engineeringField:
+    - computing
+    - electrical_electronic
+    - mechanical
+    - civil_environmental
+    - chemical_materials
+    - industrial_systems
+    - aerospace
+    - biomedical
+    - other_engineering
+  fieldClassificationStatus: [included, excluded, needs_review]
+  requirementStatus: [met, unmet, needs_check]
+  resultSource: [team_verified, official_dataset, web_verified]
+  admissionTier: [reach, match, safety, unknown]
 
-### User
+entities:
+  User:
+    description: "해외 공학계열 과정에 지원하려는 사용자."
+    attributes:
+      currentEducationLevel: {type: educationLevel}
+      transcriptCountry: {type: countryCode, description: "성적표 발급 국가"}
+      nationality: {type: countryCode, description: "사용자의 국적"}
+      academicScore: {type: number}
+      gradingSystem: {type: gradingSystem}
+      maximumScore: {type: number}
+      languageTestType: {type: languageTestType}
+      languageTestScore: {type: number}
 
-사용자의 기본 정보와 지원 자격을 나타낸다. 지원 과정과 국가별 교육제도에 따라 해당되는 정보만 입력한다.
+  Preference:
+    description: "사용자가 과정 검색에 적용하는 희망 조건."
+    attributes:
+      applicantType: {type: degreeLevel}
+      preferredCountries: {type: array, items: countryCode}
+      engineeringFields: {type: array, items: engineeringField}
+      interests: {type: array, items: string, description: "관심 전공 또는 연구 주제"}
+      maximumTuition: {type: number}
+      tuitionCurrency: {type: currencyCode}
+      tuitionPeriod: {type: tuitionPeriod}
+      scholarshipRequired: {type: boolean}
+      professorMatchingRequired: {type: boolean, description: "지도교수 추천을 원하는지 나타내는 입력값"}
 
-#### 필수 입력
+  RequestContext:
+    description: "지원자 정보와 희망 조건을 하나로 묶은 추천 요청. 파서가 찾은 범위 밖 요청도 포함한다."
+    combines: [User, Preference]
+    attributes:
+      outOfScopeRequests: {type: array, items: string}
+    validation:
+      requiredForRecommendation:
+        - applicantType
+        - currentEducationLevel
+        - transcriptCountry
+        - academicScore
+        - gradingSystem
+      atLeastOneOf: [engineeringFields, interests]
+      conditional:
+        - when: "gradingSystem이 gpa 또는 total_score인 경우"
+          required: [maximumScore]
+        - when: "maximumTuition을 입력한 경우"
+          required: [tuitionCurrency, tuitionPeriod]
+      rules:
+        - "maximumScore가 입력되면 양수여야 하며 academicScore는 maximumScore를 초과할 수 없다."
+        - "5개국 제한은 preferredCountries에 적용한다. nationality와 transcriptCountry는 각각 별도로 기록한다."
 
-- applicantType: 지원 과정(학부 / 석사 / 박사)
-- currentEducationLevel: 현재 또는 최종 학력
-- transcriptCountry: 성적표 발급 국가
-- academicScore: 현재 또는 최종 학교 성적
-- gradingSystem: 성적 체계(GPA, 백분율, 내신 등급, 총점 등)
-- maximumScore: 성적 체계의 최고 점수(해당되는 경우)
-- interests: 관심 전공 또는 연구 분야
+  Country:
+    description: "대학 소재지, 사용자 국적, 성적표 발급 국가에 사용하는 국가 정보."
+    attributes:
+      countryCode: {type: string, format: "ISO 3166-1 alpha-2"}
+      countryName: {type: string}
 
-#### 선택 입력
+  University:
+    description: "학위 과정을 제공하는 대학."
+    attributes:
+      universityName: {type: string}
+      country: {type: countryCode}
+      officialDomain: {type: string}
+      difficultyPercentile: {type: number, description: "추천 순서에 쓰는 국가별 참고 지표"}
 
-- schoolName: 현재 또는 최종 출신 학교
-- graduationStatus: 졸업 여부 또는 졸업 예정일
-- classRank: 학년 또는 학급 석차
-- englishTestType: 영어 시험 종류
-- englishScore: 영어 시험 점수
-- transcriptFile: 성적표 파일
-- activities: 교내·외 활동
-- skills: 보유 기술
-- researchExperience: 연구·프로젝트·논문 경험
+  Program:
+    description: "대학이 제공하는 공학계열 학위 과정."
+    attributes:
+      programId: {type: string}
+      universityName: {type: string}
+      programName: {type: string}
+      country: {type: countryCode}
+      degreeLevel: {type: degreeLevel}
+      engineeringFields: {type: array, items: engineeringField}
+      topics: {type: array, items: string}
+      fieldClassification: {type: FieldClassification}
+      intake: {type: string, description: "모집 시기"}
+      academicRequirementText: {type: string}
+      minimumGpa: {type: number}
+      minimumGpaScale: {type: number}
+      languageRequirements: {type: array, items: LanguageRequirement}
+      tuition: {type: Tuition}
+      applicationDeadline: {type: date}
+      scholarships: {type: array, items: Scholarship}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
+      verificationStatus: {type: string, enum: [verified, needs_check]}
 
-### Preference
-사용자가 원하는 유학 조건을 나타낸다.
+  AdmissionRequirement:
+    description: "과정별 학력, 성적, 어학 등 지원 조건을 나타내는 개념. 검증 과정 레코드에는 관련 필드가 나뉘어 저장된다."
+    programFields: [academicRequirementText, minimumGpa, minimumGpaScale, languageRequirements]
 
-- preferredCountries: 희망 국가
-- degreeLevel: 희망 학위 과정
-- preferredMajor: 희망 전공
-- maximumTuition: 부담 가능한 최대 학비
-- scholarshipRequired: 장학금 필요 여부
-- professorMatchingRequired: 지도교수 추천 여부
+  LanguageRequirement:
+    description: "과정이 공개한 어학 시험과 최소 점수."
+    attributes:
+      testType: {type: languageTestType}
+      minimumScore: {type: number}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
 
-### University
-추천 대상 대학 정보를 나타낸다.
+  FieldClassification:
+    description: "과정을 공학계열에 포함할지 판단한 근거."
+    attributes:
+      status: {type: fieldClassificationStatus}
+      reason: {type: string}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
 
-- universityName: 대학명
-- country: 국가
-- location: 지역
-- ranking: 대학 순위
-- websiteUrl: 대학 공식 홈페이지
+  Tuition:
+    description: "공식 출처에 기록된 학비."
+    attributes:
+      amount: {type: number}
+      currency: {type: currencyCode}
+      period: {type: tuitionPeriod}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
 
-### Program
-대학이 제공하는 학위 과정을 나타낸다.
+  Scholarship:
+    description: "지원 조건과 공식 안내 페이지가 있는 장학금."
+    attributes:
+      name: {type: string}
+      amount: {type: string}
+      eligibility: {type: string}
+      nationalityRestriction: {type: string}
+      deadline: {type: date, description: "장학금 신청 마감일"}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
+      origin: {type: string, enum: [database, web_search]}
 
-- programName: 과정명
-- degreeLevel: 학사·석사·박사
-- fieldOfStudy: 전공 분야
-- tuition: 학비
-- applicationDeadline: 지원 마감일
-- admissionRequirements: 입학 요건
-- englishRequirement: 영어 점수 요건
+  EvidenceChunk:
+    description: "공식 자료에서 주제별로 정리한 근거 문단."
+    attributes:
+      programId: {type: string}
+      topic: {type: string}
+      text: {type: string}
+      sourceUrl: {type: url}
+      checkedAt: {type: date}
 
-### Scholarship
-장학금 정보를 나타낸다.
+  Professor:
+    status: planned
+    description: "지도교수 추천 기능에서 사용할 교수 정보."
+    attributes:
+      professorName: {type: string}
+      department: {type: string}
+      researchFields: {type: array, items: ResearchField}
+      recentPublications: {type: array, items: Publication}
+      profileUrl: {type: url}
 
-- scholarshipName: 장학금명
-- amount: 지원 금액
-- eligibility: 지원 자격
-- deadline: 신청 마감일
-- scholarshipUrl: 공식 안내 링크
+  ResearchField:
+    status: planned
+    attributes:
+      name: {type: string}
 
-### Professor
-대학원 지원자를 위한 지도교수 정보를 나타낸다.
+  Publication:
+    status: planned
+    attributes:
+      title: {type: string}
+      abstract: {type: string}
+      publicationUrl: {type: url}
 
-- professorName: 교수명
-- university: 소속 대학
-- department: 소속 학과
-- researchFields: 연구 분야
-- recentPublications: 최근 논문
-- profileUrl: 교수 공식 프로필
+relationships:
+  - {from: User, relation: hasPreference, to: Preference}
+  - {from: University, relation: locatedIn, to: Country}
+  - {from: University, relation: offers, to: Program}
+  - {from: Program, relation: requires, to: AdmissionRequirement}
+  - {from: Program, relation: hasTuition, to: Tuition}
+  - {from: Program, relation: hasScholarship, to: Scholarship}
+  - {from: Country, relation: offersGovernmentScholarship, to: Scholarship}
+  - {from: Program, relation: hasEvidence, to: EvidenceChunk}
+  - {from: RequestContext, relation: evaluatedAgainst, to: Program}
+  - {from: Professor, relation: belongsTo, to: University, status: planned}
+  - {from: Professor, relation: researches, to: ResearchField, status: planned}
+  - {from: Professor, relation: authored, to: Publication, status: planned}
+  - from: Professor
+    relation: affiliatedWithProgram
+    to: Program
+    status: planned
+    evidenceFields: [sourceUrl, checkedAt]
+    description: "공식 자료에서 교수와 해당 과정의 관계를 확인한 경우에 기록한다."
 
-## 3. 관계(Relationships)
+recommendation:
+  rules:
+    - "희망 국가, 지원 학위, 공학 분야에 맞는 과정을 찾는다."
+    - "비교 가능한 공식 요건에 대해 met 또는 unmet을 기록한다. 정보나 비교 기준이 부족하면 needs_check로 둔다."
+    - "과정의 입학 마감일과 장학금 신청 마감일을 별도 필드로 관리한다."
+    - "원문 학비의 금액·통화·기간을 보존한다. 비교 조건과 환산 기준은 아키텍처 설계서에 따른다."
+    - "결과 탭은 팀 검증 데이터, 공식 데이터셋, 링크 검사를 통과한 웹 후보의 출처를 구분한다."
+    - "난이도 등급은 탐색 순서를 정하는 참고값이다."
+  outputs:
+    common: [universityName, programName, degreeLevel, sourceUrl]
+    whenAvailable: [tuition, applicationDeadline, scholarships]
+    verifiedRecommendation: [reason, requirements]
+    catalogueResult: [source, budgetFit, admissionTier]
 
-- User `hasPreference` Preference  
-  사용자는 희망 국가, 학위, 전공, 학비 등의 조건을 가진다.
-
-- University `offers` Program  
-  대학은 학사·석사·박사 과정을 제공한다.
-
-- Program `requires` AdmissionRequirement  
-  전공 과정은 GPA, 학력, 영어 점수 등의 입학 요건을 요구한다.
-
-- Program `provides` Scholarship  
-  전공 과정 또는 대학은 신청 가능한 장학금을 제공한다.
-
-- Professor `belongsTo` University  
-  교수는 특정 대학과 학과에 소속된다.
-
-- Professor `researches` ResearchField  
-  교수는 하나 이상의 연구 분야를 연구한다.
-
-- User `matchesWith` Program  
-  사용자의 프로필과 희망 조건을 전공 과정의 정보 및 입학 요건과 비교한다.
-
-- GraduateApplicant `matchesWith` Professor  
-  지도교수 추천을 선택한 대학원 지원자에 한하여 관심 분야와 교수의 연구 분야 및 최근 논문을 비교한다.
-
-## 4. 추천 규칙(Recommendation Rules)
-
-### 필수조건 확인
-
-- 사용자의 학력이 과정의 지원 자격을 충족하는지 확인한다.
-- GPA와 영어 점수가 최소 입학 요건을 충족하는지 확인한다.
-- 사용자가 희망한 국가와 학위 과정에 해당하는지 확인한다.
-- 지원 마감일이 지나지 않았는지 확인한다.
-
-### 적합도 계산
-
-- 희망 전공과 과정의 전공 분야 유사도
-- 관심 분야와 과정 또는 교수 연구 분야의 유사도
-- 사용자 예산과 실제 학비의 적합성
-- 장학금 필요 여부와 신청 가능한 장학금 존재 여부
-- 입학 요건 충족 정도
-
-### 지도교수 추천
-
-지도교수 추천은 대학원 지원자가 해당 기능을 선택한 경우에만 수행한다. 사용자의 관심 연구 분야와 교수의 연구 분야 및 최근 논문의 초록을 비교하여 적합한 교수를 추천한다.
-
-## 5. 추천 결과(Output)
-
-- 추천 대학명
-- 추천 전공 및 학위 과정
-- 적합도 점수
-- 충족한 입학 조건
-- 부족한 입학 조건
-- 예상 학비
-- 신청 가능한 장학금
-- 지원 마감일
-- 공식 정보 출처
-- 추천 이유
-- 지도교수 후보 및 관련 논문(선택 사항)
+plannedExtensions:
+  additionalUserFields:
+    - schoolName
+    - previousMajor
+    - graduationStatus
+    - classRank
+    - activities
+    - skills
+    - researchExperience
+  transcriptUpload:
+    status: planned
+  professorMatching:
+    status: planned
+    appliesTo: [master, phd]
+    optInField: professorMatchingRequired
+    requires: "교수와 지원 과정의 관계를 확인한 공식 출처"
+    compares: "지원자의 관심 연구 분야와 교수의 연구 분야 및 최근 논문 초록"
