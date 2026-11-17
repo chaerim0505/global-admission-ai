@@ -4,10 +4,10 @@
 - 에이전트: Claude (Cowork) / 위임자: SHWE (chaerim0505)
 - 관련 파일: `src/admission/ai_exploration.py`, `frontend/app.py`, `tests/harness/ai_exploration_cases.yaml`, `tests/test_ai_exploration_golden.py`, `docs/SPEC.md` 3.0절·AC19
 
-## 1회차 — 기능 구현 (2026-11-11)
+## 1회차 — 기능 구현 
 
 **프롬프트(원문)**
-> data 에 없으면 학교 안 찾아주네.gemini 가 찾아줘야지
+> data 에 없으면 gemini web search 가 찾아주는 것으로
 
 추가 지시(원문):
 > 데이터 결과가 먼저 있으면 나오고 없으면, 아래에 "🔎 Find more universities with Gemini" 버튼이 생겨지 말고 바로 결과
@@ -16,14 +16,14 @@
 **결과**
 - `frontend/app.py`에 Gemini + Google Search 호출, JSON 파싱, https 링크 없는 항목 제거, 검증 후보와 같은 대학 제외, 최대 5개 카드 표시를 넣었다.
 - 검증 방법: 가짜 모델 응답으로 카드 렌더링만 확인(작업 환경에서 Gemini 접근 불가). 실제 Gemini 호출은 사람이 배포 후 확인.
-- 커밋: `63d8064 Search programmes with Gemini automatically` (사람이 검토 후 push)
+- 커밋: `63d8064 Search programmes with Gemini automatically` 
 
 **문제 발견(사람 + 에이전트 검토)** — 강의 6·7 기준 점검 중, 이 기능이 SPEC **AC3**("데이터에 존재하는 과정만 반환, 이름을 생성하면 실패")과 충돌함을 확인했다. 에이전트가 구현 전에 스펙과의 충돌을 확인하지 않은 것이 원인이다(AGENTS.md 4절: 스펙 변경이 필요하면 멈추고 사람 판단을 받아야 함).
 
 **사람의 판단** — 선택지 A(기능 제거) / B(기능 유지 + 스펙 수정) 중 **B**:
 > B. 기능을 유지하고 스펙을 고치기 … 이 것로 해줘.
 
-## 2회차 — 스펙 반영과 규칙의 코드화 (2026-11-11)
+## 2회차 — 스펙 반영과 규칙의 코드화 
 
 **작업 지시** — "검증 후보"와 "AI 탐색 결과(검증 전)"를 분리 정의하고, AC3을 검증 후보에만 적용, SPEC·ARCHITECTURE·골든 케이스에 반영.
 
