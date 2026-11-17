@@ -1,24 +1,6 @@
 # Global Admission AI
 RAG and Embedding-based AI Agent
 
-## 평가 항목별 파일 위치 (중간평가 2)
-
-교수님 안내의 예시 파일 이름과 다른 곳은 「이 저장소」 열의 파일을 봐 주세요. 모든 링크는 `main` 브랜치 기준입니다.
-
-| 평가 기준 | 안내의 예시 파일 | 이 저장소 |
-| --- | --- | --- |
-| 핵심 기능 구현 | `SPEC.md`에 MVP 포함 AC 표시 | [`docs/SPEC.md` 6.0절 "MVP 범위 표시"](docs/SPEC.md) — AC별 MVP 포함 여부와 검증 케이스 표. 구현: [`src/admission/recommend_v2.py`](src/admission/recommend_v2.py), [`src/admission/recommend.py`](src/admission/recommend.py), [`src/admission/requirement_finder.py`](src/admission/requirement_finder.py), [`frontend/app.py`](frontend/app.py) |
-| 실행 방법 문서 | README: 실행 환경, 설치·실행 명령, 핵심 시나리오(입력 예·기대 결과·AC) | 이 README의 [2절 실행 및 접속 방법](#2-실행-및-접속-방법), [7절 개발자 안내](#7-개발자-안내-실행-테스트-평가), [3절 「테스트용 핵심 시나리오」](#테스트용-핵심-시나리오-입력-예--기대-결과--ac) |
-| 골든 케이스 | `tests/harness/golden_cases.yaml` | 기능별로 4개 파일 — [`golden_cases.yaml`](tests/harness/golden_cases.yaml) (GC, 과정 검색·요건), [`recommend_v2_cases.yaml`](tests/harness/recommend_v2_cases.yaml) (RV, 5곳 추천·예산·등급·언어·장학금), [`ai_exploration_cases.yaml`](tests/harness/ai_exploration_cases.yaml) (AX, 웹 검색 결과), [`intake_followup_cases.yaml`](tests/harness/intake_followup_cases.yaml) (IF, 짧은 답변 해석). 모든 케이스에 `ac`와 `category`(normal 정상 / boundary 경계 / forbidden 금지 행동) |
-| 테스트 하니스 | `tests/test_<기능>_golden.py` | [`test_recommend_golden.py`](tests/test_recommend_golden.py) (GC), [`test_recommend_v2_golden.py`](tests/test_recommend_v2_golden.py) (RV), [`test_ai_exploration_golden.py`](tests/test_ai_exploration_golden.py) (AX), [`test_intake_followup_golden.py`](tests/test_intake_followup_golden.py) (IF). skip·xfail 없음 |
-| 결함 주입 기록 | `docs/prompts/delegation_<기능>.md` | [`delegation_recommend_v2.md`](docs/prompts/delegation_recommend_v2.md) (맨 아래 결함 주입 표, 도구 [`scripts/fault_injection.py`](scripts/fault_injection.py)), [`delegation_ai_exploration.md`](docs/prompts/delegation_ai_exploration.md), [`delegation_intake_followup.md`](docs/prompts/delegation_intake_followup.md), [`delegation_evals.md`](docs/prompts/delegation_evals.md) |
-| evals 설계 | `evals/EVAL_DESIGN.md` | 같음 — [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) (지표마다 AC·계산 방법·합격선) |
-| evals 데이터셋 | `evals/evalset.jsonl` | 같음 — [`evals/evalset.jsonl`](evals/evalset.jsonl) (25개, 9개 범주) |
-| evals 러너 | `evals/run_evals.py` | 같음 — [`evals/run_evals.py`](evals/run_evals.py) |
-| evals 결과·이력 | `evals/results/`, `evals/results/history.csv` | 같음 — [`evals/results/`](evals/results/), [`history.csv`](evals/results/history.csv) |
-| judge 사람 라벨 | `evals/judge_labels.jsonl` (judge 사용 시) | 현재 judge를 쓰지 않음 — 이유는 [`evals/EVAL_DESIGN.md` 6절](evals/EVAL_DESIGN.md) |
-| CI | — | [`.github/workflows/tests.yml`](.github/workflows/tests.yml) — push마다 pytest, 골든 리포트, offline evals |
-
 # Team Introduction
 
 저희는 소프트웨어학과 23학번 2명으로 구성된 개발팀입니다. 기획, 개발, 테스트와 문서화 업무를 나누고 GitHub Branch와 Pull Request를 활용하여 협업합니다.
@@ -26,8 +8,8 @@ RAG and Embedding-based AI Agent
 ## Team Members
 | 이름 | 주요 작업 |
 |---|---|
-| SHWE WUTT MHONE | API 연동 및 배포, AI 기능 구현, 테스트 및 성능 평가 |
-| SHWE YEE PHOO | 사용자 화면 구현, 서버 개발, 데이터 처리 |
+| SHWE WUTT MHONE | API 연동 및 배포,AI기능 구현,테스트 및 성능 평가,서버 개발,데이터 수집|
+| SHWE YEE PHOO | 사용자 화면 구현, 데이터 수집 및 처리 |
 
 ## 저장소 구조
 
@@ -320,3 +302,20 @@ python scripts/fault_injection.py --write
 | [`docs/prompts/`](docs/prompts/) | 위임·검증 기록 |
 | [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) | 품질 측정 설계, 결과 |
 | [`docs/presentations/`](docs/presentations/) | 발표 자료 |
+
+###7.8 평가 항목별 파일 위치 
+
+
+| 평가 기준 | 안내의 예시 파일 | 저장소 |
+| --- | --- | --- |
+| 핵심 기능 구현 | `SPEC.md`에 MVP 포함 AC 표시 | [`docs/SPEC.md` 6.0절 "MVP 범위 표시"](docs/SPEC.md) — AC별 MVP 포함 여부와 검증 케이스 표. 구현: [`src/admission/recommend_v2.py`](src/admission/recommend_v2.py), [`src/admission/recommend.py`](src/admission/recommend.py), [`src/admission/requirement_finder.py`](src/admission/requirement_finder.py), [`frontend/app.py`](frontend/app.py) |
+| 실행 방법 문서 | README: 실행 환경, 설치·실행 명령, 핵심 시나리오(입력 예·기대 결과·AC) | 이 README의 [2절 실행 및 접속 방법](#2-실행-및-접속-방법), [7절 개발자 안내](#7-개발자-안내-실행-테스트-평가), [3절 「테스트용 핵심 시나리오」](#테스트용-핵심-시나리오-입력-예--기대-결과--ac) |
+| 골든 케이스 | `tests/harness/golden_cases.yaml` | 기능별로 4개 파일 — [`golden_cases.yaml`](tests/harness/golden_cases.yaml) (GC, 과정 검색·요건), [`recommend_v2_cases.yaml`](tests/harness/recommend_v2_cases.yaml) (RV, 5곳 추천·예산·등급·언어·장학금), [`ai_exploration_cases.yaml`](tests/harness/ai_exploration_cases.yaml) (AX, 웹 검색 결과), [`intake_followup_cases.yaml`](tests/harness/intake_followup_cases.yaml) (IF, 짧은 답변 해석). 모든 케이스에 `ac`와 `category`(normal 정상 / boundary 경계 / forbidden 금지 행동) |
+| 테스트 하니스 | `tests/test_<기능>_golden.py` | [`test_recommend_golden.py`](tests/test_recommend_golden.py) (GC), [`test_recommend_v2_golden.py`](tests/test_recommend_v2_golden.py) (RV), [`test_ai_exploration_golden.py`](tests/test_ai_exploration_golden.py) (AX), [`test_intake_followup_golden.py`](tests/test_intake_followup_golden.py) (IF). skip·xfail 없음 |
+| 결함 주입 기록 | `docs/prompts/delegation_<기능>.md` | [`delegation_recommend_v2.md`](docs/prompts/delegation_recommend_v2.md) (맨 아래 결함 주입 표, 도구 [`scripts/fault_injection.py`](scripts/fault_injection.py)), [`delegation_ai_exploration.md`](docs/prompts/delegation_ai_exploration.md), [`delegation_intake_followup.md`](docs/prompts/delegation_intake_followup.md), [`delegation_evals.md`](docs/prompts/delegation_evals.md) |
+| evals 설계 | `evals/EVAL_DESIGN.md` | 같음 — [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) (지표마다 AC·계산 방법·합격선) |
+| evals 데이터셋 | `evals/evalset.jsonl` | 같음 — [`evals/evalset.jsonl`](evals/evalset.jsonl) (25개, 9개 범주) |
+| evals 러너 | `evals/run_evals.py` | 같음 — [`evals/run_evals.py`](evals/run_evals.py) |
+| evals 결과·이력 | `evals/results/`, `evals/results/history.csv` | 같음 — [`evals/results/`](evals/results/), [`history.csv`](evals/results/history.csv) |
+| judge 사람 라벨 | `evals/judge_labels.jsonl` (judge 사용 시) | 현재 judge를 쓰지 않음 — 이유는 [`evals/EVAL_DESIGN.md` 6절](evals/EVAL_DESIGN.md) |
+| CI | — | [`.github/workflows/tests.yml`](.github/workflows/tests.yml) — push마다 pytest, 골든 리포트, offline evals |
