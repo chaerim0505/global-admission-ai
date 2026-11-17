@@ -41,7 +41,11 @@ def test_ai_exploration_case(case):
         today=date(2026, 11, 11),
     )
     expected = case["expected"]
+    # a misspelled key would otherwise pass without being checked
+    assert not set(expected) - {"count", "universities", "absent", "countries_only", "all_status"}
     names = {item["universityName"] for item in result}
+    if "all_status" in expected:
+        assert all(item["verificationStatus"] == expected["all_status"] for item in result)
 
     if "count" in expected:
         assert len(result) == expected["count"]

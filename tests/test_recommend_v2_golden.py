@@ -21,9 +21,18 @@ RULES = yaml.safe_load((ROOT / "config/tiers.yaml").read_text(encoding="utf-8"))
 from admission import recommend_v2 as rv  # noqa: E402
 
 
+KNOWN_EXPECTED_KEYS = {
+    "language", "tier", "kept", "all_source", "includes_national", "excludes_national",
+    "university_status", "count", "distinct_universities", "all_have_source", "has_shortfall_reason",
+    "countries_only", "absent_universities", "unknown_tuition_after_known", "tier_counts",
+}
+
+
 def _run(case):
     fx = SPEC["fixtures"]
     kind, exp = case["kind"], case["expected"]
+    # a misspelled key would otherwise pass without being checked
+    assert not set(exp) - KNOWN_EXPECTED_KEYS, f"unknown expected keys: {set(exp) - KNOWN_EXPECTED_KEYS}"
     if kind == "language":
         assert rv.detect_language(case["messages"]) == exp["language"]
     elif kind == "tier":

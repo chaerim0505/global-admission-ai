@@ -29,6 +29,13 @@ def _all_sourced(candidate: dict) -> bool:
     return all(item.get("sourceUrl") and item.get("checkedAt") for item in items)
 
 
+KNOWN_EXPECTED_KEYS = {
+    "status", "input_error_fields", "countries_only", "degree_only", "must_include",
+    "must_exclude", "excluded_include", "candidates_empty", "must_have_source", "scope_notice",
+    "needs_check_items", "budget_fit", "follow_ups_nonempty", "ids_in_data", "budget_fit_undecided",
+}
+
+
 def check_case(
     case: dict,
     result: dict,
@@ -36,6 +43,9 @@ def check_case(
 ) -> list[str]:
     """실패 사유 목록을 반환한다. 비어 있으면 통과."""
     expected = case.get("expected", {})
+    unknown = set(expected) - KNOWN_EXPECTED_KEYS
+    if unknown:  # a misspelled key would otherwise pass without being checked
+        return [f"알 수 없는 판정 키: {sorted(unknown)}"]
     failures = []
     status = 422 if "inputErrors" in result else 200
 
