@@ -16,9 +16,9 @@
 | 인젝션 저항 `injection_resistance` | 발화 속 지시문이 추출 결과에 들어가지 않은 비율 | 코드 | AC10 | 100% | live |
 | 짧은 답변 해석 정확도 `followup_accuracy` | 질문한 항목에 짧은 답을 채우고, 다른 항목을 바꾸지 않은 비율 | 코드 | AC20 | ≥ 90% | live |
 | AI 탐색 규칙 준수율 `explore_rule_compliance` | AI 탐색 결과가 `ai_suggested`·https 공식 링크·요청 국가·최대 5개·판정 없음을 모두 지킨 비율(결과 1개 이상) | 코드 | AC19 | 100% | live |
-| 추천 이유 근거 충실도 `reason_faithfulness` | 추천 이유가 후보 데이터에 없는 사실·확정 표현을 쓰지 않은 비율 | LLM-as-a-Judge (pass/fail) | AC4, AC5 | ≥ 80% | live + judge |
+| ~~추천 이유 근거 충실도 `reason_faithfulness`~~ | **중간평가 2부터 측정하지 않음** (6절) | — | AC4, AC5 | — | — |
 
-원칙: 코드로 잴 수 있는 것은 judge에 맡기지 않는다. judge는 추천 이유의 근거 충실도(주관 지표)에만 쓴다.
+원칙: 코드로 잴 수 있는 것은 judge에 맡기지 않는다. 현재 모든 지표는 코드로 채점하며 LLM-as-a-Judge는 쓰지 않는다(6절).
 
 **상충 지표(굿하트 대응)** — 한 지표의 편법 상승을 다른 지표로 드러낸다.
 - AI 탐색 규칙 준수율 ↔ 결과 개수(`min_count: 1`): 결과를 0개로 내면 규칙 위반은 없지만 실패로 센다.
@@ -56,7 +56,7 @@
 
 ```bash
 PYTHONPATH=src python evals/run_evals.py                          # offline
-PYTHONPATH=src python evals/run_evals.py --live --judge --repeat 3 --note "변경 내역"
+PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "변경 내역"
 ```
 
 ## 4. 결과 기록과 베이스라인
@@ -101,17 +101,15 @@ AI 탐색은 성공한 2건도 각각 73초, 77초가 걸렸다(지연이 실패
 | 회귀 지표 (파싱 정확도, 짧은 답변 해석 정확도) | 베이스라인 대비 −5%p(허용 오차) 넘게 하락하면 배포 보류, 3회 반복 평균으로 판정 |
 | 능력 지표 (근거 충실도) | 목표 미달이어도 배포 허용, 개선 백로그로 이관 |
 
-프롬프트(`parser.py`, `ai_exploration.py`), 모델(`GEMINI_MODEL`), 검색 설정(`config/rag.yaml`)을 바꾸면 배포 전에 `--live --judge --repeat 3`을 실행한다.
+프롬프트(`parser.py`, `ai_exploration.py`), 모델(`GEMINI_MODEL`), 검색 설정(`config/rag.yaml`)을 바꾸면 배포 전에 `--live --repeat 3`을 실행한다.
 
-## 6. Judge 검증(메타 평가) — 사람이 할 일
+## 6. LLM-as-a-Judge를 쓰지 않는 이유 (2026-11-18 결정)
 
-1. live+judge를 실행해 judge 대상 출력 20–30개를 모은다.
-2. **사람이 직접** 각 출력에 pass/fail과 이유를 단다 → `judge_labels.jsonl`
-   형식: `{"case_id": "e01", "programId": "...", "reason": "<추천 이유 원문>", "human_verdict": "pass", "human_note": "..."}`
-3. 같은 표본의 judge 판정과 대조해 일치율과 불일치 방향(judge가 관대한지 엄격한지)을 기록한다.
-4. 일치율 80% 이상이면 judge 프롬프트 v1을 고정, 미만이면 엇갈린 케이스 원문으로 판정 조건을 고치고 버전을 올린다.
-
-`judge_labels.jsonl`은 지금 비어 있다 — 사람 라벨은 사람이 만든다.
+- judge가 채점하던 `reason`(추천 이유)은 백엔드 `/recommend` 응답에만 있고, **현재 앱 화면에는 표시되지 않는다.** 화면의 추천 카드는 `src/admission/recommend_v2.py` 경로를 쓰며 이유 문장을 만들지 않는다.
+- 이유 문장은 `src/admission/reason_writer.py`의 템플릿으로 만들어져, 평가 세트에서 서로 다른 문장이 1개뿐이었다(Galway 과정). 사용자에게 보이지 않는 템플릿 문장을 채점하는 것은 품질 측정으로 의미가 약하다고 판단했다.
+- 그래서 evalset의 `graders`에서 `judge`를 빼고, `reason_faithfulness`는 측정하지 않는다. 사람 라벨(`judge_labels.jsonl`)과 일치율도 대상이 없다.
+- 이전 judge 실행 기록은 지우지 않는다: `results/2026-11-11T0246.json`(2/2 pass), `results/2026-11-18T0228.json`(15/15 pass, 같은 문장 반복). 두 실행 모두 사람 라벨이 없어 judge 신뢰도는 검증되지 않았다.
+- 최종 평가 전 계획: 추천 카드에 이유 문장을 보여 주게 되면 judge를 다시 도입하고, 사람 라벨 20–30개로 일치율(목표 80%)을 먼저 확인한다. `judge_prompt.md` v1은 그때를 위해 남겨 둔다.
 
 ## 7. 오류 분석 — 사람이 할 일 (`ERROR_ANALYSIS.md`)
 
@@ -135,8 +133,8 @@ live 실행 후 실패 케이스를 **사람이 원문(입력·출력·로그)�
 ## 8. 남은 작업
 
 - [x] live 베이스라인 1회 기록 (2026-11-11T0246)
-- [ ] `--live --judge --repeat 3` 실행 → 반복 측정 평균 기록
+- [x] `--live --repeat 3` 실행 → 반복 측정 기록 (2026-11-18T0228)
 - [x] 골든 테스트 CI (`.github/workflows/tests.yml`)
-- [ ] judge 라벨 20–30개 작성 및 일치율 측정(6절)
+- [ ] (judge 재도입 시) 사람 라벨 20–30개 작성 및 일치율 측정(6절)
 - [ ] 실패 케이스 오류 분석(7절)
 - [ ] 평가 세트 50개로 확장, 검증 데이터(`data/programs.json`) 확대 후 offline 재측정

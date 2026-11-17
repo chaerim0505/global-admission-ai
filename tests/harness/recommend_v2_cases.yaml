@@ -18,28 +18,33 @@ fixtures:
 
 cases:
   - id: RV-01
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC21]
     kind: language
     messages: ["I want a master's in electrical engineering in the US"]
     expected: {language: en}
   - id: RV-02
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC21]
     kind: language
     messages: ["미국에서 전자공학 석사를 하고 싶어요"]
     expected: {language: ko}
   - id: RV-03
+    category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC21]
     kind: language
     note: mixed history — the last message decides
     messages: ["미국 석사", "Actually please answer in English, budget 30000 USD"]
     expected: {language: en}
   - id: RV-04
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC22, AC27]
     kind: recommend
     note: 7 matching universities (u2 has two programmes) -> exactly 5 distinct universities, each with source
     context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic]}
     expected: {count: 5, distinct_universities: true, all_have_source: true}
   - id: RV-05
+    category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC22, AC9]
     kind: recommend
     note: only 2 KR civil programmes -> return 2 with shortfallReason, never add other countries or fields
@@ -47,18 +52,21 @@ cases:
     web_results: []
     expected: {count: 2, has_shortfall_reason: true, countries_only: [KR]}
   - id: RV-06
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC24]
     kind: recommend
     note: budget 30000 USD/year -> Uni A (52000) excluded; Uni E (no tuition) after all within-budget items
     context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], maximumTuition: 30000, tuitionCurrency: USD, tuitionPeriod: year}
     expected: {absent_universities: [Uni A], unknown_tuition_after_known: true}
   - id: RV-07
+    category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC24]
     kind: recommend
     note: KRW budget compared after conversion (40,000,000 KRW ~ 28,800 USD)
     context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], maximumTuition: 40000000, tuitionCurrency: KRW, tuitionPeriod: year}
     expected: {absent_universities: [Uni A]}
   - id: RV-08
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC25]
     kind: tier
     note: GPA 4.4/4.5 = 97.8; index 96 -> match
@@ -66,6 +74,7 @@ cases:
     university_index: 96
     expected: {tier: match}
   - id: RV-09
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC25]
     kind: tier
     note: GPA 3.5/4.5 = 77.8; index 96 -> reach
@@ -73,6 +82,7 @@ cases:
     university_index: 96
     expected: {tier: reach}
   - id: RV-10
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC25]
     kind: tier
     note: GPA 4.4/4.5 = 97.8; index 62 -> safety
@@ -80,6 +90,7 @@ cases:
     university_index: 62
     expected: {tier: safety}
   - id: RV-11
+    category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC25]
     kind: tier
     note: no public indicator -> unknown, never guessed
@@ -87,12 +98,14 @@ cases:
     university_index: null
     expected: {tier: unknown}
   - id: RV-12
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC25, AC22]
     kind: recommend
     note: GPA 3.6/4.5 = 80 -> mix 1 reach + 3 match + 1 safety when available
     context: {preferredCountries: [US], applicantType: master, engineeringFields: [electrical_electronic], academicScore: 3.6, maximumScore: 4.5}
     expected: {tier_counts: {reach: 1, match: 3, safety: 1}}
   - id: RV-13
+    category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC23, AC19]
     kind: web_check
     note: web results only enter when the link opens and the domain matches the university's ROR domain
@@ -103,20 +116,31 @@ cases:
       - {universityName: No ROR Uni, sourceUrl: "https://noror.edu/x", http_status: 200, ror_domains: []}
     expected: {kept: [Real Uni], all_source: web_verified}
   - id: RV-14
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC26]
     kind: scholarships
     note: national scholarships for requested country shown; university scholarships never judged eligible
     context: {preferredCountries: [KR], applicantType: master}
     expected: {includes_national: [kr_gks_graduate_2026], university_status: check_official_page}
   - id: RV-15
+    category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC26]
     kind: scholarships
     note: closed country lists that do not include the applicant are hidden (GREAT, Commonwealth for Myanmar)
     context: {preferredCountries: [GB], applicantType: master, nationality: MM}
     expected: {includes_national: [gb_chevening_2027], excludes_national: [gb_great_2026, gb_commonwealth_shared_2027], university_status: check_official_page}
   - id: RV-16
+    category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
     ac: [AC26]
     kind: scholarships
     note: every country and degree the app covers has at least one government scholarship where one exists
     context: {preferredCountries: [KR, NL, IE], applicantType: undergraduate}
     expected: {includes_national: [kr_gks_undergraduate_2027, nl_nl_scholarship_2027], university_status: check_official_page}
+  - id: RV-17
+    category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
+    ac: [AC26]
+    kind: scholarships
+    note: a closed country list is checked for every nationality, not only Myanmar (US national -> no GREAT, no Commonwealth)
+    context: {preferredCountries: [GB], applicantType: master, nationality: US}
+    expected: {includes_national: [gb_chevening_2027], excludes_national: [gb_great_2026, gb_commonwealth_shared_2027], university_status: check_official_page}
+

@@ -82,7 +82,6 @@ class _FakeClient:
 
 
 def test_explore_programmes_uses_google_search_and_filters(monkeypatch):
-    pytest.importorskip("google.genai")
     case = CASES[0]
     client = _FakeClient(case["model_output"])
 

@@ -9,7 +9,10 @@ PATH = Path(__file__).resolve().parents[1] / "data" / "catalogue" / "programs_un
 FIELDS = {"computing", "electrical_electronic", "mechanical", "civil_environmental", "chemical_materials",
           "industrial_systems", "aerospace", "biomedical", "other_engineering"}
 
-pytestmark = pytest.mark.skipif(not PATH.exists(), reason="run scripts/build_unified_catalogue.py first")
+
+
+def test_catalogue_file_exists():
+    assert PATH.exists(), "data/catalogue/programs_unified.json is missing: run scripts/build_unified_catalogue.py"
 
 
 @pytest.fixture(scope="module")

@@ -101,7 +101,6 @@ def test_failed_tool_call_is_logged(caplog):
             def generate_content(**kwargs):
                 raise RuntimeError("boom")
 
-    pytest.importorskip("google.genai")
     with caplog.at_level(logging.INFO, logger="admission.tools"):
         with pytest.raises(RuntimeError):
             tools.explore_programmes_web(CONTEXT, client=Broken())

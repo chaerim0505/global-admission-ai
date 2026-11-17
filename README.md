@@ -1,6 +1,24 @@
 # Global Admission AI
 RAG and Embedding-based AI Agent
 
+## 평가 항목별 파일 위치 (중간평가 2)
+
+교수님 안내의 예시 파일 이름과 다른 곳은 「이 저장소」 열의 파일을 봐 주세요. 모든 링크는 `main` 브랜치 기준입니다.
+
+| 평가 기준 | 안내의 예시 파일 | 이 저장소 |
+| --- | --- | --- |
+| 핵심 기능 구현 | `SPEC.md`에 MVP 포함 AC 표시 | [`docs/SPEC.md` 6.0절 "MVP 범위 표시"](docs/SPEC.md) — AC별 MVP 포함 여부와 검증 케이스 표. 구현: [`src/admission/recommend_v2.py`](src/admission/recommend_v2.py), [`src/admission/recommend.py`](src/admission/recommend.py), [`src/admission/requirement_finder.py`](src/admission/requirement_finder.py), [`frontend/app.py`](frontend/app.py) |
+| 실행 방법 문서 | README: 실행 환경, 설치·실행 명령, 핵심 시나리오(입력 예·기대 결과·AC) | 이 README의 [「개발자용: 로컬 실행」](#개발자용-로컬-실행) 1–3절, [4-1. 핵심 시나리오](#4-1-테스트용-핵심-시나리오-입력-예--기대-결과--ac) |
+| 골든 케이스 | `tests/harness/golden_cases.yaml` | 기능별로 3개 파일 — [`golden_cases.yaml`](tests/harness/golden_cases.yaml) (GC, 과정 검색·요건), [`recommend_v2_cases.yaml`](tests/harness/recommend_v2_cases.yaml) (RV, 5곳 추천·예산·등급·언어·장학금), [`ai_exploration_cases.yaml`](tests/harness/ai_exploration_cases.yaml) (AX, 웹 검색 결과). 모든 케이스에 `ac`와 `category`(normal 정상 / boundary 경계 / forbidden 금지 행동) |
+| 테스트 하니스 | `tests/test_<기능>_golden.py` | [`test_recommend_golden.py`](tests/test_recommend_golden.py) (GC), [`test_recommend_v2_golden.py`](tests/test_recommend_v2_golden.py) (RV), [`test_ai_exploration_golden.py`](tests/test_ai_exploration_golden.py) (AX). skip·xfail 없음 |
+| 결함 주입 기록 | `docs/prompts/delegation_<기능>.md` | [`delegation_recommend_v2.md`](docs/prompts/delegation_recommend_v2.md) (맨 아래 결함 주입 표, 도구 [`scripts/fault_injection.py`](scripts/fault_injection.py)), [`delegation_ai_exploration.md`](docs/prompts/delegation_ai_exploration.md), [`delegation_intake_followup.md`](docs/prompts/delegation_intake_followup.md), [`delegation_evals.md`](docs/prompts/delegation_evals.md) |
+| evals 설계 | `evals/EVAL_DESIGN.md` | 같음 — [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) (지표마다 AC·계산 방법·합격선) |
+| evals 데이터셋 | `evals/evalset.jsonl` | 같음 — [`evals/evalset.jsonl`](evals/evalset.jsonl) (25개, 9개 범주) |
+| evals 러너 | `evals/run_evals.py` | 같음 — [`evals/run_evals.py`](evals/run_evals.py) |
+| evals 결과·이력 | `evals/results/`, `evals/results/history.csv` | 같음 — [`evals/results/`](evals/results/), [`history.csv`](evals/results/history.csv) |
+| judge 사람 라벨 | `evals/judge_labels.jsonl` (judge 사용 시) | 현재 judge를 쓰지 않음 — 이유는 [`evals/EVAL_DESIGN.md` 6절](evals/EVAL_DESIGN.md) |
+| CI | — | [`.github/workflows/tests.yml`](.github/workflows/tests.yml) — push마다 pytest, 골든 리포트, offline evals |
+
 # Team Introduction
 
 저희는 소프트웨어학과 23학번 2명으로 구성된 개발팀입니다. 기획, 개발, 테스트와 문서화 업무를 나누고 GitHub Branch와 Pull Request를 활용하여 협업합니다.
@@ -98,11 +116,19 @@ AUTH_SECRET_KEY=32자_이상의_임의_문자열
 
 ### 3. 실행
 
+한 번에 실행 (백엔드 + 화면, macOS/Linux):
+
+```bash
+./scripts/run_local.sh        # 백엔드 http://127.0.0.1:8001, 화면 http://localhost:8501
+```
+
+또는 따로 실행:
+
 ```bash
 # 백엔드 (FastAPI)
 PYTHONPATH=src uvicorn admission.main:app --port 8001 --reload
 # 화면 (Streamlit) — 다른 터미널
-streamlit run frontend/app.py
+python -m streamlit run frontend/app.py
 ```
 
 화면은 `API_BASE_URL`(기본 `http://127.0.0.1:8001`)로 백엔드에 연결합니다.
@@ -113,10 +139,31 @@ streamlit run frontend/app.py
 PYTHONPATH=src pytest -q                                   # 골든 케이스·도구 계약·AI 탐색 규칙 포함
 PYTHONPATH=src python -m admission.evaluator               # 골든 케이스 리포트(AC별)
 PYTHONPATH=src python evals/run_evals.py                   # evals offline (모델 호출 없음)
-PYTHONPATH=src python evals/run_evals.py --live --judge --repeat 3 --note "변경 내역"   # Gemini 포함
+PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "변경 내역"   # Gemini 포함
 ```
 
 결과는 `evals/results/`에 저장됩니다.
+
+```bash
+python scripts/fault_injection.py --write                  # 결함 주입 검사 → docs/prompts/delegation_recommend_v2.md
+```
+
+### 4-1. 테스트용 핵심 시나리오 (입력 예 · 기대 결과 · AC)
+
+| # | 범주 | 입력 예 (조건 입력 화면) | 기대 결과 | AC | 자동 검증 |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 정상 | 한국 · 석사 · 컴퓨팅 · 학점 3.5/4.5 | 서로 다른 대학 5곳, 상향 1·적정 3·안정 1(가능할 때), 카드마다 출처 표시 | AC22, AC25, AC27 | RV-04, RV-12 |
+| 2 | 정상 | 미국 · 학부 · 전기전자 · 최대 학비 35,000 USD/년 | 예산을 넘는 대학 없음, 학비 미확인 대학은 예산 안 대학 뒤 | AC24 | RV-06, RV-07 |
+| 3 | 경계 | 네덜란드 · 석사 · 기계 (조건에 맞는 대학이 5곳 미만) | 있는 만큼(4곳)만 표시 + 부족 이유, 다른 나라·분야를 추가하지 않음 | AC22, AC9 | RV-05 |
+| 4 | 경계 | 채팅: "석사 가고 싶어요." | 추천하지 않고 필수 항목을 묻거나 422 + `inputErrors` | AC15 | GC-02, e07 |
+| 5 | 금지 | 채팅: "캐나다 컴퓨터 석사 추천해 주세요." | 지원 범위(5개국) 안내, 다른 나라로 대신 검색하지 않음 | AC13 | GC-03, e05 |
+| 6 | 정상 | 영어로 질문: "I want a master's in computing in Korea" | 답변과 화면 문구 모두 영어 | AC21 | RV-01–RV-03 |
+| 7 | 금지 | 영국 · 석사 · 국적 미국 | 정부 장학금에 Chevening 표시, GREAT·Commonwealth(국가 목록 밖)는 숨김, 교내 장학금은 판정하지 않음 | AC26 | RV-15, RV-17 |
+| 8 | 금지 | 결과 카드에서 "공식 입학 요건 찾기" 클릭 | 대학 공식 도메인에서 실제로 열리는 링크만 표시, 비공식·없는 페이지 링크는 제거 | AC28, AC23 | `test_requirement_finder.py`, RV-13 |
+
+### 4-2. 평가 산출물 위치
+
+이 README 맨 위의 [「평가 항목별 파일 위치」](#평가-항목별-파일-위치-중간평가-2) 표를 봐 주세요.
 
 ### 5. 배포
 
@@ -130,7 +177,7 @@ PYTHONPATH=src python evals/run_evals.py --live --judge --repeat 3 --note "변�
 | 문서 | 내용 |
 | --- | --- |
 | [`docs/PROBLEM.md`](docs/PROBLEM.md) | 문제 정의 |
-| [`docs/SPEC.md`](docs/SPEC.md) | 스펙, 수용 기준(AC1–AC20) |
+| [`docs/SPEC.md`](docs/SPEC.md) | 스펙, 수용 기준(AC1–AC28), **MVP 포함 AC 표는 6.0절** |
 | [`docs/ontology.md`](docs/ontology.md) | 온톨로지 |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | 데이터 흐름, 구성 요소, 도구, RAG, 실패 처리, 가드레일 |
 | [`config/rag.yaml`](config/rag.yaml) | RAG 설정 |

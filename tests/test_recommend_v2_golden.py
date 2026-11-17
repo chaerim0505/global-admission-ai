@@ -1,6 +1,7 @@
 """Golden cases for SPEC F06-F09 / AC21-AC27, written before implementation.
 
-Each case is xfail until src/admission/recommend_v2.py provides:
+The cases were written first (xfail while the code was missing); now every case must pass.
+src/admission/recommend_v2.py provides:
   detect_language(messages) -> "en" | "ko"
   tier_for(applicant, university_index, rules) -> "reach" | "match" | "safety" | "unknown"
   recommend(context, catalogue, rates_to_usd, web_results=None) -> {"results": [...], "shortfallReason": str | None}
@@ -17,10 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = yaml.safe_load((ROOT / "tests/harness/recommend_v2_cases.yaml").read_text(encoding="utf-8"))
 RULES = yaml.safe_load((ROOT / "config/tiers.yaml").read_text(encoding="utf-8"))
 
-try:
-    from admission import recommend_v2 as rv
-except ImportError:  # not implemented yet (test first)
-    rv = None
+from admission import recommend_v2 as rv  # noqa: E402
 
 
 def _run(case):
@@ -71,8 +69,4 @@ def _run(case):
 
 @pytest.mark.parametrize("case", SPEC["cases"], ids=[c["id"] for c in SPEC["cases"]])
 def test_recommend_v2_golden(case):
-    needed = {"language": "detect_language", "tier": "tier_for", "web_check": "filter_web_results",
-              "scholarships": "scholarships_for", "recommend": "recommend"}[case["kind"]]
-    if rv is None or not hasattr(rv, needed):
-        pytest.xfail(f"{needed} not implemented yet (golden cases written first)")
-    _run(case)
+    _run(case)  # no skip / xfail: a missing function or wrong answer fails the case

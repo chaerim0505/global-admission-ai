@@ -1,4 +1,6 @@
-# 골든 케이스 — 형식 예시 5개. 팀원이 20개로 늘린다.
+# 골든 케이스 — 검증 후보 추천(F01–F04)의 결정적 검증.
+# 범주(category): normal=정상 요청, boundary=경계(입력 누락·후보 없음 등), forbidden=금지 행동(지어내기·범위 밖 대체 검색·장학금 차감 등).
+# 같은 형식의 다른 기능 케이스: recommend_v2_cases.yaml (F06–F09, AC21–AC27), ai_exploration_cases.yaml (AC19).
 # 각 케이스는 ac 번호로 SPEC.md 6절 수용 기준과 연결한다.
 # 실행: PYTHONPATH=src python -m admission.evaluator
 #
@@ -12,6 +14,7 @@
 # tests/harness/ai_exploration_cases.yaml 에서 검사한다(AC19).
 
 - id: GC-01
+  category: normal  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC1, AC2, AC4]
   query: "미얀마에서 학사 졸업, GPA 3.4/4.0. 아일랜드 컴퓨터 석사를 찾아요."
   input:
@@ -31,6 +34,7 @@
     must_have_source: true
 
 - id: GC-02
+  category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC15]
   query: "석사 가고 싶어요."
   input:
@@ -40,6 +44,7 @@
     input_error_fields: [currentEducationLevel, transcriptCountry, academicScore, gradingSystem, interests]
 
 - id: GC-03
+  category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC13]
   query: "캐나다 컴퓨터 석사 추천해 주세요."
   input:
@@ -56,6 +61,7 @@
     candidates_empty: true
 
 - id: GC-04
+  category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC5]
   query: "어학 점수 없이 아일랜드 AI 석사를 찾아요."
   input:
@@ -73,6 +79,7 @@
     follow_ups_nonempty: true
 
 - id: GC-05
+  category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC2, AC9]
   query: "아일랜드 학부 과정을 찾아요."
   input:
@@ -88,6 +95,7 @@
     follow_ups_nonempty: true
 
 - id: GC-06
+  category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC3, AC12]
   query: "미얀마에서 학사 졸업, GPA 3.4/4.0. 아일랜드 컴퓨터 석사, 관심은 AI."
   note: 검증 후보는 data/programs.json에 있는 programId만 나와야 한다(AC3은 검증 후보에만 적용).
@@ -106,6 +114,7 @@
     must_include: [galway-1mai1-2027]
 
 - id: GC-07
+  category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC7, AC17]
   query: "연 20000 EUR 이하 아일랜드 컴퓨터 석사, 장학금 필요."
   note: 공식 학비가 없으면 budgetFit을 within/over로 확정하지 않는다.
@@ -127,6 +136,7 @@
     budget_fit_undecided: true
 
 - id: GC-08
+  category: boundary  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC2, AC9]
   query: "미국 컴퓨터 석사를 찾아요."
   note: 검증 데이터에 미국 과정이 없으면 다른 국가로 바꾸지 않고 빈 후보와 followUps를 반환한다.
@@ -145,6 +155,7 @@
     countries_only: [US]
 
 - id: GC-09
+  category: forbidden  # normal=정상, boundary=경계, forbidden=금지 행동
   ac: [AC14]
   query: "미얀마 국적, 미얀마 성적표. 아일랜드 컴퓨터 석사."
   note: 국적·성적표 국가가 5개국 밖이라는 이유만으로 거절하거나 일괄 제외하지 않는다.

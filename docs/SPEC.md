@@ -200,6 +200,44 @@
 - 금액·점수는 모델이 공식 페이지에서 읽은 값을 **표시용으로만** 둔다. 예산 적합성(`budgetFit`)과 요건 판정을 하지 않는다.
 **`GET /health`** — `{ "status": "ok" }`
 ## 6. 수용 기준 (테스트로 검증 — Definition of Done)
+
+### 6.0 MVP 범위 표시 (중간평가 2, 2026-11-18 기준)
+
+**MVP 포함:** AC1–AC7, AC9–AC17, AC19–AC28. **MVP 제외:** AC8, AC18 (F05 지도교수 추천, 최종 평가 전 구현 예정).
+
+| AC | MVP | 결정적 검증 (골든 케이스·테스트) | 품질 측정 (evals) |
+| --- | --- | --- | --- |
+| AC1 | 포함 | GC-01, `test_unified_catalogue.py` | e01, e02 |
+| AC2 | 포함 | GC-01, GC-05, GC-08, AX-03 | e01, e03, e04, e12 |
+| AC3 | 포함 | GC-06, `test_source_validator.py` | e01 |
+| AC4 | 포함 | GC-01, `test_recommend.py` | e01 |
+| AC5 | 포함 | GC-04, `test_requirement_matcher.py`, `test_requirement_status.py` | — |
+| AC6 | 포함 | `test_recommend.py`, `test_requirement_status.py` | — |
+| AC7 | 포함 | GC-07, `test_cost_matcher.py` | e10 |
+| AC8 | **제외** (F05) | — | — |
+| AC9 | 포함 | GC-05, GC-08, RV-05, `test_recommend.py` | e03, e04 |
+| AC10 | 포함 | AX-06, `test_requirement_finder.py` | e16 |
+| AC11 | 포함 | — (배포 후 `GET /health` 수동 확인) | — |
+| AC12 | 포함 | GC-06, `test_recommend.py` | — |
+| AC13 | 포함 | GC-03, `test_recommend.py` | e05, e06, e15 |
+| AC14 | 포함 | GC-09, `test_recommend.py` | e11, e14 |
+| AC15 | 포함 | GC-02 | e07, e08, e09, e17, e18 |
+| AC16 | 포함 | — | e13 |
+| AC17 | 포함 | GC-07, `test_cost_matcher.py` | e10 |
+| AC18 | **제외** (F05) | — | — |
+| AC19 | 포함 | AX-01–AX-06 | e23, e24 |
+| AC20 | 포함 | `test_intake_pending_answer.py` | e19–e22 |
+| AC21 | 포함 | RV-01–RV-03 | — |
+| AC22 | 포함 | RV-04, RV-05, RV-12 | — |
+| AC23 | 포함 | RV-13, `test_requirement_finder.py`, `test_unified_catalogue.py` | — |
+| AC24 | 포함 | RV-06, RV-07 | — |
+| AC25 | 포함 | RV-08–RV-12 | — |
+| AC26 | 포함 | RV-14–RV-17 | — |
+| AC27 | 포함 | RV-04, `test_unified_catalogue.py` | — |
+| AC28 | 포함 | `test_requirement_finder.py` | — |
+
+케이스 파일: GC = `tests/harness/golden_cases.yaml`, RV = `tests/harness/recommend_v2_cases.yaml`, AX = `tests/harness/ai_exploration_cases.yaml`, e = `evals/evalset.jsonl`.
+
 각 AC는 EARS 문형 "[조건]일 때, Global Admission AI는 [동작]한다"로 쓰고, 조건 자리의 유형을 [ ]에 표시한다. AC1–AC11은 10월 7일 판의 번호를 유지하고 AC12부터 원본 명세서에서 되살린 기준을 붙였다.
 - **AC1 [상시 적용]:** Global Admission AI는 항상 5개국(`KR`, `US`, `GB`, `NL`, `IE`)의 공학 분야 과정만 후보로 반환한다 — 희망 국가를 입력하지 않은 요청을 포함해, 응답의 `country`가 5개 코드 밖이거나 `engineeringField`가 3.2절 목록 밖이면 실패.
 - **AC2 [이벤트 기반]:** 사용자가 `preferredCountries`나 학위를 지정해 추천을 요청하면, Global Admission AI는 해당 국가·학위의 과정만 반환한다 — 지정하지 않은 국가·학위가 결과에 하나라도 있으면 실패.
