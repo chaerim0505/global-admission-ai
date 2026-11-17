@@ -1,45 +1,37 @@
-# 위임 기록 — Evals 러너와 강의 6 산출물 정리
+# 위임 기록 — Evals 러너 및 검증 도구
 
-- 에이전트: Claude (Cowork) / 위임자: SHWE (chaerim0505)
-  
+- 사용 에이전트: Claude (Cowork) / 위임자: SHWE
+- 평가 케이스: `evals/evalset.jsonl`
+- 구현 파일: `evals/run_evals.py`, `src/admission/tools/__init__.py`
+- 테스트 코드: `tests/test_run_evals.py`, `tests/test_tools.py`
 
-## 프롬프트(원문)
+## 1. 작업 지시
 
-> 내 project 이 규칙들에 따라 맞나? 
-> B. 기능을 유지하고 스펙을 고치기
+- 평가 세트를 읽어 실행·채점하는 러너와, 읽기 전용 도구 및 그 계약 테스트를 만든다.
+- 평가 세트·목표·설정값은 사람이 확정한다.
 
-## 에이전트가 만든 것과 사람이 확정할 것
-
-| 산출물 | 강의 기준 작성자 | 이번 상태 |
-| --- | --- | --- |
-| `docs/ARCHITECTURE.md` | 사람 | 에이전트 **초안**(현재 코드에서 옮겨 적음) — 팀이 검토·확정 |
-| `config/rag.yaml` | 사람 | 에이전트 **초안**(현재 구현 값) — 팀이 값과 근거 확정 |
-| 도구 표(ARCHITECTURE 3절) | 사람 | 에이전트 초안 — 팀 확정 |
-| `src/admission/tools/`, `tests/test_tools.py` | 에이전트(코드) / 사람 검증 | 작성 완료, 결함 주입 확인 |
-| `evals/EVAL_DESIGN.md` 지표·목표 | 사람 | 에이전트 초안(AC에서 도출) — 팀 확정 |
-| `evals/evalset.jsonl` 25개 | 사람 | 에이전트 초안 — 팀 검토, 50개로 확장 |
-| `evals/judge_prompt.md` 루브릭 | 사람 | 에이전트 초안 — 팀 확정 후 라벨로 검증 |
-| `evals/judge_labels.jsonl` | **사람만** | 비어 있음 |
-| 오류 분석(EVAL_DESIGN 7절) | **사람만**(원문 직접 읽기) | 비어 있음 |
-| `evals/run_evals.py` | 에이전트 / 사람 검증 | 작성 완료, 오답 주입 확인 |
-| `AGENTS.md` | 사람 | 에이전트 초안 — 팀 확정 |
-
-## 러너 검증
-
-- 실행: `PYTHONPATH=src python evals/run_evals.py` → offline 11/11 통과, live 14개 skip(작업 환경에서 Gemini 접근 불가)
-
-**결함 주입 검사**
+## 2. 결함 주입 검사
 
 | 결함 | 파일 | 바꾼 내용 | 실패한 테스트 |
 | --- | --- | --- | --- |
-| F1 | `src/admission/tools/` | 도구 하나를 `write` 도구로 바꿈 | `test_every_tool_is_read_only` |
-| F2 | `src/admission/tools/` | 도구 설명 문장을 ARCHITECTURE 표와 다르게 바꿈 | `test_tool_set_matches_architecture_table` |
-| F3 | `tests/test_run_evals.py`의 채점 입력 | 데이터에 없는 programId, 요청 밖 국가, 지시문 값(MIT), 임의 분야, AC19 위반 결과를 넣음 | 모두 실패로 판정됨 (`test_run_evals.py` 5개) |
+| F1 | src/admission/tools/__init__.py | 도구 하나를 write 도구로 변경 | test_every_tool_is_read_only |
+| F2 | src/admission/tools/__init__.py | 도구 설명을 ARCHITECTURE 표와 다르게 변경 | test_tool_set_matches_architecture_table |
+| F3 | evals/run_evals.py 채점기 (tests/test_run_evals.py에서 오답 입력) | 없는 programId·요청 밖 국가 / 잘못 채운 항목·주입 지시문 / HTTP 링크·요건 판정 포함 결과를 넣음 | 채점기가 모두 실패 처리함을 확인: test_recommendation_grader_rejects_invented_and_wrong_country, test_intake_grader_rejects_wrong_field_and_injection, test_exploration_grader_rejects_rule_violations |
 
-원복 후 도구 테스트 9 passed.
+검사 후 원복, 원복 후 도구 테스트 9 passed.
 
-## 수용 판단
+## 3. 실제 호출 3회 반복 평가 (2026-11-18)
 
-- [ ] 초안 문서(ARCHITECTURE, rag.yaml, EVAL_DESIGN, AGENTS) 팀 검토
-- [x] `--live --repeat 3` 반복 측정 기록 (`results/2026-11-18T0228.json`, EVAL_DESIGN 4절)
-- [ ] 수용 / 보류: ____ (팀 작성)
+- 결과 파일: `evals/results/2026-11-18T0228.json`, `evals/results/history.csv`
+
+| 지표 | 결과 | 목표 |
+| --- | --- | --- |
+| constraint_rate | 18/18 | 100% |
+| scope_rate | 6/6 | 100% |
+| input_validation_rate | 9/9 | 100% |
+| parse_accuracy | 18/18 | 90% |
+| injection_resistance | 3/3 | 100% |
+| followup_accuracy | 12/12 | 90% |
+| explore_rule_compliance | 4/9 (504 시간 초과 5건) | 100%, 미달 |
+
+이 실행에는 judge가 포함되었으나 이후 judge를 평가에서 제외하기로 결정했다(EVAL_DESIGN 6절). reason_faithfulness(15/15)는 참고 값이며 평가 지표로 쓰지 않는다.
