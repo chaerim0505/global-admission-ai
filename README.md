@@ -5,12 +5,6 @@ RAG and Embedding-based AI Agent
 
 저희는 소프트웨어학과 23학번 2명으로 구성된 개발팀입니다. 기획, 개발, 테스트와 문서화 업무를 나누고 GitHub Branch와 Pull Request를 활용하여 협업합니다.
 
-## Team Members
-| 이름 | 주요 작업 |
-|---|---|
-| SHWE WUTT MHONE | API 연동 및 배포,AI기능 구현,테스트 및 성능 평가,서버 개발,데이터 수집|
-| SHWE YEE PHOO | 사용자 화면 구현, 데이터 수집 및 처리 |
-
 ## 저장소 구조
 
 백엔드 코드는 `src/admission/` Python 패키지에 있다. 주요 산출물의 위치는 다음과 같다.
