@@ -25,7 +25,6 @@ pip install -r requirements.txt
 PYTHONPATH=src pytest -q                      # 전체 테스트 (골든 케이스·도구 계약 포함)
 PYTHONPATH=src python -m admission.evaluator  # 골든 케이스 리포트
 PYTHONPATH=src python evals/run_evals.py      # evals (코드 채점, 모델 호출 없음)
-PYTHONPATH=src python evals/run_evals.py --live --judge   # 파서·judge 포함 (GEMINI_API_KEY 필요)
 ```
 
 완료 보고에는 실행한 명령, 통과/실패/skip 수를 함께 적는다. "완료했다"는 선언만으로는 수용하지 않는다.
