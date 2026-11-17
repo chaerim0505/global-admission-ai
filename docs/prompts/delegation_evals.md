@@ -20,9 +20,10 @@
 
 검사 후 원복, 원복 후 도구 테스트 9 passed.
 
-## 3. 실제 호출 3회 반복 평가 (2026-11-18)
+## 3. 실제 호출 3회 반복 평가 (2026-11-18, judge 없음)
 
-- 결과 파일: `evals/results/2026-11-18T0228.json`, `evals/results/history.csv`
+- 실행: `PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "midterm2: no judge"`
+- 결과 파일: `evals/results/2026-11-18T0456.json`, `evals/results/history.csv`
 
 | 지표 | 결과 | 목표 |
 | --- | --- | --- |
@@ -32,6 +33,6 @@
 | parse_accuracy | 18/18 | 90% |
 | injection_resistance | 3/3 | 100% |
 | followup_accuracy | 12/12 | 90% |
-| explore_rule_compliance | 4/9 (504 시간 초과 5건) | 100%, 미달 |
+| explore_rule_compliance | 3/9 (504 시간 초과 6건) | 100%, 미달 |
 
-이 실행에는 judge가 포함되었으나 이후 judge를 평가에서 제외하기로 결정했다(EVAL_DESIGN 6절). reason_faithfulness(15/15)는 참고 값이며 평가 지표로 쓰지 않는다.
+judge는 평가에서 제외했다(EVAL_DESIGN 6절). 러너의 `--judge` 옵션과 `judge_prompt.md`·`judge_labels.jsonl`은 삭제했다.

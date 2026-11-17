@@ -28,7 +28,7 @@
 
 검사 후 원복, 원복 후 8 passed.
 
-## 4. 실제 Gemini 호출 (evals/results/2026-11-18T0228.json)
+## 4. 실제 Gemini 호출 (evals/results/2026-11-18T0456.json)
 
-- e23–e25 각 3회: 4/9 통과 (목표 100%, 미달)
-- 오류 5건(e24 2건, e25 3건)은 모두 `504 DEADLINE_EXCEEDED`(Gemini 응답 시간 초과)
+- e23–e25 각 3회: 3/9 통과 (목표 100%, 미달)
+- 오류 6건(e23 1건, e24 3건, e25 2건)은 모두 `504 DEADLINE_EXCEEDED`(Gemini 응답 시간 초과). 결과가 반환된 3건은 모두 규칙을 지켰다.

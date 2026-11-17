@@ -31,7 +31,7 @@ PYTHONPATH=src python evals/run_evals.py      # evals (코드 채점, 모델 호
 
 ## 4. 수정 범위와 금지 사항
 
-- **수정 금지(사람만 변경):** `tests/harness/*.yaml`(골든 케이스), `evals/evalset.jsonl`, `evals/judge_prompt.md`, `evals/judge_labels.jsonl`, `docs/SPEC.md`의 AC, `config/rag.yaml`의 값, `config/models.yaml`의 모델 ID.
+- **수정 금지(사람만 변경):** `tests/harness/*.yaml`(골든 케이스), `evals/evalset.jsonl`, `docs/SPEC.md`의 AC, `config/rag.yaml`의 값, `config/models.yaml`의 모델 ID.
 - 기능 위임에서는 테스트와 케이스를 고치지 않는다. 구현만 고친다. 수용 전 `git diff -- tests/ evals/`로 확인한다.
 - 스펙·테스트·권한을 바꿔야 할 것 같으면 **작업을 멈추고** 쟁점을 설명한 뒤 사람의 판단을 받는다.
 - 같은 실패가 3회 반복되면 시도한 내용과 실패 기록을 남기고 멈춘다.

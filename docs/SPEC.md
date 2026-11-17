@@ -226,7 +226,7 @@
 | AC17 | 포함 | GC-07, `test_cost_matcher.py` | e10 |
 | AC18 | **제외** (F05) | — | — |
 | AC19 | 포함 | AX-01–AX-06 | e23, e24 |
-| AC20 | 포함 | `test_intake_pending_answer.py` | e19–e22 |
+| AC20 | 포함 | IF-01–IF-07 | e19–e22 |
 | AC21 | 포함 | RV-01–RV-03 | — |
 | AC22 | 포함 | RV-04, RV-05, RV-12 | — |
 | AC23 | 포함 | RV-13, `test_requirement_finder.py`, `test_unified_catalogue.py` | — |

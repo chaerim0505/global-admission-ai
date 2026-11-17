@@ -48,7 +48,7 @@ v1은 정상 케이스 9개와 실패·경계 케이스 16개로 구성했다. �
 - `load_cases`로 평가 세트 형식을 확인하고, 케이스를 실행한 뒤 `graders`에 따라 채점한다.
 - **offline**에서는 구조화 입력으로 `tools.search_programs`를 실행한다. 모델 호출 없이 결과의 제약 충족 여부를 검사한다.
 - **live**에서는 `run_intake_agent`로 파싱과 후속 답변 해석을, `tools.explore_programmes_web`으로 Gemini 웹 탐색을 평가한다.
-- 모든 지표는 코드로 채점한다. LLM-as-a-Judge는 2026-11-18부터 쓰지 않는다(6절). 러너의 `--judge` 옵션과 `judge_prompt.md` v1은 재도입에 대비해 남겨 둔다.
+- 모든 지표는 코드로 채점한다. LLM-as-a-Judge는 2026-11-18부터 쓰지 않는다(6절). 러너의 `--judge` 옵션, `judge_prompt.md`, `judge_labels.jsonl`은 삭제했다.
 - `tests/test_run_evals.py`는 데이터에 없는 과정, 요청 밖 국가, 임의 분야 등 잘못된 결과를 채점기가 걸러내는지 확인한다.
 
 저장소 루트에서 실행한다. live 실행에는 `GEMINI_API_KEY`가 필요하다.
@@ -60,7 +60,7 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 
 ## 4. 결과 기록과 베이스라인
 
-실행 결과는 `results/<YYYY-MM-DDTHHMM>.json`과 `results/history.csv`에 기록한다. JSON에는 커밋, 실행 모드, 모델, 반복 횟수, 평가 세트와 Judge 프롬프트 해시, 지표, 케이스별 결과가 들어간다. 버전 간 점수를 비교할 때는 같은 평가 세트와 Judge 프롬프트를 사용하고, 모델이나 검증 데이터 변경이 있으면 실행 메모에 남긴다.
+실행 결과는 `results/<YYYY-MM-DDTHHMM>.json`과 `results/history.csv`에 기록한다. JSON에는 커밋, 실행 모드, 모델, 반복 횟수, 평가 세트 해시, 지표, 케이스별 결과가 들어간다. 버전 간 점수를 비교할 때는 같은 평가 세트를 사용하고, 모델이나 검증 데이터 변경이 있으면 실행 메모에 남긴다.
 
 ### 2026-11-11 베이스라인 v1
 
@@ -85,7 +85,23 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 
 ### 반복 측정 현황
 
-**2026-11-18, live + judge, 3회 반복** — [결과](results/2026-11-18T0228.json), 커밋 `0543cd7`
+**2026-11-18, live, judge 없음, 3회 반복 (최신)** — [결과](results/2026-11-18T0456.json), 커밋 `8b3595c`, 평가 세트 해시 `70f99d7dac`
+
+| 지표 | 결과 (3회 합산) | 목표 |
+| --- | ---: | ---: |
+| 제약 충족률 | 18/18 (100%) | 100% |
+| 범위 안내율 | 6/6 (100%) | 100% |
+| 입력 검증률 | 9/9 (100%) | 100% |
+| 검증 후보 환각 | 0건 | 0건 |
+| 파싱 정확도 | 18/18 (100%) | ≥ 90% |
+| 인젝션 저항 | 3/3 (100%) | 100% |
+| 짧은 답변 해석 정확도 | 12/12 (100%) | ≥ 90% |
+| AI 탐색 규칙 준수율 | 3/9 (33.3%) | 100% — 미달 |
+
+- AI 탐색 실패 6건은 모두 Gemini `504 DEADLINE_EXCEEDED`(약 89초 후 시간 초과)다: `e23` 1회, `e24` 3회, `e25` 2회. 결과가 반환된 3건은 모두 규칙을 지켰다.
+- 규칙 위반이 아니라 응답 시간 초과가 원인이므로, 다음 개선 대상은 AI 탐색의 시간 제한과 재시도 처리다.
+
+**2026-11-18, live + judge, 3회 반복 (이전 기록)** — [결과](results/2026-11-18T0228.json), 커밋 `0543cd7`
 
 | 지표 | 결과 (3회 합산) | 목표 |
 | --- | ---: | ---: |
@@ -117,7 +133,7 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 
 - Judge가 채점하던 `reason`(추천 이유)은 백엔드 `/recommend` 응답에만 있고, **현재 앱 화면에는 표시되지 않는다.** 화면의 추천 카드는 `src/admission/recommend_v2.py` 경로를 쓰며 이유 문장을 만들지 않는다.
 - 이유 문장은 `src/admission/reason_writer.py`의 템플릿으로 만들어져, 평가 세트에서 서로 다른 문장이 1개뿐이었다(Galway 과정). 사용자에게 보이지 않는 템플릿 문장을 채점하는 것은 품질 측정으로 의미가 약하다고 판단했다.
-- 그래서 `evalset.jsonl`의 `graders`에서 `judge`를 빼고, `reason_faithfulness`는 측정하지 않는다. 사람 라벨(`judge_labels.jsonl`)과 일치율도 대상이 없다.
+- 그래서 `evalset.jsonl`의 `graders`에서 `judge`를 빼고, `reason_faithfulness`는 측정하지 않는다. 사람 라벨과 일치율도 대상이 없어, 쓰지 않는 `judge_prompt.md`·`judge_labels.jsonl`과 러너의 `--judge` 옵션을 삭제했다.
 - 이전 Judge 실행 기록은 지우지 않는다: `results/2026-11-11T0246.json`(2/2 pass), `results/2026-11-18T0228.json`(15/15 pass, 같은 문장 반복). 두 실행 모두 사람 라벨이 없어 Judge의 신뢰도는 검증되지 않았다.
 - 재도입 조건: 추천 카드에 이유 문장을 보여 주게 되면 Judge를 다시 쓰고, 그 전에 사람 라벨 20–30개로 일치율(목표 80%)을 확인한다. 라벨 형식은 `{"case_id", "programId", "reason", "human_verdict": "pass"|"fail", "human_note"}`.
 
@@ -157,7 +173,6 @@ python evals/collect_failures.py evals/results/2026-11-11T0246.json
 - [x] live + judge 베이스라인 1회 기록 (`2026-11-11T0246`)
 - [x] 골든 테스트와 offline evals를 실행하는 GitHub Actions 설정 등록
 - [x] `e23` 오류 코드와 기존 실행의 오류 건수 확인
-- [x] `--live --repeat 3` 반복 측정 기록 (`2026-11-18T0228`, 4절)
-- [ ] (Judge 재도입 시) 사람 라벨 20–30개 작성, Judge와의 일치율 및 불일치 방향 기록
+- [x] `--live --repeat 3` 반복 측정 기록 (`2026-11-18T0228`, judge 없이 `2026-11-18T0456`, 4절)
 - [ ] `ERROR_ANALYSIS.md` 재생성 후 팀원이 관찰 메모, 오류 분류, 개선 백로그 작성
 - [ ] 평가 세트를 50개로 확장하고 검증 데이터(`data/programs.json`) 확대 후 offline 재측정

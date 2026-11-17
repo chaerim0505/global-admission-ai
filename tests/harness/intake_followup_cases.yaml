@@ -1,0 +1,93 @@
+# 짧은 답변 해석 골든 케이스 — SPEC.md AC20
+# Runner: tests/test_intake_followup_golden.py (calls run_intake_agent; no skip or xfail)
+#
+# previous      직전 대화까지 모인 조건 (base 위에 덮어쓴다)
+# answer        사용자가 짧게 답한 문장
+# model_output  모델(parse_query)이 돌려준 값 — 테스트에서 고정한다
+# expected:
+#   fields      결과 context에서 이 값이어야 하는 항목 (null은 비어 있어야 함)
+#   ready       추천 단계로 넘어가는지
+base:
+  applicantType: master
+  currentEducationLevel: bachelor
+  academicScore: 4.0
+  gradingSystem: gpa
+  maximumScore: 4.5
+  engineeringFields: [electrical_electronic]
+
+cases:
+  - id: IF-01
+    ac: [AC20]
+    category: normal
+    description: 성적표 발급 국가 질문에 국가 이름만 답함
+    previous: {}
+    answer: Korea
+    model_output: {}
+    expected:
+      fields: {transcriptCountry: KR}
+      ready: true
+
+  - id: IF-02
+    ac: [AC20]
+    category: forbidden
+    description: 모델이 국가 답변을 희망 국가에 잘못 넣어도 성적표 발급 국가로 바로잡음
+    previous: {}
+    answer: KR
+    model_output: {preferredCountries: [KR]}
+    expected:
+      fields: {transcriptCountry: KR, preferredCountries: null}
+      ready: true
+
+  - id: IF-03
+    ac: [AC20]
+    category: boundary
+    description: 모델이 이미 두 항목을 맞게 채운 문장 답변은 그대로 둠
+    previous: {}
+    answer: 미얀마에서 졸업했고 한국에 가고 싶어요
+    model_output: {transcriptCountry: MM, preferredCountries: [KR]}
+    expected:
+      fields: {transcriptCountry: MM, preferredCountries: [KR]}
+
+  - id: IF-04
+    ac: [AC20]
+    category: forbidden
+    description: 만점 질문에 4.5라고 답함 — 모델이 성적으로 잘못 읽어도 만점에 채우고 성적은 유지
+    previous: {transcriptCountry: KR, maximumScore: null}
+    answer: "4.5"
+    model_output: {academicScore: 4.5}
+    expected:
+      fields: {maximumScore: 4.5, academicScore: 4.0}
+      ready: true
+
+  - id: IF-05
+    ac: [AC20]
+    category: normal
+    description: 성적 질문에 숫자만 답함
+    previous: {transcriptCountry: KR, academicScore: null}
+    answer: "3.8"
+    model_output: {}
+    expected:
+      fields: {academicScore: 3.8, maximumScore: 4.5}
+      ready: true
+
+  - id: IF-06
+    ac: [AC20]
+    category: boundary
+    description: 숫자 뒤에 단위가 붙은 답변(4.5점)
+    previous: {transcriptCountry: KR, maximumScore: null}
+    answer: 4.5점
+    model_output: {}
+    expected:
+      fields: {maximumScore: 4.5}
+      ready: true
+
+  - id: IF-07
+    ac: [AC20]
+    category: boundary
+    description: 국가 이름이 아닌 문장 답변은 국가를 추측해 채우지 않음
+    previous: {}
+    answer: I studied abroad
+    model_output: {}
+    expected:
+      fields: {transcriptCountry: null}
+      ready: false

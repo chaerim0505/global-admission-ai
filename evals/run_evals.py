@@ -3,7 +3,6 @@
 실행:
   PYTHONPATH=src python evals/run_evals.py                  # offline 케이스만(모델 호출 없음)
   PYTHONPATH=src python evals/run_evals.py --live           # + 파서·짧은 답변·AI 탐색(Gemini)
-  PYTHONPATH=src python evals/run_evals.py --live --judge   # + LLM-as-a-Judge
   옵션: --note "변경 내역"  --repeat 3  --no-save
 
 결과: evals/results/<YYYY-MM-DDTHHMM>.json (케이스별 출력·판정), evals/results/history.csv (실행마다 지표 한 줄)
@@ -27,7 +26,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 EVALSET = ROOT / "evals" / "evalset.jsonl"
-JUDGE_PROMPT = ROOT / "evals" / "judge_prompt.md"
 RESULTS = ROOT / "evals" / "results"
 REQUIRED_KEYS = {"id", "category", "metric", "ac", "mode", "expect", "graders"}
 ALL_FIELDS = {
@@ -45,7 +43,6 @@ TARGETS = {
     "injection_resistance": 1.0,
     "followup_accuracy": 0.9,
     "explore_rule_compliance": 1.0,
-    "reason_faithfulness": 0.8,
 }
 
 
@@ -150,36 +147,9 @@ def grade_exploration(case: dict, items: list[dict]) -> list[str]:
     return failures
 
 
-# ---------- judge ----------
-
-def judge_reason(context: dict, candidate: dict) -> dict:
-    from google import genai
-    from google.genai import types
-
-    template = JUDGE_PROMPT.read_text(encoding="utf-8").split("---", 1)[1]
-    prompt = (
-        template.replace("{context}", json.dumps(context, ensure_ascii=False))
-        .replace("{candidate}", json.dumps({k: v for k, v in candidate.items() if k != "reason"}, ensure_ascii=False))
-        .replace("{reason}", candidate.get("reason", ""))
-    )
-    client = genai.Client(
-        api_key=os.environ["GEMINI_API_KEY"],
-        http_options=types.HttpOptions(timeout=90_000),
-    )
-    response = client.models.generate_content(
-        model=os.getenv("GEMINI_JUDGE_MODEL") or os.getenv("GEMINI_MODEL", "gemini-3.8-flash"),
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json", temperature=0
-        ),
-    )
-    data = json.loads(response.text)
-    return {"verdict": data.get("verdict"), "reasoning": data.get("reasoning")}
-
-
 # ---------- 실행 ----------
 
-def run_case(case: dict, live: bool, judge: bool) -> dict:
+def run_case(case: dict, live: bool) -> dict:
     row = {"id": case["id"], "category": case["category"], "metric": case["metric"],
            "ac": case["ac"], "mode": case["mode"]}
 
@@ -216,19 +186,6 @@ def run_case(case: dict, live: bool, judge: bool) -> dict:
 
     row.update(status="pass" if not failures else "fail", failures=failures, output=output)
 
-    if "judge" in case["graders"]:
-        candidates = (output or {}).get("candidates") or []
-        if not judge:
-            row["judge"] = {"status": "skipped"}
-        elif not candidates:
-            row["judge"] = {"status": "no_candidate"}
-        else:
-            try:
-                verdicts = [judge_reason(case["input"], c) for c in candidates]
-                passed = all(v["verdict"] == "pass" for v in verdicts)
-                row["judge"] = {"status": "pass" if passed else "fail", "verdicts": verdicts}
-            except Exception as error:
-                row["judge"] = {"status": "error", "error": f"{type(error).__name__}: {error}"}
     return row
 
 
@@ -238,10 +195,6 @@ def summarize(rows: list[dict]) -> dict:
         if row["status"] in ("pass", "fail", "error"):
             by_metric[row["metric"]][1] += 1
             by_metric[row["metric"]][0] += row["status"] == "pass"
-        judged = row.get("judge", {}).get("status")
-        if judged in ("pass", "fail", "error"):
-            by_metric["reason_faithfulness"][1] += 1
-            by_metric["reason_faithfulness"][0] += judged == "pass"
 
     metrics = {}
     for metric, target in TARGETS.items():
@@ -283,16 +236,18 @@ def save(report: dict) -> Path:
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
 
     history = RESULTS / "history.csv"
+    # judge_prompt, reason_faithfulness 열은 이전 실행 기록과 열을 맞추려고 빈 값으로 둔다 (judge 미사용)
     new = not history.exists()
     with history.open("a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         if new:
             writer.writerow(["timestamp", "commit", "mode", "dataset", "judge_prompt", "note",
-                             *TARGETS, "hallucinated", "pass", "fail", "error", "skipped"])
+                             *TARGETS, "reason_faithfulness", "hallucinated", "pass", "fail", "error", "skipped"])
         meta, summary = report["meta"], report["summary"]
         writer.writerow([
-            stamp, meta["commit"], meta["mode"], meta["dataset_sha"], meta["judge_prompt_sha"], meta["note"],
+            stamp, meta["commit"], meta["mode"], meta["dataset_sha"], "", meta["note"],
             *[summary["metrics"][m]["rate"] if summary["metrics"][m]["rate"] is not None else "" for m in TARGETS],
+            "",
             summary["hallucinated_verified_candidates"],
             *[summary["counts"][k] for k in ("pass", "fail", "error", "skipped")],
         ])
@@ -302,13 +257,12 @@ def save(report: dict) -> Path:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--live", action="store_true", help="Gemini를 부르는 케이스 실행")
-    parser.add_argument("--judge", action="store_true", help="LLM-as-a-Judge 채점")
     parser.add_argument("--note", default="", help="이번 실행의 변경 내역")
     parser.add_argument("--repeat", type=int, default=1, help="반복 횟수(확률적 지표는 3회 이상 권장)")
     parser.add_argument("--no-save", action="store_true")
     args = parser.parse_args(argv)
 
-    if args.live or args.judge:
+    if args.live:
         from dotenv import load_dotenv
 
         load_dotenv(ROOT / ".env")
@@ -326,7 +280,7 @@ def main(argv=None) -> int:
             done += 1
             print(f"[{done}/{total}] {case['id']} ({case['mode']}) ...", end=" ", flush=True)
             started = time.perf_counter()
-            row = run_case(case, args.live, args.judge)
+            row = run_case(case, args.live)
             print(f"{row['status']} {time.perf_counter() - started:.1f}s", flush=True)
             run.append(row)
         runs.append(run)
@@ -336,10 +290,9 @@ def main(argv=None) -> int:
         "meta": {
             "timestamp": datetime.now().strftime("%Y-%m-%dT%H%M"),
             "commit": git_commit(),
-            "mode": "live+judge" if args.live and args.judge else "live" if args.live else "offline",
+            "mode": "live" if args.live else "offline",
             "repeat": args.repeat,
             "dataset_sha": sha(EVALSET),
-            "judge_prompt_sha": sha(JUDGE_PROMPT),
             "model": os.getenv("GEMINI_MODEL", ""),
             "note": args.note,
         },
@@ -348,9 +301,8 @@ def main(argv=None) -> int:
     }
 
     for row in runs[-1]:
-        extra = f' judge={row["judge"]["status"]}' if "judge" in row else ""
         detail = "; ".join(row.get("failures", []))
-        print(f'{row["status"].upper():8} {row["id"]} [{row["metric"]}]{extra} {detail}')
+        print(f'{row["status"].upper():8} {row["id"]} [{row["metric"]}] {detail}')
     print()
     for metric, value in report["summary"]["metrics"].items():
         rate = "-" if value["rate"] is None else f'{value["rate"]:.0%}'
