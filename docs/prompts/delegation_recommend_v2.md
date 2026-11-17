@@ -19,7 +19,8 @@
 | 실행 (2026-11-18) | 결과 |
 | --- | --- |
 | `PYTHONPATH=src python -m pytest -q tests/test_recommend_v2_golden.py` | 17 passed, skip·xfail 없음 |
-| `python -m pytest -q` (전체) | 153 passed, skip·xfail 없음 |
+| `python -m pytest -q` (전체, 판정 키 검사 추가 후) | 153 passed, skip·xfail 없음 |
+| `python -m pytest -q` (전체, AC20 골든 케이스 추가 후 최신) | 161 passed, skip·xfail 없음 |
 
 ## 3. 검토 메모 (위임자)
 
