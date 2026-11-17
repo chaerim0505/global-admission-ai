@@ -251,8 +251,10 @@ RAG and Embedding-based AI Agent
 git clone https://github.com/chaerim0505/global-admission-ai.git
 cd global-admission-ai
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt streamlit openpyxl
 ```
+
+`requirements.txt`는 백엔드용입니다. 화면 실행에는 `streamlit`, 데이터 생성 스크립트에는 `openpyxl`이 함께 필요합니다(`run_local.sh`와 같은 설치).
 
 ### 7.3 환경 변수 (`.env`, 저장소에 올리지 않음)
 
