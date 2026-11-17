@@ -1,6 +1,6 @@
 # Golden cases for the 2026-11-14 recommendation rules (SPEC F06-F09, AC21-AC27).
 # Written BEFORE implementation (test first). Fixtures are synthetic test data, not real records.
-# Runner: tests/test_recommend_v2_golden.py  (xfail until src/admission/recommend_v2.py exists)
+# Runner: tests/test_recommend_v2_golden.py (calls src/admission/recommend_v2.py; no skip or xfail)
 
 fixtures:
   rates_to_usd: {USD: 1.0, KRW: 0.00072, GBP: 1.27, EUR: 1.08}

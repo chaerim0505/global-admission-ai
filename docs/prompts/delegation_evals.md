@@ -27,11 +27,19 @@
 ## 러너 검증
 
 - 실행: `PYTHONPATH=src python evals/run_evals.py` → offline 11/11 통과, live 14개 skip(작업 환경에서 Gemini 접근 불가)
-- 오답 주입: `tests/test_run_evals.py` — 데이터에 없는 programId·요청 밖 국가·지시문 값(MIT)·임의 분야·AC19 위반을 넣으면 모두 실패로 판정 (5 passed)
-- 도구 계약 결함 주입: 도구를 `write`로 바꾸면 `test_every_tool_is_read_only` 실패, 설명 문장을 바꾸면 `test_tool_set_matches_architecture_table` 실패 → 원복 후 9 passed
+
+**결함 주입 검사**
+
+| 결함 | 파일 | 바꾼 내용 | 실패한 테스트 |
+| --- | --- | --- | --- |
+| F1 | `src/admission/tools/` | 도구 하나를 `write` 도구로 바꿈 | `test_every_tool_is_read_only` |
+| F2 | `src/admission/tools/` | 도구 설명 문장을 ARCHITECTURE 표와 다르게 바꿈 | `test_tool_set_matches_architecture_table` |
+| F3 | `tests/test_run_evals.py`의 채점 입력 | 데이터에 없는 programId, 요청 밖 국가, 지시문 값(MIT), 임의 분야, AC19 위반 결과를 넣음 | 모두 실패로 판정됨 (`test_run_evals.py` 5개) |
+
+원복 후 도구 테스트 9 passed.
 
 ## 수용 판단
 
 - [ ] 초안 문서(ARCHITECTURE, rag.yaml, EVAL_DESIGN, AGENTS) 팀 검토
-- [ ] `--live --judge --repeat 3` 실행 후 live 베이스라인 기록
+- [x] `--live --repeat 3` 반복 측정 기록 (`results/2026-11-18T0228.json`, EVAL_DESIGN 4절)
 - [ ] 수용 / 보류: ____ (팀 작성)

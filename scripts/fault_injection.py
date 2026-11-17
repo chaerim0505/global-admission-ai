@@ -107,11 +107,13 @@ def main() -> int:
             path.write_text(text.replace(old, new), encoding="utf-8")
             rows.append((fid, rule, ac, run_cases(copy)))
 
-    lines = ["| 결함 | 바꾼 내용 (`src/admission/recommend_v2.py`) | AC | 실패한 케이스 | 탐지 |",
-             "| --- | --- | --- | --- | --- |"]
+    lines = ["| 결함 | 파일 | 바꾼 내용 | 실패한 케이스 |",
+             "| --- | --- | --- | --- |"]
     for fid, rule, ac, failed in rows:
-        caught = "—" if fid == "원본" else ("탐지" if failed else EQUIVALENT.get(fid, "**놓침**"))
-        lines.append(f"| {fid} | {rule} | {ac} | {', '.join(failed) or '없음'} | {caught} |")
+        if fid == "원본":
+            continue
+        result = ", ".join(failed) if failed else ("없음 (동등 결함, 위 검토 메모)" if fid in EQUIVALENT else "없음 (**놓침**)")
+        lines.append(f"| {fid} | `{TARGET.replace('admission/', 'src/admission/')}` | {rule} ({ac}) | {result} |")
     table = "\n".join(lines)
     print(table)
 
@@ -121,9 +123,8 @@ def main() -> int:
         marker = "<!-- fault-injection -->"
         head = text.split(marker)[0].rstrip()
         record.write_text(
-            f"{head}\n\n{marker}\n## 결함 주입 검사 ({date.today().isoformat()}, `python scripts/fault_injection.py --write`)\n\n"
-            "각 결함은 `src/` 복사본에서 규칙 하나만 깨뜨린 뒤 `tests/harness/recommend_v2_cases.yaml`의 모든 케이스를 실행한 결과입니다. "
-            "원본은 모든 케이스를 통과해야 하고, 각 결함은 하나 이상의 케이스에서 실패해야 합니다.\n\n"
+            f"{head}\n\n{marker}\n## 결함 주입 검사 ({date.today().isoformat()})\n\n"
+            "실행: `python scripts/fault_injection.py --write` · 원본 코드는 모든 케이스 통과\n\n"
             f"{table}\n", encoding="utf-8")
     missed = [r[0] for r in rows[1:] if not r[3] and r[0] not in EQUIVALENT]
     return 1 if rows[0][3] or missed else 0
