@@ -1,6 +1,5 @@
 # 위임 기록 — 짧은 답변 해석 (AC20)
 
-- 사용 에이전트: Claude (Cowork) / 위임자: SHWE
 - 구현 파일: `src/admission/agents/intake_agent.py`, `src/admission/parser.py`
 - 케이스 파일: `tests/harness/intake_followup_cases.yaml` (IF-01–IF-07)
 - 테스트 코드: `tests/test_intake_followup_golden.py`, `tests/test_intake_pending_answer.py`
