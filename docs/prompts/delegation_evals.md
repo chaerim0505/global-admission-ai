@@ -19,7 +19,7 @@
 
 검사 후 원복, 원복 후 도구 테스트 9 passed.
 
-## 3. 실제 호출 3회 반복 평가 (2026-11-18, judge 없음)
+## 3. 실제 호출 3회 반복 평가 (judge 없음)
 
 - 실행: `PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "midterm2: no judge"`
 - 결과 파일: `evals/results/2026-11-18T0456.json`, `evals/results/history.csv`
