@@ -32,6 +32,12 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from admission.ai_exploration import ExplorationTimeout, explore_programmes  # noqa: E402
+from admission.chat_summary import (  # noqa: E402
+    build_summary,
+    merge_previous_context,
+    unsupported_countries,
+    unsupported_message,
+)
 from admission.requirement_finder import find_requirements  # noqa: E402
 from admission.recommend_v2 import (  # noqa: E402
     detect_language,
@@ -632,6 +638,36 @@ def submit_search() -> None:
     }
 
 
+def form_values() -> dict:
+    """Values already entered in the right-hand form, in chat-context field names.
+
+    Typed values (country, scores, fields, countries, budget, test score) count as soon as they
+    are filled. Drop-down values have defaults, so they count only after the user has saved the
+    form with "Find sample programmes".
+    """
+    state = st.session_state
+    values = {
+        "transcriptCountry": state.get("transcript") or None,
+        "nationality": state.get("nationality") or None,
+        "academicScore": state.get("score"),
+        "maximumScore": state.get("maximum"),
+        "engineeringFields": list(state.get("fields") or []),
+        "preferredCountries": list(state.get("countries") or []),
+        "maximumTuition": state.get("budget"),
+        "languageTestScore": state.get("test_score"),
+    }
+    if state.get("search"):
+        values.update({
+            "applicantType": state.get("degree"),
+            "currentEducationLevel": state.get("education"),
+            "gradingSystem": state.get("grading"),
+            "tuitionCurrency": state.get("currency"),
+            "tuitionPeriod": state.get("period"),
+            "languageTestType": None if state.get("test") in (None, "none") else state.get("test"),
+        })
+    return values
+
+
 def send_message() -> None:
     """Send a chat message to Intake Agent and update form values."""
     import requests
@@ -660,7 +696,8 @@ def send_message() -> None:
             f"{API_BASE_URL}/agent/run",
             json={
                 "text": message,
-                "previousContext": state.get("agent_context"),
+                # Chat answers plus what is already in the form, so the chat does not ask again (D2).
+                "previousContext": merge_previous_context(state.get("agent_context"), form_values()),
             },
             timeout=(10, 120),
         )
@@ -750,45 +787,20 @@ def send_message() -> None:
 
             state[ui_field] = value
 
-                # Display Root Agent results in the existing chat UI.
+        language = state.get("ui_language", "en")
+        outside = unsupported_countries(context.get("preferredCountries"))
+        notices = [unsupported_message([country_name(c) for c in outside], language)] if outside else []
+
         if result.get("stage") == "recommendation":
-            recommendation = result.get("recommendation") or {}
-            candidates = recommendation.get("candidates") or []
-            catalogue = result.get("catalogueMatches") or []
-
-            lines = [
-                t("Analysis complete."),
-                f"{t('Verified candidates')}: {len(candidates)}",
-                f"{t('Matching programmes')}: {len(catalogue)}",
-            ]
-
-            if catalogue:
-                lines.append("")
-                lines.append(t("Matching programmes (admission requirements not yet checked):"))
-
-                for item in catalogue:
-                    name = (
-                        item.get("program_name")
-                        or item.get("programName")
-                        or item.get("candidate_id")
-                        or t("Name to be confirmed")
-                    )
-                    university = item.get("universityName")
-                    lines.append(
-                        f"- {university} · {name}" if university else f"- {name}"
-                    )
-
-                lines.append("")
-                lines.append(t("See the detailed cards in the Results tab. Check the conditions on the right, then press Search."))
-
-            follow_ups = recommendation.get("followUps") or []
-
-            if follow_ups:
-                lines.append("")
-                lines.extend(
-                    str(item) for item in follow_ups
-                )
-
+            # Same calculation as the Results tab, so the chat and the cards always agree (D2).
+            submit_search()
+            if state.get("input_errors"):
+                lines = notices + [t(error) for error in state["input_errors"]]
+            else:
+                outcome, web_notice = compute_recommendations(state["search"])
+                lines = notices + [build_summary(
+                    outcome["results"], bool(outcome["shortfallReason"]), language, web_notice,
+                )]
             assistant_text = "\n".join(lines)
 
         else:
@@ -808,6 +820,7 @@ def send_message() -> None:
                 elif isinstance(item, str):
                     questions.append(item)
 
+            questions = notices + questions
             if questions:
                 assistant_text = "\n".join(questions)
             else:
@@ -1433,22 +1446,21 @@ def show_scholarships(context: dict, results: list[dict]) -> None:
             st.markdown(f"🏅 **{safe(name)}**{page_link(url)}")
 
 
-def show_results(programs: list[dict] | None = None) -> None:
-    """Five distinct universities ranked by grade tier and budget (SPEC F06, F08)."""
-    context = st.session_state.get("search")
-    if not context:
-        st.info(t("Enter your conditions and search first."))
-        return
+def compute_recommendations(context: dict) -> tuple[dict, str | None]:
+    """recommend_v2 on the unified catalogue, topped up by web search when fewer than five match.
 
+    Used by both the Results tab and the chat summary. Returns (outcome, notice); notice is a
+    user-facing sentence when web search failed, otherwise None.
+    """
     ctx = v2_context(context)
     catalogue = load_unified_catalogue()
     outcome = recommend_v2(ctx, catalogue)
+    notice = None
 
     if outcome["shortfallReason"]:
         exclude = tuple(sorted(str(p.get("universityName", "")).lower() for p in outcome["results"]))
         try:
-            with st.spinner(t("Searching official university websites for more programmes...")):
-                web = gemini_fill(json.dumps(context, sort_keys=True, default=str), exclude)
+            web = gemini_fill(json.dumps(context, sort_keys=True, default=str), exclude)
             outcome = recommend_v2(ctx, catalogue, web_results=web)
         except Exception as error:  # web search is optional; dataset results still stand
             message = str(error)
@@ -1459,7 +1471,20 @@ def show_results(programs: list[dict] | None = None) -> None:
             else:
                 notice = t("Web search is not available right now. Please try again later.")
             print(f"[web search] {type(error).__name__}: {message}", flush=True)  # details stay in the server log
-            st.caption(f"{t('Web search unavailable')}: {notice}")
+    return outcome, notice
+
+
+def show_results(programs: list[dict] | None = None) -> None:
+    """Five distinct universities ranked by grade tier and budget (SPEC F06, F08)."""
+    context = st.session_state.get("search")
+    if not context:
+        st.info(t("Enter your conditions and search first."))
+        return
+
+    with st.spinner(t("Searching official university websites for more programmes...")):
+        outcome, notice = compute_recommendations(context)
+    if notice:
+        st.caption(f"{t('Web search unavailable')}: {notice}")
 
     # Requirements are researched only when the user presses the button on a card
     # (show_official_search); looking them up for all five cards up front took ~2 minutes.

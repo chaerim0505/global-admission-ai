@@ -129,6 +129,25 @@ button[kind="primary"]:hover, button[data-testid="stBaseButton-primary"]:hover,
 button[data-testid="stBaseButton-primaryFormSubmit"]:hover {
     background: #0c1630 !important; box-shadow: 0 6px 18px rgba(20, 33, 61, .25);
 }
+/* Button labels are <p> inside the button. The general "p { color: ink-soft }" rule above made
+   them navy on a navy button (Sign in, Find sample programmes, Send). Let them follow the button. */
+div[data-testid="stButton"] button p,
+div[data-testid="stButton"] button span,
+div[data-testid="stFormSubmitButton"] button p,
+div[data-testid="stFormSubmitButton"] button span,
+div[data-testid="stDownloadButton"] button p {
+    color: inherit !important;
+}
+button[kind="primary"] *, button[data-testid="stBaseButton-primary"] *,
+button[data-testid="stBaseButton-primaryFormSubmit"] *,
+button[kind="primaryFormSubmit"] * {
+    color: #fff !important;
+}
+/* Disabled buttons: keep the label readable instead of dark-on-dark. */
+button:disabled, button[disabled] {
+    background: #d9d4ca !important; border-color: #d9d4ca !important; color: #5f6573 !important;
+}
+button:disabled *, button[disabled] * { color: #5f6573 !important; }
 
 /* inputs */
 div[data-baseweb="input"], div[data-baseweb="select"] > div, div[data-baseweb="textarea"] {
