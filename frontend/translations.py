@@ -103,6 +103,8 @@ KO = {
     'Searching official university websites for more programmes...': '공식 대학 사이트에서 과정을 더 찾는 중입니다...',
     'Gemini API quota exceeded. Please try again later.': 'Gemini API 사용량을 초과했습니다. 잠시 후 다시 시도해 주세요.',
     'Web search unavailable': '웹 검색을 사용할 수 없습니다',
+    'Web search is taking too long right now. Please try again in a moment.': '지금 웹 검색이 오래 걸리고 있습니다. 잠시 후 다시 시도해 주세요.',
+    'Web search is not available right now. Please try again later.': '지금은 웹 검색을 사용할 수 없습니다. 잠시 후 다시 시도해 주세요.',
     'Recommended universities': '추천 대학',
     'Ranked by your grade and budget using public indicators. Tiers are estimates, not admission predictions. Check requirements on each official source.': '공개 지표로 성적과 예산에 맞춰 정렬했습니다. 등급은 추정이며 합격 예측이 아닙니다. 요건은 각 공식 출처에서 확인해 주세요.',
     'Fewer than five universities meet every condition. Conditions were not relaxed.': '모든 조건에 맞는 대학이 5개 미만입니다. 조건은 완화하지 않았습니다.',

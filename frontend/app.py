@@ -31,7 +31,7 @@ import sys  # noqa: E402
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
-from admission.ai_exploration import explore_programmes  # noqa: E402
+from admission.ai_exploration import ExplorationTimeout, explore_programmes  # noqa: E402
 from admission.requirement_finder import find_requirements  # noqa: E402
 from admission.recommend_v2 import (  # noqa: E402
     detect_language,
@@ -1453,8 +1453,13 @@ def show_results(programs: list[dict] | None = None) -> None:
         except Exception as error:  # web search is optional; dataset results still stand
             message = str(error)
             if "429" in message or "RESOURCE_EXHAUSTED" in message:
-                message = t("Gemini API quota exceeded. Please try again later.")
-            st.caption(f"{t('Web search unavailable')}: {message}")
+                notice = t("Gemini API quota exceeded. Please try again later.")
+            elif isinstance(error, ExplorationTimeout) or "504" in message or "DEADLINE_EXCEEDED" in message:
+                notice = t("Web search is taking too long right now. Please try again in a moment.")
+            else:
+                notice = t("Web search is not available right now. Please try again later.")
+            print(f"[web search] {type(error).__name__}: {message}", flush=True)  # details stay in the server log
+            st.caption(f"{t('Web search unavailable')}: {notice}")
 
     # Requirements are researched only when the user presses the button on a card
     # (show_official_search); looking them up for all five cards up front took ~2 minutes.

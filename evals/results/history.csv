@@ -3,3 +3,5 @@ timestamp,commit,mode,dataset,judge_prompt,note,constraint_rate,scope_rate,input
 2026-11-11T0246,ee7edf3,live+judge,1f335e2bd7,4acbd89457,live baseline v1,1.0,1.0,1.0,1.0,1.0,1.0,0.667,1.0,0,24,0,1,0
 2026-11-18T0228,0543cd7,live+judge,c057c7b6d1,4acbd89457,midterm2: judge on 5 cases,1.0,1.0,1.0,1.0,1.0,1.0,0.444,1.0,0,70,0,5,0
 2026-11-18T0456,8b3595c,live,70f99d7dac,4acbd89457,midterm2: no judge,1.0,1.0,1.0,1.0,1.0,1.0,0.333,,0,69,0,6,0
+2026-11-18T1749,789855d,live,70f99d7dac,,"explore: fewer fields, 45s x2 retry",1.0,1.0,1.0,1.0,1.0,1.0,0.556,,0,71,0,4,0
+2026-11-18T1758,789855d,live,70f99d7dac,,explore: thinking low,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,0,75,0,0,0

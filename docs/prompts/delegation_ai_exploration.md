@@ -16,7 +16,7 @@
 
 | 실행 (2026-11-18) | 결과 |
 | --- | --- |
-| `PYTHONPATH=src python -m pytest -q tests/test_ai_exploration_golden.py` | 8 passed, skip 없음 |
+| `PYTHONPATH=src python -m pytest -q tests/test_ai_exploration_golden.py` | 13 passed (재시도·추론 설정 테스트 5개 추가 후), skip 없음 |
 
 ## 3. 결함 주입 검사
 
@@ -28,7 +28,12 @@
 
 검사 후 원복, 원복 후 8 passed.
 
-## 4. 실제 Gemini 호출 (evals/results/2026-11-18T0456.json)
+## 4. 실제 Gemini 호출
 
-- e23–e25 각 3회: 3/9 통과 (목표 100%, 미달)
-- 오류 6건(e23 1건, e24 3건, e25 2건)은 모두 `504 DEADLINE_EXCEEDED`(Gemini 응답 시간 초과). 결과가 반환된 3건은 모두 규칙을 지켰다.
+| 실행 | 변경 | e23–e25 각 3회 | 비고 |
+| --- | --- | --- | --- |
+| `evals/results/2026-11-18T0456.json` | 개선 전 | 3/9 | 오류 6건 모두 504 시간 초과 |
+| `evals/results/2026-11-18T1749.json` | 과정 링크만 요청, 45초 제한 + 재시도 1회 | 5/9 | 오류 4건 모두 재시도 후에도 시간 초과. 반환된 결과는 모두 규칙 준수 |
+| `evals/results/2026-11-18T1758.json` | 위 변경 + 추론 수준(`thinking_level`) low | **9/9** | 시간 초과 0건, 응답 7.3–19.0초. 목표 100% 달성 |
+
+원인은 규칙 위반이 아니라 응답 시간이었다. 화면에 쓰지 않는 항목 검색과 깊은 추론을 줄여 해결했다.
