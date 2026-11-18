@@ -196,3 +196,72 @@ def test_report_keeps_only_official_links_and_never_says_not_found():
     out = rf.clean_links(text, lambda u: u if u == good else None, lambda u: f"[link]({u})")
     assert "fake.do" not in out and "edurank" not in out and "공식 장학금 안내" not in out
     assert out.count(good) == 2 and "blog" in out
+
+
+def test_report_drops_empty_brackets_left_by_removed_links():
+    text = "- Benefit: 100% or 50% tuition fee scholarship (https://example.com/blog).\n"
+    out = rf.clean_links(text, lambda u: None, lambda u: f"[link]({u})")
+    assert "()" not in out and "( )" not in out
+    assert "100% or 50% tuition fee scholarship." in out
+
+
+def test_image_on_official_site_is_not_a_source_page(monkeypatch):
+    import sys
+    import types
+
+    class Picture:
+        status_code = 200
+        headers = {"content-type": "image/jpeg"}
+        content = b"\xff\xd8"
+        encoding = None
+        url = "https://hub.ucd.ie/usis/W_HU_REPORTING.P_WEB_IMAGE?p=1"
+
+    monkeypatch.setitem(sys.modules, "requests", types.SimpleNamespace(get=lambda *a, **k: Picture()))
+    status, text = rf.fetch_page_text(Picture.url)
+    assert status != 200 and text == ""
+
+
+TCD_404 = ("<html><head><title>404 - Study - Trinity College Dublin</title></head>"
+           "<body><h1>Oooops!</h1><p>How did that happen?</p><p>404 page not found.</p></body></html>")
+
+
+def test_not_found_page_served_with_200_is_detected():
+    assert rf.looks_like_error_page(TCD_404)
+    assert rf.looks_like_error_page("<title>Page not found | UCD</title><p>Sorry</p>")
+    normal = ("<title>Biomedical Engineering (M.Sc.) - Trinity College Dublin</title>"
+              "<p>Duration 1 year. If a page is not found, contact us.</p>")
+    assert not rf.looks_like_error_page(normal)
+
+
+def test_statement_needs_its_numbers_and_words_on_the_page():
+    page = "the ucd global excellence scholarship offers a 50% or 100% tuition fee waiver to non-eu students."
+    assert rf.statement_on_page("- Benefit: 100% or 50% tuition fee scholarship", page)
+    assert not rf.statement_on_page("- Benefit: €3,000 award per recipient", page)
+    assert not rf.statement_on_page("- Conditions: awarded to rowing athletes in residence", page)
+    assert not rf.statement_on_page("anything", "")
+
+
+def test_report_keeps_a_fact_only_with_the_page_that_states_it():
+    scholarship = "https://www.ucd.ie/global/scholarships/global-excellence"
+    banner = "https://hub.ucd.ie/usis/W_HU_REPORTING.P_WEB_IMAGE?p=1"
+    missing = "https://www.tcd.ie/courses/postgraduate/courses/biomedical-engineering"
+    pages = {scholarship: "global excellence scholarship: 50% or 100% tuition fee waiver for non-eu students."}
+    text = "\n".join([
+        "## Scholarships",
+        "- Benefit: 100% or 50% tuition fee scholarship (" + scholarship + ").",
+        "- Benefit: €3,000 award per recipient (" + banner + ").",
+        "- Conditions: awarded competitively to self-funding students.",
+        "## Tuition fees",
+        "- €26,000 per year (" + missing + ")",
+    ])
+    out = rf.keep_supported_facts(
+        text,
+        check=lambda u: u if u in pages else None,   # banner (picture) and 404 page fail the link check
+        page_text=lambda u: pages.get(u, ""),
+        render=lambda u: f"[link]({u})",
+    )
+    assert "100% or 50% tuition fee scholarship" in out and scholarship in out
+    assert "3,000" not in out and banner not in out          # link is a picture
+    assert "self-funding" not in out                          # fact with no source
+    assert "Tuition fees" not in out and "26,000" not in out  # only fact had a 404 link -> heading dropped
+    assert "()" not in out

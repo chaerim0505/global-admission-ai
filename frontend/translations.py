@@ -20,7 +20,7 @@ KO = {
     'Search official admission requirements': '공식 입학 요건 찾기',
     'Searching official university admission requirements...': '대학 공식 사이트에서 입학 요건을 찾는 중입니다...',
     'AI Admission Requirements Research': 'AI 입학 요건 조사',
-    "Only links that open on the university's official site are shown.": '대학 공식 사이트에서 실제로 열리는 링크만 보여 줍니다.',
+    "Each fact is shown only with the official page that states it.": "각 정보는 그 내용이 실제로 적힌 공식 페이지 링크와 함께만 표시합니다.",
     'Official pages used': '참고한 공식 페이지',
     'Official university website is not known for this result.': '이 결과의 대학 공식 웹사이트를 알 수 없습니다.',
     'Gemini API quota exceeded. Please try again later.': 'Gemini 사용 한도를 넘었습니다. 잠시 후 다시 시도해 주세요.',

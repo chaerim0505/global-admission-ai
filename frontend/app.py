@@ -1145,9 +1145,11 @@ def official_link_ok(url: str, domains: tuple[str, ...]) -> str | None:
 
 
 def clean_report_links(text: str, domains: tuple[str, ...]) -> str:
-    from admission.requirement_finder import clean_links
-    return clean_links(text, lambda u: official_link_ok(u, domains),
-                       lambda url: page_link(url).removeprefix(" · "))
+    """Keep each fact only with an official link whose page actually states it."""
+    from admission.requirement_finder import fetch_page_text, keep_supported_facts
+    return keep_supported_facts(text, lambda u: official_link_ok(u, domains),
+                                lambda url: fetch_page_text(url)[1],
+                                lambda url: page_link(url).removeprefix(" · "))
 
 
 def show_official_search(program: dict) -> None:
@@ -1215,7 +1217,9 @@ Intake and exact dates if published.
 The official pages you used.
 
 Rules:
-- After each fact, put the official page URL where it is written, in full (https://...).
+- After each fact, put the URL of the official page where that exact fact is written, in full
+  (https://...). For a scholarship, use the page of that scholarship; for tuition, the fees page.
+  A fact without such a link will be removed.
 - Only official university pages. No blogs, agents, rankings or document-sharing sites.
 - Do not invent anything. If a section is not on the official site, leave that section out.
   Do not write "NOT VERIFIED" or "not found".
@@ -1250,7 +1254,7 @@ Rules:
         st.error(result["error"])
         return
     st.markdown("### " + t("AI Admission Requirements Research"))
-    st.caption("Gemini · " + result.get("model", "") + " · " + t("Only links that open on the university's official site are shown."))
+    st.caption("Gemini · " + result.get("model", "") + " · " + t("Each fact is shown only with the official page that states it."))
     st.markdown(result.get("text", ""))
     if result.get("sources"):
         st.markdown("**" + t("Official pages used") + "**")

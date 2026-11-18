@@ -458,6 +458,10 @@ def _download(url: str) -> tuple[int | None, str, tuple[str, ...]]:
         return None, "", ()
     if response.status_code != 200:
         return response.status_code, "", ()
+    kind = response.headers.get("content-type", "").lower()
+    if kind.startswith(("image/", "video/", "audio/", "font/")):
+        # A picture on the official site (e.g. a banner) is not a page that states anything.
+        return 415, "", ()
     body = response.content[:5_000_000]
     links: tuple[str, ...] = ()
     if "pdf" in response.headers.get("content-type", "").lower() or url.lower().split("#")[0].endswith(".pdf"):
@@ -469,10 +473,28 @@ def _download(url: str) -> tuple[int | None, str, tuple[str, ...]]:
             text = ""
     else:
         raw = body.decode(response.encoding or "utf-8", "ignore")
+        if looks_like_error_page(raw):
+            # Some sites answer 200 with a "404 page not found" page.
+            return 404, "", ()
         links = tuple(dict.fromkeys(urljoin(response.url, h) for h in re.findall(r"href=[\"']([^\"'#]+)", raw)))
         text = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw, flags=re.S | re.I)
         text = re.sub(r"<[^>]+>", " ", text)
     return 200, re.sub(r"\s+", " ", html.unescape(text)).lower(), links
+
+
+ERROR_PAGE_WORDS = ("page not found", "page cannot be found", "page could not be found",
+                    "404 not found", "페이지를 찾을 수 없")
+
+
+def looks_like_error_page(html_text: str) -> bool:
+    """A "not found" page served with HTTP 200: its title says 404 / not found, or the top of the page does."""
+    title = re.search(r"<title[^>]*>(.*?)</title>", html_text, flags=re.S | re.I)
+    title = re.sub(r"\s+", " ", title.group(1)).lower() if title else ""
+    if re.search(r"\b404\b", title) or "not found" in title or "찾을 수 없" in title:
+        return True
+    body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html_text[:200_000], flags=re.S | re.I)
+    top = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).lower()[:3000]
+    return any(word in top for word in ERROR_PAGE_WORDS) and ("404" in top or "oops" in top)
 
 
 def fetch_page_text(url: str) -> tuple[int | None, str]:
@@ -576,6 +598,7 @@ def clean_links(text: str, check, render) -> str:
         return render(url) if url else ""
 
     text = re.sub(r"(?<!\]\()`?(" + URL_RE + r")`?", bare, text)
+    text = re.sub(r"[ \t]*\(\s*\)", "", text)  # "(…link…)" whose only link was removed
     kept = []
     for line in text.splitlines():
         stripped = re.sub(r"[\s()\[\]·:,\-*•]+$", "", line)
@@ -583,3 +606,77 @@ def clean_links(text: str, check, render) -> str:
             continue  # "- Official guide:" with its link removed
         kept.append(line.rstrip())
     return "\n".join(kept)
+
+
+def statement_on_page(statement: str, page_text: str) -> bool:
+    """Is this sentence backed by the page? Its numbers must be on the page, and at least half of its
+    (Latin-script) content words. A Korean sentence is checked by its numbers and names only."""
+    if not page_text:
+        return False
+    numbers = [n.replace(",", "") for n in re.findall(r"(?<![\w.])\d[\d,]*(?:\.\d+)?", statement)]
+    for number in numbers:
+        try:
+            value = float(number)
+        except ValueError:
+            continue
+        if not _number_on_page(value, page_text):
+            return False
+    words = {w for w in re.findall(r"[a-z]{4,}", statement.lower()) if w not in STOP}
+    if not words:
+        return True
+    return sum(w in page_text for w in words) / len(words) >= 0.5
+
+
+def keep_supported_facts(text: str, check, page_text, render) -> str:
+    """Keep a fact only together with an official link whose page actually says it.
+
+    check(url) -> the real official URL or None (off-site, broken, picture, "404" page).
+    page_text(url) -> the page's lower-case text.
+    Each line with a fact needs at least one such link; other lines are dropped, and so are
+    headings left with nothing under them. Nothing reads "not found".
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    urls = list(dict.fromkeys(u.rstrip(".,;:") for u in re.findall(URL_RE, text)))
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        real = dict(zip(urls, pool.map(check, urls)))
+        pages = dict(zip(urls, pool.map(lambda u: page_text(real[u]) if real.get(u) else "", urls)))
+
+    md_link = r"\[([^\]]+)\]\((" + URL_RE + r")\)"
+    out: list[str] = []
+    for line in text.splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            out.append(line.rstrip())
+            continue
+        found = [u.rstrip(".,;:") for u in re.findall(URL_RE, line)]
+        if not found:
+            continue  # a fact with no source
+        statement = re.sub(md_link, lambda m: m.group(1), line)
+        statement = re.sub(URL_RE, " ", statement)
+        supported = {u for u in found if real.get(u) and statement_on_page(statement, pages.get(u, ""))}
+        if not supported:
+            continue
+
+        def md(m, supported=supported):
+            url = m.group(2).rstrip(".,;:")
+            return f"[{m.group(1)}]({real[url]})" if url in supported else m.group(1)
+
+        def bare(m, supported=supported):
+            url = m.group(1).rstrip(".,;:")
+            return render(real[url]) if url in supported else ""
+
+        line = re.sub(md_link, md, line)
+        line = re.sub(r"(?<!\]\()`?(" + URL_RE + r")`?", bare, line)
+        line = re.sub(r"[ \t]*\(\s*\)", "", line)
+        out.append(line.rstrip())
+
+    # drop headings with nothing under them
+    kept: list[str] = []
+    for index, line in enumerate(out):
+        if line.lstrip().startswith("#"):
+            rest = out[index + 1:]
+            body = next((r for r in rest if r.strip()), "")
+            if not body or body.lstrip().startswith("#"):
+                continue
+        kept.append(line)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)).strip()

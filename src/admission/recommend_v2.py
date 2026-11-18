@@ -331,7 +331,11 @@ def _catalogue_cached() -> tuple:
 def web_results_from_gemini(raw_items: list[dict], context: dict) -> list[dict]:
     """Shape Gemini exploration items and keep only verified ones (live network)."""
     shaped = [{**i, "country": i.get("country") or (context.get("preferredCountries") or [None])[0]} for i in raw_items]
-    return filter_web_results(shaped, probe=http_status, domains_for=lambda n, c: list(official_domains(n, c)))
+    from admission.requirement_finder import fetch_page_text
+
+    # GET the page (not only HEAD) so a "404 page not found" page served with HTTP 200 is rejected.
+    return filter_web_results(shaped, probe=lambda url: fetch_page_text(url)[0],
+                              domains_for=lambda n, c: list(official_domains(n, c)))
 
 
 # ---------------------------------------------------------------------------
