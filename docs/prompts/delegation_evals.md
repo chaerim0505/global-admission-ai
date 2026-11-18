@@ -1,6 +1,5 @@
 # 위임 기록 — Evals 러너 및 검증 도구
 
-- 사용 에이전트: Claude (Cowork) / 위임자: SHWE
 - 평가 케이스: `evals/evalset.jsonl`
 - 구현 파일: `evals/run_evals.py`, `src/admission/tools/__init__.py`
 - 테스트 코드: `tests/test_run_evals.py`, `tests/test_tools.py`
@@ -35,4 +34,3 @@
 | followup_accuracy | 12/12 | 90% |
 | explore_rule_compliance | 3/9 (504 시간 초과 6건) | 100%, 미달 |
 
-judge는 평가에서 제외했다(EVAL_DESIGN 6절). 러너의 `--judge` 옵션과 `judge_prompt.md`·`judge_labels.jsonl`은 삭제했다.
