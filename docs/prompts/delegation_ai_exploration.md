@@ -1,6 +1,5 @@
 # 위임 기록 — AI 탐색 결과(검증 전) (F06, AC19)
 
-- 사용 에이전트: Claude (Cowork) / 위임자: SHWE
 - 구현 파일: `src/admission/ai_exploration.py`, `frontend/app.py`
 - 케이스 파일: `tests/harness/ai_exploration_cases.yaml` (AX-01–AX-06)
 - 테스트 코드: `tests/test_ai_exploration_golden.py`
