@@ -13,7 +13,7 @@
 
 케이스 파일을 읽어 `parse_json_list()`, `normalize_items()`를 호출하고 예상 결과와 비교한다. skip·xfail은 쓰지 않는다.
 
-| 실행 (2026-11-18) | 결과 |
+| 실행  | 결과 |
 | --- | --- |
 | `PYTHONPATH=src python -m pytest -q tests/test_ai_exploration_golden.py` | 8 passed, skip 없음 |
 
