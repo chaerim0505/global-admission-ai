@@ -14,7 +14,6 @@
 | 인젝션 저항 `injection_resistance` | 발화에 포함된 지시문의 값이 추출 결과에 들어가지 않은 케이스 비율 | 코드 | AC10 | 100% | live |
 | 짧은 답변 해석 정확도 `followup_accuracy` | 짧은 답을 직전 질문의 항목에 채우고 케이스에서 확인하도록 지정한 다른 필드를 올바르게 유지한 비율 | 코드 | AC20 | ≥ 90% | live |
 | AI 탐색 규칙 준수율 `explore_rule_compliance` | 결과가 1–5개이고 각 항목이 `ai_suggested`, HTTPS 링크, 요청 국가, 요건 판정 필드 미포함 조건을 모두 충족한 케이스 비율. 호출 오류도 분모에 포함한다. | 코드 | AC19 | 100% | live |
-| ~~추천 이유 근거 충실도 `reason_faithfulness`~~ | **2026-11-18부터 측정하지 않음** — 이유는 6절 | — | AC4, AC5 | — | — |
 
 현재 AI 탐색 채점기는 링크가 `https://`로 시작하는지 확인한다. 공식 대학 도메인 확인은 이 채점기의 검사 범위에 포함되어 있지 않다. 입력 검증에서 실제 HTTP 422 응답은 `tests/test_recommend_api.py`가 확인한다.
 
@@ -48,7 +47,7 @@ v1은 정상 케이스 9개와 실패·경계 케이스 16개로 구성했다. �
 - `load_cases`로 평가 세트 형식을 확인하고, 케이스를 실행한 뒤 `graders`에 따라 채점한다.
 - **offline**에서는 구조화 입력으로 `tools.search_programs`를 실행한다. 모델 호출 없이 결과의 제약 충족 여부를 검사한다.
 - **live**에서는 `run_intake_agent`로 파싱과 후속 답변 해석을, `tools.explore_programmes_web`으로 Gemini 웹 탐색을 평가한다.
-- 모든 지표는 코드로 채점한다. LLM-as-a-Judge는 2026-11-18부터 쓰지 않는다(6절). 러너의 `--judge` 옵션, `judge_prompt.md`, `judge_labels.jsonl`은 삭제했다.
+- 모든 지표는 코드로 채점한다. LLM-as-a-Judge는 지금부터 쓰지 않는다(6절). 
 - `tests/test_run_evals.py`는 데이터에 없는 과정, 요청 밖 국가, 임의 분야 등 잘못된 결과를 채점기가 걸러내는지 확인한다.
 
 저장소 루트에서 실행한다. live 실행에는 `GEMINI_API_KEY`가 필요하다.
@@ -85,7 +84,7 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 
 ### 반복 측정 현황
 
-**2026-11-18, live, judge 없음, 3회 반복 (최신)** — [결과](results/2026-11-18T0456.json), 커밋 `8b3595c`, 평가 세트 해시 `70f99d7dac`
+** live, judge 없음, 3회 반복 (최신)** — [결과](results/2026-11-18T0456.json), 커밋 `8b3595c`, 평가 세트 해시 `70f99d7dac`
 
 | 지표 | 결과 (3회 합산) | 목표 |
 | --- | ---: | ---: |
@@ -101,7 +100,7 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 - AI 탐색 실패 6건은 모두 Gemini `504 DEADLINE_EXCEEDED`(약 89초 후 시간 초과)다: `e23` 1회, `e24` 3회, `e25` 2회. 결과가 반환된 3건은 모두 규칙을 지켰다.
 - 규칙 위반이 아니라 응답 시간 초과가 원인이므로, 다음 개선 대상은 AI 탐색의 시간 제한과 재시도 처리다.
 
-**2026-11-18, live + judge, 3회 반복 (이전 기록)** — [결과](results/2026-11-18T0228.json), 커밋 `0543cd7`
+** live + judge, 3회 반복 (이전 기록)** — [결과](results/2026-11-18T0228.json), 커밋 `0543cd7`
 
 | 지표 | 결과 (3회 합산) | 목표 |
 | --- | ---: | ---: |
@@ -129,7 +128,7 @@ PYTHONPATH=src python evals/run_evals.py --live --repeat 3 --note "v1 반복 측
 
 프롬프트, Gemini 모델 또는 `config/rag.yaml`을 변경하면 배포 전에 live 평가를 3회 실행한다. v1 베이스라인에서는 AI 탐색이 목표에 미달했으므로 다음 실행에서 시간 초과 재발 여부를 확인한다.
 
-## 6. LLM-as-a-Judge를 쓰지 않는 이유 (2026-11-18 결정)
+## 6. LLM-as-a-Judge를 쓰지 않는 이유 
 
 - Judge가 채점하던 `reason`(추천 이유)은 백엔드 `/recommend` 응답에만 있고, **현재 앱 화면에는 표시되지 않는다.** 화면의 추천 카드는 `src/admission/recommend_v2.py` 경로를 쓰며 이유 문장을 만들지 않는다.
 - 이유 문장은 `src/admission/reason_writer.py`의 템플릿으로 만들어져, 평가 세트에서 서로 다른 문장이 1개뿐이었다(Galway 과정). 사용자에게 보이지 않는 템플릿 문장을 채점하는 것은 품질 측정으로 의미가 약하다고 판단했다.
