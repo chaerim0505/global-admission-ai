@@ -1,6 +1,5 @@
 # 위임 기록 — 성적·학비 맞춤 추천 (F06–F09, AC21–AC28)
 
-- 사용 에이전트: Claude (Cowork) / 위임자: SHWE
 - 구현 파일: `src/admission/recommend_v2.py`
 - 케이스 파일: `tests/harness/recommend_v2_cases.yaml` (RV-01–RV-17)
 - 테스트 코드: `tests/test_recommend_v2_golden.py`
@@ -16,7 +15,7 @@
 
 케이스 파일을 읽어 `detect_language()`, `tier_for()`, `recommend()`, `filter_web_results()`, `scholarships_for()`를 호출하고 예상 결과와 비교한다. skip·xfail은 쓰지 않으며, 알 수 없는 expected 키가 있으면 실패한다.
 
-| 실행 (2026-11-18) | 결과 |
+| 실행  | 결과 |
 | --- | --- |
 | `PYTHONPATH=src python -m pytest -q tests/test_recommend_v2_golden.py` | 17 passed, skip·xfail 없음 |
 | `python -m pytest -q` (전체, 판정 키 검사 추가 후) | 153 passed, skip·xfail 없음 |
@@ -28,7 +27,7 @@
 - F3a는 결과가 원본과 같음 → 예산 초과 과정이 요건 판정에서 다시 제외되는 동등 결함으로 판단 → `budget_fit()` 자체를 바꾸는 F3b 추가.
 
 <!-- fault-injection -->
-## 결함 주입 검사 (2026-11-18)
+## 결함 주입 검사 
 
 실행: `python scripts/fault_injection.py --write` · 원본 코드는 모든 케이스 통과
 
