@@ -1144,6 +1144,20 @@ def official_link_ok(url: str, domains: tuple[str, ...]) -> str | None:
     return url if status == 200 else None
 
 
+def official_faculty_page(url: str, domains: tuple[str, ...]) -> str | None:
+    """Like official_link_ok, but an official page that refuses automatic reading (403) is kept as a link."""
+    from admission.faculty import BlockedPage
+    from admission.requirement_finder import _on_domain, fetch_page_text, resolve_url
+
+    url = resolve_url(url.rstrip(".,);"))
+    if not _on_domain(url, domains, check_alias=True):
+        return None
+    status, _ = fetch_page_text(url)
+    if status == 403:
+        return BlockedPage(url)
+    return url if status == 200 else None
+
+
 def clean_report_links(text: str, domains: tuple[str, ...]) -> str:
     """Keep each fact only with an official link whose page actually states it."""
     from admission.requirement_finder import fetch_page_text, keep_supported_facts
@@ -1412,7 +1426,7 @@ def show_professor_search(program: dict) -> None:
                     find_pages=lambda p: candidate_pages(
                         p, lambda q: gemini_faculty_pages(search_client, model, q, domains), on_error=search_errors.append,
                         links_of=lambda url: list(_download(url)[2])),
-                    check=lambda url: official_link_ok(url, domains),
+                    check=lambda url: official_faculty_page(url, domains),
                     fetch=readable_page_text,
                     extract=lambda text, p: gemini_extract_people(client, model, text, p),
                     research=research_for,
@@ -1441,11 +1455,21 @@ def show_professor_search(program: dict) -> None:
         return
     st.markdown("### " + t("Professors in this programme's department"))
     if not result.get("found"):
+        if result.get("blockedPages"):
+            st.info(t("This department's official faculty page does not allow automatic reading. "
+                      "Please open it to see the professors."))
+            for url in result["blockedPages"]:
+                st.markdown(f"🏛 {t('Official faculty page')}{page_link(url)}")
+            return
         if result.get("searchSlow"):
             st.info(t("Web search is taking too long right now. Please try again in a moment."))
         else:
             st.info(t("Could not confirm professors on an official faculty page for this programme. "
                       "Please check the department's website."))
+        if result.get("tried"):
+            with st.expander(t("Pages checked")):
+                for attempt in result["tried"]:
+                    st.caption(f"{safe(attempt['url'])} — {safe(attempt['result'])}")
         return
     st.caption(t("Names come from the department's official faculty page. Research topics and papers are "
                  "from OpenAlex and may be incomplete. Check each professor's own page before contacting them."))

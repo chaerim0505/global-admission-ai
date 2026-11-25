@@ -6,6 +6,7 @@ and saves what was found. Use it to see how well the button works in each countr
 
     python scripts/check_professor_search.py                 # all departments
     python scripts/check_professor_search.py --only kr-ajou-computing us-gatech-mechanical
+    python scripts/check_professor_search.py --program us_sc_110644_1410_master   # any catalogue programme
 
 Needs GEMINI_API_KEY (in .env). Output: data/professors/check_<YYYY-MM-DD>.json
 """
@@ -26,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from admission.faculty import (  # noqa: E402
-    candidate_pages, find_professors, gemini_extract_people, gemini_faculty_pages, readable_page_text,
+    BlockedPage, candidate_pages, find_professors, gemini_extract_people, gemini_faculty_pages, readable_page_text,
     remember_pages,
 )
 from admission.openalex import research_for  # noqa: E402
@@ -53,12 +54,15 @@ def official_ok(url: str, domains: tuple[str, ...]) -> str | None:
     status, _ = fetch_page_text(url)
     if status != 200:
         print(f"    page check {url} -> HTTP {status}")
+    if status == 403:
+        return BlockedPage(url)  # official, but the site refuses automatic reading
     return url if status == 200 else None
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--only", nargs="*", help="department ids to check")
+    parser.add_argument("--program", nargs="*", help="programme ids from the catalogue (as the app's button does)")
     args = parser.parse_args(argv)
 
     from dotenv import load_dotenv
@@ -89,15 +93,25 @@ def main(argv: list[str] | None = None) -> int:
     if args.only:
         departments = [d for d in departments if d["id"] in set(args.only)]
     catalogue = json.loads(CATALOGUE.read_text(encoding="utf-8"))["programs"]
+    if args.program:
+        # one-off check of any programme in the results, e.g. one that failed in the app
+        by_id = {p["programId"]: p for p in catalogue}
+        departments = [{"id": pid, "country": by_id[pid]["country"], "university": by_id[pid]["universityName"],
+                        "department": by_id[pid]["programName"], "programId": pid,
+                        "domains": [by_id[pid]["officialDomain"]] if by_id[pid].get("officialDomain") else []}
+                       for pid in args.program if pid in by_id]
 
     rows = []
     for department in departments:
-        program = programme_for(department, catalogue)
+        program = (next((p for p in catalogue if p["programId"] == department["programId"]), None)
+                   if department.get("programId") else programme_for(department, catalogue))
         started = time.perf_counter()
         row = {"id": department["id"], "country": department["country"], "university": department["university"],
                "department": department["department"], "programId": program and program["programId"]}
         if not program:
             row.update(status="no_programme")
+        elif not department["domains"]:
+            row.update(status="no_official_domain")
         else:
             domains = tuple(department["domains"])
             try:
@@ -115,6 +129,7 @@ def main(argv: list[str] | None = None) -> int:
                 remember_pages(program, result["facultyPages"])
                 row.update(status="found" if result["found"] else "not_found",
                            facultyPages=result["facultyPages"], tried=result.get("tried", []),
+                           blockedPages=result.get("blockedPages", []),
                            professors=result["professors"])
             except Exception as error:  # record and continue with the next department
                 row.update(status="error", error=f"{type(error).__name__}: {error}")
@@ -123,7 +138,9 @@ def main(argv: list[str] | None = None) -> int:
         with_research = sum(1 for p in professors if p.get("recentWorks"))
         print(f"{row['id']:26} {row['status']:12} professors={len(professors):3} "
               f"with_papers={with_research:3} {row['seconds']:6.1f}s")
-        if row["status"] == "not_found":
+        if row["status"] == "not_found" and row.get("blockedPages"):
+            row["status"] = "blocked"
+        if row["status"] in ("not_found", "blocked"):
             for attempt in row.get("tried") or [{"url": "-", "result": "web search returned no official page"}]:
                 print(f"    tried {attempt['url']}  ->  {attempt['result']}")
         rows.append(row)

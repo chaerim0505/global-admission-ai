@@ -32,6 +32,13 @@ DEGREES = r"(?:ph\.?\s*d|d\.?\s*phil|m\.?\s*sc|b\.?\s*sc|m\.?\s*eng|meng|msc|bsc
 NOT_ALLOWED = "Advisor matching is only for master's and PhD programmes."
 
 
+class BlockedPage(str):
+    """An official page that exists but refuses automatic reading (HTTP 403). check() may return it.
+
+    We do not try to get around the block. The page is shown as a link for the user to open.
+    """
+
+
 class AdvisorNotAllowed(ValueError):
     """AC8: advisor matching was requested for an undergraduate programme or applicant."""
 
@@ -205,6 +212,7 @@ def find_professors(program: dict, context: dict | None, *, find_pages, check, f
     professors: list[dict] = []
     pages: list[str] = []
     tried: list[dict] = []
+    blocked: list[str] = []
     seen: set[str] = set()
     # find_pages may be a generator: pages after the first good one (e.g. a slow web search) are never asked for
     for url in islice(iter(find_pages(program) or []), max_pages):
@@ -212,7 +220,11 @@ def find_professors(program: dict, context: dict | None, *, find_pages, check, f
         if not real:
             tried.append({"url": url, "result": "not an official page"})
             continue
-        if real in pages:
+        if real in pages or real in blocked:
+            continue
+        if isinstance(real, BlockedPage):
+            blocked.append(str(real))
+            tried.append({"url": str(real), "result": "official page, but the site blocks automatic reading"})
             continue
         text = fetch(real) or ""
         candidates = extract(text, program) or []
@@ -259,6 +271,7 @@ def find_professors(program: dict, context: dict | None, *, find_pages, check, f
         "professors": professors[:limit],
         "facultyPages": pages,
         "tried": tried,
+        "blockedPages": [] if professors else blocked,
         "found": bool(professors),
     }
 

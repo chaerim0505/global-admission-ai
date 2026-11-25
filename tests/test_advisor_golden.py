@@ -227,3 +227,18 @@ def test_openalex_stops_asking_once_the_daily_budget_is_used_up(monkeypatch):
         with pytest.raises(openalex.BudgetExhausted):
             openalex._get("/works", {"search": "x"})
     assert len(calls) == 1
+
+
+def test_a_page_that_blocks_automatic_reading_is_given_as_a_link_not_read():
+    """UC Davis ECE answers 403: no names are guessed; the official page is returned for the user to open."""
+    from admission.faculty import BlockedPage
+
+    url = "https://ece.ucdavis.edu/people"
+    result = find_professors({"programId": "p", "degreeLevel": "master"}, {"applicantType": "master"},
+                             find_pages=lambda p: [url, "https://ratemyprof.example/ucd"],
+                             check=lambda u: BlockedPage(u) if u == url else None,
+                             fetch=lambda u: (_ for _ in ()).throw(AssertionError("blocked page must not be read")),
+                             extract=lambda text, p: [], today="2026-11-25")
+    assert result["found"] is False and result["professors"] == []
+    assert result["blockedPages"] == [url]
+    assert result["tried"][0]["result"].startswith("official page, but the site blocks")
