@@ -27,11 +27,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from admission.faculty import (  # noqa: E402
-    BlockedPage, candidate_pages, find_professors, gemini_extract_people, gemini_faculty_pages, readable_page_text,
+    BlockedPage, candidate_pages, check_faculty_page, find_professors, gemini_extract_people, gemini_faculty_pages, readable_page_text,
     remember_pages,
 )
 from admission.openalex import research_for  # noqa: E402
-from admission.requirement_finder import _download, _on_domain, fetch_page_text, resolve_url  # noqa: E402
+from admission.requirement_finder import _download  # noqa: E402
 
 DEPARTMENTS = ROOT / "data" / "professors" / "departments.yaml"
 CATALOGUE = ROOT / "data" / "catalogue" / "programs_unified.json"
@@ -47,16 +47,11 @@ def programme_for(department: dict, catalogue: list[dict]) -> dict | None:
     return None
 
 
-def official_ok(url: str, domains: tuple[str, ...]) -> str | None:
-    url = resolve_url(url.rstrip(".,);"))
-    if not _on_domain(url, domains, check_alias=True):
-        return None
-    status, _ = fetch_page_text(url)
-    if status != 200:
-        print(f"    page check {url} -> HTTP {status}")
-    if status == 403:
-        return BlockedPage(url)  # official, but the site refuses automatic reading
-    return url if status == 200 else None
+def official_ok(url: str, domains: tuple[str, ...]) -> str:
+    result = check_faculty_page(url, domains)
+    if not result or isinstance(result, BlockedPage):
+        print(f"    page check {url} -> {getattr(result, 'reason', 'blocked (HTTP 403)')}")
+    return result
 
 
 def main(argv: list[str] | None = None) -> int:

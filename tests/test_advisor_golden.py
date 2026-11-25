@@ -242,3 +242,59 @@ def test_a_page_that_blocks_automatic_reading_is_given_as_a_link_not_read():
     assert result["found"] is False and result["professors"] == []
     assert result["blockedPages"] == [url]
     assert result["tried"][0]["result"].startswith("official page, but the site blocks")
+
+
+def test_pages_checked_say_why_a_page_was_not_used():
+    """A guessed page that does not open is reported as such, not as "not an official page"."""
+    from admission.faculty import PageProblem
+
+    result = find_professors({"programId": "p", "degreeLevel": "master"}, {"applicantType": "master"},
+                             find_pages=lambda p: ["https://www.scu.edu/eng/ee/faculty/"],
+                             check=lambda u: PageProblem(u, "page does not open (HTTP 404)"),
+                             fetch=lambda u: "", extract=lambda text, p: [], today="2026-11-25")
+    assert result["tried"] == [{"url": "https://www.scu.edu/eng/ee/faculty/", "result": "page does not open (HTTP 404)"}]
+
+
+def test_a_guessed_page_that_moved_leads_to_the_faculty_link_on_its_department_page():
+    from admission.faculty import candidate_pages, parent_page
+
+    guessed = "https://www.scu.edu/engineering/ee/faculty/"
+    assert parent_page(guessed) == "https://www.scu.edu/engineering/ee/"
+    assert parent_page("https://www.scu.edu/faculty/") is None
+    links = {"https://www.scu.edu/engineering/ee/": ["https://www.scu.edu/engineering/ece/people/",
+                                                      "https://www.scu.edu/engineering/ee/news/"]}
+    program = {"universityKey": "none", "engineeringFields": []}
+    pages = list(candidate_pages(program, lambda p: [guessed], links_of=lambda url: links.get(url, [])))
+    assert pages == [guessed, "https://www.scu.edu/engineering/ece/people/"]
+
+
+def test_department_page_offered_only_if_it_really_opens():
+    """Santa Clara: the guessed faculty page is 404; the department page above it opens and is offered."""
+    from admission.faculty import PageProblem, department_page
+
+    tried = [{"url": "https://www.scu.edu/engineering/ee/faculty/", "result": "page does not open (HTTP 404)"}]
+    opens = {"https://www.scu.edu/engineering/"}
+    check = lambda u: u if u in opens else PageProblem(u, "page does not open (HTTP 404)")
+    assert department_page(tried, check) == "https://www.scu.edu/engineering/"
+    assert department_page(tried, lambda u: PageProblem(u, "x")) is None
+
+
+def test_school_wide_list_keeps_only_the_programmes_department():
+    """Santa Clara lists all engineering faculty on one page; an EE programme gets the ECE professors."""
+    from admission.faculty import in_department
+
+    people = [{"name": "A", "title": "Professor in Electrical and Computer Engineering"},
+              {"name": "B", "title": "Assistant Professor of Electrical and Computer Engineering"},
+              {"name": "C", "title": "Associate Professor of Electrical and Computer Engineering"},
+              {"name": "D", "title": "Professor of Civil, Environmental and Sustainable Engineering"},
+              {"name": "E", "title": "Professor of Bioengineering"},
+              {"name": "F", "title": "Professor of Mechanical Engineering"}]
+    ee = {"engineeringFields": ["electrical_electronic"]}
+    assert [p["name"] for p in in_department(people, ee)] == ["A", "B", "C"]
+    # a department page that writes only "Professor": everyone stays
+    plain = [{"name": n, "title": "Professor"} for n in "XYZ"]
+    assert in_department(plain, ee) == plain
+    # a computing department page: some titles name the subject, others do not; nobody is dropped
+    cs = [{"name": "P", "title": "Professor of Computer Science"}, {"name": "Q", "title": "Senior Lecturer"},
+          {"name": "R", "title": "Reader in Computer Science"}, {"name": "S", "title": "Professor of Computing"}]
+    assert in_department(cs, {"engineeringFields": ["computing"]}) == cs

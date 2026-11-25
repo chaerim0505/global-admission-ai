@@ -39,6 +39,18 @@ class BlockedPage(str):
     """
 
 
+class PageProblem(str):
+    """check() result for a page that cannot be used, with the reason shown in "Pages checked"."""
+
+    def __new__(cls, url: str, reason: str):
+        page = super().__new__(cls, url)
+        page.reason = reason
+        return page
+
+    def __bool__(self) -> bool:
+        return False
+
+
 class AdvisorNotAllowed(ValueError):
     """AC8: advisor matching was requested for an undergraduate programme or applicant."""
 
@@ -163,6 +175,41 @@ def keep_matching_field(professor: dict, found: dict, shown: int = 3) -> dict | 
     return {**found, "researchTopics": topics, "recentWorks": works[:shown]}
 
 
+# Words a job title uses for each field's department, e.g. "Professor of Electrical and Computer Engineering"
+FIELD_WORDS = {
+    "computing": ("computer", "computing", "software", "informatics", "data science", "artificial intelligence",
+                  "컴퓨터", "소프트웨어", "인공지능"),
+    "electrical_electronic": ("electrical", "electronic", "computer engineering", "전기", "전자"),
+    "mechanical": ("mechanical", "기계"),
+    "civil_environmental": ("civil", "environmental", "건설", "토목", "환경"),
+    "chemical_materials": ("chemical", "materials", "화학", "재료", "신소재"),
+    "industrial_systems": ("industrial", "systems engineering", "산업"),
+    "aerospace": ("aerospace", "aeronautic", "항공"),
+    "biomedical": ("bioengineering", "biomedical", "의공", "바이오"),
+}
+
+
+def in_department(people: list[dict], program: dict, at_least: int = 3) -> list[dict]:
+    """On a school-wide list, keep the people whose title names this programme's department.
+
+    A list counts as school-wide only when titles name other departments too (at least `at_least`
+    people from another field). A department's own page is kept whole, even if some titles say
+    "Professor of Computer Science" and others just "Senior Lecturer".
+    """
+    fields = program.get("engineeringFields") or []
+    words = [w for f in fields for w in FIELD_WORDS.get(f, ())]
+    other_words = [w for f, ws in FIELD_WORDS.items() if f not in fields for w in ws if w not in words]
+    if not words:
+        return people
+
+    def names(title, ws):
+        return any(w in (title or "").lower() for w in ws)
+
+    matching = [p for p in people if names(p.get("title"), words)]
+    others = [p for p in people if not names(p.get("title"), words) and names(p.get("title"), other_words)]
+    return matching if len(matching) >= at_least and len(others) >= at_least else people
+
+
 def _ask_research(research, professor: dict, program: dict):
     """research(name, program) or, if it takes it, research(name, program, person=...)."""
     import inspect
@@ -218,7 +265,7 @@ def find_professors(program: dict, context: dict | None, *, find_pages, check, f
     for url in islice(iter(find_pages(program) or []), max_pages):
         real = check(url)
         if not real:
-            tried.append({"url": url, "result": "not an official page"})
+            tried.append({"url": url, "result": getattr(real, "reason", "not an official page")})
             continue
         if real in pages or real in blocked:
             continue
@@ -228,7 +275,7 @@ def find_professors(program: dict, context: dict | None, *, find_pages, check, f
             continue
         text = fetch(real) or ""
         candidates = extract(text, program) or []
-        people = verify_people(candidates, text)
+        people = in_department(verify_people(candidates, text), program)
         tried.append({"url": real, "result": f"{len(people)} professors confirmed of {len(candidates)} names"
                       if candidates else "no names in the page text (may load with JavaScript)"})
         if not people:
@@ -360,6 +407,64 @@ def candidate_pages(program: dict, web_search, on_error=None, links_of=None):
             on_error(error)
         return
     yield from found
+    if links_of:
+        # e.g. ".../department-of-electrical-engineering/faculty/" moved: try faculty links on ".../department-.../"
+        for url in found:
+            parent = parent_page(url)
+            if parent:
+                try:
+                    yield from faculty_links(parent, links_of(parent))
+                except Exception:
+                    pass
+
+
+def parent_page(url: str) -> str | None:
+    """One level up: https://x.edu/eng/ece/faculty/ -> https://x.edu/eng/ece/ (None at the site root)."""
+    from urllib.parse import urlparse
+
+    parts = urlparse(url)
+    path = parts.path.rstrip("/")
+    if path.count("/") < 2:
+        return None
+    return f"{parts.scheme}://{parts.netloc}{path.rsplit('/', 1)[0]}/"
+
+
+def department_page(tried: list[dict], check) -> str | None:
+    """When no faculty list could be read: the nearest official page above a tried page that opens.
+
+    Only a page that really opens on the official site is offered, never the page that failed.
+    """
+    for attempt in tried:
+        parent = parent_page(attempt["url"])
+        while parent:
+            page = check(parent)
+            if page and not isinstance(page, BlockedPage):
+                return str(page)
+            parent = parent_page(parent)
+    return None
+
+
+def check_faculty_page(url: str, domains: tuple[str, ...]) -> str:
+    """Official page that opens -> its URL; 403 -> BlockedPage; otherwise PageProblem with the reason."""
+    from admission.requirement_finder import _on_domain, fetch_page_text, resolve_url
+
+    url = resolve_url(url.rstrip(".,);"))
+    if not _on_domain(url, domains, check_alias=True):
+        return PageProblem(url, "not on the university's official website")
+    status, _ = fetch_page_text(url)
+    if status is None:  # slow site: the quick link check gave up, try once more with more time
+        try:
+            import requests
+
+            status = requests.get(url, timeout=20, allow_redirects=True,
+                                  headers={"User-Agent": "Mozilla/5.0 (admission-ai faculty check)"}).status_code
+        except Exception:
+            return PageProblem(url, "page did not answer")
+    if status == 200:
+        return url
+    if status == 403:
+        return BlockedPage(url)
+    return PageProblem(url, f"page does not open (HTTP {status})")
 
 
 # ---------------------------------------------------------------------------

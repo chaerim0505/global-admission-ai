@@ -3,25 +3,557 @@
   "model": "gemini-3.8-flash",
   "departments": [
     {
-      "id": "us_sc_110644_1410_master",
+      "id": "us_sc_122931_1410_master",
       "country": "US",
-      "university": "University of California-Davis",
+      "university": "Santa Clara University",
       "department": "Electrical, Electronics, and Communications Engineering",
-      "programId": "us_sc_110644_1410_master",
-      "status": "not_found",
-      "facultyPages": [],
+      "programId": "us_sc_122931_1410_master",
+      "status": "found",
+      "facultyPages": [
+        "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html"
+      ],
       "tried": [
         {
-          "url": "https://ece.ucdavis.edu/directory",
-          "result": "not an official page"
-        },
-        {
-          "url": "https://ece.ucdavis.edu/people",
-          "result": "not an official page"
+          "url": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "result": "147 professors confirmed of 156 names"
         }
       ],
-      "professors": [],
-      "seconds": 219.2
+      "blockedPages": [],
+      "professors": [
+        {
+          "name": "AARON MELMAN",
+          "title": "Associate Professor of Applied Mathematics\nDepartment Chair of Applied Mathematics",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Matrix Theory and Algorithms",
+            "Mathematical functions and polynomials",
+            "Polynomial and algebraic computation",
+            "Numerical Methods and Algorithms",
+            "Iterative Methods for Nonlinear Equations"
+          ],
+          "recentWorks": [
+            {
+              "title": "Angular distribution of zeros of analytic quadrinomials and related harmonic polynomial and rational functions",
+              "year": 2026,
+              "url": "https://doi.org/10.1016/j.jmaa.2026.130799",
+              "abstract": "An angular distribution of zeros of four-term complex-valued harmonic polynomial and rational functions is obtained by first showing that it is the same as that of a corresponding analytic quadrinomial, and then deriving zero inclusion sectors for such quadrinomials. Examples illustrate the theory."
+            },
+            {
+              "title": "A Note on Zero Inclusion Sectors for a Family of Harmonic Rational Functions",
+              "year": 2026,
+              "url": "https://doi.org/10.1007/s40315-026-00606-w",
+              "abstract": "Zero inclusion sectors are obtained for a family of complex valued harmonic rational functions. The zeros of a limiting case are obtained explicitly."
+            },
+            {
+              "title": "Zero exclusion sectors for polynomials whose coefficients exhibit a +/-/+ sign pattern",
+              "year": 2025,
+              "url": "https://doi.org/10.1090/proc/17070",
+              "abstract": "The zeros of polynomials whose coefficients exhibit a +/-/+ sign pattern are sometimes excluded from sectors in the complex plane. It is shown how to obtain such sectors, as well as the number of zeros that lie between the sectors, along with bounds on their magnitudes. The results are illustrated with an application to polynomial eigenvalue problems."
+            }
+          ],
+          "researchSource": "https://openalex.org/A5081358638"
+        },
+        {
+          "name": "ADHAM NAJI",
+          "title": "Assistant Professor of Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Microwave Engineering and Waveguides",
+            "Antenna Design and Analysis",
+            "Particle Accelerators and Free-Electron Lasers",
+            "Terahertz technology and applications",
+            "Particle accelerators and beam dynamics"
+          ],
+          "recentWorks": [
+            {
+              "title": "Full-scatter vector field analysis of an overmoded and periodically loaded cylindrical structure for the transportation of THz radiation",
+              "year": 2026,
+              "url": "https://doi.org/10.1103/71zv-kl3t",
+              "abstract": "Highly overmoded and periodically loaded structures, such as the iris-line waveguide, offer an attractive solution for the efficient transportation of diffraction-prone THz pulses over long distances (hundreds of meters). This paper presents the full-scatter field theory that allows us to analytically derive all the spectral (modal) coefficients at the discontinuities of the iris line. The spectral analysis uses vector fields, superseding scalar field descriptions, to account for diffraction loss, polarization effects, and ohmic loss on practical conductive surfaces. An advanced application of…"
+            },
+            {
+              "title": "Ohmic Loss Reduction in Highly Overmoded Iris Lines Using Chisel-Edged Screens",
+              "year": 2025,
+              "url": "https://doi.org/10.1109/ap-s/cnc-usnc-ursi55537.2025.11265997",
+              "abstract": "In this note, we report observations on the growth trends of diffraction power loss and ohmic power loss, as functions of screen thickness, in highly overmoded THz or mm-wave iris-line waveguides that are constructed from finitethickness screens. Recent theoretical developments have given a detailed field description, including eigen and transient analyses, that characterizes such waveguides under paraxial dipole-mode excitation. Informed by these analyses, we can better estimate, and minimize, power-loss effects due to finite screen thickness in practical realizations. A geometric variation w…"
+            },
+            {
+              "title": "Characteristic transition of the dominant power loss from diffractive to ohmic in overmoded and periodically loaded waveguides at high frequency",
+              "year": 2025,
+              "url": "https://doi.org/10.48550/arxiv.2505.10758",
+              "abstract": "The analysis of electromagnetic fields in cylindrical waveguiding structures that contain periodic ring loading, whether for applications in charged-particle accelerators or radiation transportation, has been traditionally conducted under simplifying limits, where the structure is either single-moded at the lower-frequency limit or overmoded at high-frequency limit. These limits have often allowed us to find spectral (modal) expansions for the fields under simpler analytical and computational conditions, with ohmic effects typically being the dominant power loss mechanism in the lower limit, w…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5056408687"
+        },
+        {
+          "name": "AHMED AMER",
+          "title": "Associate Professor of Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Advanced Data Storage Technologies",
+            "Advanced Database Systems and Queries",
+            "Distributed systems and fault tolerance",
+            "Parallel Computing and Optimization Techniques",
+            "Caching and Content Delivery"
+          ],
+          "recentWorks": [
+            {
+              "title": "Rethinking data infrastructure and its ethical implications in the face of automated digital content generation",
+              "year": 2022,
+              "url": "https://doi.org/10.1007/s43681-022-00169-1",
+              "abstract": "Recent AI developments have made it possible for AI to auto-generate content—text, image, and sound. Highly realistic auto-generated content raises the question of whether one can differentiate between what is AI-generated and human-generated, and assess its origin and authenticity. When it comes to the processes of digital scholarship and publication in the presence of automated content generation technology, the evolution of data storage and presentation technologies demand that we rethink basic processes, such as the nature of anonymity and the mechanisms of attribution. We propose to consi…"
+            },
+            {
+              "title": "On Trusting a Cyber Librarian: How rethinking underlying data storage infrastructure can mitigate risks of automation",
+              "year": 2021,
+              "url": "https://doi.org/10.4108/eai.1-12-2021.172359",
+              "abstract": "INTRODUCTION: The increased ability of Artificial Intelligence (AI) technologies to generate and parse texts will inevitably lead to more proposals for AI’s use in the semantic sentiment analysis (SSA) of textual sources. We argue that instead of focusing solely on debating the merits of automated versus manual processing and analysis of texts, it is critical to also rethink our underlying storage and representation formats. Specifically, we argue that accommodating multivariate metadata is an example of how underlying data storage infrastructure can reshape the ethical debate surrounding the …"
+            },
+            {
+              "title": "On Trusting a Cyber Librarian: How Rethinking Underlying Data Storage Infrastructure Can Mitigate Risksof Automation",
+              "year": 2021,
+              "url": "https://doi.org/10.1007/978-3-030-76426-5_3",
+              "abstract": null
+            }
+          ],
+          "researchSource": "https://openalex.org/A5111474835"
+        },
+        {
+          "name": "AHMED K. EZZAT",
+          "title": "Quarterly Lecturer in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "ALEKSANDAR STANKOVIC",
+          "title": "Professor in Electrical and Computer Engineering\nChair, Department of Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Power System Optimization and Stability",
+            "Power Quality and Harmonics",
+            "Sensorless Control of Electric Motors",
+            "Multilevel Inverters and Converters",
+            "Electric Motor Design and Analysis"
+          ],
+          "recentWorks": [
+            {
+              "title": "Real-Time Detection of Distribution System Disruptions via Dynamic Power Quality Metrics",
+              "year": 2026,
+              "url": "https://doi.org/10.1109/pesgm58988.2026.11693328",
+              "abstract": "A complete characterization of transients is increasingly important, given the abundance of nonlinear loads and distributed generators in modern power systems. Effective control of power quality (PQ) can be achieved only when the contribution of imbalance and nonlinearities to non-active power is clearly understood and monitored. In this work, we customize our Dynamic Power Quality Metrics (DPQMs), which are developed from dynamic phasors and applied to utility data. The refresh rate of each dynamic phasor—and hence of each DPQM—is the same as the waveform sampling rate: an update occurs as so…"
+            },
+            {
+              "title": "An information-matching approach to optimal experimental design and active learning",
+              "year": 2026,
+              "url": "https://doi.org/10.1063/5.0296026",
+              "abstract": "The efficacy of mathematical models heavily depends on the quality of the training data, yet collecting sufficient data is often expensive and challenging. Many modeling applications require inferring parameters only as a means to predict other quantities of interest (QoI). Because models often contain many unidentifiable (sloppy) parameters, QoIs often depend on a relatively small number of parameter combinations. Therefore, we introduce an information-matching criterion based on the Fisher information matrix to select the most informative training data from a candidate pool. This method ensu…"
+            },
+            {
+              "title": "Supplementary Material: An information-matching approach to optimal experimental design and active learning",
+              "year": 2026,
+              "url": "https://doi.org/10.60893/figshare.apl.31098733",
+              "abstract": "Containing detailed description of the methods, proof of theorem, and additional results and discussions."
+            }
+          ],
+          "researchSource": "https://openalex.org/A5013151264"
+        },
+        {
+          "name": "ALEX SUMARSONO",
+          "title": "Quarterly Lecturer in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "ALKA JARVIS",
+          "title": "Quarterly Lecturer in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "ANDREW SCHATZMAN",
+          "title": "Quarterly Lecturer in Civil, Environmental and Sustainable Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "ANGELA MUSURLIAN",
+          "title": "Associate Teaching Professor in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "ICT in Developing Communities",
+            "Design Education and Practice",
+            "Mobile Health and mHealth Applications",
+            "Mobile and Web Applications",
+            "Biomedical and Engineering Education"
+          ],
+          "recentWorks": [
+            {
+              "title": "Beyond Coding: Human-Centered Design in Computer Engineering Senior Projects: Lessons from the NicaAgua App",
+              "year": 2025,
+              "url": "https://doi.org/10.1109/ghtc66843.2025.11266028",
+              "abstract": "Engineering students often face challenges designing digital tools for underserved communities due to limited understanding of local user contexts, particularly in cross-cultural and remote settings. This study addresses that gap through a case study: the NicaAgua App, which started as a senior design project by computer engineering students for climate forecasting for smallholder farmers in Nicaragua. Drawing on five years of iterative development, the authors introduce a method based on five Human-Centered Design (HCD) action items tailored for the exploratory phase of digital humanitarian p…"
+            },
+            {
+              "title": "Mobile Application to Distribute Water Quality and Weather Information in Rural Nicaragua",
+              "year": 2021,
+              "url": "https://doi.org/10.1109/ghtc53159.2021.9612505",
+              "abstract": "The ability to access accurate information about water quality and weather is something that many people take for granted, but in small, rural communities in northern Nicaragua this information is not easily accessible to everyone. Currently, weekly in-person meetings are held to distribute information such as water quality, weather conditions, and other important agricultural updates to the communities. However, technological limitations still prevent Nicaraguan farmers from getting updates in real-time. In this paper, we describe an Android app that allows the delivery of this kind of inform…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5045795966"
+        },
+        {
+          "name": "ANOOSHEH HEIDARZADEH",
+          "title": "Assistant Professor of Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Cryptography and Data Security",
+            "Cloud Data Security Solutions",
+            "Coding theory and cryptography",
+            "Error Correcting Code Techniques",
+            "Cooperative Communication and Network Coding"
+          ],
+          "recentWorks": [
+            {
+              "title": "Secure and Private Structured-Subset Retrieval: Fundamental Limits and Achievable Schemes",
+              "year": 2026,
+              "url": "https://doi.org/10.48550/arxiv.2605.09368",
+              "abstract": "This work introduces the \\emph{Secure and Private Structured-Subset Retrieval (SPSSR)} problem. In SPSSR, a user wishes to retrieve one subset from an arbitrary family of size-$D$ subsets from $K$ messages replicated across $N$ non-colluding servers that share randomness unknown to the user. The privacy requirement ensures that no server learns which subset is requested, while the security requirement ensures that the user learns nothing about the messages outside the requested subset. This generalizes Symmetric Multi-message Private Information Retrieval (SMPIR), where the candidate demand se…"
+            },
+            {
+              "title": "Private Structured-Subset Retrieval",
+              "year": 2026,
+              "url": "https://doi.org/10.48550/arxiv.2605.05160",
+              "abstract": "We introduce the \\emph{Private Structured-Subset Retrieval (PSSR)} problem, where a user retrieves $D$ messages from a database of $K$ messages replicated across $N$ non-colluding servers, and the demand is restricted to a known structured family of $D$-subsets. This formulation generalizes Multi-message Private Information Retrieval (MPIR) and captures settings where the demand space is constrained by application-specific structure. Focusing on balanced ${\\{0,1\\}}$-linear schemes, a class that includes several best-known MPIR schemes, we derive converse bounds on the maximum retrieval rate an…"
+            },
+            {
+              "title": "Private Contiguous-Block Retrieval",
+              "year": 2026,
+              "url": "https://doi.org/10.48550/arxiv.2605.05169",
+              "abstract": "We introduce the \\emph{Private Contiguous-Block Retrieval (PCBR)} problem, where a user retrieves a block of $D$ messages with contiguous indices from $K$ replicated messages stored across $N$ non-colluding servers, while hiding the identity of the requested block from each server. This problem is motivated by storage and streaming systems where files are split into ordered segments. Unlike multi-message Private Information Retrieval (MPIR), where any $D$-subset may be requested, PCBR restricts the demand family to contiguous blocks. This relaxation raises a natural question: Can this structur…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5006920802"
+        },
+        {
+          "name": "ARIA AMIRBAHMAN",
+          "title": "Professor of Civil, Environmental and Sustainable Engineering\nSukhmander Singh Professor\nChair, Department of Civil, Environmental and Sustainable Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Aquatic Ecosystems and Phytoplankton Dynamics",
+            "Mercury impact and mitigation studies",
+            "Soil and Water Nutrient Dynamics",
+            "Marine Plankton and Biogeochemistry",
+            "Heavy metals in environment"
+          ],
+          "recentWorks": [
+            {
+              "title": "Examining nitrate and uranium seasonal fluctuations in shallow domestic wells serving vulnerable communities in the Central Valley of California",
+              "year": 2026,
+              "url": "https://doi.org/10.2139/ssrn.7560481",
+              "abstract": null
+            },
+            {
+              "title": "Seasonal variability in nitrate and uranium concentrations in shallow domestic wells: Implications for groundwater monitoring and drinking-water access in California’s Central Valley",
+              "year": 2026,
+              "url": "https://doi.org/10.2139/ssrn.7611021",
+              "abstract": null
+            },
+            {
+              "title": "Fundamentals of Hybrid Cellulose Nanofibril Foam Production by Microwave-Assisted Thawing/Drying Mechanism",
+              "year": 2023,
+              "url": "https://doi.org/10.1021/acssuschemeng.3c00599",
+              "abstract": "Cellulose nanofibril (CNF) porous structures (foams/aerogels) are typically produced using energy-intensive processes such as freeze drying. In this study, a novel microwave-assisted thawing process was developed to produce low-density (36 kg/m 3 ) CNF foams. The process involved the freezing of CNF and urea suspension followed by immediate thawing in the microwave. A slow freezing rate produced a uniform pore structure, whereas fast freezing using liquid nitrogen resulted in the aggregation of CNF upon thawing. The in-situ carbamate crosslinking resulted from the addition of urea provided wet…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5074318248"
+        },
+        {
+          "name": "ARMAN ELAHI",
+          "title": "Quarterly Lecturer in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "ARUN JAGOTA",
+          "title": "Quarterly Lecturer in Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "BEHNAM DEZFOULI",
+          "title": "Associate Professor of Computer Science and Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Energy Efficient Wireless Sensor Networks",
+            "Wireless Networks and Protocols",
+            "IoT and Edge/Fog Computing",
+            "Security in Wireless Sensor Networks",
+            "IoT Networks and Protocols"
+          ],
+          "recentWorks": [
+            {
+              "title": "LeMon: An eBPF-Driven System Monitoring Framework for Wireless Access Points",
+              "year": 2026,
+              "url": "https://doi.org/10.1109/icc59461.2026.11587289",
+              "abstract": "Wi-Fi has become the primary connectivity medium for modern consumer and IoT devices, yet performance and reliability issues remain poorly understood due to a lack of efficient real-time monitoring tools. Existing approaches rely on coarse Access Point (AP) portal logging, kernel modifications, or packet capture, all of which impose significant overhead or lack sufficient visibility into the network stack. In this paper, we present LeMon, an eBPF-based monitoring framework that performs high-rate, in-kernel aggregation of network statistics and exports them to user-space through a lightweight …"
+            },
+            {
+              "title": "DAFRA: Demand-Aware Fair Rate Allocation to Flows on Commodity Switches",
+              "year": 2026,
+              "url": "https://doi.org/10.1109/noms69089.2026.11668174",
+              "abstract": "Modern cloud data centers and edge clusters run on fabrics built from commodity, fixed-function switches. In such environments, particularly when AI and non-AI workloads coexist, flows with diverse rate demands share the same network. Consequently, demand-aware fair allocation at the bottleneck egress ports of switches is required to ensure that flows receive bandwidth proportional to their offered load, subject to link capacity. Existing mechanisms, including heterogeneous end-host congestion control and coarse switch policers, ignore demand-proportional targets and together cause persistent …"
+            },
+            {
+              "title": "Cross-Layer Performance Analysis of P-EDCA",
+              "year": 2026,
+              "url": "https://doi.org/10.1109/wcnc65185.2026.11555698",
+              "abstract": "Modern Wi-Fi applications require tight latency bounds and predictable throughput, and they rely on a mix of transport protocols (e.g., TCP Cubic, BBR, New Reno, and UDP) whose performance is highly sensitive to MAC-layer behavior. The forthcoming 802.11bn amendment introduces Prioritized EDCA (P-EDCA) to reduce latency for high-priority traffic, yet its crosslayer impact on transport performance remains insufficiently understood. This paper evaluates the performance of TCP and UDP traffic operating over both EDCA and P-EDCA. Our results show that (i) both TCP and UDP traffic exhibit strong se…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5040461963"
+        },
+        {
+          "name": "BENJAMIN LAM",
+          "title": "Quarterly Lecturer in Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [],
+          "recentWorks": []
+        },
+        {
+          "name": "BIAO LU",
+          "title": "Professor of Bioengineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Extracellular vesicles in disease",
+            "Nanoparticle-Based Drug Delivery",
+            "Cellular transport and secretion",
+            "Lipid metabolism and biosynthesis",
+            "Estrogen and related hormone effects"
+          ],
+          "recentWorks": [
+            {
+              "title": "Author response for \"Intracellular Trafficking Governs Membrane Scaffold Performance in Small Extracellular Vesicle Engineering\"",
+              "year": 2026,
+              "url": "https://doi.org/10.1039/d6nr02768g/v2/response1",
+              "abstract": null
+            },
+            {
+              "title": "Hijacking exosome biogenesis: viral glycoproteins as modular scaffolds for engineering functionalized extracellular vesicles",
+              "year": 2026,
+              "url": "https://doi.org/10.1039/d5nr03704b",
+              "abstract": "Small extracellular vesicles (sEVs) are emerging as versatile, biologically derived nanocarriers for precision drug delivery, yet strategies to enhance their targeting efficiency remain limited. Inspired by viral tropism, this study investigates whether viral envelope glycoproteins (GPs) can co-opt native biogenesis pathways to functionalize sEV membranes. Diverse viral GPs from both DNA and RNA viruses-including VSVG, HSV-gpB, SARS-CoV-1 spike, and RD114A-are shown to efficiently incorporate into sEV membranes in human cells, independent of viral assembly. Live-cell confocal imaging and co-lo…"
+            },
+            {
+              "title": "Intracellular trafficking governs membrane scaffold performance in small extracellular vesicle engineering",
+              "year": 2026,
+              "url": "https://doi.org/10.1039/d6nr02768g",
+              "abstract": "Small extracellular vesicle (sEV) scaffold performance depends on intracellular trafficking. VSVG, ACY and FAR enable robust cargo loading through endosomal trafficking, establishing a trafficking-guided framework for rational nanotherapeutic design."
+            }
+          ],
+          "researchSource": "https://openalex.org/A5102901261"
+        },
+        {
+          "name": "BONITA BANDUCCI",
+          "title": "Quarterly Lecturer in Graduate Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Gender Diversity and Inequality",
+            "Nonprofit Sector and Volunteering",
+            "Community and Sustainable Development"
+          ],
+          "recentWorks": [],
+          "researchSource": "https://openalex.org/A5022347814"
+        },
+        {
+          "name": "BRIAN GREEN",
+          "title": "Quarterly Lecturer in Graduate Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Ethics and Social Impacts of AI",
+            "Philosophical Ethics and Theory",
+            "Space Science and Extraterrestrial Life",
+            "Space exploration and regulation",
+            "Ethics in Business and Education"
+          ],
+          "recentWorks": [
+            {
+              "title": "Giving the Emperor clothes: operationalizing AI ethics principles in corporations",
+              "year": 2026,
+              "url": "https://doi.org/10.1007/s43681-026-01348-0",
+              "abstract": "Artificial intelligence (AI) technologies raise enormous questions for society and how we should live. For corporations, AI raises questions about how organizations ought to incorporate principles and other forms of ethical guidance into their work. The movement from theory to practice, or “the operationalization question” demands that organizations not only have good intentions, but actual institutionalized approaches towards ethical problem solving. In this paper, we look at the movement from theory to practice, and particularly at the use of principles as a way to guide ethical behavior, co…"
+            },
+            {
+              "title": "Reclaiming Human Agency in the Catholic Tradition",
+              "year": 2026,
+              "url": "https://doi.org/10.1080/14746700.2026.2637211",
+              "abstract": "Encountering Artificial Intelligence: Ethical and Anthropological Investigations.1 That book explored what AI is, how it differs from human intelligence, and what ethical issues it raises.It has served as a source for conversations in Catholic and other circles.Coming out of that project, the authors realized that they still had many questions about AI and human agency.AI's effects on human action played an important part in many of our ethical analyses, but we had not explored it explicitly.In the meantime, the role of AI in agency has only increased, with tech CEOs promising that new tools w…"
+            },
+            {
+              "title": "Ethical Resources for Helping Artificial Intelligence Benefit the Common Good",
+              "year": 2026,
+              "url": "https://doi.org/10.65398/ezwl9307",
+              "abstract": "In 2023 the Markkula Center published Ethics in the Age of Disruptive Technologies: An Operation Roadmap.Known more briefly as The ITEC Handbook, this is a resource for companies wanting to integrate ethical thinking about technology from top to bottom in their organization."
+            }
+          ],
+          "researchSource": "https://openalex.org/A5103272348"
+        },
+        {
+          "name": "BRUCE S. GREENE",
+          "title": "Quarterly Lecturer in Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "VLSI and Analog Circuit Testing",
+            "Software Testing and Debugging Techniques",
+            "Radiation Effects in Electronics",
+            "Formal Methods in Verification",
+            "Embedded Systems Design Techniques"
+          ],
+          "recentWorks": [],
+          "researchSource": "https://openalex.org/A5056722965"
+        },
+        {
+          "name": "BURAK KURKCU",
+          "title": "Assistant Professor of Electrical and Computer Engineering",
+          "university": "Santa Clara University",
+          "country": "US",
+          "programId": "us_sc_122931_1410_master",
+          "programRelationSource": "https://www.scu.edu/bulletin/graduate/school-of-engineering/engineering-faculty.html",
+          "verificationStatus": "official_faculty_page",
+          "checkedAt": "2026-11-25",
+          "researchTopics": [
+            "Adaptive Control of Nonlinear Systems",
+            "Stability and Control of Uncertain Systems",
+            "Advanced Control Systems Design",
+            "Control Systems and Identification",
+            "Advanced Control and Stabilization in Aerospace Systems"
+          ],
+          "recentWorks": [
+            {
+              "title": "Gimbal Sisteminde Uyarlamali Periyodik Bozucu Gozleyici Tabanli Kontrol",
+              "year": 2026,
+              "url": "https://doi.org/10.5281/zenodo.24173938",
+              "abstract": "Rotor-induced vibrations significantly impact systems requiring high disturbance rejection performance, such as inertially stabilized platforms in electro-optical systems for aerospace applications. Torque disturbances, primarily caused by rotor vibrations at the blade passing frequency (BPF) and its harmonics, degrade stabilization and imaging performance. While Repetitive Control (RC) and Disturbance Observer-Based Control (DOBC) methods have effectively rejected disturbances, existing approaches are limited for improper and non-minimum phase systems. This study introduces an adaptive period…"
+            },
+            {
+              "title": "Ataletsel Stabilize Gimbal Sistemlerinin Veri-Gudumlu Koopman Modellemesi ve LQG/LTR Kontrolu",
+              "year": 2026,
+              "url": "https://doi.org/10.5281/zenodo.24175027",
+              "abstract": "High-precision stabilization of inertially stabilized gimbal systems is heavily challenged by nonlinear friction and structural resonances. To address this, this paper proposes an Extended Dynamic Mode Decomposition (EDMD) approach based on Koopman Operator Theory to represent the nonlinear dynamics in a high-dimensional linear state space. To resolve the unmeasurability of the lifted states, a Linear Quadratic Gaussian (LQG) controller is designed, and the associated loss of robust stability margins is successfully reconstructed via Loop Transfer Recovery (LTR). Experimental and simulation re…"
+            },
+            {
+              "title": "Model-Based Koopman-Galerkin Lifting for Guaranteed H-Infinity Output Feedback Control of Nonlinear Systems",
+              "year": 2026,
+              "url": "https://doi.org/10.48550/arxiv.2610.07299",
+              "abstract": "In this paper, we present a model-based Koopman-Galerkin framework for output-feedback control of nonlinear systems with known dynamics. With a suitable actuator augmentation, the finite-dimensional realization preserves the actuator dynamics and the constant input matrix. The approach is based on an exact decomposition of the lifted dynamics into an LTI system and a finite-order closure residual. It also applies to non-control-affine systems and allows dictionaries that do not span an invariant subspace. Regional bounds are derived for the closure residual, actuator-realization defect, and ou…"
+            }
+          ],
+          "researchSource": "https://openalex.org/A5082928789"
+        }
+      ],
+      "seconds": 48.5
     }
   ]
 }

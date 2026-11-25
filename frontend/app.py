@@ -1144,20 +1144,6 @@ def official_link_ok(url: str, domains: tuple[str, ...]) -> str | None:
     return url if status == 200 else None
 
 
-def official_faculty_page(url: str, domains: tuple[str, ...]) -> str | None:
-    """Like official_link_ok, but an official page that refuses automatic reading (403) is kept as a link."""
-    from admission.faculty import BlockedPage
-    from admission.requirement_finder import _on_domain, fetch_page_text, resolve_url
-
-    url = resolve_url(url.rstrip(".,);"))
-    if not _on_domain(url, domains, check_alias=True):
-        return None
-    status, _ = fetch_page_text(url)
-    if status == 403:
-        return BlockedPage(url)
-    return url if status == 200 else None
-
-
 def clean_report_links(text: str, domains: tuple[str, ...]) -> str:
     """Keep each fact only with an official link whose page actually states it."""
     from admission.requirement_finder import fetch_page_text, keep_supported_facts
@@ -1257,7 +1243,7 @@ Rules:
             st.session_state[state_key] = {"text": text, "sources": citations, "model": model}
         except Exception as error:
             message = str(error)
-            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+            if "429" in message or "402" in message or "RESOURCE_EXHAUSTED" in message:
                 message = t("Gemini API quota exceeded. Please try again later.")
             st.session_state[state_key] = {"error": message}
 
@@ -1269,6 +1255,11 @@ Rules:
         return
     st.markdown("### " + t("AI Admission Requirements Research"))
     st.caption("Gemini · " + result.get("model", "") + " · " + t("Each fact is shown only with the official page that states it."))
+    if not (result.get("text") or "").strip() and not result.get("sources"):
+        # every fact was removed: no official page could be opened to confirm it (e.g. the site answers 403)
+        st.info(t("No fact could be confirmed on an official page. The university's website may block "
+                  "automatic checking. Please use the University website link above."))
+        return
     st.markdown(result.get("text", ""))
     if result.get("sources"):
         st.markdown("**" + t("Official pages used") + "**")
@@ -1391,7 +1382,7 @@ def show_professor_search(program: dict) -> None:
     from dotenv import load_dotenv
 
     from admission.faculty import (
-        AdvisorNotAllowed, candidate_pages, find_professors, gemini_extract_people, gemini_faculty_pages,
+        AdvisorNotAllowed, candidate_pages, check_faculty_page, department_page, find_professors, gemini_extract_people, gemini_faculty_pages,
         readable_page_text, remember_pages,
     )
     from admission.openalex import research_for
@@ -1426,22 +1417,28 @@ def show_professor_search(program: dict) -> None:
                     find_pages=lambda p: candidate_pages(
                         p, lambda q: gemini_faculty_pages(search_client, model, q, domains), on_error=search_errors.append,
                         links_of=lambda url: list(_download(url)[2])),
-                    check=lambda url: official_faculty_page(url, domains),
+                    check=lambda url: check_faculty_page(url, domains),
                     fetch=readable_page_text,
                     extract=lambda text, p: gemini_extract_people(client, model, text, p),
                     research=research_for,
                 )
             remember_pages(program, result["facultyPages"])
+            if not result["found"] and not result.get("blockedPages") and result.get("tried"):
+                result["departmentPage"] = department_page(result["tried"], lambda u: check_faculty_page(u, domains))
             if search_errors:
-                print(f"[professor search] web search: {search_errors[-1]}", flush=True)
-                result["searchSlow"] = True
+                last = str(search_errors[-1])
+                print(f"[professor search] web search: {last}", flush=True)
+                if any(code in last for code in ("402", "429", "RESOURCE_EXHAUSTED")):
+                    result["searchQuota"] = True  # out of Gemini credit or quota, not slow
+                else:
+                    result["searchSlow"] = True
             st.session_state[state_key] = result
         except AdvisorNotAllowed:
             st.session_state[state_key] = {"error": t("Advisor matching is only for master's and PhD applicants.")}
         except Exception as error:
             message = str(error)
             print(f"[professor search] {type(error).__name__}: {message}", flush=True)
-            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+            if "429" in message or "402" in message or "RESOURCE_EXHAUSTED" in message:
                 message = t("Gemini API quota exceeded. Please try again later.")
             elif isinstance(error, ExplorationTimeout) or "504" in message or "DEADLINE_EXCEEDED" in message:
                 message = t("Web search is taking too long right now. Please try again in a moment.")
@@ -1461,11 +1458,15 @@ def show_professor_search(program: dict) -> None:
             for url in result["blockedPages"]:
                 st.markdown(f"🏛 {t('Official faculty page')}{page_link(url)}")
             return
-        if result.get("searchSlow"):
+        if result.get("searchQuota"):
+            st.warning(t("Gemini API quota exceeded. Please try again later."))
+        elif result.get("searchSlow"):
             st.info(t("Web search is taking too long right now. Please try again in a moment."))
         else:
             st.info(t("Could not confirm professors on an official faculty page for this programme. "
                       "Please check the department's website."))
+            if result.get("departmentPage"):
+                st.markdown(f"🏛 {t('Official department page')}{page_link(result['departmentPage'])}")
         if result.get("tried"):
             with st.expander(t("Pages checked")):
                 for attempt in result["tried"]:
@@ -1590,7 +1591,7 @@ def compute_recommendations(context: dict) -> tuple[dict, str | None]:
             outcome = recommend_v2(ctx, catalogue, web_results=web)
         except Exception as error:  # web search is optional; dataset results still stand
             message = str(error)
-            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+            if "429" in message or "402" in message or "RESOURCE_EXHAUSTED" in message:
                 notice = t("Gemini API quota exceeded. Please try again later.")
             elif isinstance(error, ExplorationTimeout) or "504" in message or "DEADLINE_EXCEEDED" in message:
                 notice = t("Web search is taking too long right now. Please try again in a moment.")
