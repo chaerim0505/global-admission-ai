@@ -200,7 +200,8 @@ RAG and Embedding-based AI Agent
 | 영국·아일랜드 | 석사 과정만 있습니다 |
 | 공식 요건 조사 | Gemini 웹 검색이라 10–30초 걸리고 가끔 시간 초과가 납니다. 잠시 후 다시 누르세요. 확인되지 않은 내용은 표시하지 않습니다 |
 | 첫 접속 지연 | 무료 서버가 쉬고 있으면 첫 로그인에 30초–1분이 걸립니다 |
-| 범위 밖 기능 | 지도교수 추천(SPEC F05), 5개국 밖 국가, 공학 외 분야 |
+| 지도교수 찾기 | 석사·박사 카드에서만 됩니다. 학과 공식 교수진 페이지에 적힌 교수만 보여 주고, 페이지를 못 찾으면 "찾지 못함"으로 안내합니다. 논문 정보는 OpenAlex라 빠진 것이 있을 수 있습니다 |
+| 범위 밖 기능 | 5개국 밖 국가, 공학 외 분야 |
 
 ---
 
@@ -304,8 +305,8 @@ python scripts/fault_injection.py --write
 | --- | --- | --- |
 | 핵심 기능 구현 | `SPEC.md`에 MVP 포함 AC 표시 | [`docs/SPEC.md` 6.0절 "MVP 범위 표시"](docs/SPEC.md) — AC별 MVP 포함 여부와 검증 케이스 표. 구현: [`src/admission/recommend_v2.py`](src/admission/recommend_v2.py), [`src/admission/recommend.py`](src/admission/recommend.py), [`src/admission/requirement_finder.py`](src/admission/requirement_finder.py), [`frontend/app.py`](frontend/app.py) |
 | 실행 방법 문서 | README: 실행 환경, 설치·실행 명령, 핵심 시나리오(입력 예·기대 결과·AC) | 이 README의 [2절 실행 및 접속 방법](#2-실행-및-접속-방법), [7절 개발자 안내](#7-개발자-안내-실행-테스트-평가), [3절 「테스트용 핵심 시나리오」](#테스트용-핵심-시나리오-입력-예--기대-결과--ac) |
-| 골든 케이스 | `tests/harness/golden_cases.yaml` | 기능별로 4개 파일 — [`golden_cases.yaml`](tests/harness/golden_cases.yaml) (GC, 과정 검색·요건), [`recommend_v2_cases.yaml`](tests/harness/recommend_v2_cases.yaml) (RV, 5곳 추천·예산·등급·언어·장학금), [`ai_exploration_cases.yaml`](tests/harness/ai_exploration_cases.yaml) (AX, 웹 검색 결과), [`intake_followup_cases.yaml`](tests/harness/intake_followup_cases.yaml) (IF, 짧은 답변 해석). 모든 케이스에 `ac`와 `category`(normal 정상 / boundary 경계 / forbidden 금지 행동) |
-| 테스트 하니스 | `tests/test_<기능>_golden.py` | [`test_recommend_golden.py`](tests/test_recommend_golden.py) (GC), [`test_recommend_v2_golden.py`](tests/test_recommend_v2_golden.py) (RV), [`test_ai_exploration_golden.py`](tests/test_ai_exploration_golden.py) (AX), [`test_intake_followup_golden.py`](tests/test_intake_followup_golden.py) (IF). skip·xfail 없음 |
+| 골든 케이스 | `tests/harness/golden_cases.yaml` | 기능별로 5개 파일 — [`golden_cases.yaml`](tests/harness/golden_cases.yaml) (GC, 과정 검색·요건), [`recommend_v2_cases.yaml`](tests/harness/recommend_v2_cases.yaml) (RV, 5곳 추천·예산·등급·언어·장학금), [`ai_exploration_cases.yaml`](tests/harness/ai_exploration_cases.yaml) (AX, 웹 검색 결과), [`intake_followup_cases.yaml`](tests/harness/intake_followup_cases.yaml) (IF, 짧은 답변 해석), [`advisor_cases.yaml`](tests/harness/advisor_cases.yaml) (AD, 지도교수 찾기). 모든 케이스에 `ac`와 `category`(normal 정상 / boundary 경계 / forbidden 금지 행동) |
+| 테스트 하니스 | `tests/test_<기능>_golden.py` | [`test_recommend_golden.py`](tests/test_recommend_golden.py) (GC), [`test_recommend_v2_golden.py`](tests/test_recommend_v2_golden.py) (RV), [`test_ai_exploration_golden.py`](tests/test_ai_exploration_golden.py) (AX), [`test_intake_followup_golden.py`](tests/test_intake_followup_golden.py) (IF), [`test_advisor_golden.py`](tests/test_advisor_golden.py) (AD). skip·xfail 없음 |
 | 결함 주입 기록 | `docs/prompts/delegation_<기능>.md` | [`delegation_recommend_v2.md`](docs/prompts/delegation_recommend_v2.md) (맨 아래 결함 주입 표, 도구 [`scripts/fault_injection.py`](scripts/fault_injection.py)), [`delegation_ai_exploration.md`](docs/prompts/delegation_ai_exploration.md), [`delegation_intake_followup.md`](docs/prompts/delegation_intake_followup.md), [`delegation_evals.md`](docs/prompts/delegation_evals.md) |
 | evals 설계 | `evals/EVAL_DESIGN.md` | 같음 — [`evals/EVAL_DESIGN.md`](evals/EVAL_DESIGN.md) (지표마다 AC·계산 방법·합격선) |
 | evals 데이터셋 | `evals/evalset.jsonl` | 같음 — [`evals/evalset.jsonl`](evals/evalset.jsonl) (25개, 9개 범주) |

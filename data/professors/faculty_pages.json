@@ -1,0 +1,37 @@
+{
+  "note": "Official faculty pages found by 'Find professors' (scripts/check_professor_search.py, 2026-11-25). Tried first before web search; each page is still checked (official domain, real page, names written on it) every time. A department home page may be listed; its faculty-page links are followed.",
+  "pages": {
+    "https://ror.org/03tzb2h73|mechanical": [
+      "https://www.ajou.ac.kr/me/people/faculty.do"
+    ],
+    "US:139755|computing": [
+      "https://scs.gatech.edu/people/faculty"
+    ],
+    "US:139755|mechanical": [
+      "https://www.me.gatech.edu/faculty"
+    ],
+    "https://ror.org/027m9bs27|computing": [
+      "https://www.cs.manchester.ac.uk/about/people/academic-and-research-staff/"
+    ],
+    "https://ror.org/027m9bs27|mechanical": [
+      "https://www.se.manchester.ac.uk/mae/"
+    ],
+    "https://ror.org/02e2c7k09|computing": [
+      "https://www.tudelft.nl/en/eemcs/the-faculty/professors"
+    ],
+    "https://ror.org/02e2c7k09|mechanical": [
+      "https://www.tudelft.nl/en/me/research/full-professors"
+    ],
+    "https://ror.org/02tyrky19|computing": [
+      "https://www.tcd.ie/scss/people/academic-staff/"
+    ],
+    "https://ror.org/02tyrky19|mechanical": [
+      "https://www.tcd.ie/mecheng/staff/academic-staff/"
+    ],
+    "https://ror.org/03tzb2h73|computing": [
+      "https://software.ajou.ac.kr/board/professor?s_category=전임교원",
+      "https://software.ajou.ac.kr/board/professor?s_category=특임교원",
+      "https://software.ajou.ac.kr/"
+    ]
+  }
+}

@@ -1068,7 +1068,7 @@ def show_input(programs) -> None:
             )
 
             st.caption(
-                t("Advisor matching will be added after the MVP.")
+                t("Advisor matching: use Find professors on a master's or PhD result card.")
             )
 
             st.button(
@@ -1362,6 +1362,104 @@ def show_recommendation_card(program: dict) -> None:
         if program.get("difficultyPercentile") is not None:
             st.caption(f"{t('Difficulty index')} {program['difficultyPercentile']:.0f}/100 · {t(program.get('difficultyBasis') or '')}")
         show_official_search(program)
+        show_professor_search(program)
+
+
+def show_professor_search(program: dict) -> None:
+    """Button on master's and PhD cards: professors from the department's official faculty page (F05, AC8, AC18).
+
+    Found on demand for this programme only, so it works for any university in the results.
+    Only people whose names are written on the official page are shown, each with that page.
+    """
+    import hashlib
+    import os
+
+    from dotenv import load_dotenv
+
+    from admission.faculty import (
+        AdvisorNotAllowed, candidate_pages, find_professors, gemini_extract_people, gemini_faculty_pages,
+        readable_page_text, remember_pages,
+    )
+    from admission.openalex import research_for
+    from admission.requirement_finder import _download
+
+    if program.get("degreeLevel") not in ("master", "phd"):
+        return  # AC8: no advisor matching for undergraduate programmes
+    uid = hashlib.sha256(str(program.get("programId", program)).encode()).hexdigest()[:16]
+    state_key = "professor_search_" + uid
+
+    if st.button("👩‍🏫 " + t("Find professors for this programme"), key="professor_btn_" + uid):
+        try:
+            load_dotenv(ROOT / ".env")
+            from google import genai
+
+            api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+            model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+            if not api_key:
+                raise ValueError("GEMINI_API_KEY is missing.")
+            domains = program_domains(program)
+            if not domains:
+                raise ValueError(t("Official university website is not known for this result."))
+            from google.genai import types as genai_types
+
+            client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(timeout=60_000))
+            # finding the right page with Google Search takes longer than copying names from it
+            search_client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(timeout=120_000))
+            search_errors: list = []
+            with st.spinner(t("Looking for the department's official faculty page...")):
+                result = find_professors(
+                    program, st.session_state.get("search"),
+                    find_pages=lambda p: candidate_pages(
+                        p, lambda q: gemini_faculty_pages(search_client, model, q, domains), on_error=search_errors.append,
+                        links_of=lambda url: list(_download(url)[2])),
+                    check=lambda url: official_link_ok(url, domains),
+                    fetch=readable_page_text,
+                    extract=lambda text, p: gemini_extract_people(client, model, text, p),
+                    research=research_for,
+                )
+            remember_pages(program, result["facultyPages"])
+            if search_errors:
+                print(f"[professor search] web search: {search_errors[-1]}", flush=True)
+                result["searchSlow"] = True
+            st.session_state[state_key] = result
+        except AdvisorNotAllowed:
+            st.session_state[state_key] = {"error": t("Advisor matching is only for master's and PhD applicants.")}
+        except Exception as error:
+            message = str(error)
+            print(f"[professor search] {type(error).__name__}: {message}", flush=True)
+            if "429" in message or "RESOURCE_EXHAUSTED" in message:
+                message = t("Gemini API quota exceeded. Please try again later.")
+            elif isinstance(error, ExplorationTimeout) or "504" in message or "DEADLINE_EXCEEDED" in message:
+                message = t("Web search is taking too long right now. Please try again in a moment.")
+            st.session_state[state_key] = {"error": message}
+
+    result = st.session_state.get(state_key)
+    if not result:
+        return
+    if result.get("error"):
+        st.error(result["error"])
+        return
+    st.markdown("### " + t("Professors in this programme's department"))
+    if not result.get("found"):
+        if result.get("searchSlow"):
+            st.info(t("Web search is taking too long right now. Please try again in a moment."))
+        else:
+            st.info(t("Could not confirm professors on an official faculty page for this programme. "
+                      "Please check the department's website."))
+        return
+    st.caption(t("Names come from the department's official faculty page. Research topics and papers are "
+                 "from OpenAlex and may be incomplete. Check each professor's own page before contacting them."))
+    for professor in result["professors"]:
+        st.markdown(f"**{safe(professor['name'])}** · {safe(professor.get('title') or '')}")
+        if professor.get("field"):
+            st.caption(t("Field (official page)") + ": " + safe(professor["field"]))
+        if professor.get("researchTopics"):
+            st.caption(t("Research topics") + ": " + ", ".join(safe(x) for x in professor["researchTopics"]))
+        for work in professor.get("recentWorks") or []:
+            year = f" ({work['year']})" if work.get("year") else ""
+            title = safe(work.get("title") or "")
+            st.markdown(f"- [{title}]({work['url']}){year}" if work.get("url") else f"- {title}{year}")
+        st.markdown(f"🏛 {t('Listed on the official faculty page')}{page_link(professor['programRelationSource'])}")
 
 
 def enrich_with_requirements(results: list[dict], ctx: dict) -> list[dict]:

@@ -1,0 +1,110 @@
+# 지도교수 찾기(F05) 점검용 학과 목록 — 5개국 x 대학 1곳 x 학과 2개.
+# 앱은 모든 대학에서 카드 버튼을 누를 때 그 자리에서 찾는다. 이 목록은 그 기능이 나라마다
+# 잘 되는지 확인하는 고정 세트다: python scripts/check_professor_search.py
+#
+# universityKey     programs_unified.json 의 universityKey (ROR 또는 US:unitid)
+# domains           공식 도메인. 교수진 페이지는 이 도메인(하위 도메인 포함)에서만 받는다.
+# field             우리 공학 분야 코드
+# programKeywords   같은 대학 석사·박사 과정 중 programName 에 이 단어가 있는 과정과 연결한다 (AC18)
+# hint              교수진 페이지를 찾을 때 쓰는 학과 이름
+
+departments:
+  - id: kr-ajou-computing
+    country: KR
+    university: Ajou University
+    universityKey: https://ror.org/03tzb2h73
+    domains: [ajou.ac.kr]
+    department: 소프트웨어학과 / 대학원 컴퓨터공학과
+    hint: Ajou University Department of Software faculty (소프트웨어학과 교수진)
+    field: computing
+    programKeywords: [컴퓨터, 소프트웨어, Computer]
+
+  - id: kr-ajou-mechanical
+    country: KR
+    university: Ajou University
+    universityKey: https://ror.org/03tzb2h73
+    domains: [ajou.ac.kr]
+    department: 기계공학과
+    hint: Ajou University Department of Mechanical Engineering faculty (기계공학과 교수진)
+    field: mechanical
+    programKeywords: [기계, Mechanical]
+
+  - id: us-gatech-computing
+    country: US
+    university: Georgia Institute of Technology
+    universityKey: US:139755
+    domains: [gatech.edu]
+    department: School of Computer Science
+    hint: Georgia Tech School of Computer Science faculty directory
+    field: computing
+    programKeywords: [Computer]
+
+  - id: us-gatech-mechanical
+    country: US
+    university: Georgia Institute of Technology
+    universityKey: US:139755
+    domains: [gatech.edu]
+    department: George W. Woodruff School of Mechanical Engineering
+    hint: Georgia Tech Woodruff School of Mechanical Engineering faculty directory
+    field: mechanical
+    programKeywords: [Mechanical]
+
+  - id: gb-manchester-computing
+    country: GB
+    university: University of Manchester
+    universityKey: https://ror.org/027m9bs27
+    domains: [manchester.ac.uk]
+    department: Department of Computer Science
+    hint: University of Manchester Department of Computer Science academic staff
+    field: computing
+    programKeywords: [Computer, Software, Artificial Intelligence]
+
+  - id: gb-manchester-mechanical
+    country: GB
+    university: University of Manchester
+    universityKey: https://ror.org/027m9bs27
+    domains: [manchester.ac.uk]
+    department: Department of Mechanical and Aerospace Engineering
+    hint: University of Manchester Mechanical and Aerospace Engineering academic staff
+    field: mechanical
+    programKeywords: [Mechanical]
+
+  - id: nl-delft-computing
+    country: NL
+    university: Delft University of Technology
+    universityKey: https://ror.org/02e2c7k09
+    domains: [tudelft.nl]
+    department: Department of Software Technology / Intelligent Systems (EEMCS)
+    hint: TU Delft Computer Science faculty staff EEMCS
+    field: computing
+    programKeywords: [Computer]
+
+  - id: nl-delft-mechanical
+    country: NL
+    university: Delft University of Technology
+    universityKey: https://ror.org/02e2c7k09
+    domains: [tudelft.nl]
+    department: Faculty of Mechanical Engineering (ME)
+    hint: TU Delft Faculty of Mechanical Engineering staff professors
+    field: mechanical
+    programKeywords: [Mechanical]
+
+  - id: ie-tcd-computing
+    country: IE
+    university: Trinity College Dublin
+    universityKey: https://ror.org/02tyrky19
+    domains: [tcd.ie]
+    department: School of Computer Science and Statistics
+    hint: Trinity College Dublin School of Computer Science and Statistics academic staff
+    field: computing
+    programKeywords: [Computer]
+
+  - id: ie-tcd-mechanical
+    country: IE
+    university: Trinity College Dublin
+    universityKey: https://ror.org/02tyrky19
+    domains: [tcd.ie]
+    department: Department of Mechanical, Manufacturing and Biomedical Engineering
+    hint: Trinity College Dublin Department of Mechanical, Manufacturing and Biomedical Engineering academic staff
+    field: mechanical
+    programKeywords: [Mechanical]

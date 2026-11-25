@@ -1,0 +1,264 @@
+# 지도교수 찾기 골든 케이스 — SPEC.md F05, AC8, AC18
+# Runner: tests/test_advisor_golden.py (calls src/admission/faculty.py find_professors; no skip or xfail)
+#
+# program        결과 카드의 과정
+# context        사용자 조건 (applicantType, interests)
+# pages          웹 검색이 찾은 교수진 페이지 후보
+#   url          페이지 주소
+#   official     공식 도메인의 진짜 페이지인지 (false = 다른 사이트, 404 페이지, 사진)
+#   text         페이지 글
+#   people       모델이 페이지에서 뽑았다고 답한 사람 (지어낸 이름이 섞일 수 있음)
+# research       OpenAlex 연구 정보 (이름 -> 연구 분야·최근 논문). 없는 사람은 못 찾은 것
+# expected:
+#   refused      true면 교수 후보 없이 거절 (AC8)
+#   professors   결과에 나와야 하는 교수 이름 (순서대로)
+#   absent       결과에 없어야 하는 이름
+#   found        교수를 찾았는지
+#   relation     모든 교수의 programRelationSource (AC18)
+#   no_papers    논문 목록이 비어 있어야 하는 교수 (지어낸 논문 금지)
+#   has_papers   연구 정보가 연결돼야 하는 교수 (호칭·한영 혼합 이름도 정리해서 찾음)
+
+cases:
+  - id: AD-01
+    ac: [AC18]
+    category: forbidden
+    description: 페이지에 없는 이름(모델이 지어냄)은 빼고, 페이지에 적힌 교수만 그 페이지와 함께 반환
+    program: {programId: p-cs-master, degreeLevel: master, universityName: Test University, country: IE}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.test.ie/scss/people/academic
+        official: true
+        text: "Academic staff. Alice Kim, Professor of Computer Science. Bob Lee, Associate Professor."
+        people:
+          - {name: Alice Kim, title: Professor}
+          - {name: Bob Lee, title: Associate Professor}
+          - {name: Fake Person, title: Professor}
+    expected:
+      professors: [Alice Kim, Bob Lee]
+      absent: [Fake Person]
+      relation: https://www.test.ie/scss/people/academic
+
+  - id: AD-02
+    ac: [AC8]
+    category: forbidden
+    description: 학부 과정은 지도교수 후보를 내지 않음
+    program: {programId: p-cs-bachelor, degreeLevel: undergraduate, universityName: Test University, country: IE}
+    context: {applicantType: undergraduate}
+    pages: []
+    expected: {refused: true}
+
+  - id: AD-03
+    ac: [AC8]
+    category: forbidden
+    description: 석사 과정 카드라도 학부 지원자면 거절
+    program: {programId: p-cs-master, degreeLevel: master, universityName: Test University, country: IE}
+    context: {applicantType: undergraduate}
+    pages: []
+    expected: {refused: true}
+
+  - id: AD-04
+    ac: [AC18]
+    category: boundary
+    description: 찾은 페이지가 공식 페이지가 아니면(404 페이지, 다른 사이트) 교수를 지어내지 않고 못 찾음으로 끝냄
+    program: {programId: p-me-master, degreeLevel: master, universityName: Test University, country: GB}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.test.ac.uk/mace/staff-old
+        official: false
+        text: "Oooops! 404 page not found."
+        people: [{name: Carol White, title: Professor}]
+      - url: https://www.ratemyprof.example/test-university
+        official: false
+        text: "Carol White Professor"
+        people: [{name: Carol White, title: Professor}]
+    expected: {found: false, professors: [], absent: [Carol White]}
+
+  - id: AD-05
+    ac: [AC18]
+    category: forbidden
+    description: 명예교수, 방문교수, 박사과정생, 행정직은 지도교수 후보가 아님
+    program: {programId: p-me-phd, degreeLevel: phd, universityName: Test University, country: NL}
+    context: {applicantType: phd}
+    pages:
+      - url: https://www.test.nl/me/people
+        official: true
+        text: "Dan Vos Full Professor. Eva Jansen Professor Emeritus. Finn Bakker Visiting Professor. Gina de Boer PhD student. Hugo Smit Secretary. Iris Mulder Assistant Professor."
+        people:
+          - {name: Dan Vos, title: Full Professor}
+          - {name: Eva Jansen, title: Professor Emeritus}
+          - {name: Finn Bakker, title: Visiting Professor}
+          - {name: Gina de Boer, title: PhD student}
+          - {name: Hugo Smit, title: Secretary}
+          - {name: Iris Mulder, title: Assistant Professor}
+    expected:
+      professors: [Dan Vos, Iris Mulder]
+      absent: [Eva Jansen, Finn Bakker, Gina de Boer, Hugo Smit]
+
+  - id: AD-06
+    ac: [AC18]
+    category: normal
+    description: 관심 분야(로봇)와 연구 분야·논문이 겹치는 교수가 먼저
+    program: {programId: p-me-master, degreeLevel: master, universityName: Test University, country: US}
+    context: {applicantType: master, interests: [robotics, control]}
+    pages:
+      - url: https://www.test.edu/me/faculty
+        official: true
+        text: "Faculty: Aaron Brown, Professor. Zoe Park, Associate Professor."
+        people:
+          - {name: Aaron Brown, title: Professor}
+          - {name: Zoe Park, title: Associate Professor}
+    research:
+      Aaron Brown:
+        researchTopics: [Heat transfer, Combustion]
+        recentWorks: [{title: Turbulent combustion in engines, year: 2024, url: "https://doi.org/10.1/a"}]
+      Zoe Park:
+        researchTopics: [Robotics, Control systems]
+        recentWorks: [{title: Robust control for legged robotics, year: 2025, url: "https://doi.org/10.1/z"}]
+    expected:
+      professors: [Zoe Park, Aaron Brown]
+      relation: https://www.test.edu/me/faculty
+
+  - id: AD-07
+    ac: [AC18]
+    category: boundary
+    description: 연구 정보를 못 찾은 교수도 공식 페이지에 있으면 남기되, 논문은 비워 둠 (지어내지 않음)
+    program: {programId: p-cs-master, degreeLevel: master, universityName: 아주대학교, country: KR}
+    context: {applicantType: master}
+    pages:
+      - url: https://software.ajou.ac.kr/software/intro/professor.do
+        official: true
+        text: "교수진 김민수 교수 인공지능 이영희 부교수 데이터베이스"
+        people:
+          - {name: 김민수, title: 교수}
+          - {name: 이영희, title: 부교수}
+    research:
+      김민수:
+        researchTopics: [Machine learning]
+        recentWorks: [{title: Efficient transformers, year: 2025, url: "https://doi.org/10.1/k"}]
+    expected:
+      professors: [김민수, 이영희]
+      no_papers: [이영희]
+      relation: https://software.ajou.ac.kr/software/intro/professor.do
+
+  - id: AD-08
+    ac: [AC18]
+    category: boundary
+    description: 페이지에 "성, 이름" 순서나 악센트가 다르게 적혀도 같은 이름으로 확인
+    program: {programId: p-cs-master, degreeLevel: master, universityName: Test University, country: IE}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.test.ie/scss/people
+        official: true
+        text: "Lee, Bob — Lecturer. José García — Associate Professor."
+        people:
+          - {name: Bob Lee, title: Lecturer}
+          - {name: Jose Garcia, title: Associate Professor}
+    expected:
+      professors: [Bob Lee, Jose Garcia]
+
+  - id: AD-09
+    ac: [AC18]
+    category: normal
+    description: 교수진 페이지가 여러 개여도 같은 교수는 한 번만, 각자 자기가 적힌 페이지와 함께
+    program: {programId: p-cs-phd, degreeLevel: phd, universityName: Test University, country: GB}
+    context: {applicantType: phd}
+    pages:
+      - url: https://www.test.ac.uk/cs/people/a-l
+        official: true
+        text: "Amy Ford Professor. Kai Lam Reader."
+        people: [{name: Amy Ford, title: Professor}, {name: Kai Lam, title: Reader}]
+      - url: https://www.test.ac.uk/cs/people/m-z
+        official: true
+        text: "Kai Lam Reader. Omar Said Senior Lecturer."
+        people: [{name: Kai Lam, title: Reader}, {name: Omar Said, title: Senior Lecturer}]
+    expected:
+      professors: [Amy Ford, Kai Lam, Omar Said]
+
+  - id: AD-10
+    ac: [AC18]
+    category: forbidden
+    description: 첫 교수진 페이지에서 충분히 찾으면 단과대 전체 명부는 읽지 않아 다른 학과 교수가 섞이지 않음
+    program: {programId: p-me-master, degreeLevel: master, universityName: Test University, country: US}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.me.test.edu/faculty
+        official: true
+        text: "Ann Ash Professor. Ben Birch Professor. Cy Cedar Associate Professor. Di Dogwood Assistant Professor. Ed Elm Professor."
+        people:
+          - {name: Ann Ash, title: Professor}
+          - {name: Ben Birch, title: Professor}
+          - {name: Cy Cedar, title: Associate Professor}
+          - {name: Di Dogwood, title: Assistant Professor}
+          - {name: Ed Elm, title: Professor}
+      - url: https://www.coe.test.edu/directory
+        official: true
+        text: "Fay Fir Professor, Department of Biomedical Engineering."
+        people: [{name: Fay Fir, title: "Professor, Biomedical Engineering"}]
+    expected:
+      professors: [Ann Ash, Ben Birch, Cy Cedar, Di Dogwood, Ed Elm]
+      absent: [Fay Fir]
+      relation: https://www.me.test.edu/faculty
+
+  - id: AD-11
+    ac: [AC18]
+    category: boundary
+    description: 호칭(Dr., Ph.D.)과 한영 혼합 이름을 정리해 표시하고 연구 정보를 찾음, 고인(In Memoriam)은 제외
+    program: {programId: p-me-master, degreeLevel: master, universityName: 아주대학교, country: KR}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.ajou.ac.kr/me/people/faculty.do
+        official: true
+        text: "Dr. Amir Pakdel Assistant Professor. Alyssa Panitch, Ph.D. Professor. 강태엽 Tae Yeob Kang 교수. Alberto Apostolico (1948-2015) Professor: In Memoriam."
+        people:
+          - {name: Dr. Amir Pakdel, title: Assistant Professor}
+          - {name: "Alyssa Panitch, Ph.D.", title: Professor}
+          - {name: 강태엽 Tae Yeob Kang, title: 교수}
+          - {name: Alberto Apostolico (1948-2015), title: "Professor: In Memoriam"}
+    research:
+      Amir Pakdel:
+        researchTopics: [Fluid mechanics]
+        recentWorks: [{title: Flow control, year: 2024, url: "https://doi.org/10.1/p"}]
+      Tae Yeob Kang:
+        researchTopics: [Robotics]
+        recentWorks: [{title: Soft robots, year: 2025, url: "https://doi.org/10.1/t"}]
+    expected:
+      professors: [Alyssa Panitch, Amir Pakdel, 강태엽 Tae Yeob Kang]
+      absent: [Alberto Apostolico, Dr. Amir Pakdel]
+      has_papers: [Amir Pakdel, 강태엽 Tae Yeob Kang]
+      no_papers: [Alyssa Panitch]
+
+  - id: AD-12
+    ac: [AC18]
+    category: boundary
+    description: 네덜란드처럼 이니셜로 적힌 페이지(prof.dr.ir. J.W. Smith)와 네덜란드어 직함(hoogleraren)도 확인, 이니셜이 다른 사람은 제외
+    program: {programId: p-me-master, degreeLevel: master, universityName: Test University of Technology, country: NL}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.test.nl/me/onderzoek/hoogleraren
+        official: true
+        text: "Hoogleraren. prof.dr.ir. J.W. Smith (Precisie). prof.dr. K. Bakker (Robotica)."
+        people:
+          - {name: Jan Willem Smith, title: Hoogleraren}
+          - {name: prof.dr. K. Bakker, title: Hoogleraren}
+          - {name: Peter Smith, title: Hoogleraren}
+    expected:
+      professors: [Jan Willem Smith, K. Bakker]
+      absent: [Peter Smith]
+
+  - id: AD-13
+    ac: [AC18]
+    category: boundary
+    description: 직급이 이름 앞에 붙고 직함 칸에 연구 분야가 적힌 페이지(prof.dr. A. Bozzon · Human-Centered AI)도 교수로 확인, prof가 없는 사람은 제외
+    program: {programId: p-cs-master, degreeLevel: master, universityName: Test University of Technology, country: NL}
+    context: {applicantType: master}
+    pages:
+      - url: https://www.test.nl/eemcs/the-faculty/professors
+        official: true
+        text: "Professors. prof.dr. A. Bozzon Human-Centered AI. prof.dr.ir. C. Dekker Software Engineering. dr. B. Smit Data Management."
+        people:
+          - {name: prof.dr. A. Bozzon, title: Human-Centered AI}
+          - {name: prof.dr.ir. C. Dekker, title: Software Engineering}
+          - {name: dr. B. Smit, title: Data Management}
+    expected:
+      professors: [A. Bozzon, C. Dekker]
+      absent: [B. Smit]
