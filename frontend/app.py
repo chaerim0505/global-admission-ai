@@ -1144,10 +1144,27 @@ def official_link_ok(url: str, domains: tuple[str, ...]) -> str | None:
     return url if status == 200 else None
 
 
-def clean_report_links(text: str, domains: tuple[str, ...]) -> str:
+def official_link_noting_blocked(url: str, domains: tuple[str, ...], blocked: list[str]) -> str | None:
+    """official_link_ok, and an official page that refuses automatic reading (403) is noted in `blocked`.
+
+    A blocked page is never used to confirm a fact; it is only offered as a link for the user to open.
+    """
+    from admission.requirement_finder import _on_domain, fetch_page_text, resolve_url
+
+    url = resolve_url(url.rstrip(".,);"))
+    if not _on_domain(url, domains, check_alias=True):
+        return None
+    status, _ = fetch_page_text(url)
+    if status == 403 and url not in blocked:
+        blocked.append(url)
+    return url if status == 200 else None
+
+
+def clean_report_links(text: str, domains: tuple[str, ...], blocked: list[str] | None = None) -> str:
     """Keep each fact only with an official link whose page actually states it."""
     from admission.requirement_finder import fetch_page_text, keep_supported_facts
-    return keep_supported_facts(text, lambda u: official_link_ok(u, domains),
+    blocked = [] if blocked is None else blocked
+    return keep_supported_facts(text, lambda u: official_link_noting_blocked(u, domains, blocked),
                                 lambda url: fetch_page_text(url)[1],
                                 lambda url: page_link(url).removeprefix(" · "))
 
@@ -1232,15 +1249,17 @@ Rules:
                     model=model, contents=prompt,
                     config=types.GenerateContentConfig(tools=[types.Tool(google_search=types.GoogleSearch())], temperature=0),
                 )
-                text = clean_report_links(response.text or "", domains)
+                blocked: list[str] = []
+                text = clean_report_links(response.text or "", domains, blocked)
                 citations = []
                 from admission.requirement_finder import grounding_urls
                 for url in dict.fromkeys(grounding_urls(response)):
-                    good = official_link_ok(url, domains)
+                    good = official_link_noting_blocked(url, domains, blocked)
                     if good and good not in citations:
                         citations.append(good)
 
-            st.session_state[state_key] = {"text": text, "sources": citations, "model": model}
+            st.session_state[state_key] = {"text": text, "sources": citations, "model": model,
+                                           "blocked": blocked[:6]}
         except Exception as error:
             message = str(error)
             if "429" in message or "402" in message or "RESOURCE_EXHAUSTED" in message:
@@ -1256,9 +1275,16 @@ Rules:
     st.markdown("### " + t("AI Admission Requirements Research"))
     st.caption("Gemini · " + result.get("model", "") + " · " + t("Each fact is shown only with the official page that states it."))
     if not (result.get("text") or "").strip() and not result.get("sources"):
-        # every fact was removed: no official page could be opened to confirm it (e.g. the site answers 403)
-        st.info(t("No fact could be confirmed on an official page. The university's website may block "
-                  "automatic checking. Please use the University website link above."))
+        # every fact was removed: no official page could be opened to confirm it
+        if result.get("blocked"):
+            # the pages exist (403) but refuse automatic reading: offer them, show no unconfirmed fact
+            st.info(t("This university's website does not allow automatic checking, so no fact is shown. "
+                      "Please open the official pages below."))
+            for url in result["blocked"]:
+                st.markdown("- 🏛 " + page_link(url).removeprefix(" · "))
+        else:
+            st.info(t("No fact could be confirmed on an official page. The university's website may block "
+                      "automatic checking. Please use the University website link above."))
         return
     st.markdown(result.get("text", ""))
     if result.get("sources"):

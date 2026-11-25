@@ -112,6 +112,7 @@ KO = {
     "Research topics": "연구 분야",
     "Field (official page)": "전공 (공식 페이지)",
     "Pages checked": "확인한 페이지",
+    "This university's website does not allow automatic checking, so no fact is shown. Please open the official pages below.": "이 대학 사이트는 자동 확인을 막고 있어서, 확인되지 않은 내용은 보여주지 않아요. 아래 공식 페이지를 열어 직접 확인해 주세요.",
     "No fact could be confirmed on an official page. The university's website may block automatic checking. Please use the University website link above.": "공식 페이지에서 확인된 내용이 없어요. 이 대학 사이트가 자동 확인을 막고 있을 수 있어요. 위의 대학 웹사이트 링크에서 직접 확인해 주세요.",
     "This department's official faculty page does not allow automatic reading. Please open it to see the professors.": "이 학과 공식 교수진 페이지는 자동으로 읽을 수 없게 막혀 있어요. 아래 페이지를 열어 교수진을 직접 확인해 주세요.",
     "Official faculty page": "공식 교수진 페이지",
